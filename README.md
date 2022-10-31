@@ -7,9 +7,10 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 ## Grupo {N}
 
 * **Integrante 1** - [Angie Isablla Valdivia Wong](https://github.com/GiaWong)
-* **Integrante 2** - [integrante2](https://github.com/integrante2)
+* **Integrante 2** - [Migue Centellas Leon](https://github.com/migueCentellasLeonFIUBA)
 * **Integrante 3** - [integrante3](https://github.com/integrante3)
 * **Integrante 4** - [integrante4](https://github.com/integrante4)
+* **Integrante 5** - [Eduardo Escuti](https://github.com/eduardoescuti)
 
 Corrector: **{Corrector}**
 
