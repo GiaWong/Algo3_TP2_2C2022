@@ -25,11 +25,11 @@ class Espiral {}
 
 Zerg --> Larva
 Zerg --> Zangano
-ConstruccionZerg ---> Criadero
-ConstruccionZerg ---> Extractor
-ConstruccionZerg ---> ReservaReproduccion
-ConstruccionZerg ---> Guarida
-ConstruccionZerg ---> Espiral
+ConstruccionZerg <|--- Criadero
+ConstruccionZerg <|--- Extractor
+ConstruccionZerg <|--- ReservaReproduccion
+ConstruccionZerg <|--- Guarida
+ConstruccionZerg <|--- Espiral
 
 class Protoss {}
 abstract class ConstruccionProtoss {}
@@ -46,11 +46,11 @@ abstract class Construccion {}
 Raza <|-- Zerg
 Raza <|-- Protoss
 
-ConstruccionProtoss ---> NexoMineral
-ConstruccionProtoss ---> Pilon
-ConstruccionProtoss ---> Asimilador
-ConstruccionProtoss ---> Acceso
-ConstruccionProtoss ---> PuertoEstelar
+ConstruccionProtoss <|--- NexoMineral
+ConstruccionProtoss <|--- Pilon
+ConstruccionProtoss <|--- Asimilador
+ConstruccionProtoss <|--- Acceso
+ConstruccionProtoss <|--- PuertoEstelar
 Raza -up-> Recursos
 
 Construccion <|-- ConstruccionProtoss
