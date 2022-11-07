@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.entrega_1;
 
+import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUsoDosTest {
 
@@ -17,7 +19,7 @@ public class CasoDeUsoDosTest {
     public void SeArrancaAConstruirCriaderoYDeberiaEstarInactivoPorFaltaDeTurnos() {
 
          /* Arrange */
-        int resultadoEsperado = false;
+        boolean resultadoEsperado = false;
         Criadero criadero = new Criadero();
 
         /* Act */
@@ -31,7 +33,7 @@ public class CasoDeUsoDosTest {
     public void SeConstruyeElCriaderoYDeberiaEstarActivo() {
 
         /* Arrange */
-        int resultadoEsperado = true;
+        boolean resultadoEsperado = true;
         Criadero criadero = new Criadero();
 
         /* Act */
@@ -45,7 +47,7 @@ public class CasoDeUsoDosTest {
     public void SeArrancaAConstruirReservaReproduccionYDeberiaEstarInactivoPorFaltaDeTurnos() {
 
         /* Arrange */
-        int resultadoEsperado = false;
+        boolean resultadoEsperado = false;
         ReservaProduccion reserva = new ReservaProduccion();
 
         /* Act */
@@ -59,7 +61,7 @@ public class CasoDeUsoDosTest {
     public void SeConstruyeReservaReproduccionYDeberiaEstarActivo() {
 
         /* Arrange */
-        int resultadoEsperado = true;
+        boolean resultadoEsperado = true;
         ReservaProduccion reserva = new ReservaProduccion();
 
         /* Act */
@@ -73,7 +75,7 @@ public class CasoDeUsoDosTest {
     public void SeArrancaAConstruirExtractorYDeberiaEstarInactivoPorFaltaDeTurnos() {
 
         /* Arrange */
-        int resultadoEsperado = false;
+        boolean resultadoEsperado = false;
         Extractor extractor = new Extractor();
 
         /* Act */
@@ -87,7 +89,7 @@ public class CasoDeUsoDosTest {
     public void SeConstruyeExtractorYDeberiaEstarActivo() {
 
         /* Arrange */
-        int resultadoEsperado = true;
+        boolean resultadoEsperado = true;
         Extractor extractor = new Extractor();
 
         /* Act */
@@ -101,7 +103,7 @@ public class CasoDeUsoDosTest {
     public void SeArrancaAConstruirGuaridaYDeberiaEstarInactivoPorFaltaDeTurnos() {
 
         /* Arrange */
-        int resultadoEsperado = false;
+        boolean resultadoEsperado = false;
         Guarida guarida = new Guarida();
 
         /* Act */
@@ -115,7 +117,7 @@ public class CasoDeUsoDosTest {
     public void SeConstruyeGuaridaYDeberiaEstarActivo() {
 
         /* Arrange */
-        int resultadoEsperado = true;
+        boolean resultadoEsperado = true;
         Guarida guarida = new Guarida();
 
         /* Act */
@@ -129,7 +131,7 @@ public class CasoDeUsoDosTest {
     public void SeArrancaAConstruirEspiralYDeberiaEstarInactivoPorFaltaDeTurnos() {
 
         /* Arrange */
-        int resultadoEsperado = false;
+        boolean resultadoEsperado = false;
         Espiral espiral = new Espiral();
 
         /* Act */
@@ -143,7 +145,7 @@ public class CasoDeUsoDosTest {
     public void SeConstruyeEspiralYDeberiaEstarActivo() {
 
         /* Arrange */
-        int resultadoEsperado = true;
+        boolean resultadoEsperado = true;
         Espiral espiral = new Espiral();
 
         /* Act */
@@ -159,7 +161,7 @@ public class CasoDeUsoDosTest {
     public void SeArrancaAConstruirNexoMineralYDeberiaEstarInactivoPorFaltaDeTurnos() {
 
         /* Arrange */
-        int resultadoEsperado = false;
+        boolean resultadoEsperado = false;
         NexoMineral nexo = new NexoMineral();
 
         /* Act */
@@ -173,7 +175,7 @@ public class CasoDeUsoDosTest {
     public void SeConstruyeNexoMineralYDeberiaEstarActivo() {
 
         /* Arrange */
-        int resultadoEsperado = true;
+        boolean resultadoEsperado = true;
         NexoMineral nexo = new NexoMineral();
 
         /* Act */
@@ -187,7 +189,7 @@ public class CasoDeUsoDosTest {
     public void SeArrancaAConstruirPilonYDeberiaEstarInactivoPorFaltaDeTurnos() {
 
         /* Arrange */
-        int resultadoEsperado = false;
+        boolean resultadoEsperado = false;
         Pilon pilon = new Pilon();
 
         /* Act */
@@ -201,7 +203,7 @@ public class CasoDeUsoDosTest {
     public void SeConstruyePilonYDeberiaEstarActivo() {
 
         /* Arrange */
-        int resultadoEsperado = true;
+        boolean resultadoEsperado = true;
         Pilon pilon = new Pilon();
 
         /* Act */
@@ -215,7 +217,7 @@ public class CasoDeUsoDosTest {
     public void SeArrancaAConstruirAsimiladorYDeberiaEstarInactivoPorFaltaDeTurnos() {
 
         /* Arrange */
-        int resultadoEsperado = false;
+        boolean resultadoEsperado = false;
         Asimilador asimilador = new Asimilador();
 
         /* Act */
@@ -229,7 +231,7 @@ public class CasoDeUsoDosTest {
     public void SeConstruyeAsimiladorYDeberiaEstarActivo() {
 
         /* Arrange */
-        int resultadoEsperado = true;
+        boolean resultadoEsperado = true;
         Asimilador asimilador = new Asimilador();
 
         /* Act */
@@ -243,7 +245,7 @@ public class CasoDeUsoDosTest {
     public void SeArrancaAConstruirAccesoYDeberiaEstarInactivoPorFaltaDeTurnos() {
 
         /* Arrange */
-        int resultadoEsperado = false;
+        boolean resultadoEsperado = false;
         Acceso acceso = new Acceso();
 
         /* Act */
@@ -257,7 +259,7 @@ public class CasoDeUsoDosTest {
     public void SeConstruyeGuaridaYDeberiaEstarActivo() {
 
         /* Arrange */
-        int resultadoEsperado = true;
+        boolean resultadoEsperado = true;
         Acceso acceso = new Acceso();
 
         /* Act */
@@ -271,7 +273,7 @@ public class CasoDeUsoDosTest {
     public void SeArrancaAConstruirPuertoEstelarYDeberiaEstarInactivoPorFaltaDeTurnos() {
 
         /* Arrange */
-        int resultadoEsperado = false;
+        boolean resultadoEsperado = false;
         PuertoEstelar puerto = new PuertoEstelar();
 
         /* Act */
@@ -285,7 +287,7 @@ public class CasoDeUsoDosTest {
     public void SeConstruyePuertoEstelarYDeberiaEstarActivo() {
 
         /* Arrange */
-        int resultadoEsperado = true;
+        boolean resultadoEsperado = true;
         PuertoEstelar puerto = new PuertoEstelar();
 
         /* Act */
