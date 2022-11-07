@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.entrega_1;
+package edu.fiuba.algo3.entrega_1.CasoDeUso1;
 
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.Protoss.Criadero;
@@ -12,29 +12,29 @@ public class CasoDeUso1Test {
     @Test
     public void CriaderoSeIniciaCon3LarvasYEvolucionaAUnZangano() {
 
-        int resultado = 2;
+        int esperado = 2;
         Criadero criadero = new Criadero();
 
         criadero.iniciar(new Larva(3));
         criadero.evolucionar(new Zangano(1));
-        int esperado = criadero.obtenerCantidadLarvas();
+        int resultado = criadero.obtenerCantidadLarvas();
 
-        assertEquals(esperado, resultado);
+        assertEquals(resultado, esperado);
     }
 
     @Test
     public void EvolucionaUnaLarvaDeCriaderoYAlPasarTurnoDeberiaAgregar3LarvasMas() {
 
 
-        int resultado = 5;
+        int esperado = 5;
         Criadero criadero = new Criadero();
 
         criadero.iniciar(new Larva(3));
         criadero.evolucionar(new Zangano(1));
         criadero.conTurno(new Turno(1));
-        int esperado = criadero.obtenerCantidadLarvas();
+        int resultado = criadero.obtenerCantidadLarvas();
 
-        assertEquals(esperado, resultado);
+        assertEquals(resultado, esperado);
 
     }
 
@@ -42,14 +42,14 @@ public class CasoDeUso1Test {
     public void EvolucionanDosLarvasDeCriaderoYAlPasarTurnoDeberiaAgregar3LarvasMas() {
 
 
-        int resultado = 4;
+        int esperado = 4;
         Criadero criadero = new Criadero();
 
         criadero.iniciar(new Larva(3));
         criadero.evolucionar(new Zangano(1));
         criadero.conTurno(new Turno(1));
-        int esperado = criadero.obtenerCantidadLarvas();
+        int resultado = criadero.obtenerCantidadLarvas();
 
-        assertEquals(esperado, resultado);
+        assertEquals(resultado, esperado);
     }
 }
