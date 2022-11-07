@@ -10,7 +10,8 @@ public class ReservaProduccion implements IConstruccionZerg {
     }
 
     @Override
-    public void conTurno(Turno turno) {
+    public void empezarAConstruirSegun(Turno turno) {
 
     }
+
 }

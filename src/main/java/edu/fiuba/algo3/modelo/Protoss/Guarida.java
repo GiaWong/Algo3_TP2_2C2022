@@ -10,7 +10,9 @@ public class Guarida implements IConstruccionZerg {
     }
 
     @Override
-    public void conTurno(Turno turno) {
+    public void empezarAConstruirSegun(Turno turno) {
 
     }
+
+
 }
