@@ -14,17 +14,15 @@ public class ConstruccionZergTests {
     /*
     Supuesto: - Cada construccion va a tener predefinido en un atributo
     la cantidad de turnos que se requiera para que este disponible.
-
      */
 
-    /* Construcciones Zerg */
     @Test
     public void SeArrancaAConstruirCriaderoYDeberiaEstarInactivoPorFaltaDeTurnos() {
 
 
         boolean esperado = false;
         Criadero criadero = new Criadero();
-        criadero.conTurno(new Turno(1));
+        criadero.empezarAConstruirSegun(new Turno(1));
         boolean resultado = criadero.estaDisponible();/* checkear que no viole el tell dont ask */
 
         assertEquals(resultado, esperado);
@@ -36,7 +34,7 @@ public class ConstruccionZergTests {
 
         boolean esperado = true;
         Criadero criadero = new Criadero();
-        criadero.conTurno(new Turno(4));
+        criadero.empezarAConstruirSegun(new Turno(4));
         boolean resultado = criadero.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -48,7 +46,7 @@ public class ConstruccionZergTests {
 
         boolean esperado = false;
         ReservaProduccion reserva = new ReservaProduccion();
-        reserva.conTurno(new Turno(1));
+        reserva.empezarAConstruirSegun(new Turno(1));
         boolean resultado = reserva.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -60,7 +58,7 @@ public class ConstruccionZergTests {
 
         boolean esperado = true;
         ReservaProduccion reserva = new ReservaProduccion();
-        reserva.conTurno(new Turno(12));
+        reserva.empezarAConstruirSegun(new Turno(12));
         boolean resultado = reserva.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -72,7 +70,7 @@ public class ConstruccionZergTests {
 
         boolean esperado = false;
         Extractor extractor = new Extractor();
-        extractor.conTurno(new Turno(1));
+        extractor.empezarAConstruirSegun(new Turno(1));
         boolean resultado = extractor.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -84,7 +82,7 @@ public class ConstruccionZergTests {
 
         boolean esperado = true;
         Extractor extractor = new Extractor();
-        extractor.conTurno(new Turno(6));
+        extractor.empezarAConstruirSegun(new Turno(6));
         boolean resultado = extractor.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -96,7 +94,7 @@ public class ConstruccionZergTests {
 
         boolean esperado = false;
         Guarida guarida = new Guarida();
-        guarida.conTurno(new Turno(1));
+        guarida.empezarAConstruirSegun(new Turno(1));
         boolean resultado = guarida.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -108,7 +106,7 @@ public class ConstruccionZergTests {
 
         boolean esperado = true;
         Guarida guarida = new Guarida();
-        guarida.conTurno(new Turno(12));
+        guarida.empezarAConstruirSegun(new Turno(12));
         boolean resultado = guarida.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -120,7 +118,7 @@ public class ConstruccionZergTests {
 
         boolean esperado = false;
         Espiral espiral = new Espiral();
-        espiral.conTurno(new Turno(1));
+        espiral.empezarAConstruirSegun(new Turno(1));
         boolean resultado = espiral.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -132,15 +130,11 @@ public class ConstruccionZergTests {
 
         boolean esperado = true;
         Espiral espiral = new Espiral();
-        espiral.conTurno(new Turno(10));
+        espiral.empezarAConstruirSegun(new Turno(10));
         boolean resultado = espiral.estaDisponible();
 
         assertEquals(resultado, esperado);
     }
-
-    /* Construccion Protoss */
-
-
 
 
 }

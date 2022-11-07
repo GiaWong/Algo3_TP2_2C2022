@@ -25,7 +25,11 @@ public class Criadero implements IConstruccionZerg {
     }
 
     @Override
-    public void conTurno(Turno turno) {
+    public void empezarAConstruirSegun(Turno turno) {
 
+    }
+
+
+    public void agregarMasLarvasSegun(Turno turno) {
     }
 }

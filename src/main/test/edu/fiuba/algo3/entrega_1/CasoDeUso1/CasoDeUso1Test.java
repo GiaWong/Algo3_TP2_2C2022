@@ -14,10 +14,10 @@ public class CasoDeUso1Test {
 
         int esperado = 2;
         Criadero criadero = new Criadero();
-
         criadero.iniciar(new Larva(3));
         criadero.evolucionar(new Zangano(1));
         int resultado = criadero.obtenerCantidadLarvas();
+
 
         assertEquals(resultado, esperado);
     }
@@ -28,11 +28,11 @@ public class CasoDeUso1Test {
 
         int esperado = 5;
         Criadero criadero = new Criadero();
-
         criadero.iniciar(new Larva(3));
         criadero.evolucionar(new Zangano(1));
-        criadero.conTurno(new Turno(1));
+        criadero.agregarMasLarvasSegun(new Turno(1));
         int resultado = criadero.obtenerCantidadLarvas();
+
 
         assertEquals(resultado, esperado);
 
@@ -44,11 +44,11 @@ public class CasoDeUso1Test {
 
         int esperado = 4;
         Criadero criadero = new Criadero();
-
         criadero.iniciar(new Larva(3));
-        criadero.evolucionar(new Zangano(1));
-        criadero.conTurno(new Turno(1));
+        criadero.evolucionar(new Zangano(2));
+        criadero.agregarMasLarvasSegun(new Turno(1));
         int resultado = criadero.obtenerCantidadLarvas();
+
 
         assertEquals(resultado, esperado);
     }
