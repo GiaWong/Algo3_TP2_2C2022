@@ -22,10 +22,9 @@ public class ConstruccionZergTests {
 
 
         boolean esperado = false;
-        Criadero criadero = new Criadero(1);
-        Moho moho = new Moho(5);
-        criadero.empezarAConstruirSegun(moho, new Turno(1));
-        boolean resultado = criadero.estaDisponible();/* checkear que no viole el tell dont ask */
+        Criadero criadero = new Criadero();
+        criadero.avanzarTurno(1);
+        boolean resultado = criadero.estaDisponible();
 
         assertEquals(resultado, esperado);
     }
@@ -35,9 +34,8 @@ public class ConstruccionZergTests {
 
 
         boolean esperado = true;
-        Criadero criadero = new Criadero(1);
-        Moho moho = new Moho(5);
-        criadero.empezarAConstruirSegun(moho, new Turno(4));
+        Criadero criadero = new Criadero();
+        criadero.avanzarTurno(4);
         boolean resultado = criadero.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -48,9 +46,8 @@ public class ConstruccionZergTests {
 
 
         boolean esperado = false;
-        ReservaProduccion reserva = new ReservaProduccion(2);
-        Moho moho = new Moho(5);
-        reserva.empezarAConstruirSegun(moho, new Turno(1));
+        ReservaProduccion reserva = new ReservaProduccion();
+        reserva.avanzarTurno(1);
         boolean resultado = reserva.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -60,10 +57,9 @@ public class ConstruccionZergTests {
     public void SeConstruyeReservaReproduccionYDeberiaEstarActivo() {
 
 
-        boolean esperado = true;
-        ReservaProduccion reserva = new ReservaProduccion(2);
-        Moho moho = new Moho(5);
-        reserva.empezarAConstruirSegun(moho, new Turno(12));
+        boolean esperado = false;
+        ReservaProduccion reserva = new ReservaProduccion();
+        reserva.avanzarTurno(12);
         boolean resultado = reserva.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -74,9 +70,8 @@ public class ConstruccionZergTests {
 
 
         boolean esperado = false;
-        Extractor extractor = new Extractor(3);
-        Moho moho = new Moho(5);
-        extractor.empezarAConstruirSegun(moho, new Turno(1));
+        Extractor extractor = new Extractor();
+        extractor.avanzarTurno(1);
         boolean resultado = extractor.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -86,10 +81,9 @@ public class ConstruccionZergTests {
     public void SeConstruyeExtractorYDeberiaEstarActivo() {
 
 
-        boolean esperado = true;
-        Extractor extractor = new Extractor(3);
-        Moho moho = new Moho(5);
-        extractor.empezarAConstruirSegun(moho, new Turno(6));
+        boolean esperado = false;
+        Extractor extractor = new Extractor();
+        extractor.avanzarTurno(6);
         boolean resultado = extractor.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -100,9 +94,8 @@ public class ConstruccionZergTests {
 
 
         boolean esperado = false;
-        Guarida guarida = new Guarida(4);
-        Moho moho = new Moho(5);
-        guarida.empezarAConstruirSegun(moho, new Turno(1));
+        Guarida guarida = new Guarida();
+        guarida.avanzarTurno(1)
         boolean resultado = guarida.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -113,9 +106,8 @@ public class ConstruccionZergTests {
 
 
         boolean esperado = true;
-        Guarida guarida = new Guarida(4);
-        Moho moho = new Moho(5);
-        guarida.empezarAConstruirSegun(moho, new Turno(12));
+        Guarida guarida = new Guarida();
+        guarida.avanzarTurno(12);
         boolean resultado = guarida.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -126,9 +118,8 @@ public class ConstruccionZergTests {
 
 
         boolean esperado = false;
-        Espiral espiral = new Espiral(5);
-        Moho moho = new Moho(5);
-        espiral.empezarAConstruirSegun(moho, new Turno(1));
+        Espiral espiral = new Espiral();
+        espiral.avanzarTurno(1);
         boolean resultado = espiral.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -138,10 +129,9 @@ public class ConstruccionZergTests {
     public void SeConstruyeEspiralYDeberiaEstarActivo() {
 
 
-        boolean esperado = true;
-        Espiral espiral = new Espiral(5);
-        Moho moho = new Moho(5);
-        espiral.empezarAConstruirSegun(moho, new Turno(10));
+        boolean esperado = false;
+        Espiral espiral = new Espiral();
+        espiral.avanzarTurno(1);
         boolean resultado = espiral.estaDisponible();
 
         assertEquals(resultado, esperado);

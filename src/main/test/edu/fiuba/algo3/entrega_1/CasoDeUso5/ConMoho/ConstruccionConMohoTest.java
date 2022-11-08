@@ -14,14 +14,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ConstruccionConMohoTest {
     @Test
     public void SeConstruyeCriaderoDentroDelRangoMoho() {
-
+        /* Supuesto: criadero se puede construir sin moho (visualmente hablando). */
         boolean esperado = true;
-        Moho moho = new Moho(5);
+        /* Moho moho = new Moho(5); */
 
 
-        Criadero criadero = new Criadero(1);
-        criadero.empezarAConstruirSegun(moho, new Turno(4));
-        boolean resultado = moho.estaEnRango();
+        Criadero criadero = new Criadero(new Moho(5));
+        criadero.empezarAConstruirSegun(new Turno(4));
+        boolean resultado = criadero.estaDisponible();
 
         assertEquals(resultado, esperado);
     }
@@ -33,9 +33,9 @@ public class ConstruccionConMohoTest {
         Moho moho = new Moho(5);
 
 
-        ReservaProduccion reserva = new ReservaProduccion(2);
+        ReservaProduccion reserva = new ReservaProduccion();
         reserva.empezarAConstruirSegun(moho, new Turno(12));
-        boolean resultado = moho.estaEnRango();
+        boolean resultado = reserva.estaDisponible();
 
         assertEquals(resultado, esperado);
     }
@@ -47,9 +47,9 @@ public class ConstruccionConMohoTest {
         Moho moho = new Moho(5);
 
 
-        Extractor extractor = new Extractor(3);
+        Extractor extractor = new Extractor();
         extractor.empezarAConstruirSegun(moho, new Turno(6));
-        boolean resultado = moho.estaEnRango();
+        boolean resultado = extractor.estaDisponible();
 
         assertEquals(resultado, esperado);
     }
@@ -63,7 +63,7 @@ public class ConstruccionConMohoTest {
 
         Guarida guarida = new Guarida(4);
         guarida.empezarAConstruirSegun(moho, new Turno(12));
-        boolean resultado = moho.estaEnRango();
+        boolean resultado = guarida.estaDisponible();
 
         assertEquals(resultado, esperado);
 
@@ -76,9 +76,9 @@ public class ConstruccionConMohoTest {
         Moho moho = new Moho(5);
 
 
-        Espiral espiral = new Espiral(5);
+        Espiral espiral = new Espiral();
         espiral.empezarAConstruirSegun(moho, new Turno(10));
-        boolean resultado = moho.estaEnRango();
+        boolean resultado = espiral.estaDisponible();
 
         assertEquals(resultado, esperado);
     }

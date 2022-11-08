@@ -10,7 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CasoDeUso1Test {
 
     @Test
-    public void CriaderoSeIniciaCon3LarvasYEvolucionaAUnZangano() {
+    public void CriaderoSeIniciaCon3LarvasYUnaEvolucionaAUnZangano() {
+
+
 
         int esperado = 2;
         Criadero criadero = new Criadero(1);
@@ -25,14 +27,12 @@ public class CasoDeUso1Test {
     @Test
     public void EvolucionaUnaLarvaDeCriaderoYAlPasarTurnoDeberiaAgregar3LarvasMas() {
 
-
         int esperado = 5;
         Criadero criadero = new Criadero(1);
         criadero.iniciar(new Larva(3));
         criadero.evolucionar(new Zangano(1));
-        criadero.agregarMasLarvasSegun(new Turno(1));
+        criadero.avanzarTurno(1);
         int resultado = criadero.obtenerCantidadLarvas();
-
 
         assertEquals(resultado, esperado);
 
@@ -41,14 +41,12 @@ public class CasoDeUso1Test {
     @Test
     public void EvolucionanDosLarvasDeCriaderoYAlPasarTurnoDeberiaAgregar3LarvasMas() {
 
-
         int esperado = 4;
         Criadero criadero = new Criadero(1);
         criadero.iniciar(new Larva(3));
         criadero.evolucionar(new Zangano(2));
-        criadero.agregarMasLarvasSegun(new Turno(1));
+        criadero.avanzarTurno(1);
         int resultado = criadero.obtenerCantidadLarvas();
-
 
         assertEquals(resultado, esperado);
     }

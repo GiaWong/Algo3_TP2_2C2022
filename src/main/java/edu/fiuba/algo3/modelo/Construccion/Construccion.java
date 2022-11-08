@@ -11,4 +11,6 @@ public abstract class Construccion {
 
     public abstract void empezarAConstruirSegun(Alcance alcance,Turno turno);
 
+    public void avanzarTurno(int i) {
+    }
 }

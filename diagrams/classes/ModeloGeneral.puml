@@ -1,18 +1,24 @@
 @startuml
 'https://plantuml.com/class-diagram
 
+class Partida {}
+class Turno {}
 class Mapa {}
-class Nodo {}
+class Casilla {}
 abstract class Recursos {}
 class Mineral {}
 class GasVespeno {}
+abstract class IRefineriaGas {}
 
-Nodo -> Mapa
-Recursos -> Nodo
+Partida "1" -down-> "*" Turno
+Partida -left-> Mapa
+Casilla -down-> Construccion
+Casilla <- Mapa
+Recursos <- Casilla
 Mineral <- Recursos
 Recursos -up-> GasVespeno
 
-class Zerg {}
+abstract class Zerg {}
 class Larva {}
 class Zangano {}
 abstract class ConstruccionZerg {}
@@ -32,16 +38,18 @@ ConstruccionZerg <|--- Guarida
 ConstruccionZerg <|--- Espiral
 
 class Protoss {}
-abstract class ConstruccionProtoss {}
+abstract class ConstruccionProtoss {
+    - escudo
+}
 class NexoMineral {}
 class Pilon {}
 class Asimilador {}
 class Acceso {}
 class PuertoEstelar {}
-class Vida {}
-class Escudo {}
 abstract class Raza {}
-abstract class Construccion {}
+abstract class Construccion {
+    - vida : int
+}
 
 Raza <|-- Zerg
 Raza <|-- Protoss
@@ -56,11 +64,6 @@ Raza -up-> Recursos
 Construccion <|-- ConstruccionProtoss
 Construccion <|-- ConstruccionZerg
 
-ConstruccionProtoss -> Escudo
-Construccion <- Vida
-
-Raza -right-> Construccion
-
-ConstruccionZerg *-left> Moho
+ConstruccionZerg *-> Moho
 
 @enduml
