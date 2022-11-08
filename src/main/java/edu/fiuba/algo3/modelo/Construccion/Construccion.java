@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
+import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Alcance;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 
 public abstract class Construccion {
@@ -8,5 +9,6 @@ public abstract class Construccion {
         return this.ESTADO_CONSTRUCCION;
     }
 
-    public abstract void empezarAConstruirSegun(Turno turno);
+    public abstract void empezarAConstruirSegun(Alcance alcance,Turno turno);
+
 }

@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso3;
 
+import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Pilon;
 import edu.fiuba.algo3.modelo.Recursos.GasVespeno;
 import edu.fiuba.algo3.modelo.RefineriaGas.Asimilador;
 import edu.fiuba.algo3.modelo.RefineriaGas.Extractor;
@@ -15,7 +16,7 @@ public class CasoDeUso3Test {
     public void AsimiladorTieneGasVespeno() {
 
         boolean esperado = true;
-        Asimilador asimilador = new Asimilador();
+        Asimilador asimilador = new Asimilador(1);
         asimilador.conGasVespeno(new GasVespeno());
         boolean resultado = asimilador.contieneGas();
 
@@ -26,9 +27,10 @@ public class CasoDeUso3Test {
     public void SeConstruyeUnAsimiladorSobreGasVespeno() {
 
         boolean esperado = true;
-        Asimilador asimilador = new Asimilador();
+        Asimilador asimilador = new Asimilador(1);
         asimilador.conGasVespeno(new GasVespeno());
-        asimilador.empezarAConstruirSegun(new Turno(6));
+        Pilon pilon = new Pilon(3);
+        asimilador.empezarAConstruirSegun(pilon, new Turno(6));
         boolean resultado = asimilador.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -39,7 +41,7 @@ public class CasoDeUso3Test {
     public void ExtractorTieneGasVespeno() {
 
         boolean esperado = true;
-        Extractor extractor = new Extractor();
+        Extractor extractor = new Extractor(1);
         extractor.conGasVespeno(new GasVespeno());
         boolean resultado = extractor.contieneGas();
 
@@ -50,9 +52,10 @@ public class CasoDeUso3Test {
     public void SeConstruyeUnExtractorSobreGasVespeno() {
 
         boolean esperado = true;
-        Extractor extractor = new Extractor();
+        Extractor extractor = new Extractor(1);
         extractor.conGasVespeno(new GasVespeno());
-        extractor.empezarAConstruirSegun(new Turno(6));
+        Pilon pilon = new Pilon(3);
+        extractor.empezarAConstruirSegun(pilon, new Turno(6));
         boolean resultado = extractor.estaDisponible();
 
         assertEquals(resultado, esperado);

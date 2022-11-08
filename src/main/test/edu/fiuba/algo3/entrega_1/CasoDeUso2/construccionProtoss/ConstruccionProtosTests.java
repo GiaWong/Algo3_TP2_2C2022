@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.RefineriaGas.Asimilador;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Protoss.NexoMineral;
-import edu.fiuba.algo3.modelo.Protoss.Pilon;
+import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Pilon;
 import edu.fiuba.algo3.modelo.Protoss.PuertoEstelar;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,8 +22,9 @@ public class ConstruccionProtosTests {
 
 
         boolean esperado = false;
-        NexoMineral nexo = new NexoMineral();
-        nexo.empezarAConstruirSegun(new Turno(1));
+        NexoMineral nexo = new NexoMineral(1);
+        Pilon pilon = new Pilon(3);
+        nexo.empezarAConstruirSegun(pilon,  new Turno(1));
         boolean resultado = nexo.estaDisponible(); /*ver que no se viole el tell dont ask*/
 
         assertEquals(resultado, esperado);
@@ -34,8 +35,9 @@ public class ConstruccionProtosTests {
 
 
         boolean esperado = true;
-        NexoMineral nexo = new NexoMineral();
-        nexo.empezarAConstruirSegun(new Turno(4));
+        NexoMineral nexo = new NexoMineral(1);
+        Pilon pilon = new Pilon(3);
+        nexo.empezarAConstruirSegun( pilon, new Turno(4));
         boolean resultado = nexo.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -46,7 +48,7 @@ public class ConstruccionProtosTests {
 
 
         boolean esperado = false;
-        Pilon pilon = new Pilon();
+        Pilon pilon = new Pilon(3);
         pilon.empezarAConstruirSegun(new Turno(1));
         boolean resultado = pilon.estaDisponible();
 
@@ -58,7 +60,7 @@ public class ConstruccionProtosTests {
 
 
         boolean esperado = true;
-        Pilon pilon = new Pilon();
+        Pilon pilon = new Pilon(3);
         pilon.empezarAConstruirSegun(new Turno(5));
         boolean resultado = pilon.estaDisponible();
 
@@ -70,8 +72,9 @@ public class ConstruccionProtosTests {
 
 
         boolean esperado = false;
-        Asimilador asimilador = new Asimilador();
-        asimilador.empezarAConstruirSegun(new Turno(1));
+        Asimilador asimilador = new Asimilador(1);
+        Pilon pilon = new Pilon(3);
+        asimilador.empezarAConstruirSegun(pilon, new Turno(1));
         boolean resultado = asimilador.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -82,8 +85,9 @@ public class ConstruccionProtosTests {
 
 
         boolean esperado = true;
-        Asimilador asimilador = new Asimilador();
-        asimilador.empezarAConstruirSegun(new Turno(6));
+        Asimilador asimilador = new Asimilador(1);
+        Pilon pilon = new Pilon(3);
+        asimilador.empezarAConstruirSegun( pilon, new Turno(6));
         boolean resultado = asimilador.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -94,8 +98,9 @@ public class ConstruccionProtosTests {
 
 
         boolean esperado = false;
-        Acceso acceso = new Acceso();
-        acceso.empezarAConstruirSegun(new Turno(1));
+        Acceso acceso = new Acceso(1);
+        Pilon pilon = new Pilon(3);
+        acceso.empezarAConstruirSegun(pilon, new Turno(1));
         boolean resultado = acceso.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -106,8 +111,9 @@ public class ConstruccionProtosTests {
 
 
         boolean esperado = true;
-        Acceso acceso = new Acceso();
-        acceso.empezarAConstruirSegun(new Turno(8));
+        Acceso acceso = new Acceso(1);
+        Pilon pilon = new Pilon(3);
+        acceso.empezarAConstruirSegun(pilon, new Turno(8));
         boolean resultado = acceso.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -118,8 +124,9 @@ public class ConstruccionProtosTests {
 
 
         boolean esperado = false;
-        PuertoEstelar puerto = new PuertoEstelar();
-        puerto.empezarAConstruirSegun(new Turno(1));
+        PuertoEstelar puerto = new PuertoEstelar(1);
+        Pilon pilon = new Pilon(3);
+        puerto.empezarAConstruirSegun( pilon, new Turno(1));
         boolean resultado = puerto.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -130,8 +137,9 @@ public class ConstruccionProtosTests {
 
 
         boolean esperado = true;
-        PuertoEstelar puerto = new PuertoEstelar();
-        puerto.empezarAConstruirSegun(new Turno(10));
+        PuertoEstelar puerto = new PuertoEstelar(1);
+        Pilon pilon = new Pilon(3);
+        puerto.empezarAConstruirSegun(pilon, new Turno(10));
         boolean resultado = puerto.estaDisponible();
 
         assertEquals(resultado, esperado);
