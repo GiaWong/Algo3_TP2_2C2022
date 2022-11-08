@@ -1,22 +1,15 @@
 package edu.fiuba.algo3.modelo.Protoss;
 
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 
-public class NexoMineral implements ConstruccionProtoss {
-
-
-    private boolean estadoConstruccion = false;
-
-    @Override
-    public boolean estaDisponible() {
-        return this.estadoConstruccion;
-    }
+public class NexoMineral extends Construccion {
 
     @Override
     public void empezarAConstruirSegun(Turno turno) {
-        int tiempoConstruccion = 4;
-        if(turno.getCantidad() == tiempoConstruccion){
-            this.estadoConstruccion = true;
+
+        if(turno.getCantidad() == 4){
+            this.ESTADO_CONSTRUCCION = true;
         }
 
     }

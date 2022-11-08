@@ -1,18 +1,13 @@
 package edu.fiuba.algo3.modelo.Zerg;
 
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 
-public class Espiral implements ConstruccionZerg {
-    private boolean ESTADO_CONSTRUCCION = false;
-    @Override
-    public boolean estaDisponible() {
-        return this.ESTADO_CONSTRUCCION;
-    }
+public class Espiral extends Construccion {
 
     @Override
     public void empezarAConstruirSegun(Turno turno) {
-        int TIEMPO_CONSTRUCCION = 10;
-        if(turno.getCantidad() == TIEMPO_CONSTRUCCION){
+        if(turno.getCantidad() == 10){
             this.ESTADO_CONSTRUCCION = true;
         }
 
