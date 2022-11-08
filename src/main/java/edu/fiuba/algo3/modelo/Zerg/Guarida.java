@@ -1,9 +1,9 @@
-package edu.fiuba.algo3.modelo.Protoss;
+package edu.fiuba.algo3.modelo.Zerg;
 
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.Zerg.IConstruccionZerg;
 
-public class Espiral implements IConstruccionZerg {
+public class Guarida implements IConstruccionZerg {
     @Override
     public boolean estaDisponible() {
         return false;

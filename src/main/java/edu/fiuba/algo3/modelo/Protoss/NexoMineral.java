@@ -1,9 +1,10 @@
-package edu.fiuba.algo3.modelo.Zerg;
+package edu.fiuba.algo3.modelo.Protoss;
 
 import edu.fiuba.algo3.modelo.Protoss.IConstruccionProtoss;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 
-public class Acceso implements IConstruccionProtoss {
+public class NexoMineral implements IConstruccionProtoss {
+
 
     @Override
     public boolean estaDisponible() {

@@ -1,9 +1,10 @@
 package edu.fiuba.algo3.modelo.Protoss;
 
+import edu.fiuba.algo3.modelo.Protoss.IConstruccionProtoss;
 import edu.fiuba.algo3.modelo.Turno.Turno;
-import edu.fiuba.algo3.modelo.Zerg.IConstruccionZerg;
 
-public class Guarida implements IConstruccionZerg {
+public class Pilon implements IConstruccionProtoss {
+
     @Override
     public boolean estaDisponible() {
         return false;
@@ -13,6 +14,4 @@ public class Guarida implements IConstruccionZerg {
     public void empezarAConstruirSegun(Turno turno) {
 
     }
-
-
 }

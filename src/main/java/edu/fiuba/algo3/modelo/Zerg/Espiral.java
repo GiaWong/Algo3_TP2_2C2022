@@ -1,11 +1,9 @@
 package edu.fiuba.algo3.modelo.Zerg;
 
-import edu.fiuba.algo3.modelo.Protoss.IConstruccionProtoss;
 import edu.fiuba.algo3.modelo.Turno.Turno;
+import edu.fiuba.algo3.modelo.Zerg.IConstruccionZerg;
 
-public class PuertoEstelar implements IConstruccionProtoss {
-
-
+public class Espiral implements IConstruccionZerg {
     @Override
     public boolean estaDisponible() {
         return false;
@@ -15,4 +13,6 @@ public class PuertoEstelar implements IConstruccionProtoss {
     public void empezarAConstruirSegun(Turno turno) {
 
     }
+
+
 }

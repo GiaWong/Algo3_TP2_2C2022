@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso1;
 
 import edu.fiuba.algo3.modelo.Turno.Turno;
-import edu.fiuba.algo3.modelo.Protoss.Criadero;
+import edu.fiuba.algo3.modelo.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Zerg.Larva;
 import edu.fiuba.algo3.modelo.Zerg.Zangano;
 import org.junit.jupiter.api.Test;
