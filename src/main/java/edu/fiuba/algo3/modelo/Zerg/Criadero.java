@@ -1,13 +1,10 @@
 package edu.fiuba.algo3.modelo.Zerg;
 
 import edu.fiuba.algo3.modelo.Turno.Turno;
-import edu.fiuba.algo3.modelo.Zerg.IConstruccionZerg;
-import edu.fiuba.algo3.modelo.Zerg.Larva;
-import edu.fiuba.algo3.modelo.Zerg.Zangano;
 
-public class Criadero implements IConstruccionZerg {
+public class Criadero implements ConstruccionZerg {
+    private boolean ESTADO_CONSTRUCCION = false;
     private Larva larva;
-    private Zangano zangano;
 
 
     public void iniciar(Larva larva) {
@@ -15,8 +12,7 @@ public class Criadero implements IConstruccionZerg {
     }
 
     public void evolucionar(Zangano zangano) {
-        this.zangano = zangano;
-        this.larva.restarCantidadLarva(this.zangano.getCantidad());
+        this.larva.restarCantidadLarva(zangano.getCantidad());
     }
 
     public int obtenerCantidadLarvas() {
@@ -28,12 +24,15 @@ public class Criadero implements IConstruccionZerg {
 
     @Override
     public boolean estaDisponible() {
-        return false;
+        return this.ESTADO_CONSTRUCCION;
     }
 
     @Override
     public void empezarAConstruirSegun(Turno turno) {
-
+        int TIEMPO_CONSTRUCCION = 4;
+        if(turno.getCantidad() == TIEMPO_CONSTRUCCION){
+            this.ESTADO_CONSTRUCCION = true;
+        }
     }
 
 

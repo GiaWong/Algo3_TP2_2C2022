@@ -1,8 +1,8 @@
-package edu.fiuba.algo3.modelo.RefineriaGas;
+package edu.fiuba.algo3.modelo.Protoss;
 
 import edu.fiuba.algo3.modelo.Turno.Turno;
 
-public interface IRefineriaGas {
+public interface ConstruccionProtoss {
 
     boolean estaDisponible();
 

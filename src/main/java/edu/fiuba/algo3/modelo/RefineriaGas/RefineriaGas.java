@@ -1,8 +1,9 @@
-package edu.fiuba.algo3.modelo.Zerg;
+package edu.fiuba.algo3.modelo.RefineriaGas;
 
 import edu.fiuba.algo3.modelo.Turno.Turno;
 
-public interface IConstruccionZerg {
+public interface RefineriaGas {
+
     boolean estaDisponible();
 
     void empezarAConstruirSegun(Turno turno);
