@@ -8,6 +8,8 @@ public class PuertoEstelar extends Construccion {
 
 
     public PuertoEstelar() {
+        costeMineral = 150 ;
+        costeGasVespeno = 150;
 
     }
 

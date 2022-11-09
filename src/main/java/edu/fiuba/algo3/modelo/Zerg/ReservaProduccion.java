@@ -8,8 +8,11 @@ public class ReservaProduccion extends Construccion {
 
     public ReservaProduccion() {
         super();
+        costeMineral = 150 ;
+        costeGasVespeno = 0;
 
     }
+
 
     @Override
     public void avanzarTurno(int i) {

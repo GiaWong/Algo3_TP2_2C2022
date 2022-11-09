@@ -12,9 +12,13 @@ public class  Asimilador extends Construccion {
 
     public Asimilador(GasVespeno gasVespeno) {
         this.tieneGas = true;
+        costeMineral = 100 ;
+        costeGasVespeno = 0;
     }
 
     public Asimilador() {
+        costeMineral = 50 ;
+        costeGasVespeno = 0;
 
     }
 

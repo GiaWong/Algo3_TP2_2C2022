@@ -8,8 +8,11 @@ public class Guarida extends Construccion {
 
     public Guarida() {
         super();
+        costeMineral = 200 ;
+        costeGasVespeno = 100;
 
     }
+
 
     @Override
     public void avanzarTurno(int i) {

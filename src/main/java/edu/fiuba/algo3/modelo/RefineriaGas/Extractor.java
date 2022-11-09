@@ -14,6 +14,8 @@ public class Extractor extends Construccion{
     public Extractor(GasVespeno gasVespeno) {
         super();
         this.contieneGas = true;
+        costeMineral = 100 ;
+        costeGasVespeno = 0;
 
     }
 

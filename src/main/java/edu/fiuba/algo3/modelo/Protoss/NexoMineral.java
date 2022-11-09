@@ -10,10 +10,14 @@ public class NexoMineral extends Construccion {
     private Mineral mineral;
 
     public NexoMineral() {
+        costeMineral = 50 ;
+        costeGasVespeno = 0;
     }
 
     public NexoMineral(Mineral m) {
         mineral = m;
+        costeMineral = 50 ;
+        costeGasVespeno = 0;
     }
 
     @Override

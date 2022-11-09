@@ -13,10 +13,14 @@ public class Criadero extends Construccion {
 
     public Criadero() {
         super();
+        costeMineral = 50 ;
+        costeGasVespeno = 0;
     }
 
     public Criadero(Moho moho) {
         super();
+        costeMineral = 50 ;
+        costeGasVespeno = 0;
         this.moho = moho;
     }
 
