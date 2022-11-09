@@ -8,4 +8,10 @@ public class Mapa {
 
     public void vaciar(int i, int i1) {
     }
+
+    public boolean sePuedeConstruirProtoss(int i, int i1) {
+    }
+
+    public boolean hayMoho(int i, int i1) {
+    }
 }

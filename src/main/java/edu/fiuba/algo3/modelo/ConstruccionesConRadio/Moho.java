@@ -24,4 +24,7 @@ public class Moho extends Alcance{
     public void empezarAConstruirSegun(Turno turno) {
         /*no ddebe hacer nada*/
     }
+
+    public void avanzarTurno(int i) {
+    }
 }
