@@ -8,6 +8,10 @@ public abstract class Construccion {
     public boolean estaDisponible() {
         return this.ESTADO_CONSTRUCCION;
     }
+    public void empezarAConstruirSegun(Turno turno) {
+
+        this.ESTADO_CONSTRUCCION=true;
+    }
 
     public abstract void avanzarTurno(int i);
 

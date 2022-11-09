@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.ConstruccionesConRadio;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 
 public abstract class Alcance {
-    protected static boolean ESTA_EN_RANGO = false;
+    protected static boolean ESTA_EN_RANGO = true;
     protected boolean ESTADO_CONSTRUCCION = false;
     protected int radio;
 

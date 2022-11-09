@@ -7,11 +7,11 @@ import edu.fiuba.algo3.modelo.Turno.Turno;
 
 public class  Asimilador extends Construccion {
 
-    private Turno turno;
-
+    private boolean tieneGas = false;
+    private int cantidadGas=0;
 
     public Asimilador(GasVespeno gasVespeno) {
-
+        this.tieneGas = true;
     }
 
     public Asimilador() {
@@ -21,15 +21,19 @@ public class  Asimilador extends Construccion {
 
     public boolean contieneGas() {
 
-        return false;
+        return this.tieneGas;
     }
 
     public void prepararCapsulaDeGas(Turno turno) {
-        this.turno = turno;
+        if(turno.getCantidad() != 0){
+            int GAS_FIJO = 20;
+            this.cantidadGas = turno.getCantidad() * GAS_FIJO;
+        }
+
     }
 
     public int conProduccionGas() {
-        return this.turno.getCantidad();
+        return this.cantidadGas;
     }
 
     @Override

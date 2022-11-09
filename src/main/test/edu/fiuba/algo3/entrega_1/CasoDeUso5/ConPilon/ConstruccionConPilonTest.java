@@ -36,7 +36,7 @@ public class ConstruccionConPilonTest {
 
 
         NexoMineral nexo = new NexoMineral();
-        nexo.empezarAConstruirSegun(pilon, new Turno(8));
+        nexo.empezarAConstruirSegun(pilon, new Turno(4));
         boolean resultado = pilon.estaEnRango();
 
         assertEquals(resultado, esperado);
@@ -50,7 +50,7 @@ public class ConstruccionConPilonTest {
 
 
         PuertoEstelar puerto = new PuertoEstelar();
-        puerto.empezarAConstruirSegun(pilon, new Turno(8));
+        puerto.empezarAConstruirSegun(pilon, new Turno(10));
         boolean resultado = pilon.estaEnRango();
 
         assertEquals(resultado, esperado);
@@ -64,7 +64,7 @@ public class ConstruccionConPilonTest {
 
 
         Asimilador asimilador = new Asimilador(new GasVespeno());
-        asimilador.empezarAConstruirSegun(pilon, new Turno(8));
+        asimilador.empezarAConstruirSegun(pilon, new Turno(6));
         boolean resultado = pilon.estaEnRango();
 
         assertEquals(resultado, esperado);

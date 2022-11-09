@@ -8,30 +8,35 @@ import edu.fiuba.algo3.modelo.Zerg.Zangano;
 
 public class Extractor extends Construccion{
 
-    private boolean contieneGas = false;
-    private Zangano zangano;
+    private final boolean contieneGas;
+    private  int cantidadGas=0;
 
-    public Extractor(GasVespeno tamanio) {
+    public Extractor(GasVespeno gasVespeno) {
         super();
-
-    }
-
-
-
-
-    public void conGasVespeno(GasVespeno gasVespeno) {
         this.contieneGas = true;
+
     }
+
 
     public boolean contieneGas() {
         return this.contieneGas;
     }
 
     public void producirGas(Zangano zangano, Turno turno) {
-        this.zangano = zangano;
+
+        int GAS_FIJO = 10;
+        if(zangano.getCantidad() < 4){
+            this.cantidadGas = zangano.getCantidad() * GAS_FIJO;
+        }
+        if(zangano.getCantidad() > 3){
+            this.cantidadGas = GAS_FIJO * 3;
+        }
+        if(zangano.getCantidad()==0){
+            this.cantidadGas = zangano.getCantidad();
+        }
     }
     public int conProduccionDeGas() {
-        return  this.zangano.getCantidad();
+        return  this.cantidadGas;
     }
 
     @Override

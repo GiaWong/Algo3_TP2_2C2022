@@ -63,6 +63,5 @@ public class Criadero extends Construccion {
 
 
 
-    public void empezarAConstruirSegun(Turno turno) {
-    }
+
 }
