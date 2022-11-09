@@ -13,4 +13,5 @@ public abstract class Construccion {
 
     public void avanzarTurno(int i) {
     }
+
 }

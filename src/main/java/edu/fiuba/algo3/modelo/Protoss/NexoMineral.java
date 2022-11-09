@@ -21,4 +21,7 @@ public class NexoMineral extends Construccion {
         }
 
     }
+
+    public int extraerMineral() {
+    }
 }

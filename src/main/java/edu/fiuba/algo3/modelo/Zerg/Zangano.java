@@ -8,4 +8,7 @@ public class Zangano {
     public int getCantidad (){
         return this.cantidad;
     }
+
+    public int extraerMineral() {
+    }
 }
