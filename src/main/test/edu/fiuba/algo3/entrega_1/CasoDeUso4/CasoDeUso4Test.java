@@ -16,8 +16,7 @@ public class CasoDeUso4Test {
     public void SeConstruyeUnExtractorSobreGasVespenoYAlNoTenerZanganoNoProduceGasVespeno() {
 
         int esperado = 0;
-        Extractor extractor = new Extractor(1);
-        extractor.conGasVespeno(new GasVespeno());
+        Extractor extractor = new Extractor(new GasVespeno());
         Moho moho = new Moho(5);
         extractor.empezarAConstruirSegun( moho, new Turno(6));
 
@@ -32,8 +31,7 @@ public class CasoDeUso4Test {
     public void SeConstruyeUnExtractorSobreGasVespenoYCon1ZanganoProduce10GasVespeno() {
 
         int esperado = 10;
-        Extractor extractor = new Extractor(1);
-        extractor.conGasVespeno(new GasVespeno());
+        Extractor extractor = new Extractor(new GasVespeno());
         Moho moho = new Moho(5);
         extractor.empezarAConstruirSegun( moho,new Turno(6));
 
@@ -48,8 +46,8 @@ public class CasoDeUso4Test {
     public void SeConstruyeUnExtractorSobreGasVespenoYCon2ZanganoProduce20GasVespeno() {
 
         int esperado = 20;
-        Extractor extractor = new Extractor(1);
-        extractor.conGasVespeno(new GasVespeno());
+        Extractor extractor = new Extractor(new GasVespeno());
+
         Moho moho = new Moho(5);
         extractor.empezarAConstruirSegun( moho, new Turno(6));
 
@@ -64,8 +62,7 @@ public class CasoDeUso4Test {
     public void SeConstruyeUnExtractorSobreGasVespenoYCon3ZanganoProduce30GasVespeno() {
 
         int esperado = 30;
-        Extractor extractor = new Extractor(1);
-        extractor.conGasVespeno(new GasVespeno());
+        Extractor extractor = new Extractor(new GasVespeno());
         Moho moho = new Moho(5);
         extractor.empezarAConstruirSegun( moho, new Turno(6));
 
@@ -80,8 +77,8 @@ public class CasoDeUso4Test {
     public void SeConstruyeUnExtractorSobreGasVespenoYCon4ZanganoYaNoProduceGasVespeno() {
 
         int esperado = 30; /*al no producir mas gas que se mantenga con su valor actual¿?*/
-        Extractor extractor = new Extractor(1);
-        extractor.conGasVespeno(new GasVespeno());
+        Extractor extractor = new Extractor(new GasVespeno());
+
         Moho moho = new Moho(5);
         extractor.empezarAConstruirSegun(moho, new Turno(6));
 
@@ -96,8 +93,8 @@ public class CasoDeUso4Test {
     public void SeConstruyeUnAsimiladorSobreGasVespenoYPor1TurnoProduce20GasVespeno() {
 
         int esperado = 20;
-        Asimilador asimilador = new Asimilador(1);
-        asimilador.conGasVespeno(new GasVespeno());
+        Asimilador asimilador = new Asimilador(new GasVespeno());
+
         Pilon pilon = new Pilon(3);
         asimilador.empezarAConstruirSegun( pilon, new Turno(6));
 
@@ -112,8 +109,8 @@ public class CasoDeUso4Test {
     public void SeConstruyeUnAsimiladorSobreGasVespenoYPor2TurnoProduce40GasVespeno() {
 
         int esperado = 40;
-        Asimilador asimilador = new Asimilador(1);
-        asimilador.conGasVespeno(new GasVespeno());
+        Asimilador asimilador = new Asimilador(new GasVespeno());
+
         Pilon pilon = new Pilon(3);
         asimilador.empezarAConstruirSegun( pilon, new Turno(6));
 

@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Pilon;
 import edu.fiuba.algo3.modelo.Protoss.NexoMineral;
 import edu.fiuba.algo3.modelo.Protoss.PuertoEstelar;
+import edu.fiuba.algo3.modelo.Recursos.GasVespeno;
 import edu.fiuba.algo3.modelo.RefineriaGas.Asimilador;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import org.junit.jupiter.api.Test;
@@ -20,7 +21,7 @@ public class ConstruccionConPilonTest {
         pilon.empezarAConstruirSegun(new Turno(5));
 
 
-        Acceso acceso = new Acceso(1); /*cree el concepto de tamanio para relacionarlo con el radio*/
+        Acceso acceso = new Acceso();
         acceso.empezarAConstruirSegun(pilon, new Turno(8));
         boolean resultado = pilon.estaEnRango();
 
@@ -34,8 +35,8 @@ public class ConstruccionConPilonTest {
         pilon.empezarAConstruirSegun(new Turno(5));
 
 
-        NexoMineral nexo = new NexoMineral(2);
-        nexo.empezarAConstruirSegun(pilon, new Turno(8));
+        NexoMineral nexo = new NexoMineral();
+        nexo.empezarAConstruirSegun(pilon, new Turno(4));
         boolean resultado = pilon.estaEnRango();
 
         assertEquals(resultado, esperado);
@@ -48,8 +49,8 @@ public class ConstruccionConPilonTest {
         pilon.empezarAConstruirSegun(new Turno(5));
 
 
-        PuertoEstelar puerto = new PuertoEstelar(3);
-        puerto.empezarAConstruirSegun(pilon, new Turno(8));
+        PuertoEstelar puerto = new PuertoEstelar();
+        puerto.empezarAConstruirSegun(pilon, new Turno(10));
         boolean resultado = pilon.estaEnRango();
 
         assertEquals(resultado, esperado);
@@ -62,8 +63,8 @@ public class ConstruccionConPilonTest {
         pilon.empezarAConstruirSegun(new Turno(5));
 
 
-        Asimilador asimilador = new Asimilador(1);
-        asimilador.empezarAConstruirSegun(pilon, new Turno(8));
+        Asimilador asimilador = new Asimilador(new GasVespeno());
+        asimilador.empezarAConstruirSegun(pilon, new Turno(6));
         boolean resultado = pilon.estaEnRango();
 
         assertEquals(resultado, esperado);

@@ -6,15 +6,21 @@ import edu.fiuba.algo3.modelo.Turno.Turno;
 
 public class Guarida extends Construccion {
 
-    private final int tamanio;
-    public Guarida(int tamanio) {
+    public Guarida() {
         super();
-        this.tamanio = tamanio;
+
+    }
+
+    @Override
+    public void avanzarTurno(int i) {
+        if(i == 12){
+            this.ESTADO_CONSTRUCCION = true;
+        }
     }
 
     @Override
     public void empezarAConstruirSegun(Alcance alcance, Turno turno) {
-        if(alcance.estaEnRangoDelRadio(this.tamanio)){
+        if(alcance.estaEnRangoDelRadio()){
             if(turno.getCantidad() == 12){
                 this.ESTADO_CONSTRUCCION = true;
             }

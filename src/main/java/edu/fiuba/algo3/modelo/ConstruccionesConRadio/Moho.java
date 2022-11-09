@@ -8,6 +8,14 @@ public class Moho extends Alcance{
         this.radio = radio;
     }
 
+    public Moho() {
+
+    }
+
+    public void ampliarRadio(){
+        this.radio+=1;
+    }
+
     @Override
     public void empezarAConstruirSegun(Turno turno) {
         /*no ddebe hacer nada*/

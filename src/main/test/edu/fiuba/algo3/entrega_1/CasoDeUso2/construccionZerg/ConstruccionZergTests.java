@@ -1,21 +1,14 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso2.construccionZerg;
 
-import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Moho;
-import edu.fiuba.algo3.modelo.Turno.Turno;
-import edu.fiuba.algo3.modelo.Zerg.Criadero;
-import edu.fiuba.algo3.modelo.Zerg.Espiral;
-import edu.fiuba.algo3.modelo.Zerg.Guarida;
-import edu.fiuba.algo3.modelo.Zerg.ReservaProduccion;
+import edu.fiuba.algo3.modelo.Recursos.GasVespeno;
 import edu.fiuba.algo3.modelo.RefineriaGas.Extractor;
+import edu.fiuba.algo3.modelo.Zerg.*;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ConstruccionZergTests {
 
-    /*
-    Supuesto: - Cada construccion va a tener predefinido en un atributo
-    la cantidad de turnos que se requiera para que este disponible.
-     */
 
     @Test
     public void SeArrancaAConstruirCriaderoYDeberiaEstarInactivoPorFaltaDeTurnos() {
@@ -23,6 +16,7 @@ public class ConstruccionZergTests {
 
         boolean esperado = false;
         Criadero criadero = new Criadero();
+        criadero.iniciar(new Larva(3));
         criadero.avanzarTurno(1);
         boolean resultado = criadero.estaDisponible();
 
@@ -35,6 +29,7 @@ public class ConstruccionZergTests {
 
         boolean esperado = true;
         Criadero criadero = new Criadero();
+        criadero.iniciar(new Larva(3));
         criadero.avanzarTurno(4);
         boolean resultado = criadero.estaDisponible();
 
@@ -70,7 +65,7 @@ public class ConstruccionZergTests {
 
 
         boolean esperado = false;
-        Extractor extractor = new Extractor();
+        Extractor extractor = new Extractor(new GasVespeno());
         extractor.avanzarTurno(1);
         boolean resultado = extractor.estaDisponible();
 
@@ -82,7 +77,7 @@ public class ConstruccionZergTests {
 
 
         boolean esperado = false;
-        Extractor extractor = new Extractor();
+        Extractor extractor = new Extractor(new GasVespeno());
         extractor.avanzarTurno(6);
         boolean resultado = extractor.estaDisponible();
 
@@ -95,7 +90,7 @@ public class ConstruccionZergTests {
 
         boolean esperado = false;
         Guarida guarida = new Guarida();
-        guarida.avanzarTurno(1)
+        guarida.avanzarTurno(1);
         boolean resultado = guarida.estaDisponible();
 
         assertEquals(resultado, esperado);
