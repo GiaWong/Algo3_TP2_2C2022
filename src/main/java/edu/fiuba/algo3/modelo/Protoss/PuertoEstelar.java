@@ -13,7 +13,9 @@ public class PuertoEstelar extends Construccion {
 
     @Override
     public void avanzarTurno(int i) {
-
+        if (i == 10) {
+            this.ESTADO_CONSTRUCCION = true;
+        }
     }
 
     @Override

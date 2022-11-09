@@ -34,7 +34,9 @@ public class  Asimilador extends Construccion {
 
     @Override
     public void avanzarTurno(int i) {
-
+        if (i == 6) {
+            this.ESTADO_CONSTRUCCION = true;
+        }
     }
 
     @Override

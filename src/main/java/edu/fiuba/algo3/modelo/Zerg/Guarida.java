@@ -13,7 +13,9 @@ public class Guarida extends Construccion {
 
     @Override
     public void avanzarTurno(int i) {
-
+        if(i == 12){
+            this.ESTADO_CONSTRUCCION = true;
+        }
     }
 
     @Override

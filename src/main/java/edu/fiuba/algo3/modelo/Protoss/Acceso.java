@@ -13,7 +13,9 @@ public  class Acceso extends Construccion {
 
     @Override
     public void avanzarTurno(int i) {
-
+        if(i == 8){
+            this.ESTADO_CONSTRUCCION = true;
+        }
     }
 
     @Override

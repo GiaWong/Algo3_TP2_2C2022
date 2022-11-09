@@ -10,9 +10,9 @@ public class Pilon extends Alcance {
     }
 
     public void empezarAConstruirSegun(Turno turno) {
-        if(turno.getCantidad() == 5){
+        /*if(turno.getCantidad() == 5){
             this.ESTADO_CONSTRUCCION= true;
-        }
+        }*/
     }
 
 
@@ -21,5 +21,8 @@ public class Pilon extends Alcance {
     }
 
     public void avanzarTurno(int i) {
+        if(i == 5){
+            this.ESTADO_CONSTRUCCION= true;
+        }
     }
 }

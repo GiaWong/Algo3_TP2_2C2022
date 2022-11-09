@@ -9,7 +9,7 @@ public class Criadero extends Construccion {
 
     private Larva larva;
     private int tiempoEnConstruccion = 0, turnosExpansion = 2;
-    private final Moho moho = new Moho();
+    private  Moho moho;
 
     public Criadero() {
         super();
@@ -17,6 +17,7 @@ public class Criadero extends Construccion {
 
     public Criadero(Moho moho) {
         super();
+        this.moho = moho;
     }
 
     public void iniciar(Larva larva) {
@@ -44,6 +45,10 @@ public class Criadero extends Construccion {
         turnosExpansion -=i;
         this.ampliarRadioMoho();
         this.larva.agreegarMasLarvas(i);
+        if(tiempoEnConstruccion == 4){
+            this.ESTADO_CONSTRUCCION = true;
+        }
+
     }
     public void empezarAConstruirSegun(Alcance alcance, Turno turno) {
 

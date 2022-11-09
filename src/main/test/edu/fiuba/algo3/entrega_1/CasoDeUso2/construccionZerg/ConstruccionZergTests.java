@@ -2,10 +2,7 @@ package edu.fiuba.algo3.entrega_1.CasoDeUso2.construccionZerg;
 
 import edu.fiuba.algo3.modelo.Recursos.GasVespeno;
 import edu.fiuba.algo3.modelo.RefineriaGas.Extractor;
-import edu.fiuba.algo3.modelo.Zerg.Criadero;
-import edu.fiuba.algo3.modelo.Zerg.Espiral;
-import edu.fiuba.algo3.modelo.Zerg.Guarida;
-import edu.fiuba.algo3.modelo.Zerg.ReservaProduccion;
+import edu.fiuba.algo3.modelo.Zerg.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,6 +16,7 @@ public class ConstruccionZergTests {
 
         boolean esperado = false;
         Criadero criadero = new Criadero();
+        criadero.iniciar(new Larva(3));
         criadero.avanzarTurno(1);
         boolean resultado = criadero.estaDisponible();
 
@@ -31,6 +29,7 @@ public class ConstruccionZergTests {
 
         boolean esperado = true;
         Criadero criadero = new Criadero();
+        criadero.iniciar(new Larva(3));
         criadero.avanzarTurno(4);
         boolean resultado = criadero.estaDisponible();
 
