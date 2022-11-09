@@ -27,4 +27,9 @@ public class ReservaProduccion extends Construccion {
 
     }
 
+    public void recibeDanio(int i) {
+    }
+
+    public int obtenerVida() {
+    }
 }

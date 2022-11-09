@@ -29,4 +29,9 @@ public class Guarida extends Construccion {
     }
 
 
+    public void recibeDanio(int i) {
+    }
+
+    public int obtenerVida() {
+    }
 }
