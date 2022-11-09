@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso2.construccionZerg;
 
+import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Moho;
 import edu.fiuba.algo3.modelo.Recursos.GasVespeno;
 import edu.fiuba.algo3.modelo.RefineriaGas.Extractor;
 import edu.fiuba.algo3.modelo.Zerg.*;
@@ -28,7 +29,7 @@ public class ConstruccionZergTests {
 
 
         boolean esperado = true;
-        Criadero criadero = new Criadero();
+        Criadero criadero = new Criadero(new Moho(5));
         criadero.iniciar(new Larva(3));
         criadero.avanzarTurno(4);
         boolean resultado = criadero.estaDisponible();

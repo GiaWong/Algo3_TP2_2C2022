@@ -2,13 +2,18 @@ package edu.fiuba.algo3.modelo.Protoss;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Alcance;
+import edu.fiuba.algo3.modelo.Recursos.Mineral;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 
 public class NexoMineral extends Construccion {
 
+    private Mineral mineral;
 
     public NexoMineral() {
+    }
 
+    public NexoMineral(Mineral m) {
+        mineral = m;
     }
 
     @Override
@@ -27,5 +32,6 @@ public class NexoMineral extends Construccion {
     }
 
     public int extraerMineral() {
+        return mineral.extraerMineral();
     }
 }

@@ -12,7 +12,7 @@ public class RecoleccionMineralesProtossTest {
     public void ExtraccionMineralesProtoss(){
         int mineralExtraidoEsperado = 10; //supuesta Cantidad de Extraccion
         int mineralExtraido;
-        Mineral mineral = new Mineral();
+        Mineral mineral = new Mineral(mineralExtraidoEsperado);
         NexoMineral nexo = new NexoMineral(mineral); //Puede no pasarse como parametro el Mineral
         mineralExtraido = nexo.extraerMineral();
         assertEquals(mineralExtraido,mineralExtraidoEsperado);

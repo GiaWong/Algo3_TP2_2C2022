@@ -10,5 +10,6 @@ public class Zangano {
     }
 
     public int extraerMineral() {
+        return 10;
     }
 }

@@ -12,8 +12,12 @@ public class Moho extends Alcance{
 
     }
 
+    public int obtenerRadio() {
+        return this.radio;
+    }
+
     public void ampliarRadio(){
-        this.radio+=1;
+        this.radio += 1;
     }
 
     @Override

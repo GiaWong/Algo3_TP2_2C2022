@@ -33,7 +33,7 @@ public class Criadero extends Construccion {
     }
 
     public void ampliarRadioMoho(){
-        if(turnosExpansion == 0 && this.ESTADO_CONSTRUCCION){
+        if(turnosExpansion <= 0 && this.ESTADO_CONSTRUCCION){
             moho.ampliarRadio();
             turnosExpansion = 2;
         }
@@ -43,21 +43,24 @@ public class Criadero extends Construccion {
     public void avanzarTurno(int i){
         tiempoEnConstruccion += i;
         turnosExpansion -=i;
-        this.ampliarRadioMoho();
         this.larva.agreegarMasLarvas(i);
-        if(tiempoEnConstruccion == 4){
+        if(tiempoEnConstruccion >= 4){
             this.ESTADO_CONSTRUCCION = true;
         }
+        this.ampliarRadioMoho();
 
     }
     public void empezarAConstruirSegun(Alcance alcance, Turno turno) {
 
         if(alcance.estaEnRangoDelRadio()){
-            if(tiempoEnConstruccion == 4){
+            if(tiempoEnConstruccion >= 4){
                 this.ESTADO_CONSTRUCCION = true;
             }
         }
+    }
 
+    public int radioMoho() {
+        return this.moho.obtenerRadio();
     }
 
 

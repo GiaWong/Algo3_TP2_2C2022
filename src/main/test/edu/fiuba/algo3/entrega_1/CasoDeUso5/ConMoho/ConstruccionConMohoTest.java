@@ -1,13 +1,11 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso5.ConMoho;
 
+import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Alcance;
 import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Moho;
 import edu.fiuba.algo3.modelo.Recursos.GasVespeno;
 import edu.fiuba.algo3.modelo.RefineriaGas.Extractor;
 import edu.fiuba.algo3.modelo.Turno.Turno;
-import edu.fiuba.algo3.modelo.Zerg.Criadero;
-import edu.fiuba.algo3.modelo.Zerg.Espiral;
-import edu.fiuba.algo3.modelo.Zerg.Guarida;
-import edu.fiuba.algo3.modelo.Zerg.ReservaProduccion;
+import edu.fiuba.algo3.modelo.Zerg.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,7 +17,9 @@ public class ConstruccionConMohoTest {
         boolean esperado = true;
 
         Criadero criadero = new Criadero(new Moho(5));
-        criadero.empezarAConstruirSegun(new Turno(4));
+        criadero.iniciar(new Larva(3));
+        criadero.avanzarTurno(4);
+        criadero.empezarAConstruirSegun(new Moho(5), new Turno(4));
         boolean resultado = criadero.estaDisponible();
 
         assertEquals(resultado, esperado);
