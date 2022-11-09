@@ -8,15 +8,19 @@ public abstract class Alcance {
     protected int radio;
 
     public abstract void empezarAConstruirSegun(Turno turno);
-    public boolean estaEnRangoDelRadio(int tamanio) {
+   /* public boolean estaEnRangoDelRadio(int tamanio) {
         if(tamanio <= this.radio){
             ESTA_EN_RANGO = true;
         }
         return  ESTA_EN_RANGO;
-    }
+    }*/
 
 
     public boolean estaEnRango() {
         return ESTA_EN_RANGO;
+    }
+
+    public boolean estaEnRangoDelRadio() {
+        return true;
     }
 }

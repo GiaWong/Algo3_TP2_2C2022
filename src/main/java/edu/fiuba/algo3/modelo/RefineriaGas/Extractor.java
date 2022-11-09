@@ -10,12 +10,13 @@ public class Extractor extends Construccion{
 
     private boolean contieneGas = false;
     private Zangano zangano;
-    private final int tamanio;
 
-    public Extractor(int tamanio) {
+    public Extractor(GasVespeno tamanio) {
         super();
-        this.tamanio=tamanio;
+
     }
+
+
 
 
     public void conGasVespeno(GasVespeno gasVespeno) {
@@ -34,8 +35,13 @@ public class Extractor extends Construccion{
     }
 
     @Override
+    public void avanzarTurno(int i) {
+
+    }
+
+    @Override
     public void empezarAConstruirSegun(Alcance alcance, Turno turno) {
-        if(alcance.estaEnRangoDelRadio(this.tamanio)) {
+        if(alcance.estaEnRangoDelRadio()) {
             if (turno.getCantidad() == 6) {
                 this.ESTADO_CONSTRUCCION = true;
             }

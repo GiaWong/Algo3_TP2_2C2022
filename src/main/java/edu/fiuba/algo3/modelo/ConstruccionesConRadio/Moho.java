@@ -7,6 +7,11 @@ public class Moho extends Alcance{
         super();
         this.radio = radio;
     }
+
+    public Moho() {
+
+    }
+
     public void ampliarRadio(){
         this.radio+=1;
     }

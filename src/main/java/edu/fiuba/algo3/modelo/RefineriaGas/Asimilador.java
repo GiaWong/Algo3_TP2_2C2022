@@ -7,21 +7,21 @@ import edu.fiuba.algo3.modelo.Turno.Turno;
 
 public class  Asimilador extends Construccion {
 
-    private boolean contieneGas = false;
     private Turno turno;
-    private final int tamanio;
-    public Asimilador(int tamanio) {
-        super();
-        this.tamanio = tamanio;
+
+
+    public Asimilador(GasVespeno gasVespeno) {
+
     }
 
-    public void conGasVespeno(GasVespeno gasVespeno) {
-        this.contieneGas = true;
+    public Asimilador() {
+
     }
+
 
     public boolean contieneGas() {
 
-        return this.contieneGas;
+        return false;
     }
 
     public void prepararCapsulaDeGas(Turno turno) {
@@ -33,8 +33,13 @@ public class  Asimilador extends Construccion {
     }
 
     @Override
+    public void avanzarTurno(int i) {
+
+    }
+
+    @Override
     public void empezarAConstruirSegun(Alcance alcance, Turno turno) {
-        if(alcance.estaEnRangoDelRadio(this.tamanio)) {
+        if(alcance.estaEnRangoDelRadio()) {
             if (turno.getCantidad() == 6) {
                 this.ESTADO_CONSTRUCCION = true;
             }

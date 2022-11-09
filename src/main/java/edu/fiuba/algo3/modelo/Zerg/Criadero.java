@@ -6,14 +6,19 @@ import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Moho;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 
 public class Criadero extends Construccion {
-    /*private boolean ESTADO_CONSTRUCCION = false;*/
+
     private Larva larva;
-    private int tiempoEnConstruccion = 0,turnosExpansion = 2;
-    private Moho moho = new Moho;
+    private int tiempoEnConstruccion = 0, turnosExpansion = 2;
+    private final Moho moho = new Moho();
 
     public Criadero() {
         super();
     }
+
+    public Criadero(Moho moho) {
+        super();
+    }
+
     public void iniciar(Larva larva) {
         this.larva = larva;
     }
@@ -38,6 +43,7 @@ public class Criadero extends Construccion {
         tiempoEnConstruccion += i;
         turnosExpansion -=i;
         this.ampliarRadioMoho();
+        this.larva.agreegarMasLarvas(i);
     }
     public void empezarAConstruirSegun(Alcance alcance, Turno turno) {
 
@@ -51,8 +57,7 @@ public class Criadero extends Construccion {
 
 
 
-    public void agregarMasLarvasSegun(Turno turno) {
 
-        this.larva.agreegarMasLarvas(turno.getCantidad());
+    public void empezarAConstruirSegun(Turno turno) {
     }
 }

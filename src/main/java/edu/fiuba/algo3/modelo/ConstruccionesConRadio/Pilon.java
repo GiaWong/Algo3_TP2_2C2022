@@ -19,4 +19,7 @@ public class Pilon extends Alcance {
     public boolean estaDisponible() {
         return this.ESTADO_CONSTRUCCION;
     }
+
+    public void avanzarTurno(int i) {
+    }
 }

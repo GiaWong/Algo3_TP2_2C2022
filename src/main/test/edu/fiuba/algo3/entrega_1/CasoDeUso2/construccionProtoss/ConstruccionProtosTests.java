@@ -1,19 +1,12 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso2.construccionProtoss;
 
 import edu.fiuba.algo3.modelo.RefineriaGas.Asimilador;
-import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Protoss.NexoMineral;
 import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Pilon;
 import edu.fiuba.algo3.modelo.Protoss.PuertoEstelar;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-
-/*
-Supuesto: - Cada construccion va a tener predefinido en un atributo
-la cantidad de turnos que se requiera para que este disponible.
- */
 
 
 public class ConstruccionProtosTests {
@@ -24,7 +17,7 @@ public class ConstruccionProtosTests {
         boolean esperado = false;
         NexoMineral nexo = new NexoMineral();
         nexo.avanzarTurno(1);
-        boolean resultado = nexo.estaDisponible(); /*ver que no se viole el tell dont ask*/
+        boolean resultado = nexo.estaDisponible();
 
         assertEquals(resultado, esperado);
     }
@@ -36,7 +29,7 @@ public class ConstruccionProtosTests {
         boolean esperado = false;
         NexoMineral nexo = new NexoMineral();
         nexo.avanzarTurno(4);
-        boolean resultado = nexo.estaDisponible(); /*ver que no se viole el tell dont ask*/
+        boolean resultado = nexo.estaDisponible();
 
         assertEquals(resultado, esperado);
     }

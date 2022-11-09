@@ -6,15 +6,19 @@ import edu.fiuba.algo3.modelo.Turno.Turno;
 
 public class PuertoEstelar extends Construccion {
 
-    private final int tamanio;
-    public PuertoEstelar(int tamanio) {
-        super();
-        this.tamanio = tamanio;
+
+    public PuertoEstelar() {
+
+    }
+
+    @Override
+    public void avanzarTurno(int i) {
+
     }
 
     @Override
     public void empezarAConstruirSegun(Alcance alcance, Turno turno) {
-        if(alcance.estaEnRangoDelRadio(this.tamanio)) {
+        if(alcance.estaEnRangoDelRadio()) {
             if (turno.getCantidad() == 10) {
                 this.ESTADO_CONSTRUCCION = true;
             }

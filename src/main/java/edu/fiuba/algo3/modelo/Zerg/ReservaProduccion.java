@@ -6,15 +6,19 @@ import edu.fiuba.algo3.modelo.Turno.Turno;
 
 public class ReservaProduccion extends Construccion {
 
-    private final int tamanio;
-    public ReservaProduccion(int tamanio) {
+    public ReservaProduccion() {
         super();
-        this.tamanio = tamanio;
+
+    }
+
+    @Override
+    public void avanzarTurno(int i) {
+
     }
 
     @Override
     public void empezarAConstruirSegun(Alcance alcance, Turno turno) {
-        if(alcance.estaEnRangoDelRadio(this.tamanio)){
+        if(alcance.estaEnRangoDelRadio()){
             if(turno.getCantidad() == 12){
                 this.ESTADO_CONSTRUCCION = true;
             }

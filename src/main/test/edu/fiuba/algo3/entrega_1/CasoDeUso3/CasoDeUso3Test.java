@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso3;
 
+import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Pilon;
 import edu.fiuba.algo3.modelo.Recursos.GasVespeno;
 import edu.fiuba.algo3.modelo.RefineriaGas.Asimilador;
 import edu.fiuba.algo3.modelo.RefineriaGas.Extractor;
@@ -15,8 +16,7 @@ public class CasoDeUso3Test {
     public void AsimiladorTieneGasVespeno() {
 
         boolean esperado = true;
-        Asimilador asimilador = new Asimilador();
-        asimilador.conGasVespeno(new GasVespeno());
+        Asimilador asimilador = new Asimilador(new GasVespeno());
         boolean resultado = asimilador.contieneGas();
 
         assertEquals(resultado, esperado);
@@ -26,9 +26,8 @@ public class CasoDeUso3Test {
     public void SeConstruyeUnAsimiladorSobreGasVespeno() {
 
         boolean esperado = true;
-        Asimilador asimilador = new Asimilador();
-        asimilador.conGasVespeno(new GasVespeno());
-        asimilador.empezarAConstruirSegun(new Turno(6));
+        Asimilador asimilador = new Asimilador(new GasVespeno());
+        asimilador.empezarAConstruirSegun(new Pilon(3),new Turno(6));
         boolean resultado = asimilador.estaDisponible();
 
         assertEquals(resultado, esperado);
@@ -39,8 +38,7 @@ public class CasoDeUso3Test {
     public void ExtractorTieneGasVespeno() {
 
         boolean esperado = true;
-        Extractor extractor = new Extractor();
-        extractor.conGasVespeno(new GasVespeno());
+        Extractor extractor = new Extractor(new GasVespeno());
         boolean resultado = extractor.contieneGas();
 
         assertEquals(resultado, esperado);
@@ -50,9 +48,8 @@ public class CasoDeUso3Test {
     public void SeConstruyeUnExtractorSobreGasVespeno() {
 
         boolean esperado = true;
-        Extractor extractor = new Extractor();
-        extractor.conGasVespeno(new GasVespeno());
-        extractor.empezarAConstruirSegun(new Turno(6));
+        Extractor extractor = new Extractor(new GasVespeno());
+        extractor.empezarAConstruirSegun(new Pilon(3),new Turno(6));
         boolean resultado = extractor.estaDisponible();
 
         assertEquals(resultado, esperado);

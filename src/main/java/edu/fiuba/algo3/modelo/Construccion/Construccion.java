@@ -9,9 +9,8 @@ public abstract class Construccion {
         return this.ESTADO_CONSTRUCCION;
     }
 
-    public abstract void empezarAConstruirSegun(Alcance alcance,Turno turno);
+    public abstract void avanzarTurno(int i);
 
-    public void avanzarTurno(int... i) {
+    public abstract void empezarAConstruirSegun(Alcance alcance, Turno turno);
 
-    }
 }
