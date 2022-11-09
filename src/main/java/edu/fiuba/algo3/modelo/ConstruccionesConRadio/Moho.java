@@ -7,6 +7,9 @@ public class Moho extends Alcance{
         super();
         this.radio = radio;
     }
+    public void ampliarRadio(){
+        this.radio+=1;
+    }
 
     @Override
     public void empezarAConstruirSegun(Turno turno) {

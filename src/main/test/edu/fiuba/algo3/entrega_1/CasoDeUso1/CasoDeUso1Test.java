@@ -15,7 +15,7 @@ public class CasoDeUso1Test {
 
 
         int esperado = 2;
-        Criadero criadero = new Criadero(1);
+        Criadero criadero = new Criadero();
         criadero.iniciar(new Larva(3));
         criadero.evolucionar(new Zangano(1));
         int resultado = criadero.obtenerCantidadLarvas();
@@ -28,7 +28,7 @@ public class CasoDeUso1Test {
     public void EvolucionaUnaLarvaDeCriaderoYAlPasarTurnoDeberiaAgregar3LarvasMas() {
 
         int esperado = 5;
-        Criadero criadero = new Criadero(1);
+        Criadero criadero = new Criadero();
         criadero.iniciar(new Larva(3));
         criadero.evolucionar(new Zangano(1));
         criadero.avanzarTurno(1);
@@ -42,7 +42,7 @@ public class CasoDeUso1Test {
     public void EvolucionanDosLarvasDeCriaderoYAlPasarTurnoDeberiaAgregar3LarvasMas() {
 
         int esperado = 4;
-        Criadero criadero = new Criadero(1);
+        Criadero criadero = new Criadero();
         criadero.iniciar(new Larva(3));
         criadero.evolucionar(new Zangano(2));
         criadero.avanzarTurno(1);

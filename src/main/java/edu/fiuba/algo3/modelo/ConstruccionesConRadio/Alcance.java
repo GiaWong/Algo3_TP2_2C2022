@@ -15,6 +15,7 @@ public abstract class Alcance {
         return  ESTA_EN_RANGO;
     }
 
+
     public boolean estaEnRango() {
         return ESTA_EN_RANGO;
     }
