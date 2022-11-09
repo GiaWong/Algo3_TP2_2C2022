@@ -51,4 +51,7 @@ public class  Asimilador extends Construccion {
             }
         }
     }
+
+    public boolean estaOperativo() {
+    }
 }

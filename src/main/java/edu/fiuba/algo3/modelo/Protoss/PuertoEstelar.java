@@ -26,4 +26,7 @@ public class PuertoEstelar extends Construccion {
             }
         }
     }
+
+    public boolean estaOperativo() {
+    }
 }

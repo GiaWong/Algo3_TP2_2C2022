@@ -34,4 +34,7 @@ public class NexoMineral extends Construccion {
     public int extraerMineral() {
         return mineral.extraerMineral();
     }
+
+    public boolean estaOperativo() {
+    }
 }
