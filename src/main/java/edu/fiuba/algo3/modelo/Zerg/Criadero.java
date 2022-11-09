@@ -67,8 +67,12 @@ public class Criadero extends Construccion {
         return this.moho.obtenerRadio();
     }
 
+    public Moho devolverMohoActual(){
+        return moho;
+    }
 
 
-
-
+    public void destruir() {
+        //acciones De Destruccion
+    }
 }
