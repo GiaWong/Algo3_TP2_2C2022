@@ -1,10 +1,6 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso10;
 
-import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Pilon;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
-import edu.fiuba.algo3.modelo.Protoss.NexoMineral;
-import edu.fiuba.algo3.modelo.Protoss.PuertoEstelar;
-import edu.fiuba.algo3.modelo.RefineriaGas.Asimilador;
 import edu.fiuba.algo3.modelo.RefineriaGas.Extractor;
 import edu.fiuba.algo3.modelo.Zerg.Criadero;
 import edu.fiuba.algo3.modelo.Zerg.Espiral;

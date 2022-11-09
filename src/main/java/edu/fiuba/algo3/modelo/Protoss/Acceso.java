@@ -29,4 +29,16 @@ public  class Acceso extends Construccion {
 
 
     }
+
+    public boolean estaOperativo() {
+    }
+
+    public void recibeDanio(int i) {
+    }
+
+    public int obtenerEscudo() {
+    }
+
+    public int obtenerVida() {
+    }
 }
