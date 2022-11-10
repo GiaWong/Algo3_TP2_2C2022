@@ -14,9 +14,12 @@ public class Guarida extends Construccion {
 
     }
 
-    @Override
     public boolean sePuedeConstruir(boolean hayMoho, int energia) {
         return (hayMoho);
+    }
+
+    public boolean sePuedeConstruir(boolean hayVolcan, boolean hayNodoMineral){
+        return (!hayVolcan && !hayNodoMineral);
     }
 
     @Override

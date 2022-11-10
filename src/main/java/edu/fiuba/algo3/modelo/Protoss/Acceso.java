@@ -23,9 +23,13 @@ public  class Acceso extends Construccion {
         return (this.turnos == TIEMPO_CONSTRUCCION);
     }
 
-    @Override
+
     public boolean sePuedeConstruir(boolean hayMoho, int energia) {
         return (!hayMoho && energia != 0);
+    }
+
+    public boolean sePuedeConstruir(boolean hayVolcan, boolean hayNodoMineral){
+        return (!hayVolcan && !hayNodoMineral);
     }
 
 

@@ -32,9 +32,13 @@ public class Asimilador extends Construccion {
         return this.gasRecolectado;
     }
 
-    @Override
+
+    public boolean sePuedeConstruir(boolean hayVolcan,boolean hayNodoMineral) {
+        return (hayVolcan);
+    }
+
     public boolean sePuedeConstruir(boolean hayMoho, int energia) {
-        return (!hayMoho && energia != 0);
+        return true;
     }
 
     public Asimilador(){

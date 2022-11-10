@@ -50,10 +50,15 @@ public class Casilla {
         } else if (hayVolcan && !construccion.getClass().equals(asimilador.getClass()) && !construccion.getClass().equals(extractor.getClass()){
             throw new ErrorNoEsPosibleConstruir();
         }
+        if(!construccion.sePuedeConstruir(hayVolcan,hayNodoMineral)){
+            throw new ErrorNoEsPosibleConstruir();
+        }
 
+        if(!construccion.sePuedeConstruir(hayVolcan)){
+            throw new ErrorNoEsPosibleConstruir();
+        }
 
-
-        if(!construccion.sePuedeContruir(hayMoho,energia)){
+        if(!construccion.sePuedeConstruir(hayMoho,energia)){
             throw new ErrorNoEsPosibleConstruir();
         }
 
@@ -72,7 +77,9 @@ public class Casilla {
     }
 
     public void fijarMoho(){
-        this.hayMoho = true;
+        if(!hayVolcan){
+            this.hayMoho = true;
+        }
     }
 
     public void sumarEnergia(){

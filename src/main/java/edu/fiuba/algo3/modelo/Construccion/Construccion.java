@@ -6,5 +6,9 @@ public abstract class Construccion {
 
     public abstract void avanzarTurno(int i);
 
-    public abstract boolean sePuedeConstruir(boolean hayMoho, int energia);
+    public boolean sePuedeConstruir(boolean hayMoho, int energia);
+
+    public boolean sePuedeConstruir(boolean hayVolcan, boolean hayNodoMineral);
+
+
 }

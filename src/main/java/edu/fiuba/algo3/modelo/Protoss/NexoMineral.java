@@ -22,12 +22,13 @@ public class NexoMineral extends Construccion {
         return (this.turnos == TIEMPO_CONSTRUCCION);
     }
 
-    @Override
-    public boolean sePuedeConstruir(boolean hayMoho, int energia) {
-        return (!hayMoho && energia != 0);
+    public boolean sePuedeConstruir(boolean hayVolcan, boolean hayNodoMineral) {
+        return hayNodoMineral;
     }
 
-
+    public boolean sePuedeConstruir(boolean hayMoho, int energia) {
+        return true;
+    }
 
     public boolean estaOperativo() {
         return true;

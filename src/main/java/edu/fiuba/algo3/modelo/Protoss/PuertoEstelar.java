@@ -17,9 +17,13 @@ public class PuertoEstelar extends Construccion {
         this.turnos++;
     }
 
-    @Override
+
     public boolean sePuedeConstruir(boolean hayMoho, int energia) {
         return (!hayMoho && energia != 0);
+    }
+
+    public boolean sePuedeConstruir(boolean hayVolcan, boolean hayNodoMineral){
+        return (!hayVolcan && !hayNodoMineral);
     }
 
     @Override
