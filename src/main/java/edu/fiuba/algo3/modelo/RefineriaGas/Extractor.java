@@ -64,4 +64,7 @@ public class Extractor extends Construccion{
 
     public void recolectar() {
     }
+
+    public int gasRecolectado() {
+    }
 }

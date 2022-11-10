@@ -2,18 +2,12 @@ package edu.fiuba.algo3.entrega_1.CasoDeUso3;
 
 import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Pilon;
 import edu.fiuba.algo3.modelo.Exceptions.ErrorNoEsPosibleConstruir;
-import edu.fiuba.algo3.modelo.Exceptions.ErrorVolcanOcupado;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Protoss.NexoMineral;
 import edu.fiuba.algo3.modelo.Protoss.PuertoEstelar;
-import edu.fiuba.algo3.modelo.Recursos.GasVespeno;
-import edu.fiuba.algo3.modelo.RefineriaGas.Asimilador;
-import edu.fiuba.algo3.modelo.RefineriaGas.Extractor;
-import edu.fiuba.algo3.modelo.Turno.Turno;
 
 import edu.fiuba.algo3.modelo.Zerg.Criadero;
-import edu.fiuba.algo3.modelo.Zerg.Espiral;
 import edu.fiuba.algo3.modelo.Zerg.Guarida;
 import edu.fiuba.algo3.modelo.Zerg.ReservaProduccion;
 import org.junit.jupiter.api.Test;
@@ -21,7 +15,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class CasoDeUso3Test {
+public class SoloAsimiladorYExtractorSeConstruyeSobreVolcanTest {
 
 
     @Test

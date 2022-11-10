@@ -66,4 +66,7 @@ public class  Asimilador extends Construccion {
 
     public void recolectar() {
     }
+
+    public int gasRecolectado() {
+    }
 }
