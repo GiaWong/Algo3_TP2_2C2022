@@ -38,6 +38,10 @@ public class Criadero extends Construccion {
     }
 
 
+    @Override
+    public boolean estaDisponible() {
+        return false;
+    }
 
     public void avanzarTurno(int i){
         tiempoEnConstruccion += i;

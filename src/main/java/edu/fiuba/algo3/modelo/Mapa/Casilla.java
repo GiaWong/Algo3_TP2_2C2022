@@ -61,9 +61,13 @@ public class Casilla {
     }
 
     public void fijarMoho(){
-        if(!hayVolcan){
+        if(!hayVolcan && this.estaVacia()){
             this.hayMoho = true;
         }
+    }
+
+    public boolean hayMoho(){
+        return hayMoho;
     }
 
     public boolean estaVacia(){

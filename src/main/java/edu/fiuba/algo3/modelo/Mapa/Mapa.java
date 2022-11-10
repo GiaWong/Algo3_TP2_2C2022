@@ -47,18 +47,24 @@ public class Mapa {
 
     }
 
-    public boolean sePuedeConstruirProtoss(int i, int i1) {
-        return true;
+    public boolean sePuedeConstruirProtoss(int i, int j) {
+        Casilla casilla= this.devolverCasilla(i,j);
+        return casilla.energizado();
     }
 
-    public boolean hayMoho(int i, int i1) {
-        return true;
+    public boolean hayMoho(int i, int j) {
+        Casilla casilla= this.devolverCasilla(i,j);
+        return casilla.hayMoho();
     }
 
-    public void agregarUnidad(Zangano zangano, int i, int i1) {
+    public Casilla devolverCasilla(int i, int j){
+        List<Casilla> Col = Fila.get(0);
+        return Col.get(j);
+    }
+    public void agregarUnidad(Zangano zangano, int i, int j) {
     }
 
-    public boolean estaVacia(int i, int i1) {
+    public boolean estaVacia(int i, int j) {
         List<Casilla> Col = Fila.get(0);
         return (Col.get(j).estaVacia());
 

@@ -44,6 +44,16 @@ public class Pilon extends Construccion {
         this.turnos += i;
     }
 
+    @Override
+    public boolean sePuedeConstruir(boolean hayMoho, int energia) {
+        return false;
+    }
+
+    @Override
+    public boolean sePuedeConstruir(boolean hayVolcan, boolean hayNodoMineral) {
+        return false;
+    }
+
     public boolean estaDisponible() {
         return (this.turnos == TIEMPO_CONSTRUCCION);
     }

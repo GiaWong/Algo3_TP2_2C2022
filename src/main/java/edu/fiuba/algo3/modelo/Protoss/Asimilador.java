@@ -64,8 +64,10 @@ public class Asimilador extends Construccion {
     }
 
     public int obtenerEscudo() {
+        return escudo;
     }
 
     public int obtenerVida() {
+        return vida;
     }
 }
