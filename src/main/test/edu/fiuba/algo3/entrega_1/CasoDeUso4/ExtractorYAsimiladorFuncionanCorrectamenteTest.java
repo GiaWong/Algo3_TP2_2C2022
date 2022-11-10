@@ -2,8 +2,8 @@ package edu.fiuba.algo3.entrega_1.CasoDeUso4;
 
 import edu.fiuba.algo3.modelo.Exceptions.ErrorExtractorCompleto;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
-import edu.fiuba.algo3.modelo.RefineriaGas.Asimilador;
-import edu.fiuba.algo3.modelo.RefineriaGas.Extractor;
+import edu.fiuba.algo3.modelo.Protoss.Asimilador;
+import edu.fiuba.algo3.modelo.Zerg.Extractor;
 import edu.fiuba.algo3.modelo.Zerg.Zangano;
 import org.junit.jupiter.api.Test;
 
@@ -15,9 +15,9 @@ public class ExtractorYAsimiladorFuncionanCorrectamenteTest {
     public void SeConstruyeUnExtractorSobreUnVolcanYAlNoTenerZanganoNoRecolectaGasVespeno() {
 
         int gasEsperado = 0;
-        Mapa mapa = new Mapa(); //hay un volcan en 1,2
+        Mapa mapa = new Mapa(); //hay un volcan en 0,1
         Extractor extractor = new Extractor();
-        mapa.agregar(extractor,1,2);
+        mapa.agregar(extractor,0,1);
         extractor.avanzarTurno(6);
         extractor.recolectar();
         int gasObtenido = extractor.gasRecolectado();
@@ -29,12 +29,16 @@ public class ExtractorYAsimiladorFuncionanCorrectamenteTest {
 
         int gasEsperado = 10;
         Mapa mapa = new Mapa(); //hay un volcan en 1,2
+
         Extractor extractor = new Extractor();
-        mapa.agregar(extractor,1,2);
+
+        mapa.agregar(extractor,0,1);
         extractor.avanzarTurno(6);
         Zangano zangano = new Zangano();
         extractor.cargarZerg(zangano);
+
         extractor.recolectar();
+
         int gasObtenido = extractor.gasRecolectado();
         assertEquals(gasObtenido,gasEsperado);
 
@@ -44,12 +48,12 @@ public class ExtractorYAsimiladorFuncionanCorrectamenteTest {
     public void SeConstruyeUnExtractorSobreUnVolcanYConDosZanganosRecolecta20GasVespeno() {
 
         int gasEsperado = 20;
-        Mapa mapa = new Mapa(); //hay un volcan en 1,2
+        Mapa mapa = new Mapa(); //hay un volcan en 0,1
         Extractor extractor = new Extractor();
-        mapa.agregar(extractor,1,2);
+        mapa.agregar(extractor,0,1);
         extractor.avanzarTurno(6);
-        Zangano zangano1= new Zangano();
-        Zangano zangano2= new Zangano();
+        Zangano zangano1 = new Zangano();
+        Zangano zangano2 = new Zangano();
         extractor.cargarZerg(zangano1);
         extractor.cargarZerg(zangano2);
         extractor.recolectar();
@@ -64,7 +68,7 @@ public class ExtractorYAsimiladorFuncionanCorrectamenteTest {
         int gasEsperado = 30;
         Mapa mapa = new Mapa(); //hay un volcan en 1,2
         Extractor extractor = new Extractor();
-        mapa.agregar(extractor,1,2);
+        mapa.agregar(extractor,0,1);
         extractor.avanzarTurno(6);
         Zangano zangano1 = new Zangano();
         Zangano zangano2 = new Zangano();
@@ -83,7 +87,7 @@ public class ExtractorYAsimiladorFuncionanCorrectamenteTest {
 
         Mapa mapa = new Mapa(); //hay un volcan en 1,2
         Extractor extractor = new Extractor();
-        mapa.agregar(extractor,1,2);
+        mapa.agregar(extractor,0,1);
         extractor.avanzarTurno(6);
         Zangano zangano1 = new Zangano();
         Zangano zangano2 = new Zangano();
@@ -101,7 +105,7 @@ public class ExtractorYAsimiladorFuncionanCorrectamenteTest {
         int gasEsperado = 20;
         Mapa mapa = new Mapa(); //hay un volcan en 1,2
         Asimilador asimilador = new Asimilador();
-        mapa.agregar(asimilador,1,2);
+        mapa.agregar(asimilador,0,1);
         asimilador.avanzarTurno(7); //6 turnos para que funciona + 1 para que recolecte una vez
         int gasObtenido = asimilador.gasRecolectado();
         assertEquals(gasEsperado,gasObtenido);
