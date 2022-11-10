@@ -12,7 +12,7 @@ public class RecoleccionMineralesZergTest {
         int mineralEsperado = 10;
         Mapa mapa = new Mapa(); //en 1,2 hay un nodo Mineral
         Zangano zangano = new Zangano();
-        mapa.agregarUnidad(zangano,1,2); //conecto zangano con el nodo
+        mapa.agregarUnidad(zangano,0,2); //conecto zangano con el nodo
         zangano.avanzarTurno(1);
         int mineralObtenido = zangano.obtenerMineralRecolectado();
         assertEquals(mineralEsperado,mineralObtenido);

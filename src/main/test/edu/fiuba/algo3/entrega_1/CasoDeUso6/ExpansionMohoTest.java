@@ -11,7 +11,7 @@ public class ExpansionMohoTest {
     public void ApareceMohoEnUnaZonaYDespuesDeCiertosTurnosElRadioDebeSerElEsperado(){
         int radioEsperado = 6;
         Mapa mapa = new Mapa();
-        Moho moho = new Moho(1,2,5,mapa);
+        Moho moho = new Moho(0,3,mapa);
         moho.avanzarTurno(3);
         int radioObtenido = moho.obtenerRadio();
         assertEquals(radioObtenido, radioEsperado);

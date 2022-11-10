@@ -22,8 +22,8 @@ public class ExtractorYAsimiladorFuncionanCorrectamenteTest {
         extractor.recolectar();
         int gasObtenido = extractor.gasRecolectado();
         assertEquals(gasObtenido,gasEsperado);
-        }
     }
+
     @Test
     public void SeConstruyeUnExtractorSobreUnVolcanYConUnZanganoRecolecta10GasVespeno() {
 

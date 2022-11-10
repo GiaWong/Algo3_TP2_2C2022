@@ -13,9 +13,9 @@ public class RecursosInsuficientesParaConstruccionesProtossTest {
 
         Mapa mapa = new Mapa();
         ImperioProtoss imperio = new ImperioProtoss(); //se inicia con 100 M y 100 G para poder empezar a jugar
-        imperio.nexoMineral(mapa, 1,2);
-        imperio.nexoMineral(mapa, 2,6);
-        assertThrows(ErrorRecursosInsuficientesParaConstruir.class,()->imperio.nexoMineral(mapa,4,7));
+        imperio.nexoMineral(mapa, 0,2);
+        imperio.nexoMineral(mapa, 0,6);
+        assertThrows(ErrorRecursosInsuficientesParaConstruir.class,()->imperio.nexoMineral(mapa,0,7));
     }
 
     @Test

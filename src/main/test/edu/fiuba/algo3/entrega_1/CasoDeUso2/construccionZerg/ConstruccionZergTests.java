@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso2.construccionZerg;
 
-import edu.fiuba.algo3.modelo.RefineriaGas.Extractor;
 import edu.fiuba.algo3.modelo.Zerg.Extractor;
 import edu.fiuba.algo3.modelo.Zerg.*;
 import org.junit.jupiter.api.Test;
