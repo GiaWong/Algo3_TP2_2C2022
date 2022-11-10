@@ -48,6 +48,7 @@ public class Mapa {
     }
 
     public boolean sePuedeConstruirProtoss(int i, int i1) {
+        return true;
     }
 
     public boolean hayMoho(int i, int i1) {
