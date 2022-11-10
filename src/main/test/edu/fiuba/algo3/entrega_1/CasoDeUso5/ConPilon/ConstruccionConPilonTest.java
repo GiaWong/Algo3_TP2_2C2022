@@ -16,16 +16,20 @@ public class ConstruccionConPilonTest {
     public void SeConstruyeAccesoFueraDelRangoDelPilonYDebeLanzarError() {
 
         Mapa mapa = new Mapa();
-        new Pilon(1,2,mapa);
+        Pilon pilon = new Pilon(0,4,mapa);
+        mapa.agregar(pilon,0,4);
+        pilon.avanzarTurno(5);
         Acceso acceso = new Acceso();
-        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(acceso,1,9));
+        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(acceso,0,6));
     }
     @Test
     public void SeConstruyePuertoEstelarFueraDelRangoPilonYDebeLanzarError() {
 
         Mapa mapa = new Mapa();
-        new Pilon(1,2,mapa);
+        Pilon pilon = new Pilon(0,4,mapa);
+        mapa.agregar(pilon,0,4);
+        pilon.avanzarTurno(5);
         PuertoEstelar puertoEstelar = new PuertoEstelar();
-        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(puertoEstelar,1,9));
+        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(puertoEstelar,0,6));
     }
 }

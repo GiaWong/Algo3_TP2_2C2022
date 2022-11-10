@@ -3,10 +3,6 @@ package edu.fiuba.algo3.modelo.Mapa;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.Nada;
 import edu.fiuba.algo3.modelo.Exceptions.ErrorNoEsPosibleConstruir;
-import edu.fiuba.algo3.modelo.Protoss.Acceso;
-import edu.fiuba.algo3.modelo.Protoss.Asimilador;
-import edu.fiuba.algo3.modelo.Protoss.NexoMineral;
-import edu.fiuba.algo3.modelo.Protoss.PuertoEstelar;
 import edu.fiuba.algo3.modelo.Recursos.NadaProveedor;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.ProveedorDeRecursoNatural;
@@ -37,32 +33,13 @@ public class Casilla {
     }
 
     public void agregarConstruccion(Construccion construccion) {
-        NexoMineral nexo = new NexoMineral();
-        Extractor extractor = new Extractor();
-        Asimilador asimilador = new Asimilador();
-        ReservaProduccion reserva = new ReservaProduccion();
-        Guarida guarida = new Guarida();
-        Espiral espiral = new Espiral();
-        Acceso acceso = new Acceso();
-        PuertoEstelar puerto = new PuertoEstelar();
-        if(hayNodoMineral && !construccion.getClass().equals(nexo.getClass()){
-            throw new ErrorNoEsPosibleConstruir();
-        } else if (hayVolcan && !construccion.getClass().equals(asimilador.getClass()) && !construccion.getClass().equals(extractor.getClass()){
-            throw new ErrorNoEsPosibleConstruir();
-        }
         if(!construccion.sePuedeConstruir(hayVolcan,hayNodoMineral)){
             throw new ErrorNoEsPosibleConstruir();
         }
-
-        if(!construccion.sePuedeConstruir(hayVolcan)){
-            throw new ErrorNoEsPosibleConstruir();
-        }
-
         if(!construccion.sePuedeConstruir(hayMoho,energia)){
             throw new ErrorNoEsPosibleConstruir();
         }
-
-            this.construccion = construccion;
+        this.construccion = construccion;
     }
 
 
