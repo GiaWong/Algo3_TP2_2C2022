@@ -1,37 +1,79 @@
 package edu.fiuba.algo3.modelo.Protoss;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Alcance;
-import edu.fiuba.algo3.modelo.Recursos.Mineral;
-import edu.fiuba.algo3.modelo.Turno.Turno;
+import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorRecursoAgotado;
+import java.io.*;
 
 public class NexoMineral extends Construccion {
+    private  final int TIEMPO_CONSTRUCCION = 4;
+    private int mineralExtraido;
+    private int turnos;
 
-    private Mineral mineral;
+    private final int MINERAL_POR_TURNO = 20;
+    private int escudo = 250;
 
     public NexoMineral() {
-    }
-
-    public NexoMineral(Mineral m) {
-        mineral = m;
-    }
-
-    @Override
-    public void avanzarTurno(int i) {
+        this.turnos = 0;
+        this.mineralExtraido =0;
 
     }
 
-    @Override
-    public void empezarAConstruirSegun(Alcance alcance, Turno turno) {
-        if(alcance.estaEnRangoDelRadio()) {
-            if (turno.getCantidad() == 4) {
-                this.ESTADO_CONSTRUCCION = true;
-            }
+
+
+    public void avanzarTurno(int j) {
+
+        if(escudo<250){
+            escudo=250;
         }
+        for(int i = 0; i < j; i++){
+            this.recolectar();
+        }
+        this.turnos += j;
+    }
+
+
+    public boolean estaDisponible() {
+        return (this.turnos == TIEMPO_CONSTRUCCION);
+    }
+
+    public boolean sePuedeConstruir(boolean hayVolcan, boolean hayNodoMineral) {
+        return hayNodoMineral;
+    }
+
+    public boolean sePuedeConstruir(boolean hayMoho, int energia) {
+        return true;
+    }
+
+    public boolean estaOperativo() {
+        return casilla.energizado();
+    }
+
+    public void recibeDanio(int danio) {
+        escudo-=danio;
+        if(escudo<0){
+            vida +=escudo;
+            escudo=0;
+        }
+    }
+
+    public int obtenerEscudo() {
+        return 0;
+    }
+
+    public int obtenerVida() {
+        return 0;
+    }
+
+    public void recolectar() {
+
+        if(mineralExtraido>=2000){
+            throw new ErrorRecursoAgotado();
+        }
+        mineralExtraido +=  MINERAL_POR_TURNO;
 
     }
 
-    public int extraerMineral() {
-        return mineral.extraerMineral();
+    public int obtenerMineralRecolectado() {
+        return 0;
     }
 }
