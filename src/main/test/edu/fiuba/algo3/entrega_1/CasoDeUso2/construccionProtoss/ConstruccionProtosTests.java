@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso2.construccionProtoss;
 
-import edu.fiuba.algo3.modelo.RefineriaGas.Asimilador;
+import edu.fiuba.algo3.modelo.Protoss.Asimilador;
 import edu.fiuba.algo3.modelo.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Protoss.NexoMineral;
 import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Pilon;
