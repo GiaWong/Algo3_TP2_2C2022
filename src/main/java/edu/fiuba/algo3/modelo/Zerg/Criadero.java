@@ -24,6 +24,10 @@ public class Criadero extends Construccion {
         }
     }
 
+    public boolean criaderoLleno(){
+        return (larvas.size() == 3);
+    }
+
     public void evolucionar(int cantidad) {
         for (int i = 0; i < cantidad; i++) {
             larvas.remove(i);
@@ -49,6 +53,9 @@ public class Criadero extends Construccion {
         if(tiempoEnConstruccion >= 4){
             this.ESTADO_CONSTRUCCION = true;
         }
+        if(this.criaderoLleno()){
+            larvas.add(new Larva());
+        }
         this.ampliarRadioMoho();
 
     }
@@ -70,5 +77,6 @@ public class Criadero extends Construccion {
     }
 
     public int obtenerVida() {
+        return 0;
     }
 }

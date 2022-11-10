@@ -33,5 +33,6 @@ public class Guarida extends Construccion {
     }
 
     public int obtenerVida() {
+        return 0;
     }
 }

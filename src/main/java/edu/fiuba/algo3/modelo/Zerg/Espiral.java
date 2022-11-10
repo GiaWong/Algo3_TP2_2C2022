@@ -32,5 +32,6 @@ public class Espiral extends Construccion {
     }
 
     public int obtenerVida() {
+        return 0;
     }
 }

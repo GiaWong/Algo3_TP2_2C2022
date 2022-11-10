@@ -4,14 +4,12 @@ import edu.fiuba.algo3.modelo.Zerg.Criadero;
 
 import org.junit.jupiter.api.Test;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso1Test {
 
     @Test
     public void CriaderoSeIniciaCon3LarvasYUnaEvolucionaAUnZangano() {
-
 
         int esperado = 2;
         Criadero criadero = new Criadero(); //se crea con 3 larvas

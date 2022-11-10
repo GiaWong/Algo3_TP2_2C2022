@@ -57,6 +57,7 @@ public class Extractor extends Construccion{
     }
 
     public int obtenerVida() {
+        return 0;
     }
 
     public void cargarZerg(Zangano zangano1) {
@@ -66,5 +67,6 @@ public class Extractor extends Construccion{
     }
 
     public int gasRecolectado() {
+        return 0;
     }
 }
