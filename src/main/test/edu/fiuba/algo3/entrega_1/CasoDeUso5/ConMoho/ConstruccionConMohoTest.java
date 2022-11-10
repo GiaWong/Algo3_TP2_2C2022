@@ -2,6 +2,9 @@ package edu.fiuba.algo3.entrega_1.CasoDeUso5.ConMoho;
 
 import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Alcance;
 import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Moho;
+import edu.fiuba.algo3.modelo.Exceptions.ErrorNoEsPosibleConstruir;
+import edu.fiuba.algo3.modelo.Exceptions.ErrorVolcanOcupado;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Recursos.GasVespeno;
 import edu.fiuba.algo3.modelo.RefineriaGas.Extractor;
 import edu.fiuba.algo3.modelo.Turno.Turno;
@@ -9,68 +12,38 @@ import edu.fiuba.algo3.modelo.Zerg.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ConstruccionConMohoTest {
-    @Test
-    public void SeConstruyeCriaderoDentroDelRangoMoho() {
-        /* Supuesto: criadero se puede construir sin moho (visualmente hablando). */
-        boolean esperado = true;
 
-        Criadero criadero = new Criadero(new Moho(5));
-        criadero.iniciar(new Larva(3));
-        criadero.avanzarTurno(4);
-        criadero.empezarAConstruirSegun(new Moho(5), new Turno(4));
-        boolean resultado = criadero.estaDisponible();
-
-        assertEquals(resultado, esperado);
-    }
 
     @Test
-    public void SeConstruyeReservaProduccionDentroDelRangoMoho() {
+    public void SeConstruyeReservaProduccionFueraDelRangoMohoYSeLanzaError() {
 
-        boolean esperado = true;
-
+        Mapa mapa = new Mapa();
+        new Moho(1,2,5,mapa);
         ReservaProduccion reserva = new ReservaProduccion();
-        reserva.empezarAConstruirSegun(new Moho(5), new Turno(12));
-        boolean resultado = reserva.estaDisponible();
-
-        assertEquals(resultado, esperado);
+        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(reserva,1,9));
     }
 
     @Test
-    public void SeConstruyeExtractorDentroDelRangoMoho() {
+    public void SeConstruyeGuaridaFueraDelRangoMohoYSeLanzaError() {
 
-        boolean esperado = true;
-
-        Extractor extractor = new Extractor(new GasVespeno());
-        extractor.empezarAConstruirSegun(new Moho(5), new Turno(6));
-        boolean resultado = extractor.estaDisponible();
-
-        assertEquals(resultado, esperado);
-    }
-
-    @Test
-    public void SeConstruyeGuaridaDentroDelRangoMoho() {
-
-        boolean esperado = true;
-
+        Mapa mapa = new Mapa();
+        new Moho(1,2,5,mapa);
         Guarida guarida = new Guarida();
-        guarida.empezarAConstruirSegun(new Moho(5), new Turno(12));
-        boolean resultado = guarida.estaDisponible();
-
-        assertEquals(resultado, esperado);
-
+        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(guarida,1,9));
     }
+
+
 
     @Test
-    public void SeConstruyeEspiralDentroDelRangoMoho() {
+    public void SeConstruyeEspiralFueraDelRangoMohoYDebeLanzarError() {
 
-        boolean esperado = true;
-
+        Mapa mapa = new Mapa();
+        new Moho(1,2,5,mapa);
         Espiral espiral = new Espiral();
-        espiral.empezarAConstruirSegun(new Moho(5), new Turno(10));
-        boolean resultado = espiral.estaDisponible();
-
-        assertEquals(resultado, esperado);
+        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(espiral,1,9));
     }
+
 }
