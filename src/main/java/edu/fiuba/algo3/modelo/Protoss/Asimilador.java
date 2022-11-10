@@ -4,6 +4,8 @@ import edu.fiuba.algo3.modelo.Construccion.Construccion;
 
 public class Asimilador extends Construccion {
 
+    private int escudo = 450;
+
     private  final int TIEMPO_CONSTRUCCION = 6;
 
     private final int GAS_POR_TURNO = 20;
@@ -49,7 +51,12 @@ public class Asimilador extends Construccion {
         this.gasRecolectado = 0;
     }
 
-    public void recibeDanio(int i) {
+    public void recibeDanio(int danio) {
+        escudo-=danio;
+        if(escudo<0){
+            vida +=escudo;
+            escudo=0;
+        }
     }
 
     public int obtenerEscudo() {

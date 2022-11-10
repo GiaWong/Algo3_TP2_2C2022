@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso4;
 
-import edu.fiuba.algo3.modelo.Exceptions.ErrorExtractorCompleto;
+import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorExtractorCompleto;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Protoss.Asimilador;
 import edu.fiuba.algo3.modelo.Zerg.Extractor;

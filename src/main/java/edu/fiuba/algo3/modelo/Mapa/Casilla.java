@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.Mapa;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.Nada;
-import edu.fiuba.algo3.modelo.Exceptions.ErrorNoEsPosibleConstruir;
+import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorNoEsPosibleConstruir;
 import edu.fiuba.algo3.modelo.Recursos.NadaProveedor;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.ProveedorDeRecursoNatural;
@@ -32,6 +32,9 @@ public class Casilla {
 
     }
 
+    public boolean energizado(){
+        return energia !=0;
+    }
     public void agregarConstruccion(Construccion construccion) {
         if(!construccion.sePuedeConstruir(hayVolcan,hayNodoMineral)){
             throw new ErrorNoEsPosibleConstruir();
@@ -39,6 +42,7 @@ public class Casilla {
         if(!construccion.sePuedeConstruir(hayMoho,energia)){
             throw new ErrorNoEsPosibleConstruir();
         }
+        construccion.pasarCasilla(this);
         this.construccion = construccion;
     }
 

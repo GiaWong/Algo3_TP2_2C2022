@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso15;
 
-import edu.fiuba.algo3.modelo.Exceptions.ErrorRecursoAgotado;
+import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorRecursoAgotado;
 import edu.fiuba.algo3.modelo.Protoss.Asimilador;
 import edu.fiuba.algo3.modelo.Protoss.NexoMineral;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;

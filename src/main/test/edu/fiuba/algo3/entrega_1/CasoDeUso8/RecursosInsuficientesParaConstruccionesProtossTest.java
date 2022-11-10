@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso8;
 
-import edu.fiuba.algo3.modelo.Exceptions.ErrorRecursosInsuficientesParaConstruir;
+import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorRecursosInsuficientesParaConstruir;
 import edu.fiuba.algo3.modelo.Imperio.ImperioProtoss;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import org.junit.jupiter.api.Test;

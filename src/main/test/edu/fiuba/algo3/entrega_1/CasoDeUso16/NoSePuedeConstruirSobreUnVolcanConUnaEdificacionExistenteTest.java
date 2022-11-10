@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso16;
 
-import edu.fiuba.algo3.modelo.Exceptions.ErrorVolcanOcupado;
+import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorVolcanOcupado;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Protoss.NexoMineral;
 import edu.fiuba.algo3.modelo.Zerg.Extractor;

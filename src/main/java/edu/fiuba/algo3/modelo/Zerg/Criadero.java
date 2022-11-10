@@ -14,6 +14,7 @@ public class Criadero extends Construccion {
     public Criadero() {
         super();
         crearLarvas();
+        vida =500;
     }
 
     private void crearLarvas(){
@@ -37,10 +38,13 @@ public class Criadero extends Construccion {
     }
 
 
-    @Override
+
     public void avanzarTurno(int i){
         tiempoEnConstruccion += i;
         turnosExpansion -=i;
+        if(vida<=500){
+            vida = 500;
+        }
         if(this.criaderoLleno()){
             larvas.add(new Larva());
         }
@@ -60,10 +64,9 @@ public class Criadero extends Construccion {
     }
 
 
-    public void recibeDanio(int i) {
+    public void recibeDanio(int danio) {
+        vida-= danio;
     }
 
-    public int obtenerVida() {
-        return 0;
-    }
+
 }

@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso3;
 
 import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Pilon;
-import edu.fiuba.algo3.modelo.Exceptions.ErrorNoEsPosibleConstruir;
+import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorNoEsPosibleConstruir;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Protoss.NexoMineral;

@@ -11,6 +11,7 @@ public class Guarida extends Construccion {
 
     public Guarida() {
         super();
+        vida = 1250;
 
     }
 
@@ -22,22 +23,25 @@ public class Guarida extends Construccion {
         return (!hayVolcan && !hayNodoMineral);
     }
 
-    @Override
+
     public void avanzarTurno(int i) {
+        if(vida<=1250){
+            vida = 1250;
+        }
+
         this.turnos += i;
     }
 
-    @Override
+
     public boolean estaDisponible() {
         return (this.turnos == TIEMPO_CONSTRUCCION);
     }
 
 
 
-    public void recibeDanio(int i) {
+    public void recibeDanio(int danio) {
+        vida-= danio;
     }
 
-    public int obtenerVida() {
-        return 0;
-    }
+
 }

@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Recursos.Mineral;
 public class NexoMineral extends Construccion {
     private  final int TIEMPO_CONSTRUCCION = 4;
     private int turnos;
+    private int escudo = 250;
 
     public NexoMineral() {
         this.turnos = 0;
@@ -31,10 +32,15 @@ public class NexoMineral extends Construccion {
     }
 
     public boolean estaOperativo() {
-        return true;
+        return casilla.energizado();
     }
 
-    public void recibeDanio(int i) {
+    public void recibeDanio(int danio) {
+        escudo-=danio;
+        if(escudo<0){
+            vida +=escudo;
+            escudo=0;
+        }
     }
 
     public int obtenerEscudo() {

@@ -11,12 +11,17 @@ public class Espiral extends Construccion {
 
 
     public Espiral() {
+        vida = 1000;
         this.turnos = 0;
     }
 
-    @Override
+
     public void avanzarTurno(int i) {
-        this.turnos++;
+        if(vida<=1000){
+            vida = 1000;
+        }
+
+        this.turnos+=i;
     }
 
 
@@ -28,17 +33,16 @@ public class Espiral extends Construccion {
         return (!hayVolcan && !hayNodoMineral);
     }
 
-    @Override
+
     public boolean estaDisponible() {
         return (this.turnos == TIEMPO_CONSTRUCCION);
     }
 
 
 
-    public void recibeDanio(int i) {
+    public void recibeDanio(int danio) {
+        vida-= danio;
     }
 
-    public int obtenerVida() {
-        return 0;
-    }
+
 }

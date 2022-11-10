@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso17;
 
-import edu.fiuba.algo3.modelo.Exceptions.ErrorFaltaPrerequisito;
+import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorFaltaPrerequisito;
 import edu.fiuba.algo3.modelo.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Protoss.PuertoEstelar;
 import edu.fiuba.algo3.modelo.Zerg.Espiral;

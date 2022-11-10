@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.Exceptions;
+package edu.fiuba.algo3.modelo.Imperio.Exceptions;
 
 public class ErrorVolcanOcupado extends RuntimeException{
 }

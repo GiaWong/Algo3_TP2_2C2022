@@ -12,6 +12,7 @@ public class ReservaProduccion extends Construccion {
     public ReservaProduccion() {
         super();
         this.turnos = 0;
+        vida = 1300;
 
     }
 
@@ -22,20 +23,23 @@ public class ReservaProduccion extends Construccion {
     public boolean sePuedeConstruir(boolean hayVolcan, boolean hayNodoMineral){
         return (!hayVolcan && !hayNodoMineral);
     }
-    @Override
+
     public void avanzarTurno(int i) {
+        if(vida<=1300){
+            vida = 1300;
+        }
+
         this.turnos += i;
     }
 
-    @Override
+
     public boolean estaDisponible() {
         return (this.turnos == TIEMPO_CONSTRUCCION);
     }
 
-    public void recibeDanio(int i) {
+    public void recibeDanio(int danio) {
+        vida-= danio;
     }
 
-    public int obtenerVida() {
-        return 0;
-    }
+
 }

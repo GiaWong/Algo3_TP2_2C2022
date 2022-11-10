@@ -19,10 +19,13 @@ public class Extractor extends Construccion{
     private List<Zangano> zanganos = new ArrayList<>();
 
 
-    @Override
+
     public void avanzarTurno(int j) {
 
         this.turnos += j;
+        if(vida<=750){
+            vida = 750;
+        }
         for(int i = 0; i < j; j++){
 
             this.recolectar();
@@ -30,22 +33,22 @@ public class Extractor extends Construccion{
     }
 
 
-    @Override
+
     public boolean estaDisponible() {
         return (this.turnos == TIEMPO_CONSTRUCCION);
     }
 
 
-    public void recibeDanio(int i) {
+    public void recibeDanio(int danio) {
+        vida-= danio;
     }
 
     public  Extractor() {
+        vida = 750;
         zanganos.clear();
     }
 
-    public int obtenerVida() {
-        return 0;
-    }
+
 
     public void cargarZerg(Zangano zangano) {
         zanganos.add(zangano);

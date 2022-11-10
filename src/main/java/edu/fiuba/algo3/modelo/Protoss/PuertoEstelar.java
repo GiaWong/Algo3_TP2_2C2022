@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.Protoss;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 
 public class PuertoEstelar extends Construccion {
-
+    private int escudo = 600;
     private final int TIEMPO_CONSTRUCCION = 10;
 
     private int turnos;
@@ -12,9 +12,10 @@ public class PuertoEstelar extends Construccion {
         this.turnos = 0;
     }
 
-    @Override
+
     public void avanzarTurno(int i) {
-        this.turnos++;
+
+        this.turnos+=i;
     }
 
 
@@ -26,17 +27,23 @@ public class PuertoEstelar extends Construccion {
         return (!hayVolcan && !hayNodoMineral);
     }
 
-    @Override
+
     public boolean estaDisponible() {
         return (this.turnos == TIEMPO_CONSTRUCCION);
     }
 
 
+
     public boolean estaOperativo() {
-        return true;
+        return casilla.energizado();
     }
 
-    public void recibeDanio(int i) {
+    public void recibeDanio(int danio) {
+        escudo -= danio;
+        if(escudo < 0){
+            vida += escudo;
+            escudo = 0;
+        }
     }
 
     public int obtenerEscudo() {
