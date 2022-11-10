@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso16;
 
+import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorNodoOcupado;
 import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorVolcanOcupado;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Protoss.NexoMineral;
@@ -29,7 +30,7 @@ public class NoSePuedeConstruirSobreUnVolcanConUnaEdificacionExistenteTest {
         Zangano zangano = new Zangano();
         NexoMineral nexo = new NexoMineral();
         mapa.agregarUnidad(zangano,1,2);
-        assertThrows(ErrorVolcanOcupado.class,()->mapa.agregar(nexo,1,2));
+        assertThrows(ErrorNodoOcupado.class,()->mapa.agregar(nexo,1,2));
     }
 
     @Test
@@ -38,7 +39,7 @@ public class NoSePuedeConstruirSobreUnVolcanConUnaEdificacionExistenteTest {
         Mapa mapa = new Mapa(); //sabemos que el nodo está en 1 y 2 de antemano
         Zangano zangano = new Zangano();
         NexoMineral nexo = new NexoMineral();
-        mapa.agregarUnidad(nexo,1,2);
-        assertThrows(ErrorVolcanOcupado.class,()->mapa.agregar(zangano,1,2));
+        mapa.agregar(nexo,1,2);
+        assertThrows(ErrorNodoOcupado.class,()->mapa.agregarUnidad(zangano,1,2));
     }
 }

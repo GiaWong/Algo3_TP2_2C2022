@@ -62,6 +62,7 @@ public class Mapa {
         return Col.get(j);
     }
     public void agregarUnidad(Zangano zangano, int i, int j) {
+
     }
 
     public boolean estaVacia(int i, int j) {

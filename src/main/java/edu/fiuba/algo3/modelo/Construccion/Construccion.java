@@ -19,6 +19,7 @@ public abstract class Construccion {
 
     public abstract boolean sePuedeConstruir(boolean hayVolcan, boolean hayNodoMineral);
 
+
     public int obtenerVida(){
         return vida;
     }

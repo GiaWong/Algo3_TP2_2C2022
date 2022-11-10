@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Protoss;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorRecursoAgotado;
 
 public class Asimilador extends Construccion {
 
@@ -9,6 +10,9 @@ public class Asimilador extends Construccion {
     private  final int TIEMPO_CONSTRUCCION = 6;
 
     private final int GAS_POR_TURNO = 20;
+
+    private int gasExtraido;
+
     private int turnos;
 
     private int gasRecolectado;
@@ -26,6 +30,9 @@ public class Asimilador extends Construccion {
     }
 
     public void recolectar(){
+        if(gasExtraido>=5000){
+            throw new ErrorRecursoAgotado();
+        }
         this.gasRecolectado += GAS_POR_TURNO;
     }
 

@@ -3,6 +3,9 @@ package edu.fiuba.algo3.modelo.Mapa;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.Nada;
 import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorNoEsPosibleConstruir;
+import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorNodoOcupado;
+import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorVolcanOcupado;
+import edu.fiuba.algo3.modelo.Protoss.NexoMineral;
 import edu.fiuba.algo3.modelo.Recursos.NadaProveedor;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.ProveedorDeRecursoNatural;
@@ -35,6 +38,15 @@ public class Casilla {
     public boolean energizado(){
         return energia !=0;
     }
+    public void agregarUnidad(Zangano zangano ){
+        NexoMineral nexo = new NexoMineral();
+        if(construccion.getClass().equals(nexo.getClass())){
+            throw new ErrorNodoOcupado();
+        }
+        zaganos.add(zangano);
+
+    }
+
     public void agregarConstruccion(Construccion construccion) {
         if(!construccion.sePuedeConstruir(hayVolcan,hayNodoMineral)){
             throw new ErrorNoEsPosibleConstruir();
@@ -42,6 +54,13 @@ public class Casilla {
         if(!construccion.sePuedeConstruir(hayMoho,energia)){
             throw new ErrorNoEsPosibleConstruir();
         }
+        if(construccion.sePuedeConstruir(hayVolcan,hayNodoMineral)&&!this.estaVacia()){
+            throw new ErrorVolcanOcupado();
+        }
+        if(construccion.sePuedeConstruir(hayVolcan,hayNodoMineral)&& (zanganos.size()!=0)){
+            throw new ErrorNodoOcupado();
+        }
+
         construccion.pasarCasilla(this);
         this.construccion = construccion;
     }
