@@ -26,7 +26,7 @@ public class ConstruccionProtosTests {
     public void SeConstruyeNexoMineralYDeberiaEstarActivo() {
 
 
-        boolean esperado = false;
+        boolean esperado = true;
         NexoMineral nexo = new NexoMineral();
         nexo.avanzarTurno(4);
         boolean resultado = nexo.estaDisponible();
@@ -37,12 +37,10 @@ public class ConstruccionProtosTests {
     @Test
     public void SeArrancaAConstruirPilonYDeberiaEstarInactivoPorFaltaDeTurnos() {
 
-
         boolean esperado = false;
-        Pilon pilon = new Pilon(3);
+        Pilon pilon = new Pilon();
         pilon.avanzarTurno(1);
         boolean resultado = pilon.estaDisponible();
-
         assertEquals(resultado, esperado);
     }
 
@@ -51,7 +49,7 @@ public class ConstruccionProtosTests {
 
 
         boolean esperado = true;
-        Pilon pilon = new Pilon(3);
+        Pilon pilon = new Pilon();
         pilon.avanzarTurno(5);
         boolean resultado = pilon.estaDisponible();
 

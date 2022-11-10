@@ -17,7 +17,6 @@ public class ConstruccionZergTests {
 
         boolean esperado = false;
         Criadero criadero = new Criadero();
-        criadero.iniciar(new Larva(3));
         criadero.avanzarTurno(1);
         boolean resultado = criadero.estaDisponible();
 
@@ -29,8 +28,7 @@ public class ConstruccionZergTests {
 
 
         boolean esperado = true;
-        Criadero criadero = new Criadero(new Moho(5));
-        criadero.iniciar(new Larva(3));
+        Criadero criadero = new Criadero();
         criadero.avanzarTurno(4);
         boolean resultado = criadero.estaDisponible();
 
@@ -53,7 +51,7 @@ public class ConstruccionZergTests {
     public void SeConstruyeReservaReproduccionYDeberiaEstarActivo() {
 
 
-        boolean esperado = false;
+        boolean esperado = true;
         ReservaProduccion reserva = new ReservaProduccion();
         reserva.avanzarTurno(12);
         boolean resultado = reserva.estaDisponible();
@@ -66,7 +64,7 @@ public class ConstruccionZergTests {
 
 
         boolean esperado = false;
-        Extractor extractor = new Extractor(new GasVespeno());
+        Extractor extractor = new Extractor();
         extractor.avanzarTurno(1);
         boolean resultado = extractor.estaDisponible();
 
@@ -77,8 +75,8 @@ public class ConstruccionZergTests {
     public void SeConstruyeExtractorYDeberiaEstarActivo() {
 
 
-        boolean esperado = false;
-        Extractor extractor = new Extractor(new GasVespeno());
+        boolean esperado = true;
+        Extractor extractor = new Extractor();
         extractor.avanzarTurno(6);
         boolean resultado = extractor.estaDisponible();
 
