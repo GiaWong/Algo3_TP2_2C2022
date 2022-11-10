@@ -2,8 +2,6 @@ package edu.fiuba.algo3.entrega_1.CasoDeUso6;
 
 import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Moho;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
-import edu.fiuba.algo3.modelo.Zerg.Criadero;
-import edu.fiuba.algo3.modelo.Zerg.Larva;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
