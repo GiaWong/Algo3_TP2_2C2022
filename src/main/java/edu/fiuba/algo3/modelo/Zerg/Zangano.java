@@ -12,4 +12,7 @@ public class Zangano {
     public int extraerMineral() {
         return 10;
     }
+
+    public void recolectar(edu.fiuba.algo3.entrega_1.CasoDeUso15.NodoMineral nodo) {
+    }
 }

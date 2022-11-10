@@ -58,4 +58,10 @@ public class Extractor extends Construccion{
 
     public int obtenerVida() {
     }
+
+    public void cargarZerg(Zangano zangano1) {
+    }
+
+    public void recolectar() {
+    }
 }

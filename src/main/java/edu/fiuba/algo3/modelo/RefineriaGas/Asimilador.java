@@ -63,4 +63,7 @@ public class  Asimilador extends Construccion {
 
     public int obtenerVida() {
     }
+
+    public void recolectar() {
+    }
 }
