@@ -15,15 +15,17 @@ public class DestruccionEdificiosProtosTest {
 
         boolean esperado = true;
         Mapa mapa = new Mapa();
-        Pilon pilonUno = new Pilon();
-        Pilon pilonDos = new Pilon();
-        mapa.agregar(pilonUno,0,1); //cómo pasar una coordenada?
+        Pilon pilonUno = new Pilon(0,2,mapa);
+        Pilon pilonDos = new Pilon(0,4,mapa);
+        mapa.agregar(pilonUno,0,2); //cómo pasar una coordenada?
         mapa.agregar(pilonDos,0,4);
+        pilonDos.avanzarTurno(5);
+        pilonUno.avanzarTurno(5);
         NexoMineral nexo = new NexoMineral();
         mapa.agregar(nexo,0,2); //esta casilla ya tiene enrgia = 2 pq esto pasa en los for al crear pilones
         //nexo.setearDisponibilidad(mapa.conseguirEnergia(0,2)); esto se implementa adentro
         nexo.avanzarTurno(4);
-        mapa.vaciar(0,1); //casilla tiene la instancia de la clase Nada
+        mapa.vaciar(0,2); //casilla tiene la instancia de la clase Nada
         // cuando elimino un pilon, las casillas aledañas tienen que hacer -1 energía
         //hacemos que nexo sepa que la casilla donde está ubicado tiene energía para que siga estando operativo
         boolean resultado = nexo.estaOperativo();
@@ -35,15 +37,17 @@ public class DestruccionEdificiosProtosTest {
 
         boolean esperado = true;
         Mapa mapa = new Mapa();
-        Pilon pilonUno = new Pilon();
-        Pilon pilonDos = new Pilon();
-        mapa.agregar(pilonUno,0,1); //cómo pasar una coordenada?
+        Pilon pilonUno = new Pilon(0,2,mapa);
+        Pilon pilonDos = new Pilon(0,4,mapa);
+        mapa.agregar(pilonUno,0,2); //cómo pasar una coordenada?
         mapa.agregar(pilonDos,0,4);
         Asimilador asimilador = new Asimilador();
         mapa.agregar(asimilador,0,2); //esta casilla ya tiene enrgia = 2 pq esto pasa en los for al crear pilones
         //nexo.setearDisponibilidad(mapa.conseguirEnergia(0,2)); esto se implementa adentro
+        pilonDos.avanzarTurno(5);
+        pilonUno.avanzarTurno(5);
         asimilador.avanzarTurno(6);
-        mapa.vaciar(0,1); //casilla tiene la instancia de la clase Nada
+        mapa.vaciar(0,2); //casilla tiene la instancia de la clase Nada
         // cuando elimino un pilon, las casillas aledañas tienen que hacer -1 energía
         //hacemos que nexo sepa que la casilla donde está ubicado tiene energía para que siga estando operativo
         boolean resultado = asimilador.estaOperativo();
@@ -55,15 +59,17 @@ public class DestruccionEdificiosProtosTest {
 
         boolean esperado = true;
         Mapa mapa = new Mapa();
-        Pilon pilonUno = new Pilon();
-        Pilon pilonDos = new Pilon();
-        mapa.agregar(pilonUno,0,1); //cómo pasar una coordenada?
+        Pilon pilonUno = new Pilon(0,2,mapa);
+        Pilon pilonDos = new Pilon(0,4,mapa);
+        mapa.agregar(pilonUno,0,2); //cómo pasar una coordenada?
         mapa.agregar(pilonDos,0,4);
         Acceso acceso = new Acceso();
-        mapa.agregar(acceso,0,2); //esta casilla ya tiene enrgia = 2 pq esto pasa en los for al crear pilones
+        pilonDos.avanzarTurno(5);
+        pilonUno.avanzarTurno(5);
+        mapa.agregar(acceso,0,5); //esta casilla ya tiene enrgia = 2 pq esto pasa en los for al crear pilones
         //nexo.setearDisponibilidad(mapa.conseguirEnergia(0,2)); esto se implementa adentro
         acceso.avanzarTurno(10);
-        mapa.vaciar(0,1); //casilla tiene la instancia de la clase Nada
+        mapa.vaciar(0,2); //casilla tiene la instancia de la clase Nada
         // cuando elimino un pilon, las casillas aledañas tienen que hacer -1 energía
         //hacemos que nexo sepa que la casilla donde está ubicado tiene energía para que siga estando operativo
         boolean resultado = acceso.estaOperativo();
@@ -75,15 +81,17 @@ public class DestruccionEdificiosProtosTest {
 
         boolean esperado = true;
         Mapa mapa = new Mapa();
-        Pilon pilonUno = new Pilon();
-        Pilon pilonDos = new Pilon();
-        mapa.agregar(pilonUno,0,1); //cómo pasar una coordenada?
+        Pilon pilonUno = new Pilon(0,2,mapa);
+        Pilon pilonDos = new Pilon(0,4,mapa);
+        mapa.agregar(pilonUno,0,2); //cómo pasar una coordenada?
         mapa.agregar(pilonDos,0,4);
         PuertoEstelar puertoEstelar = new PuertoEstelar();
-        mapa.agregar(puertoEstelar,0,2); //esta casilla ya tiene enrgia = 2 pq esto pasa en los for al crear pilones
+        pilonDos.avanzarTurno(5);
+        pilonUno.avanzarTurno(5);
+        mapa.agregar(puertoEstelar,0,5); //esta casilla ya tiene enrgia = 2 pq esto pasa en los for al crear pilones
         //nexo.setearDisponibilidad(mapa.conseguirEnergia(0,2)); esto se implementa adentro
         puertoEstelar.avanzarTurno(10);
-        mapa.vaciar(0,1); //casilla tiene la instancia de la clase Nada
+        mapa.vaciar(0,2); //casilla tiene la instancia de la clase Nada
         // cuando elimino un pilon, las casillas aledañas tienen que hacer -1 energía
         //hacemos que nexo sepa que la casilla donde está ubicado tiene energía para que siga estando operativo
         boolean resultado = puertoEstelar.estaOperativo();
