@@ -22,7 +22,7 @@ public class Extractor extends Construccion{
         return this.contieneGas;
     }
 
-    public void producirGas(Zangano zangano, Turno turno) {
+    public void producirGas(Zangano zangano) {
 
         int GAS_FIJO = 10;
         if(zangano.getCantidad() < 4){

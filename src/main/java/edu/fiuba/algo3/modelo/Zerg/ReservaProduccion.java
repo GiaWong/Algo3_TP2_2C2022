@@ -31,5 +31,6 @@ public class ReservaProduccion extends Construccion {
     }
 
     public int obtenerVida() {
+        return 0;
     }
 }
