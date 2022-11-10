@@ -47,6 +47,9 @@ public class Casilla {
     }
 
 
+    public void vaciar(){
+        construccion=new Nada();
+    }
     public void agregarVolcan() {
         this.proveedor = new Volcan();
         this.hayVolcan= true;
@@ -63,6 +66,10 @@ public class Casilla {
         }
     }
 
+    public boolean estaVacia(){
+        Nada nad = new Nada();
+        return  (construccion.getClass().equals(nad.getClass()));
+    }
     public void sumarEnergia(){
         this.energia++;
     }

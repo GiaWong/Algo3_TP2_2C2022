@@ -25,7 +25,7 @@ public class MohoNoSeExpandePorAreaEdificadaTest {
         boolean respuestaEsperada = true;
         Mapa mapa = new Mapa();
         int radio = 5;
-        Moho moho = new Moho(0,1,radio,mapa); //moho se tiene que encargadar de pintar casillas
+        Moho moho = new Moho(0,1,mapa); //moho se tiene que encargadar de pintar casillas
         Pilon pilon = new Pilon();
         mapa.agregar(pilon,0,8);
         moho.avanzarTurno(5); //se expandió 2 veces
@@ -42,7 +42,7 @@ public class MohoNoSeExpandePorAreaEdificadaTest {
 
         boolean respuestaEsperada = false;
         Mapa mapa = new Mapa();
-        Moho moho = new Moho(0,1,5,mapa); //moho se tiene que encargadar de pintar casillas
+        Moho moho = new Moho(0,1,mapa); //moho se tiene que encargadar de pintar casillas
         moho.avanzarTurno(5); //se expandió 2 veces
         ReservaProduccion reserva = new ReservaProduccion();
         mapa.agregar(reserva,0,10); //en la casilla si hay moho deja de haber
@@ -57,7 +57,7 @@ public class MohoNoSeExpandePorAreaEdificadaTest {
         boolean respuestaEsperada = false;
         Mapa mapa = new Mapa();
         int radio = 5;
-        Moho moho = new Moho(0,1,radio,mapa); //moho se tiene que encargadar de pintar casillas
+        Moho moho = new Moho(0,1,mapa); //moho se tiene que encargadar de pintar casillas
         Pilon pilon = new Pilon();
         mapa.agregar(pilon,0,10);
         moho.avanzarTurno(5); //se expandió 2 veces

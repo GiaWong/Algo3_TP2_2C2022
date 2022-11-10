@@ -15,6 +15,10 @@ public class NexoMineral extends Construccion {
 
 
     public void avanzarTurno(int i) {
+
+        if(escudo<250){
+            escudo=250;
+        }
         this.turnos++;
     }
 

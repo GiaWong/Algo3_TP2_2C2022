@@ -15,13 +15,13 @@ public class SeDestruyeElCriaderoYSePuedeConstruirSobreElMohoQueDejoTest {
 
         boolean respuestaEsperada = true;
         Mapa mapa = new Mapa();
-        Moho moho = new Moho(1,2,5,mapa);
+        Moho moho = new Moho(0,2,mapa);
         Criadero criadero = new Criadero();
-        mapa.agregar(criadero,1,2);
+        mapa.agregar(criadero,0,2);
         criadero.avanzarTurno(4);
         moho.avanzarTurno(4);
-        mapa.vaciar(1,2); //esa casilla apunta a Nada() pero sigue teniendo moho
-        boolean respuestaObtenida = mapa.estaVacia(1,2);
+        mapa.vaciar(0,2); //esa casilla apunta a Nada() pero sigue teniendo moho
+        boolean respuestaObtenida = mapa.estaVacia(0,2);
         assertEquals(respuestaEsperada, respuestaObtenida);
     }
 
@@ -30,18 +30,18 @@ public class SeDestruyeElCriaderoYSePuedeConstruirSobreElMohoQueDejoTest {
 
         boolean respuestaEsperada = false;
         Mapa mapa = new Mapa();
-        Moho moho = new Moho(1,2,5,mapa);
+        Moho moho = new Moho(0,2,mapa);
         Criadero criadero1 = new Criadero();
-        mapa.agregar(criadero1,1,2);
+        mapa.agregar(criadero1,0,2);
         criadero1.avanzarTurno(4);
         moho.avanzarTurno(4);
-        mapa.vaciar(1,2); //esa casilla apunta a Nada() pero sigue teniendo moho
+        mapa.vaciar(0,2); //esa casilla apunta a Nada() pero sigue teniendo moho
 
         Criadero criadero2 = new Criadero();
-        mapa.agregar(criadero2,1,2);
+        mapa.agregar(criadero2,0,2);
         criadero2.avanzarTurno(4);
         moho.avanzarTurno(4);
-        boolean respuestaObtenida = mapa.estaVacia(1,2);
+        boolean respuestaObtenida = mapa.estaVacia(0,2);
         assertEquals(respuestaEsperada, respuestaObtenida);
     }
 

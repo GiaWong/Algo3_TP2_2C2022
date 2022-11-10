@@ -30,6 +30,9 @@ public class Mapa {
     }
 
     public void vaciar(int i, int j) {
+        List<Casilla> Col = Fila.get(0);
+        Col.get(j).vaciar();
+
     }
 
     public void fijarMoho(int i, int j){
@@ -48,12 +51,15 @@ public class Mapa {
     }
 
     public boolean hayMoho(int i, int i1) {
+        return true;
     }
 
     public void agregarUnidad(Zangano zangano, int i, int i1) {
     }
 
     public boolean estaVacia(int i, int i1) {
+        List<Casilla> Col = Fila.get(0);
+        return (Col.get(j).estaVacia());
 
     }
 }

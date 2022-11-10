@@ -14,7 +14,9 @@ public class PuertoEstelar extends Construccion {
 
 
     public void avanzarTurno(int i) {
-
+        if(escudo<600){
+            escudo=600;
+        }
         this.turnos+=i;
     }
 

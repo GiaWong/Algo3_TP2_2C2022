@@ -16,6 +16,10 @@ public class Asimilador extends Construccion {
     @Override
     public void avanzarTurno(int i) {
         this.turnos += i;
+        if(escudo<450){
+            escudo=450;
+        }
+
         for(int j = 0; j < i; j++){
             this.recolectar();
         }

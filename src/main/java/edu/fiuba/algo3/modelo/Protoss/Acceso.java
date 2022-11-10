@@ -15,6 +15,9 @@ public  class Acceso extends Construccion {
 
     @Override
     public void avanzarTurno(int i) {
+        if(escudo<500){
+            escudo=500;
+        }
         this.turnos+=i;
     }
 
