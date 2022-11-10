@@ -31,7 +31,7 @@ public class SoloAsimiladorYExtractorSeConstruyeSobreVolcanTest {
 
         Mapa mapa = new Mapa(); //sabemos que volcan está en 1 y 2 de antemano
         Criadero criadero = new Criadero();
-        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(criadero,0,2));
+        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(criadero,0,3));//---
     }
 
     @Test

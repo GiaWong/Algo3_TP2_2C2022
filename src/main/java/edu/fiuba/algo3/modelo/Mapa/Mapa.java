@@ -5,15 +5,16 @@ import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Pilon;
 import edu.fiuba.algo3.modelo.Zerg.Larva;
 import edu.fiuba.algo3.modelo.Zerg.Zangano;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Mapa {
 
-   private final Casilla [][] mapa = new Casilla[30][30];
+   public Casilla [][] mapa = new Casilla[30][30];
 
 
-    public void Mapa(){
+    public  Mapa(){
 
         for(int i = 0; i<20; i++){
             for(int j = 0; j<20; j++) {
@@ -22,6 +23,7 @@ public class Mapa {
 
 
         }
+
         mapa[0][1].agregarVolcan();
         mapa[0][3].agregarNodoMineral();
 
@@ -30,7 +32,6 @@ public class Mapa {
 
     public void agregar(Construccion construccion, int fila, int col) {
 
-        //List<Casilla> Col = Fila.get(0);
         mapa[fila][col].agregarConstruccion(construccion);
     }
 
