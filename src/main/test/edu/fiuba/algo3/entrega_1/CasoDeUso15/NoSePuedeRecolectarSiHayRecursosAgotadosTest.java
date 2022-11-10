@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso15;
 
 import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorRecursoAgotado;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Protoss.Asimilador;
 import edu.fiuba.algo3.modelo.Protoss.NexoMineral;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
@@ -26,8 +27,9 @@ public class NoSePuedeRecolectarSiHayRecursosAgotadosTest {
     @Test
     public void ExtractorRecolectaGasDeUnVolcanAgotadoYSeLanzaUnError() {
 
-        Volcan volcan = new Volcan();
-        Extractor extractor = new Extractor(volcan);
+        Mapa mapa = new Mapa();
+        Extractor extractor = new Extractor();
+        mapa.agregar(extractor,0,1);
         Zangano zangano1 = new Zangano();
         Zangano zangano2 = new Zangano();
         Zangano zangano3 = new Zangano();

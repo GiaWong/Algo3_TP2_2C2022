@@ -55,6 +55,7 @@ public class Extractor extends Construccion{
     }
 
     public void recolectar() {
+
         gasExtraido += (GAS_POR_TURNO * zanganos.size());
     }
 
