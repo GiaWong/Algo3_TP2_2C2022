@@ -17,10 +17,16 @@ public class Mapa {
 
     public void Mapa(){
         Fila.add(Columna);
+        List<Casilla> Col = Fila.get(0);
+        Col.get(1).agregarVolcan();
+        Col.get(3).agregarNodoMineral();
+
     }
 
     public void agregar(Construccion construccion, int fila, int columna) {
 
+        List<Casilla> Col = Fila.get(0);
+        Col.get(columna).agregarConstruccion(construccion);
     }
 
     public void vaciar(int i, int i1) {

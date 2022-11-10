@@ -1,9 +1,10 @@
 package edu.fiuba.algo3.modelo.ConstruccionesConRadio;
 
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 
-public class Pilon {
+public class Pilon extends Construccion {
 
     private final int TIEMPO_CONSTRUCCION = 5;
     private final int RADIO_INICIAL = 3;
