@@ -40,7 +40,7 @@ public class Criadero extends Construccion {
 
     @Override
     public boolean estaDisponible() {
-        return false;
+        return (tiempoEnConstruccion >= 4);
     }
 
     public void avanzarTurno(int i){
@@ -49,7 +49,7 @@ public class Criadero extends Construccion {
         if(vida<=500){
             vida = 500;
         }
-        if(this.criaderoLleno()){
+        if(!this.criaderoLleno()){
             larvas.add(new Larva());
         }
 

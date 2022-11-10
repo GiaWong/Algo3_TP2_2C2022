@@ -43,7 +43,7 @@ public class Casilla {
         if(construccion.getClass().equals(nexo.getClass())){
             throw new ErrorNodoOcupado();
         }
-        zaganos.add(zangano);
+        zanganos.add(zangano);
 
     }
 

@@ -6,8 +6,7 @@ import edu.fiuba.algo3.modelo.Protoss.Asimilador;
 import edu.fiuba.algo3.modelo.Protoss.NexoMineral;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
-import edu.fiuba.algo3.modelo.RefineriaGas.Asimilador;
-import edu.fiuba.algo3.modelo.RefineriaGas.Extractor;
+
 import edu.fiuba.algo3.modelo.Zerg.Extractor;
 import edu.fiuba.algo3.modelo.Zerg.Zangano;
 import org.junit.jupiter.api.Test;
@@ -43,7 +42,7 @@ public class NoSePuedeRecolectarSiHayRecursosAgotadosTest {
     public void ElNexoMineralIntentaRecolectarMineralEnNodoDeMineralAgotadoYSeLanzaUnError() {
 
         NodoMineral nodo = new NodoMineral();
-        NexoMineral nexo = new NexoMineral(nodo);
+        NexoMineral nexo = new NexoMineral();
         nexo.avanzarTurno(100);
         assertThrows(ErrorRecursoAgotado.class,()->nexo.recolectar());
     }
@@ -52,7 +51,7 @@ public class NoSePuedeRecolectarSiHayRecursosAgotadosTest {
     public void AsimiladorRecolectaGasDeUnVolcanAgotadoYSeLanzaUnError() {
 
         Volcan volcan = new Volcan();
-        Asimilador asimilador = new Asimilador(volcan);
+        Asimilador asimilador = new Asimilador();
         asimilador.avanzarTurno(250); //en extractor hay un msj privado que recolecte
         assertThrows(ErrorRecursoAgotado.class,()->asimilador.recolectar());
     }

@@ -10,39 +10,48 @@ import java.util.List;
 
 public class Mapa {
 
-    private List<List<Casilla>> Fila = new ArrayList<>();
-
-    private List<Casilla> Columna = new ArrayList<>();
+    private List<List<Casilla>> fila;
+    private List<Casilla> columna ;
 
 
     public void Mapa(){
-        Fila.add(Columna);
-        List<Casilla> Col = Fila.get(0);
-        Col.get(1).agregarVolcan();
-        Col.get(3).agregarNodoMineral();
+        fila = new ArrayList<List<Casilla>>();
+        columna = new ArrayList<Casilla>();
+
+
+        for(int i = 0; i<20; i++){
+
+            Casilla casilla = new Casilla();
+            columna.add(casilla);
+
+
+        }
+        fila.add(columna);
+        columna.get(1).agregarVolcan();
+        columna.get(3).agregarNodoMineral();
 
     }
 
-    public void agregar(Construccion construccion, int fila, int columna) {
+    public void agregar(Construccion construccion, int fila, int col) {
 
-        List<Casilla> Col = Fila.get(0);
-        Col.get(columna).agregarConstruccion(construccion);
+        //List<Casilla> Col = Fila.get(0);
+        this.columna.get(2).agregarConstruccion(construccion);
     }
 
     public void vaciar(int i, int j) {
-        List<Casilla> Col = Fila.get(0);
+        List<Casilla> Col = fila.get(0);
         Col.get(j).vaciar();
 
     }
 
     public void fijarMoho(int i, int j){
-        List<Casilla> Col = Fila.get(0);
+        List<Casilla> Col = fila.get(0);
         Col.get(j).fijarMoho();
 
     }
 
     public void sumarEnergia(int i, int j){
-        List<Casilla> Col = Fila.get(0);
+        List<Casilla> Col = fila.get(0);
         Col.get(j).sumarEnergia();
 
     }
@@ -58,7 +67,7 @@ public class Mapa {
     }
 
     public Casilla devolverCasilla(int i, int j){
-        List<Casilla> Col = Fila.get(0);
+        List<Casilla> Col = fila.get(0);
         return Col.get(j);
     }
     public void agregarUnidad(Zangano zangano, int i, int j) {
@@ -66,7 +75,7 @@ public class Mapa {
     }
 
     public boolean estaVacia(int i, int j) {
-        List<Casilla> Col = Fila.get(0);
+        List<Casilla> Col = fila.get(0);
         return (Col.get(j).estaVacia());
 
     }

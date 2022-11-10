@@ -2,13 +2,11 @@ package edu.fiuba.algo3.modelo.Protoss;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorRecursoAgotado;
-import edu.fiuba.algo3.modelo.Recursos.Mineral;
+import java.io.*;
 
 public class NexoMineral extends Construccion {
     private  final int TIEMPO_CONSTRUCCION = 4;
-
     private int mineralExtraido;
-
     private int turnos;
 
     private final int MINERAL_POR_TURNO = 20;
@@ -16,6 +14,8 @@ public class NexoMineral extends Construccion {
 
     public NexoMineral() {
         this.turnos = 0;
+        this.mineralExtraido =0;
+
     }
 
 
@@ -25,10 +25,10 @@ public class NexoMineral extends Construccion {
         if(escudo<250){
             escudo=250;
         }
-        for(int i = 0; i < j; j++){
+        for(int i = 0; i < j; i++){
             this.recolectar();
         }
-        this.turnos++;
+        this.turnos += j;
     }
 
 
@@ -65,6 +65,7 @@ public class NexoMineral extends Construccion {
     }
 
     public void recolectar() {
+
         if(mineralExtraido>=2000){
             throw new ErrorRecursoAgotado();
         }
