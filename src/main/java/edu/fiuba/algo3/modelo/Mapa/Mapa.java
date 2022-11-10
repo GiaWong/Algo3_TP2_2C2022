@@ -10,73 +10,64 @@ import java.util.List;
 
 public class Mapa {
 
-    private List<List<Casilla>> fila;
-    private List<Casilla> columna ;
+   private final Casilla [][] mapa = new Casilla[30][30];
 
 
     public void Mapa(){
-        fila = new ArrayList<List<Casilla>>();
-        columna = new ArrayList<Casilla>();
-
 
         for(int i = 0; i<20; i++){
-
-            Casilla casilla = new Casilla();
-            columna.add(casilla);
+            for(int j = 0; j<20; j++) {
+                mapa [i][j] = new Casilla();
+            }
 
 
         }
-        fila.add(columna);
-        columna.get(1).agregarVolcan();
-        columna.get(3).agregarNodoMineral();
+        mapa[0][1].agregarVolcan();
+        mapa[0][3].agregarNodoMineral();
+
 
     }
 
     public void agregar(Construccion construccion, int fila, int col) {
 
         //List<Casilla> Col = Fila.get(0);
-        this.columna.get(2).agregarConstruccion(construccion);
+        mapa[fila][col].agregarConstruccion(construccion);
     }
 
     public void vaciar(int i, int j) {
-        List<Casilla> Col = fila.get(0);
-        Col.get(j).vaciar();
+
+        mapa[i][j].vaciar();
 
     }
 
     public void fijarMoho(int i, int j){
-        List<Casilla> Col = fila.get(0);
-        Col.get(j).fijarMoho();
+
+        mapa[i][j].fijarMoho();
 
     }
 
     public void sumarEnergia(int i, int j){
-        List<Casilla> Col = fila.get(0);
-        Col.get(j).sumarEnergia();
+
+        mapa[i][j].sumarEnergia();
 
     }
 
     public boolean sePuedeConstruirProtoss(int i, int j) {
-        Casilla casilla= this.devolverCasilla(i,j);
-        return casilla.energizado();
+        return  mapa[i][j].energizado();
     }
 
     public boolean hayMoho(int i, int j) {
-        Casilla casilla= this.devolverCasilla(i,j);
-        return casilla.hayMoho();
+
+        return  mapa[i][j].hayMoho();
     }
 
-    public Casilla devolverCasilla(int i, int j){
-        List<Casilla> Col = fila.get(0);
-        return Col.get(j);
-    }
     public void agregarUnidad(Zangano zangano, int i, int j) {
 
     }
 
     public boolean estaVacia(int i, int j) {
-        List<Casilla> Col = fila.get(0);
-        return (Col.get(j).estaVacia());
+
+        return ( mapa[i][j].estaVacia());
 
     }
 }
