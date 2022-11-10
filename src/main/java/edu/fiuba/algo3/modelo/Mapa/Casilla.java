@@ -3,14 +3,15 @@ package edu.fiuba.algo3.modelo.Mapa;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.Nada;
 import edu.fiuba.algo3.modelo.Exceptions.ErrorNoEsPosibleConstruir;
+import edu.fiuba.algo3.modelo.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Protoss.Asimilador;
 import edu.fiuba.algo3.modelo.Protoss.NexoMineral;
+import edu.fiuba.algo3.modelo.Protoss.PuertoEstelar;
 import edu.fiuba.algo3.modelo.Recursos.NadaProveedor;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.ProveedorDeRecursoNatural;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
-import edu.fiuba.algo3.modelo.Zerg.Extractor;
-import edu.fiuba.algo3.modelo.Zerg.Zangano;
+import edu.fiuba.algo3.modelo.Zerg.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +40,11 @@ public class Casilla {
         NexoMineral nexo = new NexoMineral();
         Extractor extractor = new Extractor();
         Asimilador asimilador = new Asimilador();
+        ReservaProduccion reserva = new ReservaProduccion();
+        Guarida guarida = new Guarida();
+        Espiral espiral = new Espiral();
+        Acceso acceso = new Acceso();
+        PuertoEstelar puerto = new PuertoEstelar();
         if(hayNodoMineral && !construccion.getClass().equals(nexo.getClass()){
             throw new ErrorNoEsPosibleConstruir();
         } else if (hayVolcan && !construccion.getClass().equals(asimilador.getClass()) && !construccion.getClass().equals(extractor.getClass()){
@@ -46,7 +52,12 @@ public class Casilla {
         }
 
 
-        this.construccion = construccion;
+
+        if(!construccion.sePuedeContruir(hayMoho,energia)){
+            throw new ErrorNoEsPosibleConstruir();
+        }
+
+            this.construccion = construccion;
     }
 
 
@@ -59,4 +70,13 @@ public class Casilla {
         this.proveedor = new NodoMineral();
         this.hayNodoMineral = true;
     }
+
+    public void fijarMoho(){
+        this.hayMoho = true;
+    }
+
+    public void sumarEnergia(){
+        this.energia++;
+    }
+
 }

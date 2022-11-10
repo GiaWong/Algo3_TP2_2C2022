@@ -18,6 +18,11 @@ public class PuertoEstelar extends Construccion {
     }
 
     @Override
+    public boolean sePuedeConstruir(boolean hayMoho, int energia) {
+        return (!hayMoho && energia != 0);
+    }
+
+    @Override
     public boolean estaDisponible() {
         return (this.turnos == TIEMPO_CONSTRUCCION);
     }

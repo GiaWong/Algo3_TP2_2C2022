@@ -15,12 +15,17 @@ public  class Acceso extends Construccion {
 
     @Override
     public void avanzarTurno(int i) {
-        this.turnos++;
+        this.turnos+=i;
     }
 
     @Override
     public boolean estaDisponible() {
         return (this.turnos == TIEMPO_CONSTRUCCION);
+    }
+
+    @Override
+    public boolean sePuedeConstruir(boolean hayMoho, int energia) {
+        return (!hayMoho && energia != 0);
     }
 
 

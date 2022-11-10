@@ -20,6 +20,11 @@ public class Espiral extends Construccion {
     }
 
     @Override
+    public boolean sePuedeConstruir(boolean hayMoho, int energia) {
+        return (hayMoho);
+    }
+
+    @Override
     public boolean estaDisponible() {
         return (this.turnos == TIEMPO_CONSTRUCCION);
     }

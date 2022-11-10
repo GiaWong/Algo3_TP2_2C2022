@@ -9,12 +9,20 @@ public class Pilon extends Construccion {
     private final int TIEMPO_CONSTRUCCION = 5;
     private final int RADIO_INICIAL = 3;
 
+    private int filaCentro;
+    private int colCentro;
+
     private int turnos;
+
     private int radio;
 
-    public Pilon(int fila, int columna, Mapa mapa) {
+    public Pilon(int fila, int col, Mapa mapa) {
         super();
         this.radio = RADIO_INICIAL;
+        this.turnos = 0;
+        this.filaCentro = fila;
+        this.colCentro = col;
+        this.ocuparMapa(mapa);
     }
 
     public Pilon() {
@@ -22,9 +30,18 @@ public class Pilon extends Construccion {
         this.radio = RADIO_INICIAL;
     }
 
+    public void ocuparMapa(Mapa mapa){
+        for(int i = filaCentro - radio ; i < filaCentro + radio ; i++){
+            for(int j = colCentro - radio ; j < colCentro + radio ; j++){
+                mapa.sumarEnergia(i,j);
+            }
+        }
+    }
+
 
     public void avanzarTurno(int i) {
-        this.turnos++;
+
+        this.turnos += i;
     }
 
     public boolean estaDisponible() {

@@ -29,7 +29,19 @@ public class Mapa {
         Col.get(columna).agregarConstruccion(construccion);
     }
 
-    public void vaciar(int i, int i1) {
+    public void vaciar(int i, int j) {
+    }
+
+    public void fijarMoho(int i, int j){
+        List<Casilla> Col = Fila.get(0);
+        Col.get(j).fijarMoho();
+
+    }
+
+    public void sumarEnergia(int i, int j){
+        List<Casilla> Col = Fila.get(0);
+        Col.get(j).sumarEnergia();
+
     }
 
     public boolean sePuedeConstruirProtoss(int i, int i1) {

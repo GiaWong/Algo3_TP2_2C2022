@@ -16,7 +16,7 @@ public class ConstruccionConMohoTest {
     public void SeConstruyeReservaProduccionFueraDelRangoMohoYSeLanzaError() {
 
         Mapa mapa = new Mapa();
-        new Moho(1,2,5,mapa);
+        Moho moho = new Moho(1,2,mapa);
         ReservaProduccion reserva = new ReservaProduccion();
         assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(reserva,1,9));
     }
@@ -25,7 +25,7 @@ public class ConstruccionConMohoTest {
     public void SeConstruyeGuaridaFueraDelRangoMohoYSeLanzaError() {
 
         Mapa mapa = new Mapa();
-        new Moho(1,2,5,mapa);
+        Moho moho = new Moho(1,2,mapa);
         Guarida guarida = new Guarida();
         assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(guarida,1,9));
     }
@@ -36,7 +36,7 @@ public class ConstruccionConMohoTest {
     public void SeConstruyeEspiralFueraDelRangoMohoYDebeLanzarError() {
 
         Mapa mapa = new Mapa();
-        new Moho(1,2,5,mapa);
+        Moho moho = new Moho(1,2,mapa);
         Espiral espiral = new Espiral();
         assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(espiral,1,9));
     }

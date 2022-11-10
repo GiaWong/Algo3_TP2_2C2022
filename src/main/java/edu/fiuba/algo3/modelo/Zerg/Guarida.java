@@ -15,6 +15,11 @@ public class Guarida extends Construccion {
     }
 
     @Override
+    public boolean sePuedeConstruir(boolean hayMoho, int energia) {
+        return (hayMoho);
+    }
+
+    @Override
     public void avanzarTurno(int i) {
         this.turnos += i;
     }

@@ -16,6 +16,11 @@ public class ReservaProduccion extends Construccion {
     }
 
     @Override
+    public boolean sePuedeConstruir(boolean hayMoho, int energia) {
+        return (hayMoho);
+    }
+
+    @Override
     public void avanzarTurno(int i) {
         this.turnos += i;
     }
