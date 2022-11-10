@@ -18,4 +18,8 @@ public class Mapa {
 
     public void agregarUnidad(Zangano zangano, int i, int i1) {
     }
+
+    public boolean estaVacia(int i, int i1) {
+
+    }
 }
