@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso17;
 
 import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorFaltaPrerequisito;
+import edu.fiuba.algo3.modelo.Imperio.ImperioProtoss;
+import edu.fiuba.algo3.modelo.Imperio.ImperioZerg;
 import edu.fiuba.algo3.modelo.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Protoss.PuertoEstelar;
 import edu.fiuba.algo3.modelo.Zerg.Espiral;
@@ -11,26 +13,26 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CorrelativasDeConstruccionTest {
-/*
-    @Test
-    public void SeIntentaConstruirUnaGuaridaSinUnaReservaYSeLanzaUnError() {
 
-        ReservaProduccion reservaProduccion = new ReservaProduccion();
-        assertThrows(ErrorFaltaPrerequisito.class,()->new Guarida(reservaProduccion));
-    }
 
-    @Test
-    public void SeIntentaConstruirUnaEspiralSinUnaGuaridaYSeLanzaUnError() {
+        @Test
+        public void SeIntentaConstruirUnaGuaridaSinUnaReservaYSeLanzaUnError() {
+            ImperioZerg imperio = new ImperioZerg();
+            assertThrows(ErrorFaltaPrerequisito.class,()-> imperio.guarida());
+        }
 
-       Guarida guarida = new Guarida();
-       assertThrows(ErrorFaltaPrerequisito.class,()->new Espiral(guarida));
-    }
+        @Test
+        public void SeIntentaConstruirUnaEspiralSinUnaGuaridaYSeLanzaUnError() {
 
-    @Test
-    public void SeIntentaConstruirUnPuertoEstelarSinUnAccesoYSeLanzaUnError() {
+            ImperioZerg imperio = new ImperioZerg();
+            assertThrows(ErrorFaltaPrerequisito.class,()->imperio.espiral());
+        }
 
-        Acceso acceso = new Acceso();
-        assertThrows(ErrorFaltaPrerequisito.class,()->new PuertoEstelar(acceso));
-    }*/
+        @Test
+        public void SeIntentaConstruirUnPuertoEstelarSinUnAccesoYSeLanzaUnError() {
+
+            ImperioProtoss imperio= new ImperioProtoss();
+            assertThrows(ErrorFaltaPrerequisito.class,()->imperio.puertoEstelar());
+        }
 
 }

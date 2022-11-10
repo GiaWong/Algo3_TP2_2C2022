@@ -1,16 +1,22 @@
 package edu.fiuba.algo3.modelo.Imperio;
 
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Pilon;
+import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorFaltaPrerequisito;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Protoss.Acceso;
 import edu.fiuba.algo3.modelo.Protoss.Asimilador;
 import edu.fiuba.algo3.modelo.Protoss.NexoMineral;
 import edu.fiuba.algo3.modelo.Protoss.PuertoEstelar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class ImperioProtoss {
 
     private int mineral = 100;
+    private List<Construccion> edificios = new ArrayList<Construccion>;
     private int gasVespeno = 100;
     //rivate List<Casilla> Columna = new ArrayList<>();
 
@@ -43,6 +49,9 @@ public class ImperioProtoss {
     }
 
     public void puertoEstelar(Mapa mapa, int i, int j) {
+        if(edificios.contains(new Acceso())){
+            throw new ErrorFaltaPrerequisito();
+        }
         if(mineral > 150 && gasVespeno>150) {
             PuertoEstelar puerto = new PuertoEstelar();
             mapa.agregar(puerto,i,j);
