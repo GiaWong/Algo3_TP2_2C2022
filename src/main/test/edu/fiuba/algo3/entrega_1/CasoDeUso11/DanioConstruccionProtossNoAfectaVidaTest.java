@@ -106,7 +106,7 @@ public class DanioConstruccionProtossNoAfectaVidaTest {
     }
 
     @Test
-    public void AccesoRecibeDanioYPasanCiertosTurnosYEscudoEstaAlMaximo() {
+    public void PuertoEstelarRecibeDanioYPasanCiertosTurnosYEscudoEstaAlMaximo() {
 
         int escudoEsperado = 600;
         Mapa mapa = new Mapa();

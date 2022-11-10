@@ -15,8 +15,8 @@ public class DestruccionEdificiosProtosTest {
 
         boolean esperado = true;
         Mapa mapa = new Mapa();
-        Pilon pilonUno = new Pilon(3);
-        Pilon pilonDos = new Pilon(3);
+        Pilon pilonUno = new Pilon();
+        Pilon pilonDos = new Pilon();
         mapa.agregar(pilonUno,0,1); //cómo pasar una coordenada?
         mapa.agregar(pilonDos,0,4);
         NexoMineral nexo = new NexoMineral();
@@ -35,8 +35,8 @@ public class DestruccionEdificiosProtosTest {
 
         boolean esperado = true;
         Mapa mapa = new Mapa();
-        Pilon pilonUno = new Pilon(3);
-        Pilon pilonDos = new Pilon(3);
+        Pilon pilonUno = new Pilon();
+        Pilon pilonDos = new Pilon();
         mapa.agregar(pilonUno,0,1); //cómo pasar una coordenada?
         mapa.agregar(pilonDos,0,4);
         Asimilador asimilador = new Asimilador();
@@ -55,8 +55,8 @@ public class DestruccionEdificiosProtosTest {
 
         boolean esperado = true;
         Mapa mapa = new Mapa();
-        Pilon pilonUno = new Pilon(3);
-        Pilon pilonDos = new Pilon(3);
+        Pilon pilonUno = new Pilon();
+        Pilon pilonDos = new Pilon();
         mapa.agregar(pilonUno,0,1); //cómo pasar una coordenada?
         mapa.agregar(pilonDos,0,4);
         Acceso acceso = new Acceso();
@@ -75,8 +75,8 @@ public class DestruccionEdificiosProtosTest {
 
         boolean esperado = true;
         Mapa mapa = new Mapa();
-        Pilon pilonUno = new Pilon(3);
-        Pilon pilonDos = new Pilon(3);
+        Pilon pilonUno = new Pilon();
+        Pilon pilonDos = new Pilon();
         mapa.agregar(pilonUno,0,1); //cómo pasar una coordenada?
         mapa.agregar(pilonDos,0,4);
         PuertoEstelar puertoEstelar = new PuertoEstelar();

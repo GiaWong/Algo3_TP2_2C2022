@@ -33,7 +33,7 @@ public class NoSePuedeConstruirSobreUnVolcanConUnaEdificacionExistenteTest {
     }
 
     @Test
-    public void SeIntentaConstruirUnNexoMineralConUnZanganoTrabajandoYSeLanzaUnError() {
+    public void SeIntentaConstruirUnZanganoEnUnNexoMineralTrabajandoYSeLanzaUnError() {
 
         Mapa mapa = new Mapa(); //sabemos que el nodo está en 1 y 2 de antemano
         Zangano zangano = new Zangano();

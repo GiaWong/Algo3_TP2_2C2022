@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Zerg;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorRecursoAgotado;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
 import edu.fiuba.algo3.modelo.Recursos.GasVespeno;
 
@@ -55,8 +56,11 @@ public class Extractor extends Construccion{
     }
 
     public void recolectar() {
-
+        if(gasExtraido>=5000){
+            throw new ErrorRecursoAgotado();
+        }
         gasExtraido += (GAS_POR_TURNO * zanganos.size());
+
     }
 
 
