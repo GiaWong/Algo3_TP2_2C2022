@@ -1,4 +1,4 @@
 package edu.fiuba.algo3.modelo.Exceptions;
 
-public class ErrorVolcanOcupado {
+public class ErrorVolcanOcupado extends RuntimeException{
 }
