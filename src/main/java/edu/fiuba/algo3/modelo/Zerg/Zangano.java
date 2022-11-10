@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Zerg;
 
+import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
+
 public class Zangano {
     private int cantidad;
     public Zangano(int cantidad) {
@@ -13,6 +15,6 @@ public class Zangano {
         return 10;
     }
 
-    public void recolectar(edu.fiuba.algo3.entrega_1.CasoDeUso15.NodoMineral nodo) {
+    public void recolectar(NodoMineral nodo) {
     }
 }
