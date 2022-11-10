@@ -17,4 +17,10 @@ public class Zangano {
 
     public void recolectar(NodoMineral nodo) {
     }
+
+    public void avanzarTurno(int i) {
+    }
+
+    public int obtenerMineralRecolectado() {
+    }
 }

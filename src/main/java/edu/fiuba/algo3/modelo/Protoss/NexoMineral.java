@@ -49,4 +49,7 @@ public class NexoMineral extends Construccion {
 
     public void recolectar() {
     }
+
+    public int obtenerMineralRecolectado() {
+    }
 }
