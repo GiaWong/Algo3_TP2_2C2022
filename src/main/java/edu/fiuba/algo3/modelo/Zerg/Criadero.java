@@ -1,13 +1,14 @@
 package edu.fiuba.algo3.modelo.Zerg;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Alcance;
 import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Moho;
 import java.util.List;
 import java.util.ArrayList;
-import edu.fiuba.algo3.modelo.Turno.Turno;
+
 
 public class Criadero extends Construccion {
+
+    private final int TIEMPO_CONSTRUCCION = 4;
 
     private List<Larva> larvas = new ArrayList<Larva>();
     private int tiempoEnConstruccion = 0, turnosExpansion = 2;
@@ -35,10 +36,15 @@ public class Criadero extends Construccion {
     }
 
     public void ampliarRadioMoho(){
-        if(turnosExpansion <= 0 && this.ESTADO_CONSTRUCCION){
+        if(turnosExpansion <= 0){
             moho.ampliarRadio();
             turnosExpansion = 2;
         }
+    }
+
+    @Override
+    public boolean estaDisponible() {
+        return false;
     }
 
     @Override
@@ -46,23 +52,8 @@ public class Criadero extends Construccion {
         tiempoEnConstruccion += i;
         turnosExpansion -=i;
         // this.larva.agreegarMasLarvas(i);
-        if(tiempoEnConstruccion >= 4){
-            this.ESTADO_CONSTRUCCION = true;
-        }
         this.ampliarRadioMoho();
 
-    }
-    public void empezarAConstruirSegun(Alcance alcance, Turno turno) {
-
-        if(alcance.estaEnRangoDelRadio()){
-            if(tiempoEnConstruccion >= 4){
-                this.ESTADO_CONSTRUCCION = true;
-            }
-        }
-    }
-
-    public int radioMoho() {
-        return this.moho.obtenerRadio();
     }
 
 
@@ -70,5 +61,6 @@ public class Criadero extends Construccion {
     }
 
     public int obtenerVida() {
+        return 0;
     }
 }

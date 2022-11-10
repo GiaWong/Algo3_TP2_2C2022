@@ -1,10 +1,13 @@
 package edu.fiuba.algo3.modelo.Zerg;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Alcance;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 
 public class Guarida extends Construccion {
+
+    private final int TIEMPO_CONSTRUCCION = 12;
+
+    private int turnos;
 
     public Guarida() {
         super();
@@ -13,20 +16,14 @@ public class Guarida extends Construccion {
 
     @Override
     public void avanzarTurno(int i) {
-        if(i == 12){
-            this.ESTADO_CONSTRUCCION = true;
-        }
+        this.turnos += i;
     }
 
     @Override
-    public void empezarAConstruirSegun(Alcance alcance, Turno turno) {
-        if(alcance.estaEnRangoDelRadio()){
-            if(turno.getCantidad() == 12){
-                this.ESTADO_CONSTRUCCION = true;
-            }
-        }
-
+    public boolean estaDisponible() {
+        return (this.turnos == TIEMPO_CONSTRUCCION);
     }
+
 
 
     public void recibeDanio(int i) {

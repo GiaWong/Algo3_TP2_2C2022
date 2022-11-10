@@ -23,7 +23,7 @@ public class SoloAsimiladorYExtractorSeConstruyeSobreVolcanTest {
 
         Mapa mapa = new Mapa(); //sabemos que volcan está en 1 y 2 de antemano
         ReservaProduccion reservaProduccion = new ReservaProduccion();
-        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(reservaProduccion,1,2););
+        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(reservaProduccion,1,2));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class SoloAsimiladorYExtractorSeConstruyeSobreVolcanTest {
 
         Mapa mapa = new Mapa(); //sabemos que volcan está en 1 y 2 de antemano
         Criadero criadero = new Criadero();
-        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(criadero,1,2););
+        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(criadero,1,2));
     }
 
     @Test
@@ -39,7 +39,7 @@ public class SoloAsimiladorYExtractorSeConstruyeSobreVolcanTest {
 
         Mapa mapa = new Mapa(); //sabemos que volcan está en 1 y 2 de antemano
         Guarida guarida = new Guarida();
-        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(guarida,1,2););
+        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(guarida,1,2));
     }
 
     @Test
@@ -47,7 +47,7 @@ public class SoloAsimiladorYExtractorSeConstruyeSobreVolcanTest {
 
         Mapa mapa = new Mapa(); //sabemos que volcan está en 1 y 2 de antemano
         NexoMineral nexo = new NexoMineral();
-        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(nexo,1,2););
+        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(nexo,1,2));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class SoloAsimiladorYExtractorSeConstruyeSobreVolcanTest {
 
         Mapa mapa = new Mapa(); //sabemos que volcan está en 1 y 2 de antemano
         Pilon pilon = new Pilon();
-        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(pilon,1,2););
+        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(pilon,1,2));
     }
 
     @Test
@@ -63,7 +63,7 @@ public class SoloAsimiladorYExtractorSeConstruyeSobreVolcanTest {
 
         Mapa mapa = new Mapa(); //sabemos que volcan está en 1 y 2 de antemano
         Acceso acceso = new Acceso();
-        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(acceso,1,2););
+        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(acceso,1,2));
     }
 
     @Test
@@ -71,7 +71,7 @@ public class SoloAsimiladorYExtractorSeConstruyeSobreVolcanTest {
 
         Mapa mapa = new Mapa(); //sabemos que volcan está en 1 y 2 de antemano
         PuertoEstelar puertoEstelar = new PuertoEstelar();
-        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(puertoEstelar,1,2););
+        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(puertoEstelar,1,2));
     }
 
 
