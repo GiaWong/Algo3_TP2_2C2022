@@ -32,6 +32,9 @@ public class Asimilador extends Construccion {
         return this.gasRecolectado;
     }
 
+    public boolean estaOperativo() {
+        return true;
+    }
 
     public boolean sePuedeConstruir(boolean hayVolcan,boolean hayNodoMineral) {
         return (hayVolcan);
@@ -44,5 +47,14 @@ public class Asimilador extends Construccion {
     public Asimilador(){
         this.turnos = 0;
         this.gasRecolectado = 0;
+    }
+
+    public void recibeDanio(int i) {
+    }
+
+    public int obtenerEscudo() {
+    }
+
+    public int obtenerVida() {
     }
 }

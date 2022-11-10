@@ -23,8 +23,8 @@ public class RecursosInsuficientesParaConstruccionesProtossTest {
 
         Mapa mapa = new Mapa();
         ImperioProtoss imperio = new ImperioProtoss(); //se inicia con 100 M y 100 G para poder empezar a jugar
-        imperio.pilon(mapa, 1,2);
-        assertThrows(ErrorRecursosInsuficientesParaConstruir.class,()->imperio.pilon(mapa, 2,6););
+        imperio.pilon(mapa, 0,2);
+        assertThrows(ErrorRecursosInsuficientesParaConstruir.class,()->imperio.pilon(mapa, 0,6););
     }
 
     @Test
@@ -32,8 +32,8 @@ public class RecursosInsuficientesParaConstruccionesProtossTest {
 
         Mapa mapa = new Mapa();
         ImperioProtoss imperio = new ImperioProtoss(); //se inicia con 100 M y 100 G para poder empezar a jugar
-        imperio.asimilador(mapa, 1,2);
-        assertThrows(ErrorRecursosInsuficientesParaConstruir.class,()->imperio.asimilador(mapa, 1,8););
+        imperio.asimilador(mapa, 0,2);
+        assertThrows(ErrorRecursosInsuficientesParaConstruir.class,()->imperio.asimilador(mapa, 0,8););
     }
 
     @Test
@@ -41,7 +41,7 @@ public class RecursosInsuficientesParaConstruccionesProtossTest {
 
         Mapa mapa = new Mapa();
         ImperioProtoss imperio = new ImperioProtoss(); //se inicia con 100 M y 100 G para poder empezar a jugar
-        assertThrows(ErrorRecursosInsuficientesParaConstruir.class,()->imperio.acceso(mapa,4,7));
+        assertThrows(ErrorRecursosInsuficientesParaConstruir.class,()->imperio.acceso(mapa,0,7));
     }
 
     @Test
@@ -49,7 +49,7 @@ public class RecursosInsuficientesParaConstruccionesProtossTest {
 
         Mapa mapa = new Mapa();
         ImperioProtoss imperio = new ImperioProtoss(); //se inicia con 100 M y 100 G para poder empezar a jugar
-        assertThrows(ErrorRecursosInsuficientesParaConstruir.class,()->imperio.puertoEstelar(mapa,4,7));
+        assertThrows(ErrorRecursosInsuficientesParaConstruir.class,()->imperio.puertoEstelar(mapa,0,7));
     }
 
 }

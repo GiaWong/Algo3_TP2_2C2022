@@ -1,11 +1,13 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso15;
 
 import edu.fiuba.algo3.modelo.Exceptions.ErrorRecursoAgotado;
+import edu.fiuba.algo3.modelo.Protoss.Asimilador;
 import edu.fiuba.algo3.modelo.Protoss.NexoMineral;
 import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Recursos.Volcan;
 import edu.fiuba.algo3.modelo.RefineriaGas.Asimilador;
 import edu.fiuba.algo3.modelo.RefineriaGas.Extractor;
+import edu.fiuba.algo3.modelo.Zerg.Extractor;
 import edu.fiuba.algo3.modelo.Zerg.Zangano;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;

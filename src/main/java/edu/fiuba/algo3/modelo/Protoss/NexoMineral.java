@@ -12,12 +12,12 @@ public class NexoMineral extends Construccion {
     }
 
 
-    @Override
+
     public void avanzarTurno(int i) {
         this.turnos++;
     }
 
-    @Override
+
     public boolean estaDisponible() {
         return (this.turnos == TIEMPO_CONSTRUCCION);
     }

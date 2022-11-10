@@ -1,9 +1,12 @@
 package edu.fiuba.algo3.modelo.Imperio;
 
+import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Pilon;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
+import edu.fiuba.algo3.modelo.Protoss.Acceso;
+import edu.fiuba.algo3.modelo.Protoss.Asimilador;
 import edu.fiuba.algo3.modelo.Protoss.NexoMineral;
+import edu.fiuba.algo3.modelo.Protoss.PuertoEstelar;
 
-import java.util.ArrayList;
 
 public class ImperioProtoss {
 
@@ -18,15 +21,31 @@ public class ImperioProtoss {
         }
     }
 
-    public void pilon(Mapa mapa, int i, int i1) {
+    public void pilon(Mapa mapa, int i, int j) {
+        if(mineral > 100) {
+            Pilon pilon = new Pilon();
+            mapa.agregar(pilon,i,j);
+        }
     }
 
-    public void asimilador(Mapa mapa, int i, int i1) {
+    public void asimilador(Mapa mapa, int i, int j) {
+        if(mineral > 100) {
+            Asimilador asi = new Asimilador();
+            mapa.agregar(asi,i,j);
+        }
     }
 
-    public void acceso(Mapa mapa, int i, int i1) {
+    public void acceso(Mapa mapa, int i, int j) {
+        if(mineral > 150) {
+            Acceso acceso = new Acceso();
+            mapa.agregar(acceso,i,j);
+        }
     }
 
-    public void puertoEstelar(Mapa mapa, int i, int i1) {
+    public void puertoEstelar(Mapa mapa, int i, int j) {
+        if(mineral > 150 && gasVespeno>150) {
+            PuertoEstelar puerto = new PuertoEstelar();
+            mapa.agregar(puerto,i,j);
+        }
     }
 }
