@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.Zerg;
+package edu.fiuba.algo3.modelo.Unidades;
 
 public class Zangano {
     private int cantidad;

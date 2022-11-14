@@ -2,7 +2,8 @@
 'https://plantuml.com/class-diagram
 
 class Juego {
-    - partidas
+    - partidaActual
+    - partidasGuardadas
 
     + cargarPartida()
     + jugar()
@@ -17,6 +18,7 @@ class Partida {
     + asignarNombre(Jugador)
     + asignarColor(Jugador)
     + asignarRaza(Jugador)
+    + jugar()
     + . . .  ()
 }
 
@@ -35,6 +37,7 @@ class Jugador {
 abstract class Raza {
     - unidades
     - construcciones
+    - bandoDeRecursos?
 
     + agregarConstruccion()
     + recolectar()
@@ -152,7 +155,9 @@ class ConRecurso {
     + setTerreno()
 }
 
-interface Terreno {}
+interface Terreno {
+    + agregarConstruccion()
+}
 
 class ConMoho {
     + agregarConstruccion()
@@ -195,8 +200,8 @@ Raza -> Unidad
 Unidad <|-- UnidadZerg
 Unidad <|-- UnidadProtoss
 
-Zerg --> ConstruccionZerg
-Protoss --> ConstruccionProtoss
+Zerg "0" --> "*" ConstruccionZerg
+Protoss "0" --> "*" ConstruccionProtoss
 ConstruccionZerg --> Construccion
 ConstruccionProtoss --> Construccion
 Construccion ..|> RefineriaGas
@@ -219,7 +224,7 @@ Terreno <-* Casilla
 Casilla <|-- Vacia
 Casilla <|-- ConRecurso
 Terreno <|-- ConMoho
-Terreno <|-- ConEnergia
+Terreno <|--- ConEnergia
 Terreno <|-- SinNada
 
 ConRecurso --> Recurso

@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.Protoss;
+package edu.fiuba.algo3.modelo.Construccion.RefineriaMineral;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorRecursoAgotado;

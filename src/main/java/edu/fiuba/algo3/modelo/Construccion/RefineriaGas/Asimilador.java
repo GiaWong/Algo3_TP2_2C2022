@@ -1,7 +1,7 @@
-package edu.fiuba.algo3.modelo.RefineriaGas;
+package edu.fiuba.algo3.modelo.Construccion.RefineriaGas;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Alcance;
+import edu.fiuba.algo3.modelo.Construccion.ConstruccionesConRadio.Alcance;
 import edu.fiuba.algo3.modelo.Recursos.GasVespeno;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 

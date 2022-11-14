@@ -1,10 +1,10 @@
-package edu.fiuba.algo3.modelo.RefineriaGas;
+package edu.fiuba.algo3.modelo.Construccion.RefineriaGas;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.ConstruccionesConRadio.Alcance;
+import edu.fiuba.algo3.modelo.Construccion.ConstruccionesConRadio.Alcance;
 import edu.fiuba.algo3.modelo.Recursos.GasVespeno;
 import edu.fiuba.algo3.modelo.Turno.Turno;
-import edu.fiuba.algo3.modelo.Zerg.Zangano;
+import edu.fiuba.algo3.modelo.Unidades.Zangano;
 
 public class Extractor extends Construccion{
 
