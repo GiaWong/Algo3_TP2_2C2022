@@ -184,6 +184,9 @@ interface Terreno {
     + agregarConstruccion()
 }
 
+class Terreno
+note left: Se aplica patrón Strategy
+
 class ConMoho {
     + agregarConstruccion()
 }
