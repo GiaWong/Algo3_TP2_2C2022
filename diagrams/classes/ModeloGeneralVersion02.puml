@@ -67,35 +67,25 @@ class UnidadZerg {}
 
 class UnidadProtoss {}
 
-class ConstruccionZerg {
-    - construccion
-    + setConstruccion()
-}
-
-class ConstruccionProtoss {
-    - construccion
-    + setConstruccion()
-}
 
 interface Construccion {
     +{abstract}construir():void
 
 }
 
-interface RefineriaGas {
+interface Refineria {
     + recolectar()
 }
 
-interface RefineriaMineral {
-    + recolectar()
-}
+
 
 interface ConstruccionConRadio {
     +ampliarRadio()
 }
 
 interface ConstruccionNormal {
-    +metodo()
+
+    +evolucionar()
     }
 
 class Extractor {
@@ -139,12 +129,14 @@ class ReservaProduccion {
 class Guarida {
     - tiempoConstruccion
     - vida
+
 }
 
 class PuertoEscalar {
     - tiempoConstruccion
     - vida
     - escudo
+
 }
 
 class Acceso {
@@ -229,24 +221,22 @@ Mapa <-* Partida
 Partida *--> Turno
 
 Jugador *-> Raza
-Raza <|-- Zerg
-Raza <|-- Protoss
+Raza <|-up- Zerg
+Raza <|-up- Protoss
 Raza -> Unidad
-Unidad <|-- UnidadZerg
-Unidad <|-- UnidadProtoss
+Unidad <|-right- UnidadZerg
+Unidad <|-up- UnidadProtoss
 
-Zerg "0" --> "*" ConstruccionZerg
-Protoss "0" --> "*" ConstruccionProtoss
-ConstruccionZerg --> Construccion
-ConstruccionProtoss --> Construccion
-Construccion <|.. RefineriaGas
-Construccion <|.. RefineriaMineral
+Raza-->Construccion
+Construccion <|.. Refineria
+
 Construccion <|.. ConstruccionConRadio
 Construccion <|.. ConstruccionNormal
-RefineriaGas <|.. Extractor
-RefineriaGas <|.. Asimilador
-RefineriaMineral <|.. NexoMineral
+Refineria <|.. Extractor
+Refineria <|.. Asimilador
+Refineria <|.. NexoMineral
 ConstruccionConRadio <|.. Criadero
+ConstruccionNormal <|.. Criadero
 ConstruccionConRadio <|.. Pilon
 ConstruccionNormal <|.. Espiral
 ConstruccionNormal <|.. ReservaProduccion
@@ -258,9 +248,9 @@ Casilla "*" <-* Mapa
 Terreno <-* Casilla
 Casilla <|-- Vacia
 Casilla <|-- ConRecurso
-Terreno <|-- ConMoho
-Terreno <|--- ConEnergia
-Terreno <|-- SinNada
+Terreno <|.. ConMoho
+Terreno <|... ConEnergia
+Terreno <|.. SinNada
 
 ConRecurso --> Recurso
 Recurso <|-- Volcan

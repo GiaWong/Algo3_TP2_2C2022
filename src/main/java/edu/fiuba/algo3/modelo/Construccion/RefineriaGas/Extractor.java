@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.Recursos.GasVespeno;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.Unidades.Zangano;
 
-public class Extractor extends Construccion{
+public class Extractor implements RefineriaGas{
 
     private final boolean contieneGas;
     private  int cantidadGas=0;

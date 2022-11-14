@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Construccion.ConstruccionesConRadio;
 
 
-public class Pilon {
+public class Pilon implements ConstruccionConRadio {
 
 }

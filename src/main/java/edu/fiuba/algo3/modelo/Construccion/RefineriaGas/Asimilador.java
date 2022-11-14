@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Construccion.ConstruccionesConRadio.Alcance;
 import edu.fiuba.algo3.modelo.Recursos.GasVespeno;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 
-public class  Asimilador extends Construccion {
+public class  Asimilador implements RefineriaGas {
 
     private boolean tieneGas = false;
     private int cantidadGas=0;
