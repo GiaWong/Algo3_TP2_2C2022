@@ -77,9 +77,9 @@ class ConstruccionProtoss {
     + setConstruccion()
 }
 
-class Edificios {
-    - tiempoConstruccion
-    - vida
+interface Construccion {
+    +{abstract}construir():void
+
 }
 
 interface RefineriaGas {
@@ -98,33 +98,58 @@ interface ConstruccionNormal {
     +metodo()
     }
 
-class Extractor {}
+class Extractor {
+    - tiempoConstruccion
+    - vida
+}
 
 class Asimilador {
+    - tiempoConstruccion
+    - vida
     - escudo
 }
 
 class NexoMineral {
+    - tiempoConstruccion
+    - vida
     - escudo
 }
 
-class Criadero {}
+class Criadero {
+    - tiempoConstruccion
+    - vida
+}
 
 class Pilon {
+    - tiempoConstruccion
+    - vida
     - escudo
 }
 
-class Espiral {}
+class Espiral {
+    - tiempoConstruccion
+    - vida
+}
 
-class ReservaProduccion {}
+class ReservaProduccion {
+    - tiempoConstruccion
+    - vida
+}
 
-class Guarida {}
+class Guarida {
+    - tiempoConstruccion
+    - vida
+}
 
 class PuertoEscalar {
+    - tiempoConstruccion
+    - vida
     - escudo
 }
 
 class Acceso {
+    - tiempoConstruccion
+    - vida
     - escudo
 }
 
@@ -212,22 +237,22 @@ Unidad <|-- UnidadProtoss
 
 Zerg "0" --> "*" ConstruccionZerg
 Protoss "0" --> "*" ConstruccionProtoss
-ConstruccionZerg --> Edificios
-ConstruccionProtoss --> Edificios
-Edificios ..|> RefineriaGas
-Edificios ..|> RefineriaMineral
-Edificios ..|> ConstruccionConRadio
-Edificios ..|> ConstruccionNormal
-RefineriaGas <-- Extractor
-RefineriaGas <-- Asimilador
-RefineriaMineral <-- NexoMineral
-ConstruccionConRadio <-- Criadero
-ConstruccionConRadio <-- Pilon
-ConstruccionNormal <-- Espiral
-ConstruccionNormal <-- ReservaProduccion
-ConstruccionNormal <-- Guarida
-ConstruccionNormal <-- PuertoEscalar
-ConstruccionNormal <-- Acceso
+ConstruccionZerg --> Construccion
+ConstruccionProtoss --> Construccion
+Construccion <|.. RefineriaGas
+Construccion <|.. RefineriaMineral
+Construccion <|.. ConstruccionConRadio
+Construccion <|.. ConstruccionNormal
+RefineriaGas <|.. Extractor
+RefineriaGas <|.. Asimilador
+RefineriaMineral <|.. NexoMineral
+ConstruccionConRadio <|.. Criadero
+ConstruccionConRadio <|.. Pilon
+ConstruccionNormal <|.. Espiral
+ConstruccionNormal <|.. ReservaProduccion
+ConstruccionNormal <|.. Guarida
+ConstruccionNormal <|.. PuertoEscalar
+ConstruccionNormal <|.. Acceso
 
 Casilla "*" <-* Mapa
 Terreno <-* Casilla
