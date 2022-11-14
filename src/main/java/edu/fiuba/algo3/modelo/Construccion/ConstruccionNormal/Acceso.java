@@ -9,6 +9,11 @@ public  class Acceso implements ConstruccionNormal {
     }
 
     @Override
+    public boolean estaDisponible() {
+        return false;
+    }
+
+    @Override
     public void evolucionar() {
 
     }

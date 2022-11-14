@@ -77,7 +77,7 @@ interface Construccion {
 interface Refineria {
     + {abstract}recolectar()
 }
-class Refineria
+interface Refineria
 note left : Pueden llegar a haber 2 tipos de refinerias (Gas y Mineral)
 
 

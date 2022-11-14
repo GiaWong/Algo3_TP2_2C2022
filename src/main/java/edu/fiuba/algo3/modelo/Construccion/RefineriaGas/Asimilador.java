@@ -11,4 +11,9 @@ public class  Asimilador implements Refineria {
     public void avanzarTurno() {
 
     }
+
+    @Override
+    public boolean estaDisponible() {
+        return false;
+    }
 }

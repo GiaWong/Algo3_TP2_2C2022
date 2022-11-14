@@ -8,6 +8,11 @@ public class PuertoEstelar implements ConstruccionNormal{
     }
 
     @Override
+    public boolean estaDisponible() {
+        return false;
+    }
+
+    @Override
     public void evolucionar() {
 
     }

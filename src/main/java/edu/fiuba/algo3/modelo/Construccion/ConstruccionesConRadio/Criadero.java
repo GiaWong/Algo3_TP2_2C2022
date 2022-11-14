@@ -16,6 +16,7 @@ public class Criadero implements ConstruccionNormal {
     }
     public void avanzarTurno(){
         if(larvas<3){larvas++;}
+        tiempoConstruccion--;
 
     }
 
@@ -23,4 +24,7 @@ public class Criadero implements ConstruccionNormal {
         return larvas;
     }
 
+    public boolean estaDisponible() {
+        return tiempoConstruccion<=0;
+    }
 }

@@ -8,5 +8,6 @@ public  interface Construccion {
     //private int costeGasVespeno;
 
     public abstract void avanzarTurno();
+    public abstract boolean estaDisponible();
 
 }

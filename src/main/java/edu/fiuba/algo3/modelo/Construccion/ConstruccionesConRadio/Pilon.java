@@ -9,6 +9,11 @@ public class Pilon implements ConstruccionConRadio {
     }
 
     @Override
+    public boolean estaDisponible() {
+        return false;
+    }
+
+    @Override
     public void ampliarRadio() {
 
     }
