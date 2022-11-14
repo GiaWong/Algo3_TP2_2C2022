@@ -77,7 +77,8 @@ class ConstruccionProtoss {
     + setConstruccion()
 }
 
-class Construccion {
+class Edificios {
+    - tiempoConstruccion
     - vida
 }
 
@@ -89,9 +90,13 @@ interface RefineriaMineral {
     + recolectar()
 }
 
-interface ConstruccionConRadio {}
+interface ConstruccionConRadio {
+    +ampliarRadio()
+}
 
-interface ConstruccionNormal {}
+interface ConstruccionNormal {
+    +metodo()
+    }
 
 class Extractor {}
 
@@ -184,7 +189,12 @@ class NodoMineral {
     + recolectar()
 }
 
-class Turno {}
+class Turno {
+
+   +avanzarTurno(Jugador)
+   +jugar(Jugador)
+
+   }
 
 
 
@@ -202,12 +212,12 @@ Unidad <|-- UnidadProtoss
 
 Zerg "0" --> "*" ConstruccionZerg
 Protoss "0" --> "*" ConstruccionProtoss
-ConstruccionZerg --> Construccion
-ConstruccionProtoss --> Construccion
-Construccion ..|> RefineriaGas
-Construccion ..|> RefineriaMineral
-Construccion ..|> ConstruccionConRadio
-Construccion ..|> ConstruccionNormal
+ConstruccionZerg --> Edificios
+ConstruccionProtoss --> Edificios
+Edificios ..|> RefineriaGas
+Edificios ..|> RefineriaMineral
+Edificios ..|> ConstruccionConRadio
+Edificios ..|> ConstruccionNormal
 RefineriaGas <-- Extractor
 RefineriaGas <-- Asimilador
 RefineriaMineral <-- NexoMineral

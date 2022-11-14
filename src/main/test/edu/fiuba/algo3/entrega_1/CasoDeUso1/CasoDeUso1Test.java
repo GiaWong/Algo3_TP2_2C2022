@@ -2,12 +2,22 @@ package edu.fiuba.algo3.entrega_1.CasoDeUso1;
 
 import edu.fiuba.algo3.modelo.Construccion.ConstruccionesConRadio.Criadero;
 
+import edu.fiuba.algo3.modelo.Turno.Turno;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso1Test {
-    /*
+
+    @Test
+    public void CriaderoSeIniciaCon3LarvasYUnaEvolucionaAUnZangano() {
+        Turno turno = new Turno();
+        turno.pasarTurno();
+
+
+    }
+
+
     @Test
     public void CriaderoSeIniciaCon3LarvasYUnaEvolucionaAUnZangano() {
 
