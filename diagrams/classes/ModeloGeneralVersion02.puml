@@ -1,0 +1,237 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Juego {
+    - partidaActual
+    - partidasGuardadas
+
+    + cargarPartida()
+    + jugar()
+}
+
+class Partida {
+    - jugadorUno
+    - jugadorDos
+    - mapa
+    - turno
+
+    + asignarNombre(Jugador)
+    + asignarColor(Jugador)
+    + asignarRaza(Jugador)
+    + jugar()
+    + . . .  ()
+}
+
+class Jugador {
+    - nombre
+    - color
+    - raza
+    - bancoDeRecursos?
+
+    + contruir()
+    + atacar()
+    + recolectar()
+    + evolucionar()
+}
+
+abstract class Raza {
+    - unidades
+    - construcciones
+    - bandoDeRecursos?
+
+    + agregarConstruccion()
+    + recolectar()
+    + evolucionar()
+}
+
+class Zerg {
+    + agregarConstruccion()
+    + recolectar()
+    + evolucionar()
+}
+
+class Protoss {
+    + agregarConstruccion()
+    + recolectar()
+    + evolucionar()
+}
+
+abstract class Unidad {
+    - vida
+    - ...
+
+    + atacar()
+}
+
+class UnidadZerg {}
+
+class UnidadProtoss {}
+
+class ConstruccionZerg {
+    - construccion
+    + setConstruccion()
+}
+
+class ConstruccionProtoss {
+    - construccion
+    + setConstruccion()
+}
+
+class Construccion {
+    - vida
+}
+
+interface RefineriaGas {
+    + recolectar()
+}
+
+interface RefineriaMineral {
+    + recolectar()
+}
+
+interface ConstruccionConRadio {}
+
+interface ConstruccionNormal {}
+
+class Extractor {}
+
+class Asimilador {
+    - escudo
+}
+
+class NexoMineral {
+    - escudo
+}
+
+class Criadero {}
+
+class Pilon {
+    - escudo
+}
+
+class Espiral {}
+
+class ReservaProduccion {}
+
+class Guarida {}
+
+class PuertoEscalar {
+    - escudo
+}
+
+class Acceso {
+    - escudo
+}
+
+class Mapa {
+    - filas
+    - columnas
+
+    + agregarUnidad()
+    + agregarConstruccion()
+}
+
+abstract class Casilla {
+    - unidad
+    - terreno
+    - construccion
+
+    + agregarUnidad()
+    + agregarConstruccion()
+    + setTerrreno()
+}
+
+class Vacia {
+    + agregarUnidad()
+    + agregarConstruccion()
+    + setTerreno()
+}
+
+class ConRecurso {
+    - recurso
+
+    + agregarUnidad()
+    + agregarConstruccion()
+    + setTerreno()
+}
+
+interface Terreno {
+    + agregarConstruccion()
+}
+
+class ConMoho {
+    + agregarConstruccion()
+}
+
+class ConEnergia {
+    + agregarConstruccion()
+}
+
+class SinNada {
+    + agregarConstruccion()
+}
+
+abstract class Recurso {
+    - cantidad
+    + recolectar()
+}
+
+class Volcan {
+    + recolectar()
+}
+
+class NodoMineral {
+    + recolectar()
+}
+
+class Turno {}
+
+
+
+Juego *--> Partida
+Partida "2" *-> Jugador
+Mapa <-* Partida
+Partida *--> Turno
+
+Jugador *-> Raza
+Raza <|-- Zerg
+Raza <|-- Protoss
+Raza -> Unidad
+Unidad <|-- UnidadZerg
+Unidad <|-- UnidadProtoss
+
+Zerg "0" --> "*" ConstruccionZerg
+Protoss "0" --> "*" ConstruccionProtoss
+ConstruccionZerg --> Construccion
+ConstruccionProtoss --> Construccion
+Construccion ..|> RefineriaGas
+Construccion ..|> RefineriaMineral
+Construccion ..|> ConstruccionConRadio
+Construccion ..|> ConstruccionNormal
+RefineriaGas <-- Extractor
+RefineriaGas <-- Asimilador
+RefineriaMineral <-- NexoMineral
+ConstruccionConRadio <-- Criadero
+ConstruccionConRadio <-- Pilon
+ConstruccionNormal <-- Espiral
+ConstruccionNormal <-- ReservaProduccion
+ConstruccionNormal <-- Guarida
+ConstruccionNormal <-- PuertoEscalar
+ConstruccionNormal <-- Acceso
+
+Casilla "*" <-* Mapa
+Terreno <-* Casilla
+Casilla <|-- Vacia
+Casilla <|-- ConRecurso
+Terreno <|-- ConMoho
+Terreno <|--- ConEnergia
+Terreno <|-- SinNada
+
+ConRecurso --> Recurso
+Recurso <|-- Volcan
+Recurso <|-- NodoMineral
+
+
+
+
+@enduml
