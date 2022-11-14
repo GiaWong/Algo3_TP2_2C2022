@@ -26,7 +26,7 @@ class Jugador {
     - nombre
     - color
     - raza
-    - bancoDeRecursos?
+
 
     + contruir()
     + atacar()
@@ -37,7 +37,7 @@ class Jugador {
 abstract class Raza {
     - unidades
     - construcciones
-    - bandoDeRecursos?
+    - bandoDeRecursos
 
     + agregarConstruccion()
     + recolectar()
@@ -68,86 +68,89 @@ class UnidadZerg {}
 class UnidadProtoss {}
 
 
-interface Construccion {
+abstract Construccion {
+    - tiempoConstruccion
+    - vida
     +{abstract}construir():void
 
 }
 
 interface Refineria {
-    + recolectar()
+    + {abstract}recolectar()
 }
 
 
 
 interface ConstruccionConRadio {
-    +ampliarRadio()
+    +{abstract}ampliarRadio()
 }
 
 interface ConstruccionNormal {
 
-    +evolucionar()
+    +{abstract}evolucionar()
     }
 
 class Extractor {
-    - tiempoConstruccion
-    - vida
+    +recolectar()
+    +construir()
 }
 
 class Asimilador {
-    - tiempoConstruccion
-    - vida
+    +recolectar()
+    +construir()
     - escudo
 }
 
 class NexoMineral {
-    - tiempoConstruccion
-    - vida
+    +recolectar()
+    +construir()
     - escudo
 }
 
 class Criadero {
-    - tiempoConstruccion
-    - vida
+     +evolucionar()
+     +construir()
+     +ampliarRadio()
 }
 
 class Pilon {
-    - tiempoConstruccion
-    - vida
+    +ampliarRadio()
+    +construir()
     - escudo
 }
 
 class Espiral {
-    - tiempoConstruccion
-    - vida
+    +evolucionar()
+    +construir()
+
 }
 
 class ReservaProduccion {
-    - tiempoConstruccion
-    - vida
+     +evolucionar()
+     +construir()
 }
 
 class Guarida {
-    - tiempoConstruccion
-    - vida
+    +evolucionar()
+    +construir()
 
 }
 
 class PuertoEscalar {
-    - tiempoConstruccion
-    - vida
+    +evolucionar()
+    +construir()
     - escudo
 
 }
 
 class Acceso {
-    - tiempoConstruccion
-    - vida
+     +evolucionar()
+     +construir()
     - escudo
 }
 
 class Mapa {
-    - filas
-    - columnas
+    - mapa: [][]
 
     + agregarUnidad()
     + agregarConstruccion()
@@ -228,16 +231,30 @@ Unidad <|-right- UnidadZerg
 Unidad <|-up- UnidadProtoss
 
 Raza-->Construccion
-Construccion <|.. Refineria
 
-Construccion <|.. ConstruccionConRadio
-Construccion <|.. ConstruccionNormal
+
+
+Construccion <|-- Refineria
+Construccion <|-- ConstruccionConRadio
+Construccion <|-- ConstruccionNormal
+
+
+
 Refineria <|.. Extractor
 Refineria <|.. Asimilador
 Refineria <|.. NexoMineral
+
+
+
+
 ConstruccionConRadio <|.. Criadero
-ConstruccionNormal <|.. Criadero
 ConstruccionConRadio <|.. Pilon
+
+
+
+
+
+ConstruccionNormal <|.. Criadero
 ConstruccionNormal <|.. Espiral
 ConstruccionNormal <|.. ReservaProduccion
 ConstruccionNormal <|.. Guarida
