@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso4;
 
 import edu.fiuba.algo3.modelo.Construccion.ConstruccionesConRadio.Pilon;
-import edu.fiuba.algo3.modelo.Recursos.GasVespeno;
 import edu.fiuba.algo3.modelo.Construccion.RefineriaGas.Asimilador;
 import edu.fiuba.algo3.modelo.Construccion.RefineriaGas.Extractor;
 import edu.fiuba.algo3.modelo.Turno.Turno;

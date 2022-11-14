@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.modelo.Construccion.RefineriaMineral;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Imperio.Exceptions.ErrorRecursoAgotado;
-import java.io.*;
+import edu.fiuba.algo3.modelo.Construccion.RefineriaGas.Refineria;
 
-public class NexoMineral extends Construccion {
+public class NexoMineral implements Refineria {
     private  final int TIEMPO_CONSTRUCCION = 4;
     private int mineralExtraido;
     private int turnos;
@@ -25,9 +24,6 @@ public class NexoMineral extends Construccion {
         if(escudo<250){
             escudo=250;
         }
-        for(int i = 0; i < j; i++){
-            this.recolectar();
-        }
         this.turnos += j;
     }
 
@@ -44,17 +40,8 @@ public class NexoMineral extends Construccion {
         return true;
     }
 
-    public boolean estaOperativo() {
-        return casilla.energizado();
-    }
 
-    public void recibeDanio(int danio) {
-        escudo-=danio;
-        if(escudo<0){
-            vida +=escudo;
-            escudo=0;
-        }
-    }
+
 
     public int obtenerEscudo() {
         return 0;
@@ -64,16 +51,14 @@ public class NexoMineral extends Construccion {
         return 0;
     }
 
-    public void recolectar() {
 
-        if(mineralExtraido>=2000){
-            throw new ErrorRecursoAgotado();
-        }
-        mineralExtraido +=  MINERAL_POR_TURNO;
-
-    }
 
     public int obtenerMineralRecolectado() {
         return 0;
+    }
+
+    @Override
+    public void avanzarTurno() {
+
     }
 }

@@ -68,17 +68,17 @@ class UnidadZerg {}
 class UnidadProtoss {}
 
 
-abstract Construccion {
-    - tiempoConstruccion
-    - vida
+interface Construccion {
     +{abstract}construir():void
+    +{abstract}avanzarTurno():void
 
 }
 
 interface Refineria {
     + {abstract}recolectar()
 }
-
+class Refineria
+note left : Pueden llegar a haber 2 tipos de refinerias (Gas y Mineral)
 
 
 interface ConstruccionConRadio {
@@ -91,52 +91,70 @@ interface ConstruccionNormal {
     }
 
 class Extractor {
+    - tiempoConstruccion
+    - vida
     +recolectar()
     +construir()
 }
 
 class Asimilador {
+    - tiempoConstruccion
+    - vida
     +recolectar()
     +construir()
     - escudo
 }
 
 class NexoMineral {
+    - tiempoConstruccion
+    - vida
     +recolectar()
     +construir()
     - escudo
 }
 
 class Criadero {
+    - tiempoConstruccion
+    - vida
      +evolucionar()
      +construir()
      +ampliarRadio()
 }
 
 class Pilon {
+    - tiempoConstruccion
+    - vida
     +ampliarRadio()
     +construir()
     - escudo
 }
 
 class Espiral {
+    - tiempoConstruccion
+    - vida
     +evolucionar()
     +construir()
 
 }
 
 class ReservaProduccion {
+    - tiempoConstruccion
+    - vida
      +evolucionar()
      +construir()
 }
 
 class Guarida {
+    - tiempoConstruccion
+    - vida
     +evolucionar()
     +construir()
 
 }
 
 class PuertoEscalar {
+    - tiempoConstruccion
+    - vida
     +evolucionar()
     +construir()
     - escudo
@@ -144,6 +162,8 @@ class PuertoEscalar {
 }
 
 class Acceso {
+    - tiempoConstruccion
+    - vida
      +evolucionar()
      +construir()
     - escudo
@@ -237,9 +257,9 @@ Raza-->Construccion
 
 
 
-Construccion <|-- Refineria
-Construccion <|-- ConstruccionConRadio
-Construccion <|-- ConstruccionNormal
+Construccion <|.. Refineria
+Construccion <|.. ConstruccionConRadio
+Construccion <|.. ConstruccionNormal
 
 
 

@@ -17,4 +17,10 @@ public class Jugador {
     public void setRaza(Raza unaRaza){
         raza = unaRaza;
     }
+
+    public void avanzarturno() {
+    }
+
+    public void jugar() {
+    }
 }

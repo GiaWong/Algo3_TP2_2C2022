@@ -2,7 +2,6 @@ package edu.fiuba.algo3.entrega_1.CasoDeUso7;
 
 
 import edu.fiuba.algo3.modelo.Construccion.RefineriaMineral.NexoMineral;
-import edu.fiuba.algo3.modelo.Recursos.Mineral;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
