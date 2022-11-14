@@ -4,32 +4,23 @@ import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.RefineriaGas.Refineria;
 
 public class NexoMineral implements Refineria {
-    private  final int TIEMPO_CONSTRUCCION = 4;
+    private int vida =250 ;
+    private int tiempoConstruccion =4 ;
     private int mineralExtraido;
-    private int turnos;
+
 
     private final int MINERAL_POR_TURNO = 20;
     private int escudo = 250;
 
     public NexoMineral() {
-        this.turnos = 0;
         this.mineralExtraido =0;
 
     }
 
 
 
-    public void avanzarTurno(int j) {
-
-        if(escudo<250){
-            escudo=250;
-        }
-        this.turnos += j;
-    }
-
-
     public boolean estaDisponible() {
-        return (this.turnos == TIEMPO_CONSTRUCCION);
+        return (tiempoConstruccion<=0);
     }
 
     public boolean sePuedeConstruir(boolean hayVolcan, boolean hayNodoMineral) {
@@ -59,6 +50,7 @@ public class NexoMineral implements Refineria {
 
     @Override
     public void avanzarTurno() {
+        tiempoConstruccion--;
 
     }
 }
