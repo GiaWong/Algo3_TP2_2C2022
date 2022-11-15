@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
 
-import edu.fiuba.algo3.modelo.Recursos.Volcan;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 
 public class  Asimilador implements RefineriaGas {
 
@@ -33,6 +33,9 @@ public class  Asimilador implements RefineriaGas {
 
     @Override
     public int recolectar(Volcan volcan) {
+        if (this.estaDisponible()) {
+            return volcan.recolectar(20);
+        }
         return 0;
     }
 }

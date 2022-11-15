@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso5.ConMoho;
 
+import edu.fiuba.algo3.modelo.Construccion.ReservaProduccion;
+import edu.fiuba.algo3.modelo.Mapa.Casilla;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Vacio;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,16 +11,20 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ConstruccionConMohoTest {
 
-    /*
+
     @Test
     public void SeConstruyeReservaProduccionFueraDelRangoMohoYSeLanzaError() {
 
-        Mapa mapa = new Mapa();
-        Moho moho = new Moho(1,2,mapa);
+        Casilla casilla = new Casilla();
+        casilla.setTerreno(new Vacio());
+        casilla.setRecurso(new Vacio());
         ReservaProduccion reserva = new ReservaProduccion();
-        assertThrows(ErrorNoEsPosibleConstruir.class,()->mapa.agregar(reserva,1,9));
-    }
 
+        casilla.agregarConstruccion(reserva);
+
+
+    }
+    /*
     @Test
     public void SeConstruyeGuaridaFueraDelRangoMohoYSeLanzaError() {
 

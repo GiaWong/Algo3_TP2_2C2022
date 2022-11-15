@@ -2,10 +2,11 @@ package edu.fiuba.algo3.modelo.Mapa.PaqueteCasilla;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
+import edu.fiuba.algo3.modelo.Mapa.Casilla;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
-import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 
-public class ConNodoMineral extends Casilla{
+public class ConNodoMineral extends Casilla {
 
     private NodoMineral nodo;
 

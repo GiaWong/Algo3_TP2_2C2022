@@ -242,64 +242,48 @@ class Mapa {
     + agregarConstruccion()
 }
 
-abstract class Casilla {
+class Casilla {
     - unidad
+    - recurso
     - terreno
     - construccion
 
     + agregarUnidad()
     + agregarConstruccion()
     + setTerrreno()
+    + setRecurso()
 }
 
-class Vacia {
+class Vacio {
     + agregarUnidad()
-    + agregarConstruccion()
-    + setTerreno()
-}
-
-class ConVolcan {
-    - volcan
-
-    + agregarUnidad()
-    + agregarConstruccion()
-    + setTerreno()
-}
-
-class ConNodoMineral {
-    - nodo
-
-    + agregarUnidad()
-    + agregarConstruccion()
+    + esPosibleConstruir(construccion)
 }
 
 interface Terreno {
-    + agregarConstruccion()
+    + esPosibleConstruir(construccion)
 }
 
 interface Terreno
 note left: Se aplica patrón Strategy
 
 class ConMoho {
-    + agregarConstruccion()
+    + esPosibleConstruir(construccion)
 }
 
 class ConEnergia {
-    + agregarConstruccion()
-}
-
-class SinNada {
-    + agregarConstruccion()
+    + esPosibleConstruir(construccion)
 }
 
 class Volcan {
     - cantidad
     + recolectar() : int
+    + esPosibleConstruir(construccion)
 }
 
 class NodoMineral {
     - cantidad
     + recolectar() : int
+    + esPosibleConstruir(construccion)
 }
 
 class Turno {
@@ -308,6 +292,10 @@ class Turno {
    +jugar(Jugador)
 
    }
+
+interface Recurso {
+    + esPosibleConstruir(construccion)
+}
 
 
 
@@ -365,16 +353,16 @@ ConstruccionNormal <|.. Acceso
 
 Casilla "*" <-* Mapa
 Terreno <-* Casilla
-Casilla <|-- Vacia
-Casilla <|-- ConVolcan
-Casilla <|-- ConNodoMineral
+
+Casilla *--> Recurso
+Recurso <|.. Volcan
+Recurso <|.. NodoMineral
+Recurso <|.. Vacio
+
 Terreno <|.. ConMoho
 Terreno <|... ConEnergia
-Terreno <|.. SinNada
+Terreno <|.. Vacio
 
-
-ConVolcan --> Volcan
-ConNodoMineral --> NodoMineral
 
 
 
