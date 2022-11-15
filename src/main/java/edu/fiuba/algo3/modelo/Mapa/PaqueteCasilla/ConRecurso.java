@@ -8,6 +8,10 @@ public class ConRecurso extends Casilla{
 
     private Recurso recurso;
 
+    public void setRecurso(Recurso unRecurso){
+        recurso = unRecurso;
+    }
+
     @Override
     public void agregarConstruccion(Construccion c) {
         //if ( verifica que es de tipo Refineria)

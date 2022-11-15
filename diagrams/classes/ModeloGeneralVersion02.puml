@@ -219,16 +219,17 @@ class SinNada {
     + agregarConstruccion()
 }
 
-abstract class Recurso {
-    - cantidad
+interface Recurso {
     + recolectar()
 }
 
 class Volcan {
+    - cantidad
     + recolectar()
 }
 
 class NodoMineral {
+    - cantidad
     + recolectar()
 }
 
@@ -288,8 +289,8 @@ Terreno <|.. SinNada
 
 
 ConRecurso --> Recurso
-Recurso <|-- Volcan
-Recurso <|-- NodoMineral
+Recurso <-- Volcan
+Recurso <-- NodoMineral
 
 
 

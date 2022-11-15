@@ -1,9 +1,7 @@
 package edu.fiuba.algo3.modelo.Recursos;
 
-public abstract class Recurso {
+public interface Recurso {
 
-    protected int cantidad;
-
-    public abstract void extraer(int cant);
+    void extraer(int cant);
 
 }
