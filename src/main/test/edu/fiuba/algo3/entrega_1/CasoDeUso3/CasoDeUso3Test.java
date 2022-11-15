@@ -1,32 +1,23 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso3;
 
+import edu.fiuba.algo3.modelo.Mapa.PaqueteCasilla.Casilla;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteCasilla.ConRecurso;
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso3Test {
 
-    /*
-    @Test
-    public void AsimiladorTieneGasVespeno() {
 
-        boolean esperado = true;
-        Asimilador asimilador = new Asimilador(new GasVespeno());
-        boolean resultado = asimilador.contieneGas();
-
-        assertEquals(resultado, esperado);
-    }
 
     @Test
     public void SeConstruyeUnAsimiladorSobreGasVespeno() {
-
-        boolean esperado = true;
-        Asimilador asimilador = new Asimilador(new GasVespeno());
-        asimilador.empezarAConstruirSegun(new Pilon(3),new Turno(6));
-        boolean resultado = asimilador.estaDisponible();
-
-        assertEquals(resultado, esperado);
+        Casilla conRecurso = new ConRecurso();
+        
 
 
     }
+    /*
     @Test
     public void ExtractorTieneGasVespeno() {
 
