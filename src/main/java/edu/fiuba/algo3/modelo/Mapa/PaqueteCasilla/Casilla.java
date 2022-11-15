@@ -8,6 +8,10 @@ public abstract class Casilla {
     protected Terreno terreno;
     protected Construccion construccion;
 
+    public boolean hayConstruccion(){
+        return (construccion!= null);
+    }
+
     public abstract void agregarConstruccion(Construccion c);
     public abstract void setTerreno(Terreno t);
 }
