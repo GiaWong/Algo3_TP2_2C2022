@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.architecture.CasoDeUso5.ConMoho;
+package edu.fiuba.algo3.entrega_1.CasoDeUso5.ConMoho;
 
 import edu.fiuba.algo3.modelo.Construccion.Espiral;
 import edu.fiuba.algo3.modelo.Construccion.Guarida;
