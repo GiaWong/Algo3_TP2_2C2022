@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
+
 public class Zangano implements Unidad{
     private int cantidad;
 
@@ -12,8 +14,12 @@ public class Zangano implements Unidad{
         return 10;
     }
 
+    public int recolectar(NodoMineral nodo) {
+        return nodo.recolectar(10);
+    }
     @Override
     public void construir() {
+
 
     }
 }

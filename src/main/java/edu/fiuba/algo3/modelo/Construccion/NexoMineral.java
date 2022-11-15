@@ -57,6 +57,9 @@ public class NexoMineral implements RefineriaMineral {
 
     @Override
     public int recolectar(NodoMineral nodo) {
-        return 0;
+       if (this.estaDisponible()) {
+            return nodo.recolectar(20);
+        }
+       return 0;
     }
 }

@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
 
+import javax.security.auth.login.CredentialException;
+
 public class NodoMineral implements Recurso{
 
     private int cantidad = 2000;
