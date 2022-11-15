@@ -1,4 +1,8 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
-public interface RefineriaMineral {
+import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
+
+public interface RefineriaMineral extends Construccion{
+
+    int recolectar(NodoMineral nodo);
 }

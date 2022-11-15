@@ -1,11 +1,22 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
 
+import edu.fiuba.algo3.modelo.Recursos.Volcan;
+import edu.fiuba.algo3.modelo.Unidades.Zangano;
 
-public class Extractor implements Refineria{
+import java.util.List;
+
+public class Extractor implements RefineriaGas{
+
+    private List<Zangano> zanganos;
     private int tiempoConstruccion = 6;
     private int vida =750 ;
 
+    public void agregar(Zangano unZangano){
+        if (this.estaDisponible()){
+            zanganos.add(unZangano);
+        }
+    }
 
     @Override
     public void construir() {
@@ -29,7 +40,7 @@ public class Extractor implements Refineria{
     }
 
     @Override
-    public void recolectar() {
-
+    public int recolectar(Volcan volcan) {
+        return volcan.recolectar(zanganos.size() * 10);
     }
 }

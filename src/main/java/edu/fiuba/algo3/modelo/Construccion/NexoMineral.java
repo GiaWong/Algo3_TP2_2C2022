@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
-public class NexoMineral implements Refineria {
+import edu.fiuba.algo3.modelo.Recursos.NodoMineral;
+
+public class NexoMineral implements RefineriaMineral {
     private int vida =250 ;
     private int escudo = 250;
     private int tiempoConstruccion = 4 ;
@@ -54,7 +56,7 @@ public class NexoMineral implements Refineria {
     }
 
     @Override
-    public void recolectar() {
-
+    public int recolectar(NodoMineral nodo) {
+        return 0;
     }
 }

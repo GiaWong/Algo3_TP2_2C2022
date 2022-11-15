@@ -1,38 +1,40 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso4;
 
+import edu.fiuba.algo3.modelo.Construccion.Extractor;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteCasilla.Casilla;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteCasilla.ConNodoMineral;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteCasilla.ConVolcan;
+import edu.fiuba.algo3.modelo.Recursos.Volcan;
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso4Test {
-    /*
     @Test
     public void SeConstruyeUnExtractorSobreGasVespenoYAlNoTenerZanganoNoProduceGasVespeno() {
-
         int esperado = 0;
-        Extractor extractor = new Extractor(new GasVespeno());
-        Moho moho = new Moho(5);
-        extractor.empezarAConstruirSegun( moho, new Turno(6));
-
-        extractor.producirGas(new Zangano(0), new Turno(0));
-        int resultado = extractor.conProduccionDeGas(); // va a devolver la cantidad de produccion
-
+        Extractor extractor = new Extractor();
+        ConVolcan conVolcan = new ConVolcan();
+        Volcan volcan = new Volcan();
+        for (int i = 0; i < 6; i++){ //Esto lo hago porque supongo que solo se pueden meter zanganos a extractor una vez que esta construida.
+            extractor.construir();
+        }
+        //No le meto ningun zangano
+        conVolcan.agregarConstruccion(extractor);
+        int resultado = extractor.recolectar(volcan);
         assertEquals(resultado, esperado);
 
+        //Recordatorio: hay que crear las Unidades para resolver este test, para poder usar Zangano porque Extractor tiene una lista de estos.
+
     }
+
     @Test
     public void SeConstruyeUnExtractorSobreGasVespenoYCon1ZanganoProduce10GasVespeno() {
 
-        int esperado = 10;
-        Extractor extractor = new Extractor(new GasVespeno());
-        Moho moho = new Moho(5);
-        extractor.empezarAConstruirSegun( moho,new Turno(6));
-
-        extractor.producirGas(new Zangano(1), new Turno(1));
-        int resultado = extractor.conProduccionDeGas();
-
-        assertEquals(resultado, esperado);
 
 
     }
+    /*
     @Test
     public void SeConstruyeUnExtractorSobreGasVespenoYCon2ZanganoProduce20GasVespeno() {
 

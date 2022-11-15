@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-public interface Unidad {
+public interface Aire extends Unidad{
 
-    void atacar();
+
 }

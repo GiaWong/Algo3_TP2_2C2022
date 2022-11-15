@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
 
-public class  Asimilador implements Refineria {
+import edu.fiuba.algo3.modelo.Recursos.Volcan;
+
+public class  Asimilador implements RefineriaGas {
 
     private int vida = 450;
     private int escudo = 450;
@@ -30,7 +32,7 @@ public class  Asimilador implements Refineria {
     }
 
     @Override
-    public void recolectar() {
-
+    public int recolectar(Volcan volcan) {
+        return 0;
     }
 }

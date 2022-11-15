@@ -56,17 +56,81 @@ class Protoss {
     + evolucionar()
 }
 
-abstract class Unidad {
-    - vida
-    - ...
+interface Unidad {
+    + construir()
+}
+interface Unidad
+note right: Nose como segregar las interfaces, si guiarme por el ataque de cada unidad o por como se mueven en el mapa
 
-    + atacar()
+interface Tierra {
+    + ataqueTierra()
 }
 
-class UnidadZerg {}
+interface Aire {
+    + ataqueAire()
+}
 
-class UnidadProtoss {}
+class Zangano {
+    - vida
+    - tiempoConstruccion
+}
 
+class Zerling {
+    - vida
+    - tiempoConstruccion
+
+    + ataqueTierra()
+}
+
+class Hidralisco {
+    - vida
+    - tiempoConstruccion
+
+    +ataqueTierra()
+    +ataqueAire()
+}
+
+class Mutalisco {
+    - vida
+    - tiempoConstruccion
+
+    +ataqueTierra()
+    +ataqueAire()
+}
+
+class Guardian {
+    - vida
+    - tiempoConstruccion
+
+    +ataqueTierra()
+}
+
+class Zealot {
+    - vida
+    - escudo
+    - tiempoConstruccion
+
+    +ataqueTierra()
+}
+
+class Dragon {
+    - vida
+    - escudo
+    - tiempoConstruccion
+
+    +ataqueTierra()
+    +ataqueAire()
+}
+
+class Scout {
+    - vida
+    - escudo
+    - tiempoConstruccion
+
+    +ataqueTierra()
+    +ataqueAire()
+
+}
 
 interface Construccion {
     +{abstract}construir():void
@@ -74,11 +138,13 @@ interface Construccion {
 
 }
 
-interface Refineria {
-    + {abstract}recolectar()
+interface RefineriaGas {
+    + {abstract}recolectar(volcan)
 }
-interface Refineria
-note left : Pueden llegar a haber 2 tipos de refinerias (Gas y Mineral)
+
+interface RefineriaMineral {
+    + {abstract}recolectar(nodoMineral)
+}
 
 
 interface ConstruccionConRadio {
@@ -193,7 +259,7 @@ class Vacia {
 }
 
 class ConVolcan {
-    - recurso
+    - volcan
 
     + agregarUnidad()
     + agregarConstruccion()
@@ -201,7 +267,7 @@ class ConVolcan {
 }
 
 class ConNodoMineral {
-    - recurso
+    - nodo
 
     + agregarUnidad()
     + agregarConstruccion()
@@ -212,7 +278,7 @@ interface Terreno {
     + agregarConstruccion()
 }
 
-class Terreno
+interface Terreno
 note left: Se aplica patrón Strategy
 
 class ConMoho {
@@ -229,12 +295,12 @@ class SinNada {
 
 class Volcan {
     - cantidad
-    + recolectar()
+    + recolectar() : int
 }
 
 class NodoMineral {
     - cantidad
-    + recolectar()
+    + recolectar() : int
 }
 
 class Turno {
@@ -254,21 +320,36 @@ Partida *--> Turno
 Jugador *-> Raza
 Raza <|-up- Zerg
 Raza <|-up- Protoss
+
 Raza -> Unidad
-Unidad <|-right- UnidadZerg
-Unidad <|-up- UnidadProtoss
+
+Unidad <|.. Tierra
+Unidad <|.. Aire
+Unidad <|.. Zangano
+Tierra <|.. Zerling
+Tierra <|.. Hidralisco
+Tierra <|.. Mutalisco
+Tierra <|.. Guardian
+Tierra <|.. Zealot
+Tierra <|.. Dragon
+Tierra <|.. Scout
+Aire <|.. Hidralisco
+Aire <|.. Mutalisco
+Aire <|.. Dragon
+Aire <|.. Scout
 
 Raza-->Construccion
 
 
-Construccion <|.. Refineria
+Construccion <|.. RefineriaGas
+Construccion <|.. RefineriaMineral
 Construccion <|.. ConstruccionConRadio
 Construccion <|.. ConstruccionNormal
 
 
-Refineria <|.. Extractor
-Refineria <|.. Asimilador
-Refineria <|.. NexoMineral
+RefineriaGas <|.. Extractor
+RefineriaGas <|.. Asimilador
+RefineriaMineral <|.. NexoMineral
 
 
 ConstruccionConRadio <|.. Criadero
