@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.Construccion.ConstruccionNormal;
+package edu.fiuba.algo3.modelo.Construccion;
 
 public class Guarida implements ConstruccionNormal{
 
@@ -7,9 +7,17 @@ public class Guarida implements ConstruccionNormal{
 
 
     @Override
-    public void avanzarTurno() {
+    public void construir() {
         tiempoConstruccion--;
+    }
 
+    @Override
+    public void quitarVida(int cant) {
+        vida -= cant;
+    }
+
+    @Override
+    public void avanzarTurno() {
 
     }
 

@@ -152,7 +152,7 @@ class Guarida {
 
 }
 
-class PuertoEscalar {
+class PuertoEstelar {
     - tiempoConstruccion
     - vida
     +evolucionar()
@@ -241,7 +241,7 @@ class Turno {
 
 
 
-Juego *--> Partida
+Juego *---> Partida
 Partida "2" *-> Jugador
 Mapa <-* Partida
 Partida *--> Turno
@@ -256,11 +256,9 @@ Unidad <|-up- UnidadProtoss
 Raza-->Construccion
 
 
-
 Construccion <|.. Refineria
 Construccion <|.. ConstruccionConRadio
 Construccion <|.. ConstruccionNormal
-
 
 
 Refineria <|.. Extractor
@@ -268,21 +266,17 @@ Refineria <|.. Asimilador
 Refineria <|.. NexoMineral
 
 
-
-
 ConstruccionConRadio <|.. Criadero
 ConstruccionConRadio <|.. Pilon
-
-
-
 
 
 ConstruccionNormal <|.. Criadero
 ConstruccionNormal <|.. Espiral
 ConstruccionNormal <|.. ReservaProduccion
 ConstruccionNormal <|.. Guarida
-ConstruccionNormal <|.. PuertoEscalar
+ConstruccionNormal <|.. PuertoEstelar
 ConstruccionNormal <|.. Acceso
+
 
 Casilla "*" <-* Mapa
 Terreno <-* Casilla
@@ -291,6 +285,7 @@ Casilla <|-- ConRecurso
 Terreno <|.. ConMoho
 Terreno <|... ConEnergia
 Terreno <|.. SinNada
+
 
 ConRecurso --> Recurso
 Recurso <|-- Volcan

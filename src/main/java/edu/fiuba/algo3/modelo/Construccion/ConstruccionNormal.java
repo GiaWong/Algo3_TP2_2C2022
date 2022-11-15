@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.Construccion.ConstruccionNormal;
+package edu.fiuba.algo3.modelo.Construccion;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 

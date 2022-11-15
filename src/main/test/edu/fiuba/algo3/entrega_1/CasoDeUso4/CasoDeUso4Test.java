@@ -1,12 +1,5 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso4;
 
-import edu.fiuba.algo3.modelo.Construccion.ConstruccionesConRadio.Pilon;
-import edu.fiuba.algo3.modelo.Construccion.RefineriaGas.Asimilador;
-import edu.fiuba.algo3.modelo.Construccion.RefineriaGas.Extractor;
-import edu.fiuba.algo3.modelo.Turno.Turno;
-import edu.fiuba.algo3.modelo.Unidades.Zangano;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso4Test {

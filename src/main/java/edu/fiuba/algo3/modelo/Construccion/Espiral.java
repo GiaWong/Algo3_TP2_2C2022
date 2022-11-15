@@ -1,14 +1,22 @@
-package edu.fiuba.algo3.modelo.Construccion.ConstruccionNormal;
+package edu.fiuba.algo3.modelo.Construccion;
 
 public class Espiral implements ConstruccionNormal{
     private int tiempoConstruccion = 10;
-    private int vida =1300 ;
+    private int vida = 1300 ;
 
 
     @Override
-    public void avanzarTurno() {
+    public void construir() {
         tiempoConstruccion--;
+    }
 
+    @Override
+    public void quitarVida(int cant) {
+        vida -= cant;
+    }
+
+    @Override
+    public void avanzarTurno() {
 
     }
 

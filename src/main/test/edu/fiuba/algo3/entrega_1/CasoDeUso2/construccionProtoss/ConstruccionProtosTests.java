@@ -1,11 +1,10 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso2.construccionProtoss;
 
-import edu.fiuba.algo3.modelo.Construccion.ConstruccionesConRadio.Criadero;
-import edu.fiuba.algo3.modelo.Construccion.RefineriaGas.Asimilador;
-import edu.fiuba.algo3.modelo.Construccion.ConstruccionNormal.Acceso;
-import edu.fiuba.algo3.modelo.Construccion.RefineriaMineral.NexoMineral;
-import edu.fiuba.algo3.modelo.Construccion.ConstruccionesConRadio.Pilon;
-import edu.fiuba.algo3.modelo.Construccion.ConstruccionNormal.PuertoEstelar;
+import edu.fiuba.algo3.modelo.Construccion.Asimilador;
+import edu.fiuba.algo3.modelo.Construccion.Acceso;
+import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
+import edu.fiuba.algo3.modelo.Construccion.Pilon;
+import edu.fiuba.algo3.modelo.Construccion.PuertoEstelar;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,9 +15,9 @@ public class ConstruccionProtosTests {
     public void SeArrancaAConstruirNexoMineralYDeberiaEstarInactivoPorFaltaDeTurnos() {
         boolean esperado = false;
         NexoMineral nexo = new NexoMineral();
-        nexo.avanzarTurno();
-        esperado= nexo.estaDisponible();
-        assertEquals(false,esperado);
+        nexo.construir();
+        boolean resultado = nexo.estaDisponible();
+        assertEquals(resultado,esperado);
     }
 
     @Test
@@ -28,11 +27,10 @@ public class ConstruccionProtosTests {
         boolean esperado = true;
         NexoMineral nexoMineral = new NexoMineral();
         for(int i =0 ; i<=3;i++) {
-
-            nexoMineral.avanzarTurno();
+            nexoMineral.construir();
         }
-        esperado = nexoMineral.estaDisponible();
-        assertEquals(true,esperado);
+        boolean resultado = nexoMineral.estaDisponible();
+        assertEquals(resultado,esperado);
     }
 
     @Test
@@ -41,9 +39,9 @@ public class ConstruccionProtosTests {
 
         boolean esperado = false;
         Pilon pilon = new Pilon();
-        pilon.avanzarTurno();
-        esperado= pilon.estaDisponible();
-        assertEquals(false,esperado);
+        pilon.construir();
+        boolean resultado = pilon.estaDisponible();
+        assertEquals(resultado,esperado);
     }
 
     @Test
@@ -51,13 +49,13 @@ public class ConstruccionProtosTests {
 
 
         boolean esperado = true;
-            Pilon pilon = new Pilon();
+        Pilon pilon = new Pilon();
         for(int i =0 ; i<=4;i++) {
 
-            pilon.avanzarTurno();
+            pilon.construir();
         }
-        esperado = pilon.estaDisponible();
-        assertEquals(true,esperado);
+        boolean resultado = pilon.estaDisponible();
+        assertEquals(resultado,esperado);
     }
 
     @Test
@@ -66,9 +64,9 @@ public class ConstruccionProtosTests {
 
         boolean esperado = false;
         Asimilador asimilador = new Asimilador();
-        asimilador.avanzarTurno();
-        esperado= asimilador.estaDisponible();
-        assertEquals(false,esperado);
+        asimilador.construir();
+        boolean resultado = asimilador.estaDisponible();
+        assertEquals(resultado,esperado);
     }
 
     @Test
@@ -79,10 +77,10 @@ public class ConstruccionProtosTests {
         Asimilador asimilador = new Asimilador();
         for(int i =0 ; i<=5;i++) {
 
-            asimilador.avanzarTurno();
+            asimilador.construir();
         }
-        esperado = asimilador.estaDisponible();
-        assertEquals(true,esperado);
+        boolean resultado = asimilador.estaDisponible();
+        assertEquals(resultado,esperado);
     }
 
     @Test
@@ -91,9 +89,9 @@ public class ConstruccionProtosTests {
 
         boolean esperado = false;
         Acceso acceso = new Acceso();
-        acceso.avanzarTurno();
-        esperado= acceso.estaDisponible();
-        assertEquals(false,esperado);
+        acceso.construir();
+        boolean resultado = acceso.estaDisponible();
+        assertEquals(resultado,esperado);
     }
 
     @Test
@@ -104,10 +102,10 @@ public class ConstruccionProtosTests {
         Acceso acceso = new Acceso();
         for(int i =0 ; i<=7;i++) {
 
-            acceso.avanzarTurno();
+            acceso.construir();
         }
-        esperado = acceso.estaDisponible();
-        assertEquals(true,esperado);
+        boolean resultado = acceso.estaDisponible();
+        assertEquals(resultado,esperado);
     }
 
     @Test
@@ -116,9 +114,9 @@ public class ConstruccionProtosTests {
 
         boolean esperado = false;
         PuertoEstelar puerto = new PuertoEstelar();
-        puerto.avanzarTurno();
-        esperado= puerto.estaDisponible();
-        assertEquals(false,esperado);
+        puerto.construir();
+        boolean resultado = puerto.estaDisponible();
+        assertEquals(resultado,esperado);
     }
 
     @Test
@@ -128,9 +126,9 @@ public class ConstruccionProtosTests {
         PuertoEstelar puerto = new PuertoEstelar();
         for(int i =0 ; i<=10;i++) {
 
-            puerto.avanzarTurno();
+            puerto.construir();
         }
-        esperado = puerto.estaDisponible();
-        assertEquals(true,esperado);
+        boolean resultado = puerto.estaDisponible();
+        assertEquals(resultado,esperado);
     }
 }

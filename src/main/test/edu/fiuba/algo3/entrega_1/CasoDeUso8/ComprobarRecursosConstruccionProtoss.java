@@ -1,12 +1,5 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso8;
 
-import edu.fiuba.algo3.modelo.Construccion.ConstruccionesConRadio.Pilon;
-import edu.fiuba.algo3.modelo.Construccion.ConstruccionNormal.Acceso;
-import edu.fiuba.algo3.modelo.Construccion.RefineriaMineral.NexoMineral;
-import edu.fiuba.algo3.modelo.Construccion.ConstruccionNormal.PuertoEstelar;
-import edu.fiuba.algo3.modelo.Construccion.RefineriaGas.Asimilador;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ComprobarRecursosConstruccionProtoss {

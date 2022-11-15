@@ -1,11 +1,22 @@
-package edu.fiuba.algo3.modelo.Construccion.ConstruccionNormal;
+package edu.fiuba.algo3.modelo.Construccion;
 
 public class PuertoEstelar implements ConstruccionNormal{
-    private int vida =600 ;
+    private int vida = 600;
+    private int escudo = 600;
     private int tiempoConstruccion = 10;
+
+    @Override
+    public void construir() {
+        tiempoConstruccion--;
+    }
+
+    @Override
+    public void quitarVida(int cant) {
+
+    }
+
     @Override
     public void avanzarTurno() {
-        tiempoConstruccion--;
 
     }
 
