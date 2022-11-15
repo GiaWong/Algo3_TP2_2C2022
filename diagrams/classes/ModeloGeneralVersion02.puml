@@ -271,7 +271,6 @@ class ConNodoMineral {
 
     + agregarUnidad()
     + agregarConstruccion()
-    + setTerreno()
 }
 
 interface Terreno {
