@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
 
 public class NodoMineral implements Recurso{
 
@@ -16,6 +17,7 @@ public class NodoMineral implements Recurso{
 
     @Override
     public boolean esPosibleConstruir(Construccion unaConstruccion) {
-        return false;
+        NexoMineral nexo = new NexoMineral();
+        return (unaConstruccion.getClass().equals(nexo.getClass()));
     }
 }

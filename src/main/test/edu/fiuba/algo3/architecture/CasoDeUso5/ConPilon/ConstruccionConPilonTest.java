@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.entrega_1.CasoDeUso5.ConPilon;
+package edu.fiuba.algo3.architecture.CasoDeUso5.ConPilon;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

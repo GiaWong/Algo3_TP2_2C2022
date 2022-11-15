@@ -25,7 +25,7 @@ public class Casilla {
         if (terreno.esPosibleConstruir(unaConstruccion) && recurso.esPosibleConstruir(unaConstruccion)){
             construccion = unaConstruccion;
         } else {
-            //Lanzar un error
+
         }
     }
 

@@ -361,7 +361,7 @@ Recurso <|.. Vacio
 
 Terreno <|.. ConMoho
 Terreno <|... ConEnergia
-Terreno <|.. Vacio
+
 
 
 
