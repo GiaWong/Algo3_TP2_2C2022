@@ -5,29 +5,48 @@ import java.util.List;
 
 public class PuertoEstelar implements ConstruccionNormal{
 
-    private int vida = 600;
-    private int escudo = 600;
+    private int Vida_Total = 600;
+    private int Escudo_total = 600;
+    private int vida ;
+    private int escudo ;
     private int tiempoConstruccion = 10;
     private List<Integer> costos = new ArrayList<>();
 
     public PuertoEstelar(){
         costos.add(150); //esto es para Mineral
         costos.add(150); //esto es para Gas
+        vida = Vida_Total;
+        escudo = Escudo_total;
     }
     @Override
     public void construir() {
         tiempoConstruccion--;
     }
 
+    public void regenerarEscudo(){
+        if(escudo < (Escudo_total)){
+            escudo += 10;
+        }
+    }
+
+    public int obtenerEscudo() {return escudo; }
     @Override
-    public void quitarVida(int cant) {
+    public void recibeDanio(int cant) {
+        escudo-= cant;
+        if (escudo<0){
+            vida += escudo;
+            escudo = 0;
+        }
+
 
     }
+
     @Override
     public int obtenerVida() {return vida; }
 
     @Override
     public void avanzarTurno() {
+        this.regenerarEscudo();
 
     }
 

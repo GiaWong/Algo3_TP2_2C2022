@@ -23,7 +23,7 @@ public class Espiral implements ConstruccionNormal{
     }
 
     @Override
-    public void quitarVida(int cant) {
+    public void recibeDanio(int cant) {
         vida -= cant;
     }
     @Override

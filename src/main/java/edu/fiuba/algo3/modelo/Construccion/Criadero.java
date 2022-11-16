@@ -47,7 +47,7 @@ public class Criadero implements ConstruccionNormal {
     }
 
     @Override
-    public void quitarVida(int cant) {
+    public void recibeDanio(int cant) {
         vida -= cant;
     }//recibeDanio creo que es mejoor nombre
 

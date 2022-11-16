@@ -7,14 +7,18 @@ import java.util.List;
 
 public class NexoMineral implements RefineriaMineral {
 
-    private int vida = 250 ;
-    private int escudo = 250;
+    private int Vida_Total = 250;
+    private int Escudo_total = 250;
+    private int vida  ;
+    private int escudo ;
     private int tiempoConstruccion = 4 ;
     private List<Integer> costos = new ArrayList<>();
 
     public NexoMineral(){
         costos.add(50); //esto es para Mineral
         costos.add(0); //esto es para Gas
+        vida = Vida_Total;
+        escudo =Escudo_total;
     }
     public boolean estaDisponible() {
         return (tiempoConstruccion<=0);
@@ -25,8 +29,21 @@ public class NexoMineral implements RefineriaMineral {
         tiempoConstruccion--;
     }
 
+    public void regenerarEscudo(){
+        if(escudo < (Escudo_total)){
+            escudo += 10;
+        }
+    }
+
+    public int obtenerEscudo() {return escudo; }
     @Override
-    public void quitarVida(int cant) {
+    public void recibeDanio(int cant) {
+        escudo-= cant;
+        if (escudo<0){
+            vida += escudo;
+            escudo = 0;
+        }
+
 
     }
     @Override
@@ -34,6 +51,7 @@ public class NexoMineral implements RefineriaMineral {
 
     @Override
     public void avanzarTurno() {
+        this.regenerarEscudo();
 
     }
 

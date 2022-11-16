@@ -34,7 +34,7 @@ public class Extractor implements RefineriaGas{
     }
 
     @Override
-    public void quitarVida(int cant) {
+    public void recibeDanio(int cant) {
         vida  -= cant;
     }
     @Override

@@ -8,14 +8,18 @@ import java.util.List;
 
 public class  Asimilador implements RefineriaGas {
 
-    private int vida = 450;
-    private int escudo = 450;
+    private int Vida_Total = 450;
+    private int Escudo_total = 450;
+    private int vida ;
+    private int escudo ;
     private int tiempoConstruccion =6 ;
     private List<Integer> costos = new ArrayList<>();
 
     public Asimilador(){
         costos.add(100); //esto es para Mineral
         costos.add(0); //esto es para Gas
+        vida = Vida_Total;
+        escudo =Escudo_total;
     }
 
     @Override
@@ -23,8 +27,21 @@ public class  Asimilador implements RefineriaGas {
         tiempoConstruccion--;
     }
 
+    public void regenerarEscudo(){
+        if(escudo < (Escudo_total)){
+            escudo += 10;
+        }
+    }
+
+    public int obtenerEscudo() {return escudo; }
     @Override
-    public void quitarVida(int cant) {
+    public void recibeDanio(int cant) {
+        escudo-= cant;
+        if (escudo<0){
+            vida += escudo;
+            escudo = 0;
+        }
+
 
     }
     @Override
@@ -32,6 +49,7 @@ public class  Asimilador implements RefineriaGas {
 
     @Override
     public void avanzarTurno() {
+        this.regenerarEscudo();
 
     }
 

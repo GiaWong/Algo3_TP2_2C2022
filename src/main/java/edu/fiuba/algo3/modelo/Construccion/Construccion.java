@@ -5,7 +5,7 @@ import java.util.List;
 public interface Construccion {
 
     void construir();
-    void quitarVida(int cant);
+    void recibeDanio(int cant);
     void avanzarTurno();
     boolean estaDisponible();
 
