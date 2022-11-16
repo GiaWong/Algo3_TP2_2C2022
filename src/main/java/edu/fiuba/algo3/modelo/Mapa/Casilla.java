@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.Mapa;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.ConstruccionConRadio;
 import edu.fiuba.algo3.modelo.Construccion.Criadero;
+import edu.fiuba.algo3.modelo.Exception.CasillaOcupada;
+import edu.fiuba.algo3.modelo.Exception.CasillaOcupadaPorZangano;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Vacio;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinNada;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
@@ -35,8 +37,13 @@ public class Casilla {
         unidad = unaUnidad;
     }
 
-    public void agregarConstruccion(Construccion unaConstruccion){
-
+    public void agregarConstruccion(Construccion unaConstruccion) throws CasillaOcupada, CasillaOcupadaPorZangano {
+        boolean hayConst = this.hayConstruccion();
+        if(hayConst){
+           throw new CasillaOcupada();
+        }else if(unidad!=null){
+            throw new CasillaOcupadaPorZangano();
+        }
         if (terreno.esPosibleConstruir(unaConstruccion) && recurso.esPosibleConstruir(unaConstruccion)){
 
             construccion = unaConstruccion;

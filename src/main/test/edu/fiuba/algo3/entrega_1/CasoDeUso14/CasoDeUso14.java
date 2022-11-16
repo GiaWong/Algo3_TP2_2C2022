@@ -14,8 +14,6 @@ public class CasoDeUso14 {
 
     @Test
     public void SeCreaUnPilonYNoDeberiaEnergizarUnaCasillaConMoho(){
-
-
         Mapa mapa = new Mapa();
         Criadero criadero = new Criadero();
         Pilon pilon = new Pilon();
@@ -23,22 +21,31 @@ public class CasoDeUso14 {
             criadero.construir();
             pilon.construir();
         }
-
-
         mapa.agregarConstruccion(criadero,10,10);
-        mapa.setearRadio();
         mapa.agregarConstruccion(pilon,10,16);
         mapa.setearRadio();
         assertEquals(true, mapa.tipoTerreno(new ConMoho(),10,14));
 
-        /*
-        *
-        *
-        *
-        * */
+    }
 
-
-
+    @Test
+    public void SeCreaUnCriaderoYElMohoPisaAlaEnergia(){
+        Mapa mapa = new Mapa();
+        Criadero criadero = new Criadero();
+        Pilon pilon = new Pilon();
+        for(int i = 0; i<3; i++){
+            criadero.construir();
+            pilon.construir();
+        }
+        mapa.agregarConstruccion(criadero,10,10);
+        mapa.agregarConstruccion(pilon,10,16);
+        mapa.setearRadio();
+        assertEquals(true, mapa.tipoTerreno(new ConMoho(),10,14));
+        assertEquals(false, mapa.tipoTerreno(new ConMoho(),10,15));
+        criadero.avanzarTurno();
+        criadero.avanzarTurno();
+        mapa.setearRadio();
+        assertEquals(true, mapa.tipoTerreno(new ConMoho(),10,15));
 
     }
 }
