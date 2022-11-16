@@ -12,11 +12,6 @@ public class Vacio implements Recurso {
     @Override
     public boolean esPosibleConstruir(Construccion unaConstruccion) {
 
-        if(!(unaConstruccion.getClass().equals(this.getClass()))){//si es Vacio
-            return false;
-        }
-
-
         Asimilador asimilador = new Asimilador();
         Extractor extractor = new Extractor();
         NexoMineral nexo = new NexoMineral();

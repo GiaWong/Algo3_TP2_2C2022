@@ -32,7 +32,9 @@ public class Casilla {
     }
 
     public void agregarConstruccion(Construccion unaConstruccion){
+
         if (terreno.esPosibleConstruir(unaConstruccion) && recurso.esPosibleConstruir(unaConstruccion)){
+
             construccion = unaConstruccion;
         }
     }

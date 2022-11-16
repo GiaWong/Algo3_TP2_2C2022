@@ -9,9 +9,6 @@ public class SinNada implements Terreno{
     @Override
     public boolean esPosibleConstruir(Construccion unaConstruccion) {
 
-        if(!unaConstruccion.getClass().equals(this.getClass())){//si  es SinNada
-            return false;
-        }
 
         Criadero criadero = new Criadero();
         Pilon pilon = new Pilon();
