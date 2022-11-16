@@ -1,60 +1,64 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso8;
 
+import edu.fiuba.algo3.modelo.Construccion.*;
+import edu.fiuba.algo3.modelo.Mapa.Casilla;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Vacio;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinNada;
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ComprobarRecursosConstruccionZerg {
-
-    /*
     @Test
-    public void SeConstruyeCriaderoZergSinRecursosNecesarios(){
-        int gasVespeno = 50;
-        int mineral = 25;
-        boolean esperado = false;
-        Criadero criadero = new Criadero(new Moho(5));
-        boolean  resultado = criadero.costeDeMateriales(mineral,gasVespeno);
-        assertEquals(resultado, esperado);
+    public void SeConstruyeCriaderoSinRecursosNecesarios(){
+
+        Casilla casilla = new Casilla();
+        casilla.setTerreno(new SinNada());
+        casilla.setRecurso(new Vacio());
+        casilla.agregarConstruccion(new Criadero());
+        assertEquals(false, casilla.hayConstruccion());
+
     }
 
     @Test
-    public void SeConstruyeReservaReproduccionZergSinRecursosNecesarios(){
-        int gasVespeno = 50;
-        int mineral = 25;
-        boolean esperado = false;
-        ReservaProduccion reserva = new ReservaProduccion();
-        boolean  resultado = reserva.costeDeMateriales(mineral,gasVespeno);
-        assertEquals(resultado, esperado);
+    public void SeConstruyeReservaProduccionSinRecursosNecesarios(){
+        Casilla casilla = new Casilla();
+        casilla.setTerreno(new SinNada());
+        casilla.setRecurso(new Vacio());
+        casilla.agregarConstruccion(new ReservaProduccion());
+        assertEquals(false, casilla.hayConstruccion());
     }
 
     @Test
-    public void SeConstruyeExtractorZergSinRecursosNecesarios(){
-        int gasVespeno = 50;
-        int mineral = 25;
-        boolean esperado = false;
-        Extractor extractor = new Extractor(new GasVespeno());
-        boolean  resultado = extractor.costeDeMateriales(mineral,gasVespeno);
-        assertEquals(resultado, esperado);
+    public void SeConstruyeExtractorSinRecursosNecesarios(){
+        Casilla casilla = new Casilla();
+        casilla.setTerreno(new SinNada());
+        casilla.setRecurso(new Vacio());
+        casilla.agregarConstruccion(new Extractor());
+        assertEquals(false, casilla.hayConstruccion());
+
     }
 
     @Test
-    public void SeConstruyeGuaridaZergSinRecursosNecesarios(){
-        int gasVespeno = 50;
-        int mineral = 25;
-        boolean esperado = false;
-        Guarida guarida = new Guarida();
-        boolean  resultado = guarida.costeDeMateriales(mineral,gasVespeno);
+    public void SeConstruyeGuaridaSinRecursosNecesarios(){
+        Casilla casilla = new Casilla();
+        casilla.setTerreno(new SinNada());
+        casilla.setRecurso(new Vacio());
+        casilla.agregarConstruccion(new Guarida());
+        assertEquals(false, casilla.hayConstruccion());
 
-        assertEquals(resultado, esperado);
+
     }
 
     @Test
-    public void SeConstruyeEspiralZergSinRecursosNecesarios(){
-        int gasVespeno = 50;
-        int mineral = 25;
-        boolean esperado = false;
-        Espiral espiral = new Espiral();
-        boolean  resultado = espiral.costeDeMateriales(mineral, gasVespeno);
-        assertEquals(resultado, esperado);
+    public void SeConstruyeEspiralSinRecursosNecesarios(){
+        Casilla casilla = new Casilla();
+        casilla.setTerreno(new SinNada());
+        casilla.setRecurso(new Vacio());
+        casilla.agregarConstruccion(new Espiral());
+        assertEquals(false, casilla.hayConstruccion());
+
+
     }
 
-     */
 }

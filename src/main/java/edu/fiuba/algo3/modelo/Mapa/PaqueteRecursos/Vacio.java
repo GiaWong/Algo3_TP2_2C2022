@@ -12,9 +12,7 @@ public class Vacio implements Recurso {
     @Override
     public boolean esPosibleConstruir(Construccion unaConstruccion) {
 
-        if(unaConstruccion.getClass().equals(Vacio.class)){//si el terrno es Vacio
-
-            System.out.println("mmmm");
+        if(!(unaConstruccion.getClass().equals(this.getClass()))){//si el terrno es Vacio
             return false;
         }
 
@@ -26,7 +24,6 @@ public class Vacio implements Recurso {
         esAsimilador = unaConstruccion.getClass().equals(asimilador.getClass());
         esExtractor = unaConstruccion.getClass().equals(extractor.getClass());
         esNexo = unaConstruccion.getClass().equals(nexo.getClass());
-        System.out.println("no entró al if de Recurso");
 
         return (!esAsimilador || !esExtractor || !esNexo );//Devuelve True si la construccion NO es una Refineria.
     }

@@ -9,8 +9,7 @@ public class SinNada implements Terreno{
     @Override
     public boolean esPosibleConstruir(Construccion unaConstruccion) {
 
-        if(unaConstruccion.getClass().equals(this.getClass())){//si el terrno es SinNada
-
+        if(!unaConstruccion.getClass().equals(this.getClass())){//si el terrno es SinNada
             return false;
         }
 
@@ -20,7 +19,6 @@ public class SinNada implements Terreno{
         boolean esPilon = (unaConstruccion.getClass().equals(pilon.getClass()));
 
         if (esCriadero || esPilon){
-            System.out.println("no entró al if de terreno");
             return true;
         }else {
             return false;

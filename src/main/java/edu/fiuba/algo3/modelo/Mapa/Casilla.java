@@ -15,7 +15,7 @@ public class Casilla {
     protected Construccion construccion;
 
     public boolean hayConstruccion() {
-        return (indicadorHayConstruccion);
+        return (construccion != null);
     }
 
     public void agregarUnidad(Unidad unaUnidad){
@@ -24,7 +24,7 @@ public class Casilla {
 
     public void agregarConstruccion(Construccion unaConstruccion){
         if (terreno.esPosibleConstruir(unaConstruccion) && recurso.esPosibleConstruir(unaConstruccion)){
-            indicadorHayConstruccion = true;
+            //indicadorHayConstruccion = true;
             construccion = unaConstruccion;
         }
     }
