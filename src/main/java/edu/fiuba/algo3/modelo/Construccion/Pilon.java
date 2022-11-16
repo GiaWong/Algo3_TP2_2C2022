@@ -12,6 +12,7 @@ public class Pilon implements ConstruccionConRadio {
     private int vida ;
     private int escudo ;
     private int tiempoConstruccion = 5 ;
+    private int radio = 3;
     private List<Integer> costos = new ArrayList<>();
 
     public Pilon(){
@@ -66,5 +67,10 @@ public class Pilon implements ConstruccionConRadio {
     @Override
     public void ampliarRadio() {
 
+    }
+
+    @Override
+    public int obtenerRadio() {
+        return radio;
     }
 }

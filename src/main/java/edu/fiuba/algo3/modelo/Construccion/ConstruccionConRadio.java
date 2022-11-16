@@ -4,4 +4,5 @@ public interface ConstruccionConRadio extends Construccion {
 
     void ampliarRadio();
 
+    int obtenerRadio();
 }

@@ -4,7 +4,7 @@ package edu.fiuba.algo3.modelo.Construccion;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Criadero implements ConstruccionNormal {
+public class Criadero implements ConstruccionConRadio { //antees era ConstruccionNormal
 
     private int Vida_Total = 500;
     private int vida ;
