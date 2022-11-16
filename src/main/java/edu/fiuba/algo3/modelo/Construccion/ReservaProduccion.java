@@ -1,12 +1,18 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReservaProduccion implements ConstruccionNormal{
 
+    private int vida =1000;
     private int tiempoConstruccion = 12;
-    private int vida =1000 ;
+    private List<Integer> costos = new ArrayList<>();
 
+    public ReservaProduccion(){
+        costos.add(150); //esto es para Mineral
+        costos.add(0); //esto es para Gas
+    }
 
     public void evolucionar() {
     }
@@ -31,7 +37,7 @@ public class ReservaProduccion implements ConstruccionNormal{
 
     @Override
     public List<Integer> costo() {
-        return null;
+        return costos;
     }
 
 }

@@ -9,12 +9,14 @@ import java.util.List;
 
 public class Extractor implements RefineriaGas{
 
-    private List<Zangano> zanganos = new ArrayList<Zangano>();
-    private int tiempoConstruccion = 6;
     private int vida = 750 ;
+    private int tiempoConstruccion = 6;
+    private List<Zangano> zanganos = new ArrayList<Zangano>();
+    private List<Integer> costos = new ArrayList<>();
 
     public Extractor(){
-
+        costos.add(100); //esto es para Mineral
+        costos.add(0); //esto es para Gas
     }
     public void agregar(Zangano unZangano){
         if (this.estaDisponible() && zanganos.size() < 3){
@@ -47,7 +49,7 @@ public class Extractor implements RefineriaGas{
 
     @Override
     public List<Integer> costo() {
-        return null;
+        return costos;
     }
 
     @Override

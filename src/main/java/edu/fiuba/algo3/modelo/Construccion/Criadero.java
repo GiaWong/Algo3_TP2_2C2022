@@ -1,16 +1,22 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Criadero implements ConstruccionNormal {
 
+    private int vida = 500 ;
     private int larvas = 3;
     private int tiempoConstruccion = 4;
-
     private int tiempoAmpliacion = 2;
-    private int vida = 500 ;
     private int radio = 5;
+    private List<Integer> costos = new ArrayList<>();
+
+    public Criadero(){
+        costos.add(50); //esto es para Mineral
+        costos.add(0); //esto es para Gas
+    }
     public void evolucionar() {
         larvas--;
     }
@@ -52,6 +58,6 @@ public class Criadero implements ConstruccionNormal {
 
     @Override
     public List<Integer> costo() {
-        return null;
+        return costos;
     }
 }

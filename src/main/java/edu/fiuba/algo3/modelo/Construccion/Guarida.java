@@ -1,13 +1,19 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Guarida implements ConstruccionNormal{
 
+    private int vida = 1250;
     private int tiempoConstruccion = 12;
-    private int vida =1250 ;
 
+    private List<Integer> costos = new ArrayList<>();
 
+    public Guarida(){
+        costos.add(200); //esto es para Mineral
+        costos.add(100); //esto es para Gas
+    }
     @Override
     public void construir() {
         tiempoConstruccion--;
@@ -30,7 +36,7 @@ public class Guarida implements ConstruccionNormal{
 
     @Override
     public List<Integer> costo() {
-        return null;
+        return costos;
     }
 
     @Override

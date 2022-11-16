@@ -1,68 +1,70 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso8;
 
 import edu.fiuba.algo3.modelo.Construccion.*;
-import edu.fiuba.algo3.modelo.Mapa.Casilla;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Vacio;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinNada;
+import edu.fiuba.algo3.modelo.Jugador.Protoss;
+import edu.fiuba.algo3.modelo.Jugador.Raza;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ComprobarRecursosConstruccionProtoss {
 
-
     @Test
-    public void SeConstruyeNexoMineralSinRecursosNecesarios(){
-
-        Casilla casilla = new Casilla();
-        casilla.setTerreno(new SinNada());
-        casilla.setRecurso(new Vacio());
-        casilla.agregarConstruccion(new NexoMineral());
-        assertEquals(false, casilla.hayConstruccion());
-
+    public void SeIntentanAdquirir5NexoMineralYSeCompranSolo4PorFaltaDeRecursos(){
+        //Toda raza comienza con 200 Minerales y 0 GasVespeno.
+        int construccionesEsperadas = 4;
+        Raza protoss = new Protoss();
+        for (int i = 0; i < 5; i++){
+            protoss.comprarConstruccion(new NexoMineral());
+        }
+        int resultado = protoss.obtenerCantidadConstrucciones();
+        assertEquals(resultado, construccionesEsperadas); //Esto despues podemos hacer que si no se puede comprar, que lanze una exception
     }
 
     @Test
-    public void SeConstruyePilonSinRecursosNecesarios(){
-        Casilla casilla = new Casilla();
-        casilla.setTerreno(new SinNada());
-        casilla.setRecurso(new Vacio());
-        casilla.agregarConstruccion(new Pilon());
-        assertEquals(false, casilla.hayConstruccion());
+    public void SeIntentanAdquirir3PilonYSeCompranSolo2PorFaltaDeRecursos(){
+        //Toda raza comienza con 200 Minerales y 0 GasVespeno.
+        int construccionesEsperadas = 2;
+        Raza protoss = new Protoss();
+        for (int i = 0; i < 3; i++){
+            protoss.comprarConstruccion(new Pilon());
+        }
+        int resultado = protoss.obtenerCantidadConstrucciones();
+        assertEquals(resultado, construccionesEsperadas);
     }
 
     @Test
-    public void SeConstruyeAsimiladorSinRecursosNecesarios(){
-        Casilla casilla = new Casilla();
-        casilla.setTerreno(new SinNada());
-        casilla.setRecurso(new Vacio());
-        casilla.agregarConstruccion(new Asimilador());
-        assertEquals(false, casilla.hayConstruccion());
-
+    public void SeIntentanAdquirir3AsimiladorYSeCompranSolo2PorFaltaDeRecursos(){
+        //Toda raza comienza con 200 Minerales y 0 GasVespeno.
+        int construccionesEsperadas = 2;
+        Raza protoss = new Protoss();
+        for (int i = 0; i < 3; i++){
+            protoss.comprarConstruccion(new Asimilador());
+        }
+        int resultado = protoss.obtenerCantidadConstrucciones();
+        assertEquals(resultado, construccionesEsperadas);
     }
 
     @Test
-    public void SeConstruyeAccesoSinRecursosNecesarios(){
-        Casilla casilla = new Casilla();
-        casilla.setTerreno(new SinNada());
-        casilla.setRecurso(new Vacio());
-        casilla.agregarConstruccion(new Acceso());
-        assertEquals(false, casilla.hayConstruccion());
-
-
+    public void SeIntentanAdquirir2AccesoYSeCompraSolo1PorFaltaDeRecursos(){
+        //Toda raza comienza con 200 Minerales y 0 GasVespeno.
+        int construccionesEsperadas = 1;
+        Raza protoss = new Protoss();
+        for (int i = 0; i < 2; i++){
+            protoss.comprarConstruccion(new Acceso());
+        }
+        int resultado = protoss.obtenerCantidadConstrucciones();
+        assertEquals(resultado, construccionesEsperadas);
     }
 
     @Test
-    public void SeConstruyePuertoEstelarSinRecursosNecesarios(){
-        Casilla casilla = new Casilla();
-        casilla.setTerreno(new SinNada());
-        casilla.setRecurso(new Vacio());
-        casilla.agregarConstruccion(new PuertoEstelar());
-        assertEquals(false, casilla.hayConstruccion());
-
-
+    public void SeIntentanAdquirir1PuertoEstelarYNoSePuedeComprarPorFaltaDeRecursos(){
+        //Toda raza comienza con 200 Minerales y 0 GasVespeno.
+        int construccionesEsperadas = 0;
+        Raza protoss = new Protoss();
+        protoss.comprarConstruccion(new PuertoEstelar());
+        int resultado = protoss.obtenerCantidadConstrucciones();
+        assertEquals(resultado, construccionesEsperadas);
     }
 
 }

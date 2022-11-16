@@ -5,14 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public  class Acceso implements ConstruccionNormal {
+
     private int vida = 500;
     private int escudo = 500;
-    private List<Integer> costos = new ArrayList<>();
     private int tiempoConstruccion = 8 ;
+    private List<Integer> costos = new ArrayList<>();
+
     public Acceso(){
         costos.add(150); //esto es para Mineral
         costos.add(0); //esto es para Gas
-
     }
     @Override
     public void construir() {

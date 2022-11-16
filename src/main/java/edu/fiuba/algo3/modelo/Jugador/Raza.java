@@ -2,16 +2,29 @@ package edu.fiuba.algo3.modelo.Jugador;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Raza {
 
-    private int bancoDeMinerales = 200;
-    private int bancoDeGasvespeno = 0;
+    protected BancoDeRecursos banco = new BancoDeRecursos();
+    protected List<Unidad> unidades = new ArrayList<>();
+    protected List<Construccion> construcciones = new ArrayList<>();
 
-    protected List<Unidad> unidades;
+    private void agregarConstruccion(Construccion construccion){
+        construcciones.add(construccion);
+    }
 
-    public abstract void agregarConstruccion(Construccion construccion);
+    public void comprarConstruccion(Construccion construccion) {
+        if (banco.esPosibleComprar(construccion)){
+            banco.comprarConstuccion(construccion);
+            this.agregarConstruccion(construccion);
+        }
+    }
+    public int obtenerCantidadConstrucciones(){
+        return construcciones.size();
+    }
 
     public abstract void recolectar();
 
