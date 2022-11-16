@@ -5,7 +5,9 @@ import java.util.List;
 
 public class Guarida implements ConstruccionNormal{
 
-    private int vida = 1250;
+    private int Vida_Total = 1250;
+
+    private int vida;
     private int tiempoConstruccion = 12;
 
     private List<Integer> costos = new ArrayList<>();
@@ -13,6 +15,7 @@ public class Guarida implements ConstruccionNormal{
     public Guarida(){
         costos.add(200); //esto es para Mineral
         costos.add(100); //esto es para Gas
+        vida = Vida_Total;
     }
     @Override
     public void construir() {
@@ -26,8 +29,15 @@ public class Guarida implements ConstruccionNormal{
     @Override
     public int obtenerVida() {return vida; }
 
+    public void regenerarVida(){
+        if(vida <= (Vida_Total-10)){
+            vida += 10;
+        }
+    }
+
     @Override
     public void avanzarTurno() {
+        this.regenerarVida();
 
     }
 

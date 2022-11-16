@@ -9,7 +9,8 @@ import java.util.List;
 
 public class Extractor implements RefineriaGas{
 
-    private int vida = 750 ;
+    private int Vida_Total = 750;
+    private int vida  ;
     private int tiempoConstruccion = 6;
     private List<Zangano> zanganos = new ArrayList<Zangano>();
     private List<Integer> costos = new ArrayList<>();
@@ -17,6 +18,7 @@ public class Extractor implements RefineriaGas{
     public Extractor(){
         costos.add(100); //esto es para Mineral
         costos.add(0); //esto es para Gas
+        vida = Vida_Total;
     }
     public void agregar(Zangano unZangano){
         if (this.estaDisponible() && zanganos.size() < 3){
@@ -33,14 +35,21 @@ public class Extractor implements RefineriaGas{
 
     @Override
     public void quitarVida(int cant) {
-        vida  -= 750;
+        vida  -= cant;
     }
     @Override
     public int obtenerVida() {return vida; }
 
     @Override
     public void avanzarTurno() {
+        this.regenerarVida();
 
+
+    }
+    public void regenerarVida(){
+        if(vida <= (Vida_Total-10)){
+            vida += 10;
+        }
     }
 
     @Override

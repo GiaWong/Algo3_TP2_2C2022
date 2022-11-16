@@ -6,7 +6,8 @@ import java.util.List;
 
 public class Criadero implements ConstruccionNormal {
 
-    private int vida = 500 ;
+    private int Vida_Total = 500;
+    private int vida ;
     private int larvas = 3;
     private int tiempoConstruccion = 4;
     private int tiempoAmpliacion = 2;
@@ -16,6 +17,7 @@ public class Criadero implements ConstruccionNormal {
     public Criadero(){
         costos.add(50); //esto es para Mineral
         costos.add(0); //esto es para Gas
+        vida = Vida_Total;
     }
     public void evolucionar() {
         larvas--;
@@ -26,8 +28,8 @@ public class Criadero implements ConstruccionNormal {
             tiempoAmpliacion =2;
         }
     }
-    public void aumentarVida(){
-        if(vida <= 490){
+    public void regenerarVida(){
+        if(vida < (Vida_Total)){
             vida += 10;
         }
     }
@@ -47,7 +49,7 @@ public class Criadero implements ConstruccionNormal {
     @Override
     public void quitarVida(int cant) {
         vida -= cant;
-    }
+    }//recibeDanio creo que es mejoor nombre
 
     @Override
     public void avanzarTurno(){
@@ -55,7 +57,7 @@ public class Criadero implements ConstruccionNormal {
             larvas++;
         }
         tiempoAmpliacion--;
-        this.aumentarVida();
+        this.regenerarVida();
         this.ampliarRadio();
 
     }
