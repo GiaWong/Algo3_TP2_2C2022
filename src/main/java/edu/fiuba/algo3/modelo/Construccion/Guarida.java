@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Guarida implements ConstruccionNormal{
 
+    private Construccion preRequisito = new ReservaProduccion();
     private int Vida_Total = 1250;
 
     private int vida;
@@ -16,6 +17,16 @@ public class Guarida implements ConstruccionNormal{
         costos.add(200); //esto es para Mineral
         costos.add(100); //esto es para Gas
         vida = Vida_Total;
+    }
+    public boolean preRequisito(List<Construccion> lista){
+        if(lista!=null) {
+            for(int i =0; i<lista.size();i++){
+                if(lista.get(i).getClass().equals(preRequisito.getClass())){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     @Override
     public void construir() {

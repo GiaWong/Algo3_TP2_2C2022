@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Espiral implements ConstruccionNormal{
 
+    private Construccion preRequisito = new Guarida();
 
     private int Vida_Total = 1300;
     private int vida ;
@@ -16,7 +17,16 @@ public class Espiral implements ConstruccionNormal{
         costos.add(100); //esto es para Gas
         vida = Vida_Total;
     }
-
+    public boolean preRequisito(List<Construccion> lista){
+        if(lista!=null) {
+            for(int i =0; i<lista.size();i++){
+                if(lista.get(i).getClass().equals(preRequisito.getClass())){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     @Override
     public void construir() {
         tiempoConstruccion--;

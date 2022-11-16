@@ -1,12 +1,6 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso17;
 
-import edu.fiuba.algo3.modelo.Construccion.Acceso;
-import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
-import edu.fiuba.algo3.modelo.Construccion.PuertoEstelar;
-import edu.fiuba.algo3.modelo.Mapa.Casilla;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
+import edu.fiuba.algo3.modelo.Construccion.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -17,11 +11,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CasoDeUso17 {
 
     @Test
-    public void PreRequisitoPuertoEstelar(){
+    public void SeVerificaPreRequisitoPuertoEstelar(){
         PuertoEstelar puerto = new PuertoEstelar();
         List<Construccion> lisst = new ArrayList<>();
         Acceso acceso = new Acceso();
         lisst.add(acceso);
-        assertEquals(true,puerto.PreRequisito(lisst));
+        assertEquals(true,puerto.preRequisito(lisst));
+    }
+    @Test
+    public void SeVerificaPreRequisitoEspiral(){
+        Espiral espiral = new Espiral();
+        List<Construccion> lisst = new ArrayList<>();
+        Guarida guarida = new Guarida();
+        lisst.add(guarida);
+        assertEquals(true,espiral.preRequisito(lisst));
+    }
+    @Test
+    public void SeVerificaPreRequisitoGuarida(){
+        Guarida guarida = new Guarida();
+        List<Construccion> lisst = new ArrayList<>();
+        ReservaProduccion reserva = new ReservaProduccion();
+        lisst.add(reserva);
+        assertEquals(true,guarida.preRequisito(lisst));
     }
 }

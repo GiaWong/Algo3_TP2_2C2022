@@ -14,7 +14,7 @@ public class PuertoEstelar implements ConstruccionNormal{
     private int tiempoConstruccion = 10;
     private List<Integer> costos = new ArrayList<>();
 
-    public boolean PreRequisito(List<Construccion> lista){
+    public boolean preRequisito(List<Construccion> lista){
         if(lista!=null) {
             for(int i =0; i<lista.size();i++){
                 if(lista.get(i).getClass().equals(preRequisito.getClass())){
