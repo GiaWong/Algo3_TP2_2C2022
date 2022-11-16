@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
+import java.util.List;
+
 public class PuertoEstelar implements ConstruccionNormal{
     private int vida = 600;
     private int escudo = 600;
@@ -23,6 +25,11 @@ public class PuertoEstelar implements ConstruccionNormal{
     @Override
     public boolean estaDisponible() {
         return (tiempoConstruccion<=0);
+    }
+
+    @Override
+    public List<Integer> costo() {
+        return null;
     }
 
     @Override

@@ -19,6 +19,7 @@ public class NodoMineral implements Recurso{
 
     @Override
     public boolean esPosibleConstruir(Construccion unaConstruccion) {
+        //Devuelve True si la construccion es una RefineriaMineral.
         NexoMineral nexo = new NexoMineral();
         return (unaConstruccion.getClass().equals(nexo.getClass()));
     }

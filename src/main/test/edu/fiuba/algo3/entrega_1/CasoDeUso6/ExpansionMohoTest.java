@@ -12,7 +12,7 @@ public class ExpansionMohoTest {
     public void CompruebaLaAmpliacionDelMohoAPartirDeUnCriadero(){
         int radioMohoEsperado = 5;
         Criadero criadero = new Criadero();
-        for(int i =0 ; i<=3;i++) {
+        for(int i =0; i<=3; i++) {
             criadero.construir();
         }
         int radioMoho = criadero.obtenerRadio();
@@ -24,10 +24,10 @@ public class ExpansionMohoTest {
     public void CompruebaLaAmpliacionDelMohoAPartirDeUnCriaderoLuegoDe2Turnos(){
         int radioMohoEsperado = 6;
         Criadero criadero = new Criadero();
-        for(int i =0 ; i<=3;i++) {
+        for(int i =0; i<=3; i++) {
             criadero.construir();
         }
-        for( int i =0 ; i<=1;i++) {
+        for( int i =0; i<=1; i++) {
             criadero.avanzarTurno();
         }
         int radioMoho = criadero.obtenerRadio();

@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
 
+import java.util.List;
+
 public class Pilon implements ConstruccionConRadio {
     private int vida = 300;
     private int escudo = 300;
@@ -25,6 +27,11 @@ public class Pilon implements ConstruccionConRadio {
     public boolean estaDisponible() {
         return (tiempoConstruccion<=0);
 
+    }
+
+    @Override
+    public List<Integer> costo() {
+        return null;
     }
 
     @Override

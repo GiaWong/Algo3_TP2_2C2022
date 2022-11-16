@@ -46,6 +46,11 @@ public class Extractor implements RefineriaGas{
     }
 
     @Override
+    public List<Integer> costo() {
+        return null;
+    }
+
+    @Override
     public int recolectar(Volcan volcan) {
         if (this.estaDisponible()) {
             return volcan.recolectar(zanganos.size() * 10);

@@ -159,14 +159,14 @@ interface ConstruccionNormal {
 class Extractor {
     - tiempoConstruccion
     - vida
-    +recolectar()
+    +recolectar(volcan)
     +construir()
 }
 
 class Asimilador {
     - tiempoConstruccion
     - vida
-    +recolectar()
+    +recolectar(volcan)
     +construir()
     - escudo
 }
@@ -174,7 +174,7 @@ class Asimilador {
 class NexoMineral {
     - tiempoConstruccion
     - vida
-    +recolectar()
+    +recolectar(nodoMineral)
     +construir()
     - escudo
 }
@@ -255,7 +255,6 @@ class Casilla {
 }
 
 class Vacio {
-    + agregarUnidad()
     + esPosibleConstruir(construccion)
 }
 
@@ -271,6 +270,10 @@ class ConMoho {
 }
 
 class ConEnergia {
+    + esPosibleConstruir(construccion)
+}
+
+class SinNada {
     + esPosibleConstruir(construccion)
 }
 
@@ -310,20 +313,6 @@ Raza <|-up- Protoss
 
 Raza -> Unidad
 
-Unidad <|.. Tierra
-Unidad <|.. Aire
-Unidad <|.. Zangano
-Tierra <|.. Zerling
-Tierra <|.. Hidralisco
-Tierra <|.. Mutalisco
-Tierra <|.. Guardian
-Tierra <|.. Zealot
-Tierra <|.. Dragon
-Tierra <|.. Scout
-Aire <|.. Hidralisco
-Aire <|.. Mutalisco
-Aire <|.. Dragon
-Aire <|.. Scout
 
 Raza-->Construccion
 
@@ -361,6 +350,7 @@ Recurso <|.. Vacio
 
 Terreno <|.. ConMoho
 Terreno <|... ConEnergia
+Terreno <|.. SinNada
 
 
 

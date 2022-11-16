@@ -2,9 +2,10 @@ package edu.fiuba.algo3.entrega_1.CasoDeUso3;
 
 import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteCasilla.ConNodoMineral;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteCasilla.ConVolcan;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,6 +18,7 @@ public class CasoDeUso3Test {
         boolean esperado = true;
         Casilla casilla = new Casilla();
         casilla.setRecurso(new Volcan());
+        casilla.setTerreno(new ConEnergia());
         Asimilador asimilador = new Asimilador();
 
         casilla.agregarConstruccion(asimilador);
@@ -31,6 +33,7 @@ public class CasoDeUso3Test {
         boolean esperado = true;
         Casilla casilla = new Casilla();
         casilla.setRecurso(new Volcan());
+        casilla.setTerreno(new ConMoho());
         Extractor extractor = new Extractor();
 
         casilla.agregarConstruccion(extractor);
@@ -45,6 +48,7 @@ public class CasoDeUso3Test {
         boolean esperado = false;
         Casilla casilla = new Casilla();
         casilla.setRecurso(new Volcan());
+        casilla.setTerreno(new ConEnergia());
         NexoMineral nexo = new NexoMineral();
 
         casilla.agregarConstruccion(nexo);
@@ -59,6 +63,7 @@ public class CasoDeUso3Test {
         boolean esperado = false;
         Casilla casilla = new Casilla();
         casilla.setRecurso(new Volcan());
+        casilla.setTerreno(new ConEnergia());
         Pilon pilon = new Pilon();
 
         casilla.agregarConstruccion(pilon);
@@ -73,6 +78,7 @@ public class CasoDeUso3Test {
         boolean esperado = false;
         Casilla casilla = new Casilla();
         casilla.setRecurso(new Volcan());
+        casilla.setTerreno(new ConEnergia());
         Acceso acceso = new Acceso();
 
         casilla.agregarConstruccion(acceso);
@@ -87,6 +93,7 @@ public class CasoDeUso3Test {
         boolean esperado = false;
         Casilla casilla = new Casilla();
         casilla.setRecurso(new Volcan());
+        casilla.setTerreno(new ConEnergia());
         PuertoEstelar puerto = new PuertoEstelar();
 
         casilla.agregarConstruccion(puerto);
@@ -101,6 +108,7 @@ public class CasoDeUso3Test {
         boolean esperado = false;
         Casilla casilla = new Casilla();
         casilla.setRecurso(new Volcan());
+        casilla.setTerreno(new ConMoho());
         Criadero criadero = new Criadero();
 
         casilla.agregarConstruccion(criadero);
@@ -115,6 +123,7 @@ public class CasoDeUso3Test {
         boolean esperado = false;
         Casilla casilla = new Casilla();
         casilla.setRecurso(new Volcan());
+        casilla.setTerreno(new ConMoho());
         ReservaProduccion reserva = new ReservaProduccion();
 
         casilla.agregarConstruccion(reserva);
@@ -129,6 +138,7 @@ public class CasoDeUso3Test {
         boolean esperado = false;
         Casilla casilla = new Casilla();
         casilla.setRecurso(new Volcan());
+        casilla.setTerreno(new ConMoho());
         Guarida guarida = new Guarida();
 
         casilla.agregarConstruccion(guarida);
@@ -143,6 +153,7 @@ public class CasoDeUso3Test {
         boolean esperado = false;
         Casilla casilla = new Casilla();
         casilla.setRecurso(new Volcan());
+        casilla.setTerreno(new ConMoho());
         Espiral espiral = new Espiral();
 
         casilla.agregarConstruccion(espiral);
@@ -156,7 +167,8 @@ public class CasoDeUso3Test {
 
         boolean esperado = true;
         Casilla casilla = new Casilla();
-        casilla.setRecurso(new Volcan());
+        casilla.setRecurso(new NodoMineral());
+        casilla.setTerreno(new ConEnergia());
         NexoMineral nexoMineral = new NexoMineral();
 
         casilla.agregarConstruccion(nexoMineral);

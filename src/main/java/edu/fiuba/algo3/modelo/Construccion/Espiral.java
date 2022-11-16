@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
+import java.util.List;
+
 public class Espiral implements ConstruccionNormal{
     private int tiempoConstruccion = 10;
     private int vida = 1300 ;
@@ -23,6 +25,11 @@ public class Espiral implements ConstruccionNormal{
     @Override
     public boolean estaDisponible() {
         return (tiempoConstruccion<=0);
+    }
+
+    @Override
+    public List<Integer> costo() {
+        return null;
     }
 
     @Override

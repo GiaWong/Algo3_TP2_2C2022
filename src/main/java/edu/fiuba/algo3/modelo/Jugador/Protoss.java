@@ -1,15 +1,15 @@
 package edu.fiuba.algo3.modelo.Jugador;
 
-import edu.fiuba.algo3.modelo.Construccion.ConstruccionProtoss;
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
 
 import java.util.List;
 
 public class Protoss extends Raza {
 
-    private List<ConstruccionProtoss> construcciones;
+    private List<Construccion> construcciones;
 
     @Override
-    public void agregarConstruccion() {
+    public void agregarConstruccion(Construccion construccion) {
 
     }
 

@@ -1,12 +1,15 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso5.ConMoho;
 
 import edu.fiuba.algo3.modelo.Construccion.Espiral;
+import edu.fiuba.algo3.modelo.Construccion.Extractor;
 import edu.fiuba.algo3.modelo.Construccion.Guarida;
 import edu.fiuba.algo3.modelo.Construccion.ReservaProduccion;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Vacio;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinNada;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,37 +19,56 @@ public class ConstruccionConMohoTest {
 
 
     @Test
-    public void SeConstruyeReservaProduccionFueraDelRangoMohoYSeLanzaError() {
+    public void SeConstruyeReservaProduccionFueraDelRangoMohoYNoSeDeberiaPoder() {
 
+        boolean esperado = false;
         Casilla casilla = new Casilla();
-        casilla.setTerreno(new ConEnergia()); // cambiar set terreno poro Sin Nada
+        casilla.setTerreno(new SinNada());
         casilla.setRecurso(new Vacio());
         ReservaProduccion reserva = new ReservaProduccion();
         casilla.agregarConstruccion(reserva);
-        assertEquals(casilla.hayConstruccion(),false);
+        boolean resultado = casilla.hayConstruccion();
+        assertEquals(resultado, esperado);
     }
 
 
     @Test
-    public void SeConstruyeEspiralFueraDelRangoMohoYSeLanzaError() {
+    public void SeConstruyeEspiralFueraDelRangoMohoYNoSeDeberiaPoder() {
 
+        boolean esperado = false;
         Casilla casilla = new Casilla();
-        casilla.setTerreno(new ConEnergia());
+        casilla.setTerreno(new SinNada());
         casilla.setRecurso(new Vacio());
         Espiral espiral = new Espiral();
         casilla.agregarConstruccion(espiral);
-        assertEquals(casilla.hayConstruccion(),false);
+        boolean resultado = casilla.hayConstruccion();
+        assertEquals(resultado, esperado);
     }
 
     @Test
-    public void SeConstruyeGuaridalFueraDelRangoMohoYSeLanzaError() {
+    public void SeConstruyeGuaridalFueraDelRangoMohoYNoSeDeberiaPoder() {
 
+        boolean esperado = false;
         Casilla casilla = new Casilla();
-        casilla.setTerreno(new ConEnergia());
+        casilla.setTerreno(new SinNada());
         casilla.setRecurso(new Vacio());
         Guarida guarida = new Guarida();
         casilla.agregarConstruccion(guarida);
-        assertEquals(casilla.hayConstruccion(),false);
+        boolean resultado = casilla.hayConstruccion();
+        assertEquals(resultado, esperado);
+    }
+
+    @Test
+    public void SeConstruyeExtractorFueraDelRangoMohoYNoSeDeberiaPoder() {
+
+        boolean esperado = false;
+        Casilla casilla = new Casilla();
+        casilla.setTerreno(new SinNada());
+        casilla.setRecurso(new Volcan());
+        Extractor extractor = new Extractor();
+        casilla.agregarConstruccion(extractor);
+        boolean resultado = casilla.hayConstruccion();
+        assertEquals(resultado, esperado);
     }
 
 }

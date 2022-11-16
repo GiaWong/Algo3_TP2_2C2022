@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
+import java.util.List;
+
 public class Guarida implements ConstruccionNormal{
 
     private int tiempoConstruccion = 12;
@@ -24,6 +26,11 @@ public class Guarida implements ConstruccionNormal{
     @Override
     public boolean estaDisponible() {
         return (tiempoConstruccion<=0);
+    }
+
+    @Override
+    public List<Integer> costo() {
+        return null;
     }
 
     @Override

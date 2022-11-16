@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.Construccion;
 
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 
+import java.util.List;
+
 public class  Asimilador implements RefineriaGas {
 
     private int vida = 450;
@@ -29,6 +31,11 @@ public class  Asimilador implements RefineriaGas {
     public boolean estaDisponible() {
         return (tiempoConstruccion<=0);
 
+    }
+
+    @Override
+    public List<Integer> costo() {
+        return null;
     }
 
     @Override

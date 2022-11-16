@@ -1,17 +1,16 @@
 package edu.fiuba.algo3.modelo.Jugador;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.ConstruccionZerg;
 
 import java.util.List;
 
 public class Zerg extends Raza {
 
-    private List<ConstruccionZerg> construcciones;
+    private List<Construccion> construcciones;
 
     @Override
     public void agregarConstruccion(Construccion construccion) {
-        if(construccion.obtenerCostoMateriales(bancoMinerales,bancoGasvespeno));
+        //if(construccion.obtenerCostoMateriales(bancoMinerales,bancoGasvespeno));
 
     }
 

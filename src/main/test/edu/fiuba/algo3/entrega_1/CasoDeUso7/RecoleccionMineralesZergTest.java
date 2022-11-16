@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso7;
 
-import edu.fiuba.algo3.modelo.Construccion.Extractor;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
@@ -23,6 +22,5 @@ public class RecoleccionMineralesZergTest {
         int resultado = zangano.recolectar(nodo);
         assertEquals(resultado, esperado);
     }
-
 
 }

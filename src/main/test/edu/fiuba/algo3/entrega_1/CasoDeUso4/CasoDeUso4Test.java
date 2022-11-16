@@ -3,8 +3,9 @@ package edu.fiuba.algo3.entrega_1.CasoDeUso4;
 import edu.fiuba.algo3.modelo.Construccion.Asimilador;
 import edu.fiuba.algo3.modelo.Construccion.Extractor;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteCasilla.ConVolcan;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Unidades.Zangano;
 import org.junit.jupiter.api.Test;
 
@@ -18,15 +19,14 @@ public class CasoDeUso4Test {
         Casilla casilla = new Casilla();
         Volcan volcan = new Volcan();
         casilla.setRecurso(volcan);
+        casilla.setTerreno(new ConMoho());
         for (int i = 0; i < 6; i++){ //Esto lo hago porque supongo que solo se pueden meter zanganos a extractor una vez que esta construida.
             extractor.construir();
         }
-        //No le meto ningun zangano
+        //No le meto ningún zángano
         casilla.agregarConstruccion(extractor);
         int resultado = extractor.recolectar(volcan);
         assertEquals(resultado, esperado);
-
-        //Recordatorio: hay que crear las Unidades para resolver este test, para poder usar Zangano porque Extractor tiene una lista de estos.
 
     }
 
@@ -37,10 +37,11 @@ public class CasoDeUso4Test {
         Casilla casilla = new Casilla();
         Volcan volcan = new Volcan();
         casilla.setRecurso(volcan);
+        casilla.setTerreno(new ConMoho());
         for (int i = 0; i < 6; i++){
             extractor.construir();
         }
-        //Le meto zangano a extractor.
+        //Le meto zángano a extractor.
         extractor.agregar(new Zangano());
         casilla.agregarConstruccion(extractor);
         int resultado = extractor.recolectar(volcan);
@@ -57,10 +58,11 @@ public class CasoDeUso4Test {
         Casilla casilla = new Casilla();
         Volcan volcan = new Volcan();
         casilla.setRecurso(volcan);
+        casilla.setTerreno(new ConMoho());
         for (int i = 0; i < 6; i++){
             extractor.construir();
         }
-        //Le meto 2 zanganos a extractor.
+        //Le meto 2 zánganos a extractor.
         extractor.agregar(new Zangano());
         extractor.agregar(new Zangano());
         casilla.agregarConstruccion(extractor);
@@ -77,10 +79,11 @@ public class CasoDeUso4Test {
         Casilla casilla = new Casilla();
         Volcan volcan = new Volcan();
         casilla.setRecurso(volcan);
+        casilla.setTerreno(new ConMoho());
         for (int i = 0; i < 6; i++){
             extractor.construir();
         }
-        //Le meto 2 zanganos a extractor.
+        //Le meto 3 zánganos a extractor.
         extractor.agregar(new Zangano());
         extractor.agregar(new Zangano());
         extractor.agregar(new Zangano());
@@ -98,16 +101,17 @@ public class CasoDeUso4Test {
         Casilla casilla = new Casilla();
         Volcan volcan = new Volcan();
         casilla.setRecurso(volcan);
+        casilla.setTerreno(new ConMoho());
         for (int i = 0; i < 6; i++){
             extractor.construir();
         }
-        //Le meto 2 zanganos a extractor.
+        //Le meto 4 zánganos a extractor.
         extractor.agregar(new Zangano());
         extractor.agregar(new Zangano());
         extractor.agregar(new Zangano());
-        extractor.agregar(new Zangano()); //No se agregaria este Zangano a Extractor, por lo tanto sigue recolectando la cantidad de Zanganos que habia
+        extractor.agregar(new Zangano()); //No se agregaría este Zángano a Extractor, por lo tanto sigue recolectando la cantidad de 3 Zanganos que habia
         casilla.agregarConstruccion(extractor);
-        int resultado = extractor.recolectar(volcan);
+        int resultado = extractor.recolectar(volcan);// cuando recolecta, recolectaría lo mismo que con 3.
 
         assertEquals(resultado, esperado);
 
@@ -120,6 +124,8 @@ public class CasoDeUso4Test {
         Asimilador asimilador = new Asimilador();
         Casilla casilla = new Casilla();
         Volcan volcan = new Volcan();
+        casilla.setRecurso(volcan);
+        casilla.setTerreno(new ConEnergia());
         for (int i = 0; i < 6; i++){
             asimilador.construir();
         }
@@ -138,6 +144,8 @@ public class CasoDeUso4Test {
         Asimilador asimilador = new Asimilador();
         Casilla casilla = new Casilla();
         Volcan volcan = new Volcan();
+        casilla.setRecurso(volcan);
+        casilla.setTerreno(new ConEnergia());
         for (int i = 0; i < 6; i++){
             asimilador.construir();
         }

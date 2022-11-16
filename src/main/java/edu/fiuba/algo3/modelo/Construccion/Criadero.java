@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
 
+import java.util.List;
+
 public class Criadero implements ConstruccionNormal {
 
     private int larvas = 3;
@@ -46,5 +48,10 @@ public class Criadero implements ConstruccionNormal {
     @Override
     public boolean estaDisponible() {
         return tiempoConstruccion<=0;
+    }
+
+    @Override
+    public List<Integer> costo() {
+        return null;
     }
 }

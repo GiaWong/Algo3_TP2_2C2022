@@ -1,10 +1,13 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso8;
 
+import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ComprobarRecursosConstruccionProtoss {
 
-
+    /*
     @Test
     public void SeConstruyeNexoMineralProtossSinRecursosNecesarios(){
         int gasVespeno = 50;
@@ -56,7 +59,6 @@ public class ComprobarRecursosConstruccionProtoss {
         assertEquals(resultado, esperado);
 
     }
-
-     */
+    */
 }
 
