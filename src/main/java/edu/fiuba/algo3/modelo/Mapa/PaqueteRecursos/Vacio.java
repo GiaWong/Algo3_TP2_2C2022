@@ -12,7 +12,7 @@ public class Vacio implements Recurso {
     @Override
     public boolean esPosibleConstruir(Construccion unaConstruccion) {
 
-        if(!(unaConstruccion.getClass().equals(this.getClass()))){//si el terrno es Vacio
+        if(!(unaConstruccion.getClass().equals(this.getClass()))){//si es Vacio
             return false;
         }
 

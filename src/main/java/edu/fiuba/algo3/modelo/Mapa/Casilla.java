@@ -10,7 +10,6 @@ public class Casilla {
 
     protected Unidad unidad;
     private Recurso recurso;
-    private boolean indicadorHayConstruccion = false;
     protected Terreno terreno;
     protected Construccion construccion;
 
@@ -24,7 +23,6 @@ public class Casilla {
 
     public void agregarConstruccion(Construccion unaConstruccion){
         if (terreno.esPosibleConstruir(unaConstruccion) && recurso.esPosibleConstruir(unaConstruccion)){
-            //indicadorHayConstruccion = true;
             construccion = unaConstruccion;
         }
     }
