@@ -27,6 +27,10 @@ public class Casilla {
         return (construccion != null);
     }
 
+    public boolean tipoTerreno(Terreno otroTerreno){
+        return (terreno.getClass().equals(otroTerreno.getClass()));
+    }
+
     public void agregarUnidad(Unidad unaUnidad){
         unidad = unaUnidad;
     }
@@ -56,7 +60,7 @@ public class Casilla {
 
         //System.out.println(construccionRadio.getClass());
         if(this.hayConstruccion()){
-            System.out.println("entrooo");
+            //System.out.println("entrooo");
             return construccionRadio.getClass().equals(construccion.getClass());
 
         }

@@ -2,10 +2,11 @@ package edu.fiuba.algo3.modelo.Mapa;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.Criadero;
+import edu.fiuba.algo3.modelo.Construccion.Pilon;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinNada;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
-
-import java.util.List;
 
 public class Mapa {
 
@@ -32,38 +33,59 @@ public class Mapa {
     }
 
     public void destruirConstruccion(int fila, int columna) {
-        (casillas [fila][columna]).destruirConstruccion();
+
+        if((casillas [fila][columna]).esConstruccion(new Pilon())){
+
+            int radio = (casillas [fila][columna]).obtenerRadio();
+            this.setearRadioTerreno(radio,fila, columna, new SinNada());
+            (casillas [fila][columna]).destruirConstruccion();
+            this.setearRadio();
+
+        }else{
+            (casillas [fila][columna]).destruirConstruccion();
+        }
+
+
     }
 
     public boolean hayConstruccion(int fila, int columna) {
         return (casillas [fila][columna]).hayConstruccion();
     }
 
-    public void ampliarRadio(){
-
+    public void setearRadio(){
+        int radio;
         for(int i=0; i<20; i++){
             for(int j=0; j<20;j++){
 
+
+
                 if((casillas[i][j]).esConstruccion(new Criadero())){
-                    //System.out.println(i);
-                    //System.out.println(j);
-                    int radio =(casillas[i][j]).obtenerRadio();
-                    this.setearRadioTerreno(radio, i,j);
+                    radio =(casillas[i][j]).obtenerRadio();
+                    this.setearRadioTerreno(radio, i,j, new ConMoho());
+
+                }else if ((casillas[i][j]).esConstruccion(new Pilon())){
+                    radio =(casillas[i][j]).obtenerRadio();
+                    this.setearRadioTerreno(radio, i,j, new ConEnergia());
                 }
 
             }
         }
     }
 
-    private void setearRadioTerreno(int radio, int fila, int columna) {
+    private void setearRadioTerreno(int radio, int fila, int columna, Terreno terreno) {
         //System.out.println(radio);
         for (int i=0; i<radio; i++){
             for(int j=0; j<radio; j++){
 
-                casillas[fila + i][columna + j].setTerreno(new ConMoho());
-                casillas[fila - i][columna - j].setTerreno(new ConMoho());
+                casillas[fila + i][columna + j].setTerreno(terreno);
+                casillas[fila - i][columna - j].setTerreno(terreno);
             }
         }
+
+    }
+
+    public boolean tipoTerreno(Terreno terreno, int fila, int columna) {
+        return (casillas[fila][columna]).tipoTerreno(terreno);
 
     }
 }
