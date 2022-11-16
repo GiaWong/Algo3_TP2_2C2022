@@ -11,15 +11,16 @@ public class Vacio implements Recurso {
 
     @Override
     public boolean esPosibleConstruir(Construccion unaConstruccion) {
-        //Devuelve True si la construccion NO es una Refineria.
+        //Devuelve True si la construccion NO es una Refineria y no debe ser Vacia.
 
         Asimilador asimilador = new Asimilador();
         Extractor extractor = new Extractor();
         NexoMineral nexo = new NexoMineral();
-        boolean esAsimilador, esExtractor, esNexo;
+        boolean esAsimilador, esExtractor, esNexo, esVacio;
         esAsimilador = unaConstruccion.getClass().equals(asimilador.getClass());
         esExtractor = unaConstruccion.getClass().equals(extractor.getClass());
         esNexo = unaConstruccion.getClass().equals(nexo.getClass());
-        return (!esAsimilador || !esExtractor || !esNexo);
+        esVacio = unaConstruccion.getClass().equals(this.getClass());
+        return (!esAsimilador || !esExtractor || !esNexo || !esVacio);
     }
 }
