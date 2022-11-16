@@ -74,11 +74,24 @@ public class Mapa {
 
     private void setearRadioTerreno(int radio, int fila, int columna, Terreno terreno) {
         //System.out.println(radio);
+        //int filaRadio, columnaRadio;
         for (int i=0; i<radio; i++){
             for(int j=0; j<radio; j++){
 
-                casillas[fila + i][columna + j].setTerreno(terreno);
-                casillas[fila - i][columna - j].setTerreno(terreno);
+                if(!(casillas[fila + i][columna + j].tipoTerreno(new ConMoho()))){//si en esa posicion tiene moho
+                  // System.out.println("gggg");
+                    casillas[fila + i][columna + j].setTerreno(terreno);
+
+                }
+
+                if(!(casillas[fila - i][columna - j].tipoTerreno(new ConMoho()))){
+                    //System.out.println("lllllllllllllllll");
+                    casillas[fila - i][columna - j].setTerreno(terreno);
+
+                }
+
+                //casillas[fila + i][columna + j].setTerreno(terreno);
+                //casillas[fila - i][columna - j].setTerreno(terreno);
             }
         }
 
