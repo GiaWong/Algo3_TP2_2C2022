@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.entrega_1.CasoDeUso18;
+package edu.fiuba.algo3.entrega_2.CasoDeUso18;
 
 import org.junit.jupiter.api.Test;
 
