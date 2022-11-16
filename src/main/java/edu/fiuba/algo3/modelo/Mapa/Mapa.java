@@ -73,8 +73,7 @@ public class Mapa {
     }
 
     private void setearRadioTerreno(int radio, int fila, int columna, Terreno terreno) {
-        //System.out.println(radio);
-        //int filaRadio, columnaRadio;
+
         for (int i=0; i<radio; i++){
             for(int j=0; j<radio; j++){
 

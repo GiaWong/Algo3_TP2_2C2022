@@ -29,7 +29,13 @@ public class CasoDeUso14 {
         mapa.setearRadio();
         mapa.agregarConstruccion(pilon,10,16);
         mapa.setearRadio();
-        assertEquals(true, mapa.tipoTerreno(new ConEnergia(),10,15));
+        assertEquals(true, mapa.tipoTerreno(new ConMoho(),10,14));
+
+        /*
+        *
+        *
+        *
+        * */
 
 
 
