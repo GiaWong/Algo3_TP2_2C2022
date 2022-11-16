@@ -15,9 +15,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso15 {
+
+
+    // Caso mineral para Protoss
     @Test
-    public void NexoMineralNDeberiaRecolectarDeUnMineralCuandoElRecursoSAgoto(){//falta hacer el resot de las clases
-        int esperado = 0 ;
+    public void NexoMineralNoDeberiaRecolectarDeUnMineralCuandoElRecursoSeAgoto(){//falta hacer el resot de las clases
+        int esperado = 0;
         Casilla casilla = new Casilla();
         NodoMineral nodo = new NodoMineral();
         casilla.setTerreno(new ConEnergia());
@@ -26,52 +29,36 @@ public class CasoDeUso15 {
         for(int i = 0; i < 4; i++){
             nexo.construir();
         }
-
+        casilla.agregarConstruccion(nexo);
         for(int j = 0; j < 100; j++){
             nexo.recolectar(nodo);
         }
         int resultado = nexo.recolectar(nodo);
         assertEquals(esperado, resultado);
     }
+
+    // Caso de mineral para los Zerg
     @Test
-    //caso de mineral para los Zergs
     public void ZanganoNoDeberiaRecolectarDeUnMineralCuandoElRecursoSeAgoto(){
-       /* int esperado = 0 ;
-        Casilla casilla = new Casilla();
-        NexoMineral nodo = new NexoMineral();
-        casilla.setTerreno(new ConMoho());
-        casilla.setRecurso(nodo);
-        Criadero criadero = new Criadero();
-        Zangano zangano = new Zangano();
-        for(int i = 0; i < 4; i++){
-            criadero.construir();
-        }
-
-        for(int j = 0; j < 350; j++){//350 tiré ese numero a la lazar para qu lo gaste al volcan
-            zangano.recolectar(nodo);
-        }*/
-
-    }
-    @Test
-    public void ExtractorNoDeberiaRecolectarDeUnGasVespenoCuandoElREcursoSeAgoto(){
         int esperado = 0 ;
         Casilla casilla = new Casilla();
-        Volcan volcan = new Volcan();
+        NodoMineral nodo = new NodoMineral();
         casilla.setTerreno(new ConMoho());
-        casilla.setRecurso(volcan);
-        Extractor extractor = new Extractor();
-        for(int i = 0; i < 6; i++){
-            extractor.construir();
-        }
+        casilla.setRecurso(nodo);
+        Zangano zangano = new Zangano();
+        casilla.agregarUnidad(zangano);
 
-        for(int j = 0; j < 350; j++){//350 tiré ese numero a la lazar para qu lo gaste al volcan
-            extractor.recolectar(volcan);
+        for(int j = 0; j < 200; j++){
+            zangano.recolectar(nodo);
         }
-        int resultado = extractor.recolectar(volcan);
+        int resultado = zangano.recolectar(nodo);
         assertEquals(esperado, resultado);
+
     }
+
+    // Caso de gas para los Protoss
     @Test
-    public void AsimiladorNoDeberiaRecolectarDeUnGasVespenoCuandoElREcursoSeAgoto(){
+    public void AsimiladorNoDeberiaRecolectarDeUnGasVespenoCuandoElRecursoSeAgoto(){
         int esperado = 0 ;
         Casilla casilla = new Casilla();
         Volcan volcan = new Volcan();
@@ -89,6 +76,25 @@ public class CasoDeUso15 {
         assertEquals(esperado, resultado);
     }
 
-
-
+    // Caso de gas para los Zerg
+    @Test
+    public void ExtractorNoDeberiaRecolectarDeUnGasVespenoCuandoElRecursoSeAgoto(){
+        int esperado = 0 ;
+        Casilla casilla = new Casilla();
+        Volcan volcan = new Volcan();
+        casilla.setTerreno(new ConMoho());
+        casilla.setRecurso(volcan);
+        Extractor extractor = new Extractor();
+        for(int i = 0; i < 6; i++){
+            extractor.construir();
+        }
+        extractor.agregar(new Zangano());
+        extractor.agregar(new Zangano());
+        extractor.agregar(new Zangano());
+        for(int j = 0; j < 200; j++){
+            extractor.recolectar(volcan);
+        }
+        int resultado = extractor.recolectar(volcan);
+        assertEquals(esperado, resultado);
+    }
 }

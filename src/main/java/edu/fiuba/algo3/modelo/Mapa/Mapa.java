@@ -58,7 +58,6 @@ public class Mapa {
             for(int j=0; j<20;j++){
 
 
-
                 if((casillas[i][j]).esConstruccion(new Criadero())){
                     radio =(casillas[i][j]).obtenerRadio();
                     this.setearRadioTerreno(radio, i,j, new ConMoho());
