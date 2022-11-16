@@ -26,6 +26,13 @@ public class Criadero implements ConstruccionNormal {
             tiempoAmpliacion =2;
         }
     }
+    public void aumentarVida(){
+        if(vida <= 490){
+            vida += 10;
+        }
+    }
+
+    public int obtenerVida() {return vida; }
     public int obtenerRadio(){
         return radio;
     }
@@ -48,6 +55,7 @@ public class Criadero implements ConstruccionNormal {
             larvas++;
         }
         tiempoAmpliacion--;
+        this.aumentarVida();
         this.ampliarRadio();
 
     }

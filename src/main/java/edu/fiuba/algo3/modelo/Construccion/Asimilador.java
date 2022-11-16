@@ -27,6 +27,8 @@ public class  Asimilador implements RefineriaGas {
     public void quitarVida(int cant) {
 
     }
+    @Override
+    public int obtenerVida() {return vida; }
 
     @Override
     public void avanzarTurno() {

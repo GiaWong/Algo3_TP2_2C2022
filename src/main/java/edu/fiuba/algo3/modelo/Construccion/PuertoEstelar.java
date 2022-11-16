@@ -23,6 +23,8 @@ public class PuertoEstelar implements ConstruccionNormal{
     public void quitarVida(int cant) {
 
     }
+    @Override
+    public int obtenerVida() {return vida; }
 
     @Override
     public void avanzarTurno() {

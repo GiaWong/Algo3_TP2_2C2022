@@ -24,6 +24,8 @@ public class Pilon implements ConstruccionConRadio {
     public void quitarVida(int cant) {
 
     }
+    @Override
+    public int obtenerVida() {return vida; }
 
     @Override
     public void avanzarTurno() {

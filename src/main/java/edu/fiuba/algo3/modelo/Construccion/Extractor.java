@@ -35,6 +35,8 @@ public class Extractor implements RefineriaGas{
     public void quitarVida(int cant) {
         vida  -= 750;
     }
+    @Override
+    public int obtenerVida() {return vida; }
 
     @Override
     public void avanzarTurno() {

@@ -10,4 +10,6 @@ public interface Construccion {
     boolean estaDisponible();
 
     List<Integer> costo();
+
+    int obtenerVida();
 }

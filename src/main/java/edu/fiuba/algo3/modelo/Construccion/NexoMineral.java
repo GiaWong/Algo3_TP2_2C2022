@@ -29,6 +29,8 @@ public class NexoMineral implements RefineriaMineral {
     public void quitarVida(int cant) {
 
     }
+    @Override
+    public int obtenerVida() {return vida; }
 
     @Override
     public void avanzarTurno() {

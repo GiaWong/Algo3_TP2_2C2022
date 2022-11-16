@@ -22,6 +22,8 @@ public class Espiral implements ConstruccionNormal{
     public void quitarVida(int cant) {
         vida -= cant;
     }
+    @Override
+    public int obtenerVida() {return vida; }
 
     @Override
     public void avanzarTurno() {
