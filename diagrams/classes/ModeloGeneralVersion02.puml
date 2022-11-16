@@ -37,7 +37,7 @@ class Jugador {
 abstract class Raza {
     - unidades
     - construcciones
-    - bandoDeRecursos
+    - bancoDeRecursos
 
     + agregarConstruccion()
     + recolectar()

@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ComprobarRecursosConstruccionProtoss {
 
-    /*
+
     @Test
     public void SeConstruyeNexoMineralProtossSinRecursosNecesarios(){
         int gasVespeno = 50;
