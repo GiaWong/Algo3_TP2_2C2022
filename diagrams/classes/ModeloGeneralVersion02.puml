@@ -56,6 +56,13 @@ class Protoss {
     + evolucionar()
 }
 
+abstract class Unidad {
+    - vida
+    - tiempoConstruccion
+    - rango
+    - superficie
+    - costos
+}
 
 class Zangano {
     - vida
@@ -64,56 +71,44 @@ class Zangano {
 }
 
 class Zerling {
-    - vida
-    - tiempoConstruccion
-
     + ataqueTierra()
 }
 
 class Hidralisco {
-    - vida
-    - tiempoConstruccion
 
     +ataqueTierra()
     +ataqueAire()
 }
 
 class Mutalisco {
-    - vida
-    - tiempoConstruccion
 
     +ataqueTierra()
+    +evoluciona()
     +ataqueAire()
 }
 
 class Guardian {
-    - vida
-    - tiempoConstruccion
+    -vida
+    -tiempoConstruccion
 
     +ataqueTierra()
 }
 
 class Zealot {
-    - vida
     - escudo
-    - tiempoConstruccion
 
     +ataqueTierra()
 }
 
 class Dragon {
-    - vida
     - escudo
-    - tiempoConstruccion
 
     +ataqueTierra()
     +ataqueAire()
 }
 
 class Scout {
-    - vida
     - escudo
-    - tiempoConstruccion
 
     +ataqueTierra()
     +ataqueAire()
@@ -341,7 +336,7 @@ Terreno <|... ConEnergia
 Terreno <|.. SinNada
 
 
-Extractor ..> Zangano: utiliza, ver casoUso 15,16,4
+Criadero --> Zangano: construye/crea
 ReservaProduccion --> Zerling: construye/crea
 Guarida --> Hidralisco: construye/crea
 
@@ -355,4 +350,13 @@ PuertoEstelar --> Scout: construye/crea
 Espiral o-left-> Guarida: preRequisito
 Guarida o-left-> ReservaProduccion: preRequisito
 PuertoEstelar o-left-> Acceso: preRequisito
+
+Zangano --|> Unidad
+Zerling --|> Unidad
+Hidralisco --|> Unidad
+Mutalisco --|> Unidad
+Zealot --|> Unidad
+Dragon --|> Unidad
+Scout --|> Unidad
+
 @enduml

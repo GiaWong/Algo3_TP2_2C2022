@@ -2,12 +2,14 @@ package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 
-public class Zangano implements Unidad{
-    private int cantidad;
+public class Zangano extends Unidad{
 
-    private int tiempoDeConstruccion = 1;
-    public int getCantidad (){
-        return this.cantidad;
+    public Zangano(){
+        vida = 25;
+        tiempoConstruccion = 1;
+        superficie = new Tierra();
+        costos.add(25); //Esto es para Minerales
+        costos.add(0); // Esto es para Gas
     }
 
     public int extraerMineral() {
