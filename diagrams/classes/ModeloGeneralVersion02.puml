@@ -61,6 +61,8 @@ abstract class Unidad {
     - tiempoConstruccion
     - rango
     - costos
+    - superficie
+    - ataque
     + construir()
     + ataque(Superficie, fila, columna)
 
@@ -372,12 +374,28 @@ class Tierra{
 
 }
 
+interface Danio {
+    +recibirDanio(superficie)
+}
+
+class AtaqueTierra {
+    +recibirDanio(superficie)
+}
+
+class AtaqueTierraYAire {
+    +recibirDanio(superficie)
+}
+
+Unidad *--> Danio
+
+Danio <|.. AtaqueTierra
+Danio <|.. AtaqueTierraYAire
 
 
 Superficie <|.. Tierra
 Superficie <|.. Aire
 
-Unidad o--> Superficie
+Unidad *--> Superficie
 
 
 
