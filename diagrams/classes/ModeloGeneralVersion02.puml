@@ -376,6 +376,15 @@ Scout --|> Unidad
 interface Danio {
     +recibirDanio(superficie)
 }
+interface Superficie{
+ +esPosibleAgregar(unidad)
+}
+class Tierra{
++esPosibleAgregar(unidad)
+}
+class Aire{
++esPosibleAgregar(unidad)
+}
 
 class AtaqueTierra {
     +recibirDanio(superficie)
@@ -393,9 +402,9 @@ Danio <|.. AtaqueTierraYAire
 
 
 
-Casilla *--> Area
-Area <|.. Terrestre
-Area <|.. Espacial
+Casilla *--> Superficie
+Superficie <|.. Tierra
+Superficie <|.. Aire
 
 
 
