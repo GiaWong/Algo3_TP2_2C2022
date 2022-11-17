@@ -18,7 +18,7 @@ public class Mutalisco extends Unidad{
         superficie = new Aire();
         costos.add(100); //Esto es para Minerales
         costos.add(100); // Esto es para Gas
-        danio=9;
+        danio=new AtaqueAireyTierra(9,9);
     }
 
     @Override
@@ -29,7 +29,8 @@ public class Mutalisco extends Unidad{
     }
 
     @Override
-    public void recibirDanio(int danio) {
+    public void modificarEstadisticas(int danio) {
+        vida-=danio;
 
     }
 

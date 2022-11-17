@@ -12,6 +12,7 @@ public class Zangano extends Unidad{
         superficie = new Tierra();
         costos.add(25); //Esto es para Minerales
         costos.add(0); // Esto es para Gas
+
     }
 
     public int extraerMineral() {
@@ -28,7 +29,8 @@ public class Zangano extends Unidad{
     }
 
     @Override
-    public void recibirDanio(int danio) {
+    public void modificarEstadisticas(int danio) {
+        vida -=danio;
 
     }
     @Override

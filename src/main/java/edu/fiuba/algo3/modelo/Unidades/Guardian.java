@@ -18,7 +18,8 @@ public class Guardian extends Unidad{
         superficie = new Aire();
         costos.add(50);
         costos.add(100);
-        danio=25;
+        danio=new AtaqueTierra(25);
+        ;
     }
 
     @Override
@@ -27,7 +28,8 @@ public class Guardian extends Unidad{
     }
 
     @Override
-    public void recibirDanio(int danio) {
+    public void modificarEstadisticas(int danio) {
+        vida -= danio;
 
     }
 

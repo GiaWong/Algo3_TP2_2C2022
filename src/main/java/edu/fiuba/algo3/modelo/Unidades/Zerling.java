@@ -17,7 +17,8 @@ public class Zerling extends Unidad{
         superficie = new Tierra();
         costos.add(25); //Esto es para Minerales
         costos.add(0); // Esto es para Gas
-        danio=4;
+        danio=new AtaqueTierra(4);
+        ;
     }
 
     @Override
@@ -26,9 +27,8 @@ public class Zerling extends Unidad{
     }
 
     @Override
-    public void recibirDanio(int danio) {
-
-
+    public void modificarEstadisticas(int danio) {
+        vida -= danio;
     }
     @Override
     public List<Integer> costo() {

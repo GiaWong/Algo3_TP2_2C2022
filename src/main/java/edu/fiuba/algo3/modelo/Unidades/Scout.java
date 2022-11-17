@@ -19,6 +19,8 @@ public class Scout extends Unidad{
         superficie = new Aire();
         costos.add(300); //Esto es para Minerales
         costos.add(150); // Esto es para Gas
+        danio=new AtaqueAireyTierra(14,8);
+
     }
 
     @Override
@@ -28,7 +30,12 @@ public class Scout extends Unidad{
     }
 
     @Override
-    public void recibirDanio(int danio) {
+    public void modificarEstadisticas(int danio) {
+        escudo-= danio;
+        if (escudo<0){
+            vida += escudo;
+            escudo = 0;
+        }
 
     }
     @Override

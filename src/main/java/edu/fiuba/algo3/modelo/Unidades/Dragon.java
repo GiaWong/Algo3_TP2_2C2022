@@ -12,6 +12,7 @@ public class Dragon extends Unidad{
     private int escudo = 60;
     public Dragon(){
         vida = 100;
+        danio=new AtaqueAireyTierra(20,20);
         tiempoConstruccion = 6;
         rango = 4;
         superficie = new Tierra();
@@ -25,7 +26,12 @@ public class Dragon extends Unidad{
     }
 
     @Override
-    public void recibirDanio(int danio) {
+    public void modificarEstadisticas(int danio) {
+        escudo-= danio;
+        if (escudo<0){
+            vida += escudo;
+            escudo = 0;
+        }
 
     }
 

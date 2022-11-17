@@ -63,7 +63,7 @@ public class VerificarAtaqueDeUnidadesZerg {
         Hidralisco hidralisco = guarida.obtenerZerg();
         mapa.agregar(hidralisco,12,12);
         mapa.atacar(hidralisco,11,11);
-        assertEquals(496,construccionEnemiga.obtenerEscudo());
+        assertEquals(490,construccionEnemiga.obtenerEscudo());
 
     }
 

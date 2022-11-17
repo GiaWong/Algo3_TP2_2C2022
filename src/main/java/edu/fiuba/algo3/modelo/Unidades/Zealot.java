@@ -11,7 +11,7 @@ public class Zealot extends Unidad{
     private int escudo = 60;
     public Zealot(){
         vida = 100;
-        danio = 8;
+        danio=new AtaqueTierra(8);
         tiempoConstruccion = 4;
         rango = 3;
         superficie = new Tierra();
@@ -25,7 +25,12 @@ public class Zealot extends Unidad{
     }
 
     @Override
-    public void recibirDanio(int danio) {
+    public void modificarEstadisticas(int danio) {
+        escudo-= danio;
+        if (escudo<0){
+            vida += escudo;
+            escudo = 0;
+        }
 
     }
     @Override

@@ -19,7 +19,8 @@ public class Hidralisco extends Unidad{
         guardian = new Guardian();
         costos.add(75); //Esto es para Minerales
         costos.add(25); // Esto es para Gas
-        danio=4;
+        danio=new AtaqueAireyTierra(10,10);
+
     }
 
     @Override
@@ -28,7 +29,8 @@ public class Hidralisco extends Unidad{
     }
 
     @Override
-    public void recibirDanio(int danio) {
+    public void modificarEstadisticas(int danio) {
+        vida -=danio;
 
     }
 

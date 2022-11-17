@@ -85,6 +85,8 @@ public class Casilla {
         if(this.hayConstruccion()){
 
             unidadAtacante.atacar(construccion);
+        }else if(this.hayUnidad()){
+            unidadAtacante.atacar(unidad);
         }
     }
 
