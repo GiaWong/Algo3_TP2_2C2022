@@ -1,4 +1,4 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-public interface Tierra extends Unidad{
+public class Zerling {
 }

@@ -17,9 +17,5 @@ public class Zangano implements Unidad{
     public int recolectar(NodoMineral nodo) {
         return nodo.recolectar(10);
     }
-    @Override
-    public void construir() {
 
-
-    }
 }

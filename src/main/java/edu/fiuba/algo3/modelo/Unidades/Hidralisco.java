@@ -1,5 +1,4 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-public interface Unidad {
-
+public class Hidralisco {
 }
