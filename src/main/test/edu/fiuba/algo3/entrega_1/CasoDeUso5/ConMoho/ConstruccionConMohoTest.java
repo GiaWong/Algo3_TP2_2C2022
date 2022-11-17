@@ -5,10 +5,8 @@ import edu.fiuba.algo3.modelo.Construccion.Extractor;
 import edu.fiuba.algo3.modelo.Construccion.Guarida;
 import edu.fiuba.algo3.modelo.Construccion.ReservaProduccion;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
-import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Vacio;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinNada;
 import org.junit.jupiter.api.Test;
 
@@ -26,7 +24,7 @@ public class ConstruccionConMohoTest {
         casilla.setTerreno(new SinNada());
         casilla.setRecurso(new Vacio());
         ReservaProduccion reserva = new ReservaProduccion();
-        casilla.agregarConstruccion(reserva);
+        casilla.agregar(reserva);
         boolean resultado = casilla.hayConstruccion();
         assertEquals(resultado, esperado);
     }
@@ -40,7 +38,7 @@ public class ConstruccionConMohoTest {
         casilla.setTerreno(new SinNada());
         casilla.setRecurso(new Vacio());
         Espiral espiral = new Espiral();
-        casilla.agregarConstruccion(espiral);
+        casilla.agregar(espiral);
         boolean resultado = casilla.hayConstruccion();
         assertEquals(resultado, esperado);
     }
@@ -53,7 +51,7 @@ public class ConstruccionConMohoTest {
         casilla.setTerreno(new SinNada());
         casilla.setRecurso(new Vacio());
         Guarida guarida = new Guarida();
-        casilla.agregarConstruccion(guarida);
+        casilla.agregar(guarida);
         boolean resultado = casilla.hayConstruccion();
         assertEquals(resultado, esperado);
     }
@@ -66,7 +64,7 @@ public class ConstruccionConMohoTest {
         casilla.setTerreno(new SinNada());
         casilla.setRecurso(new Volcan());
         Extractor extractor = new Extractor();
-        casilla.agregarConstruccion(extractor);
+        casilla.agregar(extractor);
         boolean resultado = casilla.hayConstruccion();
         assertEquals(resultado, esperado);
     }

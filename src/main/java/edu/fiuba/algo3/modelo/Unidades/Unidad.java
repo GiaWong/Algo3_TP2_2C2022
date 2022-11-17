@@ -27,4 +27,7 @@ public abstract class Unidad {
     public abstract void recibirDanio(int danio);
     public abstract List<Integer> costo();
 
+    public int rango() {
+        return rango;
+    }
 }

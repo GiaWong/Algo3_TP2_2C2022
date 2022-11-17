@@ -18,7 +18,7 @@ public class RecoleccionMineralesZergTest {
         casilla.setTerreno(new ConMoho());
         NodoMineral nodo = new NodoMineral();
         casilla.setRecurso(nodo);
-        casilla.agregarUnidad(zangano);
+        casilla.agregar(zangano);
         int resultado = zangano.recolectar(nodo);
         assertEquals(resultado, esperado);
     }

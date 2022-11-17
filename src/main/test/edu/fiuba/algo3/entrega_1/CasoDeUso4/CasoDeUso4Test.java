@@ -24,7 +24,7 @@ public class CasoDeUso4Test {
             extractor.construir();
         }
         //No le meto ningún zángano
-        casilla.agregarConstruccion(extractor);
+        casilla.agregar(extractor);
         int resultado = extractor.recolectar(volcan);
         assertEquals(resultado, esperado);
 
@@ -43,7 +43,7 @@ public class CasoDeUso4Test {
         }
         //Le meto zángano a extractor.
         extractor.agregar(new Zangano());
-        casilla.agregarConstruccion(extractor);
+        casilla.agregar(extractor);
         int resultado = extractor.recolectar(volcan);
 
         assertEquals(resultado, esperado);
@@ -65,7 +65,7 @@ public class CasoDeUso4Test {
         //Le meto 2 zánganos a extractor.
         extractor.agregar(new Zangano());
         extractor.agregar(new Zangano());
-        casilla.agregarConstruccion(extractor);
+        casilla.agregar(extractor);
         int resultado = extractor.recolectar(volcan);
 
         assertEquals(resultado, esperado);
@@ -87,7 +87,7 @@ public class CasoDeUso4Test {
         extractor.agregar(new Zangano());
         extractor.agregar(new Zangano());
         extractor.agregar(new Zangano());
-        casilla.agregarConstruccion(extractor);
+        casilla.agregar(extractor);
         int resultado = extractor.recolectar(volcan);
 
         assertEquals(resultado, esperado);
@@ -110,7 +110,7 @@ public class CasoDeUso4Test {
         extractor.agregar(new Zangano());
         extractor.agregar(new Zangano());
         extractor.agregar(new Zangano()); //No se agregaría este Zángano a Extractor, por lo tanto sigue recolectando la cantidad de 3 Zanganos que habia
-        casilla.agregarConstruccion(extractor);
+        casilla.agregar(extractor);
         int resultado = extractor.recolectar(volcan);// cuando recolecta, recolectaría lo mismo que con 3.
 
         assertEquals(resultado, esperado);
@@ -130,7 +130,7 @@ public class CasoDeUso4Test {
             asimilador.construir();
         }
 
-        casilla.agregarConstruccion(asimilador);
+        casilla.agregar(asimilador);
         int resultado = asimilador.recolectar(volcan);
 
         assertEquals(resultado, esperado);
@@ -150,7 +150,7 @@ public class CasoDeUso4Test {
             asimilador.construir();
         }
 
-        casilla.agregarConstruccion(asimilador);
+        casilla.agregar(asimilador);
         resultado += asimilador.recolectar(volcan);
         resultado += asimilador.recolectar(volcan);// Supongo que aca se deberia pasar un turno para recolectar lo del Volcan
 

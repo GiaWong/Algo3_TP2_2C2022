@@ -2,9 +2,7 @@ package edu.fiuba.algo3.entrega_1.CasoDeUso14;
 
 import edu.fiuba.algo3.modelo.Construccion.Criadero;
 import edu.fiuba.algo3.modelo.Construccion.Pilon;
-import edu.fiuba.algo3.modelo.Construccion.ReservaProduccion;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import org.junit.jupiter.api.Test;
 
@@ -21,8 +19,8 @@ public class CasoDeUso14 {
             criadero.construir();
             pilon.construir();
         }
-        mapa.agregarConstruccion(criadero,10,10);
-        mapa.agregarConstruccion(pilon,10,16);
+        mapa.agregar(criadero,10,10);
+        mapa.agregar(pilon,10,16);
         mapa.setearRadio();
         assertEquals(true, mapa.tipoTerreno(new ConMoho(),10,14));
 
@@ -37,8 +35,8 @@ public class CasoDeUso14 {
             criadero.construir();
             pilon.construir();
         }
-        mapa.agregarConstruccion(criadero,10,10);
-        mapa.agregarConstruccion(pilon,10,16);
+        mapa.agregar(criadero,10,10);
+        mapa.agregar(pilon,10,16);
         mapa.setearRadio();
         assertEquals(true, mapa.tipoTerreno(new ConMoho(),10,14));
         assertEquals(false, mapa.tipoTerreno(new ConMoho(),10,15));

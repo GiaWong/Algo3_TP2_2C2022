@@ -21,7 +21,7 @@ public class CasoDeUso3Test {
         casilla.setTerreno(new ConEnergia());
         Asimilador asimilador = new Asimilador();
 
-        casilla.agregarConstruccion(asimilador);
+        casilla.agregar(asimilador);
         boolean resultado = casilla.hayConstruccion();
 
         assertEquals(resultado,esperado);
@@ -36,7 +36,7 @@ public class CasoDeUso3Test {
         casilla.setTerreno(new ConMoho());
         Extractor extractor = new Extractor();
 
-        casilla.agregarConstruccion(extractor);
+        casilla.agregar(extractor);
         boolean resultado = casilla.hayConstruccion();
 
         assertEquals(resultado,esperado);
@@ -51,7 +51,7 @@ public class CasoDeUso3Test {
         casilla.setTerreno(new ConEnergia());
         NexoMineral nexo = new NexoMineral();
 
-        casilla.agregarConstruccion(nexo);
+        casilla.agregar(nexo);
         boolean resultado = casilla.hayConstruccion();
 
         assertEquals(resultado,esperado);
@@ -66,7 +66,7 @@ public class CasoDeUso3Test {
         casilla.setTerreno(new ConEnergia());
         Pilon pilon = new Pilon();
 
-        casilla.agregarConstruccion(pilon);
+        casilla.agregar(pilon);
         boolean resultado = casilla.hayConstruccion();
 
         assertEquals(resultado,esperado);
@@ -81,7 +81,7 @@ public class CasoDeUso3Test {
         casilla.setTerreno(new ConEnergia());
         Acceso acceso = new Acceso();
 
-        casilla.agregarConstruccion(acceso);
+        casilla.agregar(acceso);
         boolean resultado = casilla.hayConstruccion();
 
         assertEquals(resultado,esperado);
@@ -96,7 +96,7 @@ public class CasoDeUso3Test {
         casilla.setTerreno(new ConEnergia());
         PuertoEstelar puerto = new PuertoEstelar();
 
-        casilla.agregarConstruccion(puerto);
+        casilla.agregar(puerto);
         boolean resultado = casilla.hayConstruccion();
 
         assertEquals(resultado,esperado);
@@ -111,7 +111,7 @@ public class CasoDeUso3Test {
         casilla.setTerreno(new ConMoho());
         Criadero criadero = new Criadero();
 
-        casilla.agregarConstruccion(criadero);
+        casilla.agregar(criadero);
         boolean resultado = casilla.hayConstruccion();
 
         assertEquals(resultado,esperado);
@@ -126,7 +126,7 @@ public class CasoDeUso3Test {
         casilla.setTerreno(new ConMoho());
         ReservaProduccion reserva = new ReservaProduccion();
 
-        casilla.agregarConstruccion(reserva);
+        casilla.agregar(reserva);
         boolean resultado = casilla.hayConstruccion();
 
         assertEquals(resultado,esperado);
@@ -141,7 +141,7 @@ public class CasoDeUso3Test {
         casilla.setTerreno(new ConMoho());
         Guarida guarida = new Guarida();
 
-        casilla.agregarConstruccion(guarida);
+        casilla.agregar(guarida);
         boolean resultado = casilla.hayConstruccion();
 
         assertEquals(resultado,esperado);
@@ -156,7 +156,7 @@ public class CasoDeUso3Test {
         casilla.setTerreno(new ConMoho());
         Espiral espiral = new Espiral();
 
-        casilla.agregarConstruccion(espiral);
+        casilla.agregar(espiral);
         boolean resultado = casilla.hayConstruccion();
 
         assertEquals(resultado,esperado);
@@ -171,7 +171,7 @@ public class CasoDeUso3Test {
         casilla.setTerreno(new ConEnergia());
         NexoMineral nexoMineral = new NexoMineral();
 
-        casilla.agregarConstruccion(nexoMineral);
+        casilla.agregar(nexoMineral);
         boolean resultado = casilla.hayConstruccion();
 
         assertEquals(resultado,esperado);

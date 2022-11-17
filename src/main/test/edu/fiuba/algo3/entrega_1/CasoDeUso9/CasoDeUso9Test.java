@@ -25,9 +25,9 @@ public class CasoDeUso9Test {
         }
 
 
-        mapa.agregarConstruccion(pilon1, 10, 10);
-        mapa.agregarConstruccion(pilon2, 10, 11);
-        mapa.agregarConstruccion(acceso, 10, 9);
+        mapa.agregar(pilon1, 10, 10);
+        mapa.agregar(pilon2, 10, 11);
+        mapa.agregar(acceso, 10, 9);
 
         mapa.setearRadio();
         mapa.destruirConstruccion(10, 10);

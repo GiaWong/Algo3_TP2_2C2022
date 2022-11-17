@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso15;
 
 import edu.fiuba.algo3.modelo.Construccion.Asimilador;
-import edu.fiuba.algo3.modelo.Construccion.Criadero;
 import edu.fiuba.algo3.modelo.Construccion.Extractor;
 import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
@@ -29,7 +28,7 @@ public class CasoDeUso15 {
         for(int i = 0; i < 4; i++){
             nexo.construir();
         }
-        casilla.agregarConstruccion(nexo);
+        casilla.agregar(nexo);
         for(int j = 0; j < 100; j++){
             nexo.recolectar(nodo);
         }
@@ -46,7 +45,7 @@ public class CasoDeUso15 {
         casilla.setTerreno(new ConMoho());
         casilla.setRecurso(nodo);
         Zangano zangano = new Zangano();
-        casilla.agregarUnidad(zangano);
+        casilla.agregar(zangano);
 
         for(int j = 0; j < 200; j++){
             zangano.recolectar(nodo);

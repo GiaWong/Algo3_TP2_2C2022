@@ -21,10 +21,10 @@ public class CasoDeUso16 {
         casilla.setRecurso(new Volcan());
         casilla.setTerreno(new ConEnergia());
         Asimilador asimilador = new Asimilador();
-        casilla.agregarConstruccion(asimilador);
+        casilla.agregar(asimilador);
         Extractor extractor = new Extractor();
 
-        assertThrows(CasillaOcupada.class,()->casilla.agregarConstruccion(extractor));
+        assertThrows(CasillaOcupada.class,()->casilla.agregar(extractor));
     }
 
     @Test
@@ -33,10 +33,10 @@ public class CasoDeUso16 {
         casilla.setRecurso(new Volcan());
         casilla.setTerreno(new ConEnergia());
         Zangano zangano = new Zangano();
-        casilla.agregarUnidad(zangano);
+        casilla.agregar(zangano);
         NexoMineral nexo = new NexoMineral();
 
-        assertThrows(CasillaOcupadaPorZangano.class,()->casilla.agregarConstruccion(nexo));
+        assertThrows(CasillaOcupadaPorZangano.class,()->casilla.agregar(nexo));
 
     }
 }

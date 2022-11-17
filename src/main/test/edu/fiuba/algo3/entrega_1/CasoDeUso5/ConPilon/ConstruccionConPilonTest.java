@@ -5,7 +5,6 @@ import edu.fiuba.algo3.modelo.Mapa.Casilla;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Vacio;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinNada;
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +21,7 @@ public class ConstruccionConPilonTest {
         casilla.setTerreno(new SinNada());
         casilla.setRecurso(new NodoMineral());
         NexoMineral nexoMineral = new NexoMineral();
-        casilla.agregarConstruccion(nexoMineral);
+        casilla.agregar(nexoMineral);
         boolean resultado = casilla.hayConstruccion();
         assertEquals(resultado, esperado);
 
@@ -35,7 +34,7 @@ public class ConstruccionConPilonTest {
         casilla.setTerreno(new SinNada());
         casilla.setRecurso(new Volcan());
         Asimilador asimilador = new Asimilador();
-        casilla.agregarConstruccion(asimilador);
+        casilla.agregar(asimilador);
         boolean resultado = casilla.hayConstruccion();
         assertEquals(resultado, esperado);
 
@@ -48,7 +47,7 @@ public class ConstruccionConPilonTest {
         casilla.setTerreno(new SinNada());
         casilla.setRecurso(new Vacio());
         Acceso acceso = new Acceso();
-        casilla.agregarConstruccion(acceso);
+        casilla.agregar(acceso);
         boolean resultado = casilla.hayConstruccion();
         assertEquals(resultado, esperado);
 
@@ -61,7 +60,7 @@ public class ConstruccionConPilonTest {
         casilla.setTerreno(new SinNada());
         casilla.setRecurso(new Vacio());
         PuertoEstelar puertoEstelar = new PuertoEstelar();
-        casilla.agregarConstruccion(puertoEstelar);
+        casilla.agregar(puertoEstelar);
         boolean resultado = casilla.hayConstruccion();
         assertEquals(resultado, esperado);
 

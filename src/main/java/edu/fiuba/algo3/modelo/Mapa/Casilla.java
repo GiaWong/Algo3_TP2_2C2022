@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.Mapa;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.ConstruccionConRadio;
-import edu.fiuba.algo3.modelo.Construccion.Criadero;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupada;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupadaPorZangano;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Vacio;
@@ -29,15 +28,19 @@ public class Casilla {
         return (construccion != null);
     }
 
+    public boolean hayUnidad() {
+        return (unidad != null);
+    }
+
     public boolean tipoTerreno(Terreno otroTerreno){
         return (terreno.getClass().equals(otroTerreno.getClass()));
     }
 
-    public void agregarUnidad(Unidad unaUnidad){
+    public void agregar(Unidad unaUnidad){
         unidad = unaUnidad;
     }
 
-    public void agregarConstruccion(Construccion unaConstruccion) throws CasillaOcupada, CasillaOcupadaPorZangano {
+    public void agregar(Construccion unaConstruccion) throws CasillaOcupada, CasillaOcupadaPorZangano {
         boolean hayConst = this.hayConstruccion();
         if(hayConst){
            throw new CasillaOcupada();
@@ -64,10 +67,7 @@ public class Casilla {
     }
 
     public boolean esConstruccion(Construccion construccionRadio) {
-
-        //System.out.println(construccionRadio.getClass());
         if(this.hayConstruccion()){
-            //System.out.println("entrooo");
             return construccionRadio.getClass().equals(construccion.getClass());
 
         }
@@ -86,7 +86,15 @@ public class Casilla {
 
             unidadAtacante.atacar(construccion);
         }
-       // unidadAtacante.atacar(unidad);
+    }
+
+    public boolean esUnidad(Unidad otraUnidad) {
+
+        if(this.hayUnidad()){
+            return unidad.getClass().equals(otraUnidad.getClass());
+        }
+
+        return false;
     }
 
 }

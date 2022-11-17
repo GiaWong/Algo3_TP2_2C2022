@@ -23,7 +23,7 @@ public class VerificarAtaqueDeUnidadesZerg {
         for(int i =0 ; i<=4;i++) {
             pilon.construir();
         }
-        mapa.agregarConstruccion(pilon,10,9);
+        mapa.agregar(pilon,10,9);
         mapa.setearRadio();
         ReservaProduccion reserva = new ReservaProduccion();
         reserva.conZerg(new Zerling());//ver en reserva en dond se guardaré zerlings, lista? //cambiar nombre con eevolucionar
@@ -32,9 +32,10 @@ public class VerificarAtaqueDeUnidadesZerg {
         for(int i =0 ; i<=7;i++) {
             construccionEnemiga.construir();
         }
-        mapa.agregarConstruccion(reserva,10,10);
-        mapa.agregarConstruccion(construccionEnemiga,11,11);
+        mapa.agregar(reserva,11,10);
+        mapa.agregar(construccionEnemiga,11,11);
         Zerling zerling = reserva.obtenerZerg();
+        mapa.agregar(zerling,12,12);
         mapa.atacar(zerling,11,11);
         assertEquals(496,construccionEnemiga.obtenerEscudo());
 
@@ -47,7 +48,7 @@ public class VerificarAtaqueDeUnidadesZerg {
         for(int i =0 ; i<=4;i++) {
             pilon.construir();
         }
-        mapa.agregarConstruccion(pilon,10,9);
+        mapa.agregar(pilon,10,9);
         mapa.setearRadio();
         Guarida guarida = new Guarida();
         guarida.conZerg(new Hidralisco());//ver en reserva en dond se guardaré zerlings, lista? //cambiar nombre con eevolucionar
@@ -56,9 +57,11 @@ public class VerificarAtaqueDeUnidadesZerg {
         for(int i =0 ; i<=7;i++) {
             construccionEnemiga.construir();
         }
-        mapa.agregarConstruccion(guarida,10,10);
-        mapa.agregarConstruccion(construccionEnemiga,11,11);
+
+        mapa.agregar(guarida,10,10);
+        mapa.agregar(construccionEnemiga,11,11);
         Hidralisco hidralisco = guarida.obtenerZerg();
+        mapa.agregar(hidralisco,12,12);
         mapa.atacar(hidralisco,11,11);
         assertEquals(496,construccionEnemiga.obtenerEscudo());
 
@@ -71,7 +74,7 @@ public class VerificarAtaqueDeUnidadesZerg {
         for(int i =0 ; i<=4;i++) {
             pilon.construir();
         }
-        mapa.agregarConstruccion(pilon,10,9);
+        mapa.agregar(pilon,10,9);
         mapa.setearRadio();
         Espiral espiral = new Espiral();
         espiral.conZerg(new Mutalisco());//ver en reserva en dond se guardaré zerlings, lista? //cambiar nombre con eevolucionar
@@ -80,9 +83,10 @@ public class VerificarAtaqueDeUnidadesZerg {
         for(int i =0 ; i<=7;i++) {
             construccionEnemiga.construir();
         }
-        mapa.agregarConstruccion(espiral,10,10);
-        mapa.agregarConstruccion(construccionEnemiga,11,11);
+        mapa.agregar(espiral,10,10);
+        mapa.agregar(construccionEnemiga,11,11);
         Mutalisco muta = espiral.obtenerZerg();
+        mapa.agregar(muta,12,12);
         mapa.atacar(muta,11,11);
         assertEquals(491,construccionEnemiga.obtenerEscudo());
 
@@ -99,15 +103,15 @@ public class VerificarAtaqueDeUnidadesZerg {
         for(int i =0 ; i<=4;i++) {
             pilon.construir();
         }
-        mapa.agregarConstruccion(pilon,10,9);
+        mapa.agregar(pilon,10,9);
         mapa.setearRadio();
 
         Acceso construccionEnemiga = new Acceso();
         for(int i =0 ; i<=7;i++) {
             construccionEnemiga.construir();
         }
-
-        mapa.agregarConstruccion(construccionEnemiga,11,11);
+        mapa.agregar(construccionEnemiga,11,11);
+        mapa.agregar(guardian,12,12);
         mapa.atacar(guardian,11,11);
         assertEquals(475,construccionEnemiga.obtenerEscudo());
 

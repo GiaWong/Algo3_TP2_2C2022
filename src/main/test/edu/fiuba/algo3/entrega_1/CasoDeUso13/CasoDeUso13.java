@@ -17,10 +17,10 @@ public class CasoDeUso13 {
             criadero.construir();
         }
         mapa.casillaConTerrenoMoho(10,10);
-        mapa.agregarConstruccion(criadero,10,10);
+        mapa.agregar(criadero,10,10);
         mapa.setearRadio();
         mapa.destruirConstruccion(10,10);
-        mapa.agregarConstruccion(new ReservaProduccion(),10,11);
+        mapa.agregar(new ReservaProduccion(),10,11);
 
 
         assertEquals(true,mapa.hayConstruccion(10,11));
