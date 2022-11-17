@@ -56,23 +56,11 @@ class Protoss {
     + evolucionar()
 }
 
-interface Unidad {
-    + construir()
-}
-interface Unidad
-note right: Nose como segregar las interfaces, si guiarme por el ataque de cada unidad o por como se mueven en el mapa
-
-interface Tierra {
-    + ataqueTierra()
-}
-
-interface Aire {
-    + ataqueAire()
-}
 
 class Zangano {
     - vida
     - tiempoConstruccion
+    + recolectar()
 }
 
 class Zerling {
@@ -161,6 +149,7 @@ class Extractor {
     - vida
     +recolectar(volcan)
     +construir()
+    +agregar(Zangano)
 }
 
 class Asimilador {
@@ -180,8 +169,9 @@ class NexoMineral {
 }
 
 class Criadero {
-    - tiempoConstruccion
-    - vida
+    - tiempoConstruccion:int
+    - vida:int
+    - larva: int
      +evolucionar()
      +construir()
      +ampliarRadio()
@@ -311,8 +301,6 @@ Jugador *-> Raza
 Raza <|-up- Zerg
 Raza <|-up- Protoss
 
-Raza -> Unidad
-
 
 Raza-->Construccion
 
@@ -353,8 +341,18 @@ Terreno <|... ConEnergia
 Terreno <|.. SinNada
 
 
+Extractor ..> Zangano: utiliza, ver casoUso 15,16,4
+ReservaProduccion --> Zerling: construye/crea
+Guarida --> Hidralisco: construye/crea
 
 
+Espiral --> Mutalisco: construye/crea
+Mutalisco --> Guardian: evoluciona
+Acceso --> Zealot: construye/crea
+Acceso --> Dragon: construye/crea
+PuertoEstelar --> Scout: construye/crea
 
-
+Espiral o-left-> Guarida: preRequisito
+Guarida o-left-> ReservaProduccion: preRequisito
+PuertoEstelar o-left-> Acceso: preRequisito
 @enduml
