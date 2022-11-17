@@ -62,56 +62,62 @@ abstract class Unidad {
     - rango
     - costos
     - superficie: aire o tierra
-    - ataque
+    - danio
     + construir()
-    + ataque(Superficie, fila, columna)
+    + evolucionar()
+    + atacar()
+    + {abstract}modificarEstadistica(danio)
 }
 
 class Zangano {
-    - vida
-    - tiempoConstruccion
     + recolectar()
+    +modificarEstadistica(danio)
 }
 
 class Zerling {
-    + ataqueTierra()
+    +modificarEstadistica(danio)
+    +preRequisito(construcciones)
+
 }
 
 class Hidralisco {
+    +modificarEstadistica(danio)
+    +preRequisito(construcciones)
 
-    +ataqueTierra()
-    +ataqueAire()
 }
 
 class Mutalisco {
-    +evoluciona()
-    +ataque(Tierra)
-    +ataque(Aire)
+    +modificarEstadistica(danio)
+    +preRequisito(construcciones)
+
 }
 
 class Guardian {
     -vida
     -tiempoConstruccion
+    +modificarEstadistica(danio)
 
-    +ataque(Tierra)
 }
 
 class Zealot {
     - escudo
+    +modificarEstadistica(danio)
+    +preRequisito(construcciones)
 
-    +ataque(Tierra)
 }
 
 class Dragon {
     - escudo
+    +modificarEstadistica(danio)
+    +preRequisito(construcciones)
 
-    +ataque(Tierra)
 }
 
 class Scout {
     - escudo
+    +modificarEstadistica(danio)
+    +preRequisito(construcciones)
 
-   +ataque(Tierra)
 
 }
 
