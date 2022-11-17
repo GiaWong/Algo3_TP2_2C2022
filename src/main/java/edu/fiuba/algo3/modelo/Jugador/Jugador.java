@@ -33,7 +33,7 @@ public class Jugador {
         String nombreJ =jugador.obtenernombre();
         String colorJ =jugador.obtenercolor();
         Raza razaJ =jugador.obtenerraza();
-        return (nombre!=nombreJ&&colorJ!=color&&(razaJ.getClass().equals(raza.getClass())));
+        return (nombre!=nombreJ&&colorJ!=color&&!(razaJ.getClass().equals(raza.getClass())));
 
     }
 
