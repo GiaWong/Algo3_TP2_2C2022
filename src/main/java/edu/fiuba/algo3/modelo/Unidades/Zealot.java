@@ -1,9 +1,13 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
+import edu.fiuba.algo3.modelo.Construccion.Acceso;
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
+
 import java.util.List;
 
 public class Zealot extends Unidad{
 
+    private Construccion preRequisito = new Acceso();
     private int escudo = 60;
     public Zealot(){
         vida = 100;
@@ -16,7 +20,7 @@ public class Zealot extends Unidad{
 
     @Override
     public void construir() {
-
+        tiempoConstruccion--;
     }
 
     @Override
@@ -26,5 +30,21 @@ public class Zealot extends Unidad{
     @Override
     public List<Integer> costo() {
         return costos;
+    }
+
+    public boolean preRequisito(List<Construccion> lista) {
+        if(lista!=null) {
+            for(int i =0; i<lista.size();i++){
+                if(lista.get(i).getClass().equals(preRequisito.getClass())){
+                    return true;
+                }
+            }
+        }
+        return false;
+
+    }
+
+    public boolean estaDisponible() {
+        return (tiempoConstruccion<=0);
     }
 }

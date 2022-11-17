@@ -22,7 +22,7 @@ public class Guardian extends Unidad{
     }
 
     @Override
-    public void construir() {
+    public void construir() {tiempoConstruccion--;
 
     }
 
@@ -34,5 +34,9 @@ public class Guardian extends Unidad{
     @Override
     public List<Integer> costo() {
         return costos;
+    }
+
+    public boolean estaDisponible() {
+        return (tiempoConstruccion<=0);
     }
 }

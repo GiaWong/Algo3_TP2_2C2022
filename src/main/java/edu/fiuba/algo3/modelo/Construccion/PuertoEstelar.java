@@ -24,6 +24,8 @@ public class PuertoEstelar implements ConstruccionNormal{
         }
         return false;
     }
+
+
     public PuertoEstelar(){
         costos.add(150); //esto es para Mineral
         costos.add(150); //esto es para Gas

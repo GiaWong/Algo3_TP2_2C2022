@@ -1,8 +1,14 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
+import edu.fiuba.algo3.modelo.Construccion.Acceso;
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Construccion.PuertoEstelar;
+
 import java.util.List;
 
 public class Scout extends Unidad{
+
+    private Construccion preRequisito = new PuertoEstelar();
 
     private int escudo = 100;
 
@@ -17,6 +23,7 @@ public class Scout extends Unidad{
 
     @Override
     public void construir() {
+        tiempoConstruccion--;
 
     }
 
@@ -27,5 +34,20 @@ public class Scout extends Unidad{
     @Override
     public List<Integer> costo() {
         return costos;
+    }
+
+    public boolean preRequisito(List<Construccion> lista) {
+        if(lista!=null) {
+            for(int i =0; i<lista.size();i++){
+                if(lista.get(i).getClass().equals(preRequisito.getClass())){
+                    return true;
+                }
+            }
+        }
+        return false;
+
+    }
+    public boolean estaDisponible() {
+        return (tiempoConstruccion<=0);
     }
 }

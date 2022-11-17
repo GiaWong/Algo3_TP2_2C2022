@@ -2,13 +2,15 @@ package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Construccion.Acceso;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Construccion.ReservaProduccion;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 
 import java.util.List;
 
 public class Zerling extends Unidad{
-
+    private Construccion preRequisito = new ReservaProduccion();
     public Zerling(){
+
         vida = 35;
         tiempoConstruccion = 2;
         rango = 1;
@@ -40,4 +42,20 @@ public class Zerling extends Unidad{
 
     public void ataqueTierra(Mapa mapa, int fila, int columna) {
     }
+
+    public boolean preRequisito(List<Construccion> lista) {
+        if(lista!=null) {
+            for(int i =0; i<lista.size();i++){
+                if(lista.get(i).getClass().equals(preRequisito.getClass())){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean estaDisponible() {
+        return (tiempoConstruccion<=0);
+    }
 }
+

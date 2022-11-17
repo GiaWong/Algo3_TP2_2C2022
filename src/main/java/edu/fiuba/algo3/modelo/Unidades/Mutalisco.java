@@ -1,10 +1,15 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
+import edu.fiuba.algo3.modelo.Construccion.Acceso;
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Construccion.Espiral;
+
 import java.util.List;
 
 public class Mutalisco extends Unidad{
 
     // Deberia poder evolucionarse a Guardian.
+    private Construccion preRequisito = new Espiral();
 
     public Mutalisco(){
         vida = 120;
@@ -18,6 +23,8 @@ public class Mutalisco extends Unidad{
 
     @Override
     public void construir() {
+        tiempoConstruccion--;
+
 
     }
 
@@ -33,5 +40,20 @@ public class Mutalisco extends Unidad{
 
     public Unidad evolucionar() {
         return new Guardian();
+    }
+
+    public boolean preRequisito(List<Construccion> lista) {
+        if(lista!=null) {
+            for(int i =0; i<lista.size();i++){
+                if(lista.get(i).getClass().equals(preRequisito.getClass())){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean estaDisponible() {
+        return (tiempoConstruccion<=0);
     }
 }
