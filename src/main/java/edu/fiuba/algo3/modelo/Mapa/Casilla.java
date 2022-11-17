@@ -4,10 +4,13 @@ import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.ConstruccionConRadio;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupada;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupadaPorZangano;
+
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Vacio;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinNada;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Recurso;
+import edu.fiuba.algo3.modelo.Unidades.Superficie;
+import edu.fiuba.algo3.modelo.Unidades.Tierra;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 
@@ -15,11 +18,12 @@ public class Casilla {
 
     protected Unidad unidad;
     private Recurso recurso;
+    private Superficie superficie;
     protected Terreno terreno;
     protected Construccion construccion;
 
     public Casilla(){
-
+        superficie = new Tierra();
         recurso = new Vacio();
         terreno = new SinNada();
     }
@@ -28,6 +32,9 @@ public class Casilla {
         return (construccion != null);
     }
 
+    public void asignarSuperficie(Superficie superficie1){
+        superficie =superficie1;
+    }
     public boolean hayUnidad() {
         return (unidad != null);
     }
@@ -37,7 +44,9 @@ public class Casilla {
     }
 
     public void agregar(Unidad unaUnidad){
-        unidad = unaUnidad;
+        if(superficie.esPosibleAgregar(unaUnidad)){
+            unidad = unaUnidad;
+        }
     }
 
     public void agregar(Construccion unaConstruccion) throws CasillaOcupada, CasillaOcupadaPorZangano {

@@ -8,6 +8,9 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinNada;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
+import edu.fiuba.algo3.modelo.Unidades.Aire;
+import edu.fiuba.algo3.modelo.Unidades.Superficie;
+import edu.fiuba.algo3.modelo.Unidades.Tierra;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 public class Mapa {
@@ -27,6 +30,15 @@ public class Mapa {
         Pilon pilon = new Pilon();
         this.agregar(pilon,5,5);
         this.agregar(criadero,17,17);
+   }
+
+   public void inicializarConUnaFranjaEspacial(){
+        for(int i=0; i<5; i++) {
+            Superficie sup= new Aire();
+            Casilla casilla = new Casilla();
+            casilla.asignarSuperficie(sup);
+            casillas[4][i]= casilla;
+        }
    }
     public void casillaConTerrenoMoho(int fila, int columna){
 
@@ -60,6 +72,9 @@ public class Mapa {
         return (casillas [fila][columna]).hayConstruccion();
     }
 
+    public boolean hayUnidad(int fila, int columna) {
+        return (casillas [fila][columna]).hayUnidad();
+    }
 
     public int[] buscarUnidad(Unidad unidad) throws NoEstaEnElMapa{
         int [] pos = new int[10];

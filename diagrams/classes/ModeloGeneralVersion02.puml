@@ -341,12 +341,12 @@ Terreno <-* Casilla
 
 Casilla *--> Recurso
 Recurso <|.. Volcan
-Recurso <|.. NodoMineral
+Recurso <|.up. NodoMineral
 Recurso <|.. Vacio
 
-Terreno <|.. ConMoho
-Terreno <|... ConEnergia
-Terreno <|.. SinNada
+Terreno <|.up. ConMoho
+Terreno <|.up. ConEnergia
+Terreno <|.up. SinNada
 
 
 Criadero --> Zangano: construye/crea
@@ -372,18 +372,6 @@ Zealot --|> Unidad
 Dragon --|> Unidad
 Scout --|> Unidad
 
-interface Superficie{
-
-}
-
-
-class Aire{
-
-}
-
-class Tierra{
-
-}
 
 interface Danio {
     +recibirDanio(superficie)
@@ -403,10 +391,7 @@ Danio <|.. AtaqueTierra
 Danio <|.. AtaqueTierraYAire
 
 
-Superficie <|.. Tierra
-Superficie <|.. Aire
 
-Unidad *-up-> Superficie
 
 Casilla *--> Area
 Area <|.. Terrestre

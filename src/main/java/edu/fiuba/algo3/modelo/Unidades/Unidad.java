@@ -38,4 +38,8 @@ public abstract class Unidad {
 
     public int vida() {return vida;
     }
+
+    public Boolean esSuperficie(Superficie otraSuperficie) {
+        return (superficie.getClass().equals(otraSuperficie.getClass()));
+    }
 }
