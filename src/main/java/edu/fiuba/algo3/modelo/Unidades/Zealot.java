@@ -11,4 +11,14 @@ public class Zealot extends Unidad{
         costos.add(100); //Esto es para Minerales
         costos.add(0); // Esto es para Gas
     }
+
+    @Override
+    public void construir() {
+
+    }
+
+    @Override
+    public void recibirDanio(int danio) {
+
+    }
 }

@@ -80,4 +80,13 @@ public class Casilla {
        ConstruccionConRadio construccionConRadio = (ConstruccionConRadio) construccion;
         return (construccionConRadio.obtenerRadio()) ;
     }
+
+    public void atacar(Unidad unidadAtacante) {
+        if(this.hayConstruccion()){
+
+            unidadAtacante.atacar(construccion);
+        }
+       // unidadAtacante.atacar(unidad);
+    }
+
 }

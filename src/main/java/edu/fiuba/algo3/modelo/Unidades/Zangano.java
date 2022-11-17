@@ -20,4 +20,13 @@ public class Zangano extends Unidad{
         return nodo.recolectar(10);
     }
 
+    @Override
+    public void construir() {
+
+    }
+
+    @Override
+    public void recibirDanio(int danio) {
+
+    }
 }

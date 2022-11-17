@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
+import edu.fiuba.algo3.modelo.Unidades.Hidralisco;
+import edu.fiuba.algo3.modelo.Unidades.Zerling;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +15,7 @@ public class Guarida implements ConstruccionNormal{
     private int tiempoConstruccion = 12;
 
     private List<Integer> costos = new ArrayList<>();
+    private Hidralisco hidralisco;
 
     public Guarida(){
         costos.add(200); //esto es para Mineral
@@ -65,5 +69,16 @@ public class Guarida implements ConstruccionNormal{
     @Override
     public void evolucionar() {
 
+    }
+
+    public void conZerg(Hidralisco hidra) {
+        this.hidralisco = hidra;
+        for(int i =0 ; i<=3;i++) {
+            this.hidralisco.construir();
+        }
+    }
+
+    public Hidralisco obtenerZerg() {
+        return this.hidralisco;
     }
 }

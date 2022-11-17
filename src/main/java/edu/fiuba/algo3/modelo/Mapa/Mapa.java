@@ -7,6 +7,8 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinNada;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
+import edu.fiuba.algo3.modelo.Unidades.Unidad;
+import edu.fiuba.algo3.modelo.Unidades.Zerling;
 
 public class Mapa {
 
@@ -77,13 +79,13 @@ public class Mapa {
             for(int j=0; j<radio; j++){
 
                 if(!(casillas[fila + i][columna + j].tipoTerreno(new ConMoho()))){//si en esa posicion tiene moho
-                  // System.out.println("gggg");
+
                     casillas[fila + i][columna + j].setTerreno(terreno);
 
                 }
 
                 if(!(casillas[fila - i][columna - j].tipoTerreno(new ConMoho()))){
-                    //System.out.println("lllllllllllllllll");
+
                     casillas[fila - i][columna - j].setTerreno(terreno);
 
                 }
@@ -98,5 +100,10 @@ public class Mapa {
     public boolean tipoTerreno(Terreno terreno, int fila, int columna) {
         return (casillas[fila][columna]).tipoTerreno(terreno);
 
+    }
+
+    public void atacar(Unidad unidad, int fila, int colum) {
+        Casilla casilla = (casillas[fila][colum]);
+        casilla.atacar(unidad);
     }
 }

@@ -12,4 +12,14 @@ public class Scout extends Unidad{
         costos.add(300); //Esto es para Minerales
         costos.add(150); // Esto es para Gas
     }
+
+    @Override
+    public void construir() {
+
+    }
+
+    @Override
+    public void recibirDanio(int danio) {
+
+    }
 }

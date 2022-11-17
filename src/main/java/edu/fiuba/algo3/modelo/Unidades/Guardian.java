@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.Unidades;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Guardian {
+public class Guardian extends Unidad{
 
     private int vida;
     private int tiempoConstruccion;
@@ -18,5 +18,16 @@ public class Guardian {
         superficie = new Aire();
         costos.add(50);
         costos.add(100);
+        danio=25;
+    }
+
+    @Override
+    public void construir() {
+
+    }
+
+    @Override
+    public void recibirDanio(int danio) {
+
     }
 }

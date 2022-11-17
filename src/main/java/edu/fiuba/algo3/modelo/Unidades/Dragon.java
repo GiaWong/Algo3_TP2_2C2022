@@ -11,4 +11,14 @@ public class Dragon extends Unidad{
         costos.add(125); //Esto es para Minerales
         costos.add(50); // Esto es para Gas
     }
+
+    @Override
+    public void construir() {
+
+    }
+
+    @Override
+    public void recibirDanio(int danio) {
+
+    }
 }

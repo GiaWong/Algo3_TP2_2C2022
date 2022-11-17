@@ -60,8 +60,11 @@ abstract class Unidad {
     - vida
     - tiempoConstruccion
     - rango
-    - superficie
     - costos
+    + construir()
+    + ataque(Superficie, fila, columna)
+
+    -superfficie: Aire o Tierra
 }
 
 class Zangano {
@@ -81,37 +84,34 @@ class Hidralisco {
 }
 
 class Mutalisco {
-
-    +ataqueTierra()
     +evoluciona()
-    +ataqueAire()
+    +ataque(Tierra)
+    +ataque(Aire)
 }
 
 class Guardian {
     -vida
     -tiempoConstruccion
 
-    +ataqueTierra()
+    +ataque(Tierra)
 }
 
 class Zealot {
     - escudo
 
-    +ataqueTierra()
+    +ataque(Tierra)
 }
 
 class Dragon {
     - escudo
 
-    +ataqueTierra()
-    +ataqueAire()
+    +ataque(Tierra)
 }
 
 class Scout {
     - escudo
 
-    +ataqueTierra()
-    +ataqueAire()
+   +ataque(Tierra)
 
 }
 
@@ -358,5 +358,28 @@ Mutalisco --|> Unidad
 Zealot --|> Unidad
 Dragon --|> Unidad
 Scout --|> Unidad
+
+interface Superficie{
+
+}
+
+
+class Aire{
+
+}
+
+class Tierra{
+
+}
+
+
+
+Superficie <|.. Tierra
+Superficie <|.. Aire
+
+Unidad o--> Superficie
+
+
+
 
 @enduml

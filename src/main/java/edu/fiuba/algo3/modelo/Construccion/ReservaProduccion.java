@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
+import edu.fiuba.algo3.modelo.Unidades.Zerling;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,7 @@ public class ReservaProduccion implements ConstruccionNormal{
     private int vida ;
     private int tiempoConstruccion = 12;
     private List<Integer> costos = new ArrayList<>();
+    private Zerling zerling;
 
     public ReservaProduccion(){
         costos.add(150); //esto es para Mineral
@@ -51,4 +54,14 @@ public class ReservaProduccion implements ConstruccionNormal{
         return costos;
     }
 
+    public void conZerg(Zerling zerg) {
+        this.zerling = zerg;
+        for(int i =0 ; i<=1;i++) {
+            this.zerling.construir();
+        }
+    }
+
+    public Zerling obtenerZerg() {
+        return this.zerling;
+    }
 }

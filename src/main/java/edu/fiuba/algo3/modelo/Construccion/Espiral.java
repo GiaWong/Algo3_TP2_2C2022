@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
+import edu.fiuba.algo3.modelo.Unidades.Mutalisco;
+import edu.fiuba.algo3.modelo.Unidades.Zerling;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +14,7 @@ public class Espiral implements ConstruccionNormal{
     private int vida ;
     private int tiempoConstruccion = 10;
     private List<Integer> costos = new ArrayList<>();
+    private Mutalisco zerg;
 
     public Espiral(){
         costos.add(150); //esto es para Mineral
@@ -64,5 +68,15 @@ public class Espiral implements ConstruccionNormal{
     @Override
     public void evolucionar() {
 
+    }
+
+    public void conZerg(Mutalisco mutalisco) {
+        this.zerg = mutalisco;
+        for(int i =0 ; i<=7;i++) {
+            this.zerg.construir();
+        }
+    }
+    public Mutalisco obtenerZerg() {
+        return this.zerg;
     }
 }

@@ -33,7 +33,9 @@ public  class Acceso implements ConstruccionNormal {
     public int obtenerEscudo() {return escudo; }
     @Override
     public void recibeDanio(int cant) {
+
         escudo-= cant;
+
         if (escudo<0){
             vida += escudo;
             escudo = 0;
