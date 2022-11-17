@@ -53,7 +53,7 @@ public class CasoDeUso19 {
         mapa.agregar(muta,11,10);
         mapa.atacar(scout,11,10);
 
-        assertEquals(112,muta.vida());
+        assertEquals(106,muta.vida());
     }
 
 

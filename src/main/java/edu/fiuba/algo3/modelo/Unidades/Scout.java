@@ -19,7 +19,7 @@ public class Scout extends Unidad{
         superficie = new Aire();
         costos.add(300); //Esto es para Minerales
         costos.add(150); // Esto es para Gas
-        danio=new AtaqueAireyTierra(14,8);
+        danio=new AtaqueAireyTierra(8,14);
 
     }
 
