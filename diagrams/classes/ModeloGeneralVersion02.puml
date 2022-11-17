@@ -61,12 +61,10 @@ abstract class Unidad {
     - tiempoConstruccion
     - rango
     - costos
-    - superficie
+    - superficie: aire o tierra
     - ataque
     + construir()
     + ataque(Superficie, fila, columna)
-
-    -superfficie: Aire o Tierra
 }
 
 class Zangano {
@@ -233,6 +231,7 @@ class Casilla {
     - unidad
     - recurso
     - terreno
+    - area
     - construccion
 
     + agregarUnidad()
@@ -285,6 +284,18 @@ class Turno {
 
 interface Recurso {
     + esPosibleConstruir(construccion)
+}
+
+interface Area {
+    esPosibleAgregar(unidad)
+}
+
+class Espacial {
+    +esPosibleAgregar(unidad)
+}
+
+class Terrestre {
+    +esPosibleAgregar(unidad)
 }
 
 
@@ -395,8 +406,11 @@ Danio <|.. AtaqueTierraYAire
 Superficie <|.. Tierra
 Superficie <|.. Aire
 
-Unidad *--> Superficie
+Unidad *-up-> Superficie
 
+Casilla *--> Area
+Area <|.. Terrestre
+Area <|.. Espacial
 
 
 
