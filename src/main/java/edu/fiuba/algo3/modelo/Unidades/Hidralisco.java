@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.Unidades;
 import edu.fiuba.algo3.modelo.Construccion.Acceso;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 
+import java.util.List;
+
 public class Hidralisco extends Unidad{
 
     private Guardian guardian;
@@ -26,6 +28,11 @@ public class Hidralisco extends Unidad{
     @Override
     public void recibirDanio(int danio) {
 
+    }
+
+    @Override
+    public List<Integer> costo() {
+        return costos;
     }
 
     public void ataqueTierra(Construccion construccionEnemiga) {

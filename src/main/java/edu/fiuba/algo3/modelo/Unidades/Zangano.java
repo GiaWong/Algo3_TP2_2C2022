@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 
+import java.util.List;
+
 public class Zangano extends Unidad{
 
     public Zangano(){
@@ -28,5 +30,9 @@ public class Zangano extends Unidad{
     @Override
     public void recibirDanio(int danio) {
 
+    }
+    @Override
+    public List<Integer> costo() {
+        return costos;
     }
 }

@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
+import java.util.List;
+
 public class Mutalisco extends Unidad{
 
     // Deberia poder evolucionarse a Guardian.
@@ -22,5 +24,14 @@ public class Mutalisco extends Unidad{
     @Override
     public void recibirDanio(int danio) {
 
+    }
+
+    @Override
+    public List<Integer> costo() {
+        return costos;
+    }
+
+    public Unidad evolucionar() {
+        return new Guardian();
     }
 }

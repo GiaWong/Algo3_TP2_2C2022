@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
+import java.util.List;
+
 public class Zealot extends Unidad{
 
     private int escudo = 60;
@@ -20,5 +22,9 @@ public class Zealot extends Unidad{
     @Override
     public void recibirDanio(int danio) {
 
+    }
+    @Override
+    public List<Integer> costo() {
+        return costos;
     }
 }

@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
+import java.util.List;
+
 public class Scout extends Unidad{
 
     private int escudo = 100;
@@ -21,5 +23,9 @@ public class Scout extends Unidad{
     @Override
     public void recibirDanio(int danio) {
 
+    }
+    @Override
+    public List<Integer> costo() {
+        return costos;
     }
 }

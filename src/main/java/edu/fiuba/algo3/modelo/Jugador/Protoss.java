@@ -9,8 +9,5 @@ public class Protoss extends Raza {
 
     }
 
-    @Override
-    public void evolucionar() {
 
-    }
 }

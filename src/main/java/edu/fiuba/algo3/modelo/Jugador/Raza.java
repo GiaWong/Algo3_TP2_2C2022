@@ -12,21 +12,34 @@ public abstract class Raza {
     protected List<Unidad> unidades = new ArrayList<>();
     protected List<Construccion> construcciones = new ArrayList<>();
 
-    private void agregarConstruccion(Construccion construccion){
+    private void agregar(Construccion construccion){
         construcciones.add(construccion);
     }
+    private void agregar(Unidad unidad){
+        unidades.add(unidad);
+    }
 
-    public void comprarConstruccion(Construccion construccion) {
+
+    public void comprar(Construccion construccion) {
         if (banco.esPosibleComprar(construccion)){
-            banco.comprarConstuccion(construccion);
-            this.agregarConstruccion(construccion);
+            banco.comprar(construccion);
+            this.agregar(construccion);
+        }
+    }
+    public void comprar(Unidad unidad) {
+        if (banco.esPosibleComprar(unidad)){
+            banco.comprar(unidad);
+            this.agregar(unidad);
         }
     }
     public int obtenerCantidadConstrucciones(){
         return construcciones.size();
     }
+    public int obtenerCantidadUnidades(){
+       return unidades.size();
+    }
 
     public abstract void recolectar();
 
-    public abstract void evolucionar();
+
 }

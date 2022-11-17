@@ -30,4 +30,9 @@ public class Guardian extends Unidad{
     public void recibirDanio(int danio) {
 
     }
+
+    @Override
+    public List<Integer> costo() {
+        return costos;
+    }
 }
