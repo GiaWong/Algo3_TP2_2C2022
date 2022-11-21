@@ -15,30 +15,16 @@ public class Guardian extends Unidad{
         vida = 100;
         tiempoConstruccion = 4;
         rango = 10;
-        superficie = new Aire();
         costos.add(50);
         costos.add(100);
+        superficie = new Aire();
         danio=new AtaqueTierra(25);
         ;
-    }
-
-    @Override
-    public void construir() {tiempoConstruccion--;
-
     }
 
     @Override
     public void modificarEstadisticas(int danio) {
         vida -= danio;
 
-    }
-
-    @Override
-    public List<Integer> costo() {
-        return costos;
-    }
-
-    public boolean estaDisponible() {
-        return (tiempoConstruccion<=0);
     }
 }

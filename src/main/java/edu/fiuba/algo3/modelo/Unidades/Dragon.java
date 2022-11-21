@@ -12,17 +12,12 @@ public class Dragon extends Unidad{
     private int escudo = 60;
     public Dragon(){
         vida = 100;
-        danio=new AtaqueAireyTierra(20,20);
         tiempoConstruccion = 6;
         rango = 4;
-        superficie = new Tierra();
         costos.add(125); //Esto es para Minerales
         costos.add(50); // Esto es para Gas
-    }
-
-    @Override
-    public void construir() {
-        tiempoConstruccion--;
+        superficie = new Tierra();
+        danio=new AtaqueAireyTierra(20,20);
     }
 
     @Override
@@ -35,11 +30,6 @@ public class Dragon extends Unidad{
 
     }
 
-    @Override
-    public List<Integer> costo() {
-        return costos;
-    }
-
     public boolean preRequisito(List<Construccion> lista) {
         if(lista!=null) {
             for(int i =0; i<lista.size();i++){
@@ -50,9 +40,6 @@ public class Dragon extends Unidad{
         }
         return false;
 
-    }
-    public boolean estaDisponible() {
-        return (tiempoConstruccion<=0);
     }
 
 }

@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-import edu.fiuba.algo3.modelo.Construccion.Acceso;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.Espiral;
 
@@ -15,28 +14,16 @@ public class Mutalisco extends Unidad{
         vida = 120;
         tiempoConstruccion = 7;
         rango = 3;
-        superficie = new Aire();
         costos.add(100); //Esto es para Minerales
         costos.add(100); // Esto es para Gas
+        superficie = new Aire();
         danio=new AtaqueAireyTierra(9,9);
-    }
-
-    @Override
-    public void construir() {
-        tiempoConstruccion--;
-
-
     }
 
     @Override
     public void modificarEstadisticas(int danio) {
         vida-=danio;
 
-    }
-
-    @Override
-    public List<Integer> costo() {
-        return costos;
     }
 
     public Unidad evolucionar() {
@@ -52,9 +39,5 @@ public class Mutalisco extends Unidad{
             }
         }
         return false;
-    }
-
-    public boolean estaDisponible() {
-        return (tiempoConstruccion<=0);
     }
 }

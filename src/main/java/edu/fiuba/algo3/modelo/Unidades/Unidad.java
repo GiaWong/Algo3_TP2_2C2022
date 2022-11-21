@@ -8,13 +8,21 @@ import java.util.List;
 public abstract class Unidad {
 
     protected int vida;
-    protected Danio danio;
+
+
     protected int tiempoConstruccion;
+
     protected int rango;
+
+    protected Danio danio;
+
     protected Superficie superficie;
+
     protected List<Integer> costos = new ArrayList<>();
 
-    public abstract void construir();
+    public void construir() {
+        tiempoConstruccion--;
+    }
 
     public void atacar(Construccion construccion) {
         construccion.recibeDanio(danio.danioTierra());
@@ -29,17 +37,25 @@ public abstract class Unidad {
             this.modificarEstadisticas(danio.danioAInfligir());
         }
     }
-    public abstract void modificarEstadisticas(int danio);
-    public abstract List<Integer> costo();
-
     public int rango() {
         return rango;
     }
 
-    public int vida() {return vida;
-    }
+    public int vida() {return vida;}
 
-    public Boolean esSuperficie(Superficie otraSuperficie) {
+    public boolean esSuperficie(Superficie otraSuperficie) {
         return (superficie.getClass().equals(otraSuperficie.getClass()));
     }
+
+    public List<Integer> costo() {
+        return costos;
+    }
+
+    public boolean estaDisponible() {
+        return (tiempoConstruccion<=0);
+    }
+
+    public abstract void modificarEstadisticas(int danio);
+
+
 }

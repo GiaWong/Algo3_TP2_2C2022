@@ -9,19 +9,14 @@ public class Zealot extends Unidad{
 
     private Construccion preRequisito = new Acceso();
     private int escudo = 60;
-    public Zealot(){
+    public Zealot() {
         vida = 100;
-        danio=new AtaqueTierra(8);
         tiempoConstruccion = 4;
         rango = 3;
-        superficie = new Tierra();
         costos.add(100); //Esto es para Minerales
         costos.add(0); // Esto es para Gas
-    }
-
-    @Override
-    public void construir() {
-        tiempoConstruccion--;
+        superficie = new Tierra();
+        danio = new AtaqueTierra(8);
     }
 
     @Override
@@ -31,11 +26,6 @@ public class Zealot extends Unidad{
             vida += escudo;
             escudo = 0;
         }
-
-    }
-    @Override
-    public List<Integer> costo() {
-        return costos;
     }
 
     public boolean preRequisito(List<Construccion> lista) {
@@ -48,9 +38,5 @@ public class Zealot extends Unidad{
         }
         return false;
 
-    }
-
-    public boolean estaDisponible() {
-        return (tiempoConstruccion<=0);
     }
 }

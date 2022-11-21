@@ -1,0 +1,372 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Juego {
+    - partidaActual
+    - partidasGuardadas
+
+    + cargarPartida()
+    + jugar()
+}
+
+class Partida {
+    - jugadorUno
+    - jugadorDos
+    - mapa
+    - turno
+
+    + asignarNombre(Jugador)
+    + asignarColor(Jugador)
+    + asignarRaza(Jugador)
+    + jugar()
+    + . . .  ()
+}
+
+class Jugador {
+    - nombre
+    - color
+    - raza
+
+    + contruir()
+    + atacar()
+    + recolectar()
+    + crearUnidad()
+}
+
+abstract class Raza {
+    - bancoDeRecursos
+    - capacidadSuministro
+
+    + agregarConstruccion()
+    + recolectar()
+    + crearUnidad()
+}
+
+class Zerg {
+    + agregarConstruccion()
+    + recolectar()
+    + crearUnidad()
+}
+
+class Protoss {
+    + agregarConstruccion()
+    + recolectar()
+    + crearUnidad()
+}
+
+abstract class ConstruccionZerg {
+    - vida
+    - tiempoConstruccion
+    - costos
+    + construir()
+}
+
+abstract class ConstruccionProtoss {
+    - vida
+    - escudo
+    - tiempoConstruccion
+    - costos
+    + construir()
+}
+
+abstract class Unidad {
+    - vida
+    - tiempoConstruccion
+    - rango
+    - costos
+    - superficie: aire o tierra
+    - ataque
+    + construir()
+    + ataque(Superficie, fila, columna)
+}
+
+abstract class UnidadZerg {
+    - vida
+    - tiempoConstruccion
+    - costos
+    - superficie: aire o tierra
+    + construir()
+    + ataque(Superficie, fila, columna)
+}
+
+abstract class UnidadProtoss {
+    - vida
+    - escudo
+    - tiempoConstruccion
+    - costos
+    - superficie: aire o tierra
+    + construir()
+    + ataque(Superficie, fila, columna)
+}
+
+class Zangano {
+    + recolectar()
+}
+
+class Zerling {
+    + ataque()
+}
+
+class Hidralisco {
+
+    +ataque()
+}
+
+class Mutalisco {
+    +evolucionar()
+    +ataque()
+}
+
+class Guardian {
+    +ataque()
+}
+
+class Zealot {
+    +ataque()
+}
+
+class Dragon {
+    +ataque()
+}
+
+class Scout {
+   +ataque()
+
+}
+
+class Extractor {
+    +recolectar(volcan)
+    +construir()
+    +agregar(Zangano)
+}
+
+class Asimilador {
+    +recolectar(volcan)
+    +construir()
+}
+
+class NexoMineral {
+    +recolectar(nodoMineral)
+    +construir()
+}
+
+class Criadero {
+    - radio
+    - larva : int
+     +evolucionar()
+     +construir()
+     +ampliarRadio()
+}
+
+class Pilon {
+    - radio
+    +ampliarRadio()
+    +construir()
+}
+
+class Espiral {
+    +evolucionar()
+    +construir()
+
+}
+
+class ReservaProduccion {
+     +evolucionar()
+     +construir()
+}
+
+class Guarida {
+    +evolucionar()
+    +construir()
+
+}
+
+class PuertoEstelar {
+    +evolucionar()
+    +construir()
+}
+
+class Acceso {
+     +evolucionar()
+     +construir()
+}
+
+class Mapa {
+    - mapa: [][]
+
+    + agregarUnidad()
+    + agregarConstruccion()
+}
+
+class Casilla {
+    - unidad
+    - recurso
+    - terreno
+    - area
+    - construccion
+
+    + agregarUnidad()
+    + agregarConstruccion()
+    + setTerrreno()
+    + setRecurso()
+}
+
+class Vacio {
+    + esPosibleConstruir(construccion)
+}
+
+interface Terreno {
+    + esPosibleConstruir(construccion)
+}
+
+interface Terreno
+note left: Se aplica patrón Strategy
+
+class ConMoho {
+    + esPosibleConstruir(construccion)
+}
+
+class ConEnergia {
+    + esPosibleConstruir(construccion)
+}
+
+class SinNada {
+    + esPosibleConstruir(construccion)
+}
+
+class Volcan {
+    - cantidad
+    + recolectar() : int
+    + esPosibleConstruir(construccion)
+}
+
+class NodoMineral {
+    - cantidad
+    + recolectar() : int
+    + esPosibleConstruir(construccion)
+}
+
+class Turno {
+
+   +avanzarTurno(Jugador)
+   +jugar(Jugador)
+
+   }
+
+interface Recurso {
+    + esPosibleConstruir(construccion)
+}
+
+interface Area {
+    esPosibleAgregar(unidad)
+}
+
+class Espacial {
+    +esPosibleAgregar(unidad)
+}
+
+class Terrestre {
+    +esPosibleAgregar(unidad)
+}
+
+interface Radio {}
+class Moho {}
+class Energia {}
+
+interface Recolector {
+    - No se si hace falta poner esta interfaz
+}
+class Gas {}
+class Mineral {}
+
+interface Creador {}
+class DeZangano {}
+class DeZerling {}
+class DeHidralisco {}
+class DeMutalisco {}
+
+
+
+Partida "2" *-> Jugador
+Mapa <-* Partida
+Partida *--> Turno
+
+Jugador *-> Raza
+Raza <|-- Zerg
+Raza <|-- Protoss
+
+Zerg --> ConstruccionZerg
+Protoss --> ConstruccionProtoss
+Zerg --> UnidadZerg
+Protoss --> UnidadProtoss
+
+
+ConstruccionZerg <|-- Criadero
+ConstruccionZerg <|-- ReservaProduccion
+ConstruccionZerg <|-- Extractor
+ConstruccionZerg <|-- Guarida
+ConstruccionZerg <|-- Espiral
+
+ConstruccionProtoss <|-- NexoMineral
+ConstruccionProtoss <|-- Pilon
+ConstruccionProtoss <|-- Asimilador
+ConstruccionProtoss <|-- Acceso
+ConstruccionProtoss <|-- PuertoEstelar
+
+Criadero *--> Radio
+Pilon *--> Radio
+Radio <|.. Moho
+Radio <|.. Energia
+
+Extractor *--> Recolector
+Asimilador *--> Recolector
+NexoMineral *--> Recolector
+Recolector <|.. Gas
+Recolector <|.. Mineral
+
+Casilla "*" <-* Mapa
+Terreno <-* Casilla
+
+Casilla *--> Recurso
+Recurso <|.. Volcan
+Recurso <|.up. NodoMineral
+Recurso <|.. Vacio
+
+Terreno <|.up. ConMoho
+Terreno <|.up. ConEnergia
+Terreno <|.up. SinNada
+
+
+
+
+interface Danio {
+    +recibirDanio(superficie)
+}
+interface Superficie{
+ +esPosibleAgregar(unidad)
+}
+class Tierra{
++esPosibleAgregar(unidad)
+}
+class Aire{
++esPosibleAgregar(unidad)
+}
+
+class AtaqueTierra {
+    +recibirDanio(superficie)
+}
+
+class AtaqueTierraYAire {
+    +recibirDanio(superficie)
+}
+
+
+
+
+Casilla *--> Superficie
+Superficie <|.. Tierra
+Superficie <|.. Aire
+
+
+
+@enduml

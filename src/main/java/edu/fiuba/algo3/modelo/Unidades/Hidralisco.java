@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-import edu.fiuba.algo3.modelo.Construccion.Acceso;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.Guarida;
 
@@ -15,32 +14,17 @@ public class Hidralisco extends Unidad{
         vida = 80;
         tiempoConstruccion = 4;
         rango = 4;
-        superficie = new Tierra();
-        guardian = new Guardian();
         costos.add(75); //Esto es para Minerales
         costos.add(25); // Esto es para Gas
         danio=new AtaqueAireyTierra(10,10);
+        superficie = new Tierra();
+        guardian = new Guardian();
 
-    }
-
-    @Override
-    public void construir() {
-        tiempoConstruccion --;
     }
 
     @Override
     public void modificarEstadisticas(int danio) {
         vida -=danio;
-
-    }
-
-    @Override
-    public List<Integer> costo() {
-        return costos;
-    }
-
-    public void ataqueTierra(Construccion construccionEnemiga) {
-        construccionEnemiga.recibeDanio(1);//cuanto daño recibe?
     }
 
     public boolean preRequisito(List<Construccion> lista) {
@@ -52,10 +36,6 @@ public class Hidralisco extends Unidad{
             }
         }
         return false;
-    }
-
-    public boolean estaDisponible() {
-        return (tiempoConstruccion<=0);
     }
 
 }

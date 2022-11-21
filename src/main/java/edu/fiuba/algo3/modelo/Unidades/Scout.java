@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-import edu.fiuba.algo3.modelo.Construccion.Acceso;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.PuertoEstelar;
 
@@ -16,16 +15,10 @@ public class Scout extends Unidad{
         vida = 150;
         tiempoConstruccion = 9;
         rango = 4;
-        superficie = new Aire();
         costos.add(300); //Esto es para Minerales
         costos.add(150); // Esto es para Gas
-        danio=new AtaqueAireyTierra(8,14);
-
-    }
-
-    @Override
-    public void construir() {
-        tiempoConstruccion--;
+        superficie = new Aire();
+        danio = new AtaqueAireyTierra(8,14);
 
     }
 
@@ -38,10 +31,6 @@ public class Scout extends Unidad{
         }
 
     }
-    @Override
-    public List<Integer> costo() {
-        return costos;
-    }
 
     public boolean preRequisito(List<Construccion> lista) {
         if(lista!=null) {
@@ -53,8 +42,5 @@ public class Scout extends Unidad{
         }
         return false;
 
-    }
-    public boolean estaDisponible() {
-        return (tiempoConstruccion<=0);
     }
 }
