@@ -1,0 +1,91 @@
+@startuml
+
+
+abstract class UnidadProtoss {
+    - vida
+    - escudo
+    - tiempoConstruccion
+    - costos
+    - superficie: aire o tierra
+    + construir()
+    + ataque(Superficie, fila, columna)
+}
+
+class Zealot {
+    +ataque()
+}
+
+class Dragon {
+    +ataque()
+}
+
+class Scout {
+   +ataque()
+
+}
+
+
+
+abstract class UnidadZerg {
+    - vida
+    - tiempoConstruccion
+    - costos
+    - superficie: aire o tierra
+    + construir()
+    + ataque(Superficie, fila, columna)
+}
+
+class AmoSupremo {
+
+}
+
+class Zangano {
+    + recolectar()
+}
+
+class Zerling {
+    + ataque()
+}
+
+class Hidralisco {
+
+    +ataque()
+}
+
+class Mutalisco {
+    +evolucionar()
+    +ataque()
+}
+
+class Guardian {
+    +ataque()
+}
+
+class Devorador {
+    +ataque()
+}
+
+
+interface Unidades{
+    +{abstract}construir()
+}
+
+
+
+Unidades <|.. UnidadZerg
+Unidades <|.. UnidadProtoss
+
+UnidadZerg <|-- Zangano
+UnidadZerg <|-- AmoSupremo
+UnidadZerg <|-- Zerling
+UnidadZerg <|-- Hidralisco
+UnidadZerg <|-- Mutalisco
+UnidadZerg <|-- Guardian
+UnidadZerg <|-- Devorador
+
+UnidadProtoss <-- Zealot
+UnidadProtoss <-- Dragon
+UnidadProtoss <-- Scout
+
+
+@enduml
