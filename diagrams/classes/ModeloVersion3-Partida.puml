@@ -1,0 +1,116 @@
+@startuml
+
+class Juego {
+
+    + jugar()
+}
+
+note top of Juego
+    seudocodigo:
+
+    public void jugar(){
+        Partida partida = Partida.obtenerPartida();
+        partida.jugar();
+    }
+end note
+
+class Partida {
+     -Mapa mapa
+     - partidaActual
+     - partidasGuardadas
+     - Partida()
+     +{static}obtenerPartida():Partida
+     + jugar()
+
+}
+
+
+
+
+
+note top of Partida
+    seudocodigo:
+
+    public final class Partida(){
+        private static Partida partida;
+
+        private Partida(){  //constructor
+
+            Jugador primerJugador = new Jugador();
+            Jugador segundoJugador = new Jugador();
+            Mapa mapa = new Mapa();
+            .....
+            .....
+        }
+
+        public static Partida obtenerPartida(){
+            if (partida == null){
+                partida= new Partida();
+            }
+            return partida;
+        }
+
+        public void jugar(){
+
+            primerJugador.asignarNombre();
+            segundoJugador.asignarNombre();
+            ....
+            ....
+
+        }
+    }
+end note
+
+class Jugador {
+    - nombre
+    - color
+    - raza
+    + Jugador()
+    + asignarNombre():void
+    + asignarColor():void
+    + asignarRaza():void
+    + atacar(Jugador):void
+    + contruir()
+    + recolectar()
+    + crearUnidad()
+
+}
+note right of Jugador::Jugador
+  SeudoCodigo:
+
+   public void Jugador(){
+        Turno turno = new Turno();
+        .....
+        .....
+   }
+
+end note
+
+
+class Turno {
+
+   +avanzarTurno(Jugador)
+
+}
+
+class App{
+    +start(Stage stage)
+}
+
+
+Juego "1"->"1"Partida
+
+Partida<-Partida
+
+Partida "1" *-down->"2"Jugador
+
+Jugador*-down->Turno
+App -> Juego
+
+
+
+note "Aplicando patron Singleton" as N2
+Partida .left. N2
+N2 .. Juego
+
+@enduml
