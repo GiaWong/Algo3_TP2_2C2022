@@ -16,6 +16,7 @@ end note
 
 class Partida {
      -Mapa mapa
+     -turno
      - partidaActual
      - partidasGuardadas
      - Partida()
@@ -65,26 +66,18 @@ class Jugador {
     - nombre
     - color
     - raza
+
     + Jugador()
+    + jugar()
     + asignarNombre():void
     + asignarColor():void
     + asignarRaza():void
-    + atacar(Jugador):void
-    + contruir()
-    + recolectar()
-    + crearUnidad()
+
 
 }
-note right of Jugador::Jugador
-  SeudoCodigo:
 
-   public void Jugador(){
-        Turno turno = new Turno();
-        .....
-        .....
-   }
 
-end note
+
 
 
 class Turno {
@@ -104,7 +97,6 @@ Partida<-Partida
 
 Partida "1" *-down->"2"Jugador
 
-Jugador*-down->Turno
 App -> Juego
 
 
@@ -112,5 +104,113 @@ App -> Juego
 note "Aplicando patron Singleton" as N2
 Partida .left. N2
 N2 .. Juego
+
+
+
+interface TipoAccion{
+    +{abstract}realizarAccion()
+
+}
+
+class Avanzar{
+    +realizarAccion()
+}
+
+
+
+
+class Recolectar{
+    +realizarAccion()
+}
+class Atacar{
+    +realizarAccion()
+}
+class Construir{
+    +realizarAccion()
+}
+class Crear{
+    +realizarAccion()
+}
+
+
+TipoAccion<|.. Avanzar
+TipoAccion<|.. Recolectar
+TipoAccion<|.. Atacar
+TipoAccion<|.. Construir
+TipoAccion<|.. Crear
+
+abstract CrearAccion{
+    +{abstract}crearAccion():TipoAccion
+}
+class CrearAvanzar{
+    +crearAccion():Avanzar
+}
+note left of CrearAvanzar
+SeudoCodigo:
+
+public class CrearAvanzar extends CrearAccion {
+
+    @Override
+    public TipoAccion crearAccion() {
+        return new Avanzar();
+    }
+}
+
+end note
+
+
+
+class CrearRecolectar{
+    +crearAccion():Recolectar
+}
+class CrearAtacar{
+    +crearAccion():Atacar
+}
+class CrearConstruir{
+    +crearAccion():Construir
+}
+class CrearAccionCrear{
+    +crearAccion():Crear
+}
+
+CrearAccion .right.> TipoAccion
+
+CrearAccion <|-left- CrearAvanzar
+CrearAccion <|--- CrearRecolectar
+CrearAccion <|--- CrearAtacar
+CrearAccion <|--- CrearConstruir
+CrearAccion <|--- CrearAccionCrear
+
+
+Jugador --> CrearAccion: Aplicando patron Factory
+
+
+note right of Jugador
+
+    public class Jugador {
+        ....
+        ....
+
+        private static TipoAccion accion;
+
+        public void jugar() {
+            if (...) { // podría ser un do-while
+                accion = new Crear();
+            } else {
+                accion = new Construir();
+            }
+
+            realizarAccion();
+        }
+
+        static void realizarAccion() {
+            accion.realizarAccion();
+        }
+
+        ....
+        ....
+        ....
+    }
+end note
 
 @enduml
