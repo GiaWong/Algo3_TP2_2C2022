@@ -160,12 +160,12 @@ Refineria <--* Asimilador
 Refineria <|.right.. DeGas
 Refineria <|.left.. DeMineral
 
- Creador <--* PuertoEstelar
- Creador <--* ReservaProduccion
- Creador <--* Acceso
- Creador <--* Guarida
- Creador <--* Criadero
- Creador <--* Espiral
+ Creador <----* PuertoEstelar
+ Creador <----* ReservaProduccion
+ Creador <----* Acceso
+ Creador <--right-* Guarida
+ Creador <----* Criadero
+ Creador <----* Espiral
 
 Construir <|-down- ConstruccionZerg
 Construir <|-down- ConstruccionProtoss
@@ -180,6 +180,16 @@ note top of Refineria: Aplicando Patron Strategy
 note left of Radio: Aplicando Patron Strategy
 
 
+note top of Guarida
+Seudocodigo:
+
+public class Guarida{
+
+    public void crearUnidad(){
+        creador.crearHidralisco();
+    }
+}
+end note
 
 note top of Unidad
 Seudocodigo:
@@ -190,6 +200,7 @@ public class Unidad{
         ...
         ...
         Criadero criadero = new Creador();
+        criadero.crearUnidad()
 
 
     }
