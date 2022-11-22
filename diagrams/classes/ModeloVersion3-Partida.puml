@@ -201,8 +201,7 @@ CrearAccion <|--- CrearConstruir
 CrearAccion <|--- CrearAccionCrear
 
 
-Jugador ..> CrearAccion: Aplicando patron Factory
-Jugador ..> TipoAccion: usa
+Jugador ....> CrearAccion: Aplicando patron Factory
 
 note right of Jugador
 
