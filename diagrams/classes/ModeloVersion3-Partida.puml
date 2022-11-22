@@ -141,7 +141,26 @@ TipoAccion<|.. Crear
 
 abstract CrearAccion{
     +{abstract}crearAccion():TipoAccion
+    + realizarAccion()
 }
+note top of CrearAccion
+SeudoCodigo:
+
+public class CrearAccion{
+
+    public abstract TipoAccion crearAccion();
+
+    public void realizarAccion(){
+        ....
+        ....
+        TipoAccion unObjeto = crearAccion();
+        unObjeto.realizarAccion();
+        ....
+        ....
+    }
+}
+
+end note
 class CrearAvanzar{
     +crearAccion():Avanzar
 }
@@ -182,8 +201,8 @@ CrearAccion <|--- CrearConstruir
 CrearAccion <|--- CrearAccionCrear
 
 
-Jugador --> CrearAccion: Aplicando patron Factory
-
+Jugador ..> CrearAccion: Aplicando patron Factory
+Jugador ..> TipoAccion: usa
 
 note right of Jugador
 
@@ -191,7 +210,7 @@ note right of Jugador
         ....
         ....
 
-        private static TipoAccion accion;
+        private static CrearAccion accion;
 
         public void jugar() {
             if (...) { // podría ser un do-while
@@ -200,10 +219,6 @@ note right of Jugador
                 accion = new Construir();
             }
 
-            realizarAccion();
-        }
-
-        static void realizarAccion() {
             accion.realizarAccion();
         }
 
