@@ -214,9 +214,9 @@ note right of Jugador
 
         public void jugar() {
             if (...) { // podría ser un do-while
-                accion = new Crear();
+                accion = new CrearAccionCrear();
             } else {
-                accion = new Construir();
+                accion = new CrearConstruir();
             }
 
             accion.realizarAccion();
