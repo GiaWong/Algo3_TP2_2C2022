@@ -1,0 +1,201 @@
+@startuml
+!include ModeloVersion3-Partida.puml
+
+abstract class Raza {
+    - bancoDeRecursos
+    - capacidadSuministro
+
+    + agregarConstruccion()
+
+}
+
+class Zerg {
+    - constuccionZerg: ConstruccionZerg
+    + agregarConstruccion()
+
+}
+
+class Protoss {
+    -constuccionProtosss: ConstruccionProtoss
+    + agregarConstruccion()
+
+}
+
+
+abstract class ConstruccionZerg {
+    - vida
+    - tiempoConstruccion
+    - costos
+    + construir()
+}
+
+class Criadero {
+    - moho : Radio
+    - creador
+    - larva : int
+     +crearUnidad()
+     +construir()
+     +ampliarRadio()
+}
+
+class ReservaProduccion {
+    - creador
+    +crearUnidad()
+    +construir()
+}
+
+class Extractor {
+    +recolectar(volcan)
+    +construir()
+    +agregar(Zangano)
+}
+
+class Guarida {
+    - creador
+    +crearUnidad()
+    +construir()
+
+}
+
+class Espiral {
+    - creador
+    +crearUnidad()
+    +construir()
+
+}
+
+abstract class ConstruccionProtoss {
+    - vida
+    - escudo
+    - tiempoConstruccion
+    - costos
+    + construir()
+}
+
+class Asimilador {
+    +recolectar(volcan)
+    +construir()
+}
+
+class NexoMineral {
+    +recolectar(nodoMineral)
+    +construir()
+}
+
+class Pilon {
+    - energia : Radio
+    +ampliarRadio()
+    +construir()
+}
+
+class PuertoEstelar {
+    - creador
+    +crearUnidad()
+    +construir()
+}
+
+class Acceso {
+    - creador
+     +crearUnidad()
+     +construir()
+}
+
+
+interface Radio {
+    +ampliarRadio()
+}
+
+class Moho {
+    -radio : int
+    +ampliarRadio()
+}
+
+class Energia {
+    -radio : int
+    +ampliarRadio()
+}
+
+interface Refineria {
+    +recolectar(recurso)
+}
+
+class DeGas {
+    +recolectar(volcan)
+}
+
+class DeMineral {
+    +recolectar(volcan)
+}
+
+interface Creador {
+    +crearZangano()
+    +crearZerling()
+    +crearHidralisco()
+    +crearMutalisco()
+    +crearZealot()
+    +crearDragon()
+    +crearScout()
+}
+
+
+
+Jugador o-left- Raza
+Raza <|-- Zerg
+Raza <|-- Protoss
+
+
+
+
+Criadero *--> Radio
+Pilon *-left-> Radio
+Radio <|.. Moho
+Radio <|.. Energia
+
+
+
+
+Refineria <--* NexoMineral
+Refineria <--* Extractor
+Refineria <--* Asimilador
+Refineria <|.right.. DeGas
+Refineria <|.left.. DeMineral
+
+ Creador <--* PuertoEstelar
+ Creador <--* ReservaProduccion
+ Creador <--* Acceso
+ Creador <--* Guarida
+ Creador <--* Criadero
+ Creador <--* Espiral
+
+Construir <|-down- ConstruccionZerg
+Construir <|-down- ConstruccionProtoss
+
+Unidad -right-> Creador
+
+Recolectar ---> Refineria
+
+
+note top of Creador: Aplicando Patron Bridge
+note top of Refineria: Aplicando Patron Strategy
+note left of Radio: Aplicando Patron Strategy
+
+
+
+note top of Unidad
+Seudocodigo:
+
+public class Unidad{
+
+    public void realizarAccion(){
+        ...
+        ...
+        Criadero criadero = new Creador();
+
+
+    }
+
+
+}
+end note
+@enduml
+

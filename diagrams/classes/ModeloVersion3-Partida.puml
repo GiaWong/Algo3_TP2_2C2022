@@ -66,12 +66,13 @@ class Jugador {
     - nombre
     - color
     - raza
+    - puntuacion
 
     + Jugador()
     + jugar()
-    + asignarNombre():void
-    + asignarColor():void
-    + asignarRaza():void
+    + asignarNombre(String):void
+    + asignarColor(String):void
+    + asignarRaza(Raza):void
 
 
 }
@@ -128,16 +129,17 @@ class Atacar{
 class Construir{
     +realizarAccion()
 }
-class Crear{
+class Unidad{
     +realizarAccion()
+
 }
 
 
 TipoAccion<|.. Avanzar
-TipoAccion<|.. Recolectar
-TipoAccion<|.. Atacar
+TipoAccion<|.... Recolectar
+TipoAccion<|.... Atacar
 TipoAccion<|.. Construir
-TipoAccion<|.. Crear
+TipoAccion<|..right.. Unidad
 
 abstract CrearAccion{
     +{abstract}crearAccion():TipoAccion
@@ -188,8 +190,8 @@ class CrearAtacar{
 class CrearConstruir{
     +crearAccion():Construir
 }
-class CrearAccionCrear{
-    +crearAccion():Crear
+class CrearUnidad{
+    +crearAccion():Unidad
 }
 
 CrearAccion .right.> TipoAccion
@@ -198,7 +200,7 @@ CrearAccion <|-left- CrearAvanzar
 CrearAccion <|--- CrearRecolectar
 CrearAccion <|--- CrearAtacar
 CrearAccion <|--- CrearConstruir
-CrearAccion <|--- CrearAccionCrear
+CrearAccion <|--- CrearUnidad
 
 
 Jugador ....> CrearAccion: Aplicando patron Factory
@@ -213,7 +215,7 @@ note right of Jugador
 
         public void jugar() {
             if (...) { // podría ser un do-while
-                accion = new CrearAccionCrear();
+                accion = new CrearUnidad();
             } else {
                 accion = new CrearConstruir();
             }
