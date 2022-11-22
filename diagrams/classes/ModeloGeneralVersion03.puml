@@ -54,32 +54,6 @@ class Protoss {
     + crearUnidad()
 }
 
-abstract class ConstruccionZerg {
-    - vida
-    - tiempoConstruccion
-    - costos
-    + construir()
-}
-
-abstract class ConstruccionProtoss {
-    - vida
-    - escudo
-    - tiempoConstruccion
-    - costos
-    + construir()
-}
-
-abstract class Unidad {
-    - vida
-    - tiempoConstruccion
-    - rango
-    - costos
-    - superficie: aire o tierra
-    - ataque
-    + construir()
-    + ataque(Superficie, fila, columna)
-}
-
 abstract class UnidadZerg {
     - vida
     - tiempoConstruccion
@@ -89,14 +63,8 @@ abstract class UnidadZerg {
     + ataque(Superficie, fila, columna)
 }
 
-abstract class UnidadProtoss {
-    - vida
-    - escudo
-    - tiempoConstruccion
-    - costos
-    - superficie: aire o tierra
-    + construir()
-    + ataque(Superficie, fila, columna)
+class AmoSupremo {
+
 }
 
 class Zangano {
@@ -121,6 +89,20 @@ class Guardian {
     +ataque()
 }
 
+class Devorador {
+    +ataque()
+}
+
+abstract class UnidadProtoss {
+    - vida
+    - escudo
+    - tiempoConstruccion
+    - costos
+    - superficie: aire o tierra
+    + construir()
+    + ataque(Superficie, fila, columna)
+}
+
 class Zealot {
     +ataque()
 }
@@ -134,10 +116,54 @@ class Scout {
 
 }
 
+abstract class ConstruccionZerg {
+    - vida
+    - tiempoConstruccion
+    - costos
+    + construir()
+}
+
+class Criadero {
+    - moho : Radio
+    - creador
+    - larva : int
+     +crearUnidad()
+     +construir()
+     +ampliarRadio()
+}
+
+class ReservaProduccion {
+    - creador
+    +crearUnidad()
+    +construir()
+}
+
 class Extractor {
     +recolectar(volcan)
     +construir()
     +agregar(Zangano)
+}
+
+class Guarida {
+    - creador
+    +crearUnidad()
+    +construir()
+
+}
+
+class Espiral {
+    - creador
+    +crearUnidad()
+    +construir()
+
+}
+
+abstract class ConstruccionProtoss {
+    - vida
+    - escudo
+    - tiempoConstruccion
+    - costos
+    + construir()
 }
 
 class Asimilador {
@@ -150,49 +176,26 @@ class NexoMineral {
     +construir()
 }
 
-class Criadero {
-    - radio
-    - larva : int
-     +evolucionar()
-     +construir()
-     +ampliarRadio()
-}
-
 class Pilon {
-    - radio
+    - energia : Radio
     +ampliarRadio()
     +construir()
 }
 
-class Espiral {
-    +evolucionar()
-    +construir()
-
-}
-
-class ReservaProduccion {
-     +evolucionar()
-     +construir()
-}
-
-class Guarida {
-    +evolucionar()
-    +construir()
-
-}
-
 class PuertoEstelar {
-    +evolucionar()
+    - creador
+    +crearUnidad()
     +construir()
 }
 
 class Acceso {
-     +evolucionar()
+    - creador
+     +crearUnidad()
      +construir()
 }
 
 class Mapa {
-    - mapa: [][]
+    - mapa : Map
 
     + agregarUnidad()
     + agregarConstruccion()
@@ -269,37 +272,54 @@ class Terrestre {
     +esPosibleAgregar(unidad)
 }
 
-interface Radio {}
-class Moho {}
-class Energia {}
-
-interface Recolector {
-    - No se si hace falta poner esta interfaz
+interface Radio {
+    +ampliarRadio()
 }
-class Gas {}
-class Mineral {}
 
-interface Creador {}
-class DeZangano {}
-class DeZerling {}
-class DeHidralisco {}
-class DeMutalisco {}
+class Moho {
+    -radio : int
+    +ampliarRadio()
+}
+
+class Energia {
+    -radio : int
+    +ampliarRadio()
+}
+
+interface Refineria {
+    +recolectar(recurso)
+}
+
+class DeGas {
+    +recolectar(volcan)
+}
+
+class DeMineral {
+    +recolectar(volcan)
+}
+
+interface Creador {
+    +crearZangano()
+    +crearZerling()
+    +crearHidralisco()
+    +crearMutalisco()
+    +crearZealot()
+    +crearDragon()
+    +crearScout()
+}
 
 
 
-Partida "2" *-> Jugador
-Mapa <-* Partida
-Partida *--> Turno
+Partida "2" *- Jugador
+Mapa -* Partida
+Partida *-- Turno
 
-Jugador *-> Raza
+Jugador *- Raza
 Raza <|-- Zerg
 Raza <|-- Protoss
 
 Zerg --> ConstruccionZerg
 Protoss --> ConstruccionProtoss
-Zerg --> UnidadZerg
-Protoss --> UnidadProtoss
-
 
 ConstruccionZerg <|-- Criadero
 ConstruccionZerg <|-- ReservaProduccion
@@ -313,21 +333,30 @@ ConstruccionProtoss <|-- Asimilador
 ConstruccionProtoss <|-- Acceso
 ConstruccionProtoss <|-- PuertoEstelar
 
-Criadero *--> Radio
-Pilon *--> Radio
+Criadero *-- Radio
+Pilon *-- Radio
 Radio <|.. Moho
 Radio <|.. Energia
 
-Extractor *--> Recolector
-Asimilador *--> Recolector
-NexoMineral *--> Recolector
-Recolector <|.. Gas
-Recolector <|.. Mineral
+NexoMineral *-- Refineria
+Extractor *-- Refineria
+Asimilador *-- Refineria
+Refineria <|.. DeGas
+Refineria <|.. DeMineral
 
-Casilla "*" <-* Mapa
-Terreno <-* Casilla
+PuertoEstelar *-- Creador
+ReservaProduccion *-- Creador
+Acceso *-- Creador
+Guarida *-- Creador
+Criadero *-- Creador
+Espiral *-- Creador
 
-Casilla *--> Recurso
+
+
+Casilla "*" -* Mapa
+Terreno -* Casilla
+
+Casilla *-- Recurso
 Recurso <|.. Volcan
 Recurso <|.up. NodoMineral
 Recurso <|.. Vacio
@@ -336,6 +365,17 @@ Terreno <|.up. ConMoho
 Terreno <|.up. ConEnergia
 Terreno <|.up. SinNada
 
+UnidadZerg <|-- Zangano
+UnidadZerg <|-- AmoSupremo
+UnidadZerg <|-- Zerling
+UnidadZerg <|-- Hidralisco
+UnidadZerg <|-- Mutalisco
+UnidadZerg <|-- Guardian
+UnidadZerg <|-- Devorador
+
+UnidadProtoss <-- Zealot
+UnidadProtoss <-- Dragon
+UnidadProtoss <-- Scout
 
 
 
@@ -363,7 +403,7 @@ class AtaqueTierraYAire {
 
 
 
-Casilla *--> Superficie
+Casilla *-- Superficie
 Superficie <|.. Tierra
 Superficie <|.. Aire
 

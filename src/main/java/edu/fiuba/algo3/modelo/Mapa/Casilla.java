@@ -16,6 +16,9 @@ import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 public class Casilla {
 
+    private int fila;
+    private int columna;
+
     protected Unidad unidad;
     private Recurso recurso;
     private Superficie superficie;
@@ -26,6 +29,14 @@ public class Casilla {
         superficie = new Tierra();
         recurso = new Vacio();
         terreno = new SinNada();
+    }
+
+    public Casilla(int f, int c){
+        superficie = new Tierra();
+        recurso = new Vacio();
+        terreno = new SinNada();
+        fila = f;
+        columna = c;
     }
 
     public boolean hayConstruccion() {
@@ -52,7 +63,7 @@ public class Casilla {
     public void agregar(Construccion unaConstruccion) throws CasillaOcupada, CasillaOcupadaPorZangano {
         boolean hayConst = this.hayConstruccion();
         if(hayConst){
-           throw new CasillaOcupada();
+            throw new CasillaOcupada();
         }else if(unidad!=null){
             throw new CasillaOcupadaPorZangano();
         }

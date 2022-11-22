@@ -10,18 +10,21 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinNada;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
 import edu.fiuba.algo3.modelo.Unidades.Aire;
 import edu.fiuba.algo3.modelo.Unidades.Superficie;
-import edu.fiuba.algo3.modelo.Unidades.Tierra;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
+
+import java.util.Map;
 
 public class Mapa {
 
     public Casilla [][] casillas = new Casilla[20][20];
 
+    private Map mapa;
 
     public Mapa(){
         for(int i=0; i<20; i++){
             for(int j=0; j<20;j++){
                 casillas[i][j]= new Casilla();
+
             }
         }
     }
@@ -44,12 +47,16 @@ public class Mapa {
 
         (casillas[fila][columna]).setTerreno(new ConMoho());
     }
-    public void agregar(Construccion construccion, int fila, int columna){
-        (casillas [fila][columna]).agregar(construccion);
 
+    public void agregar(Construccion construccion, int fila, int columna){
+        //(casillas [fila][columna]).agregar(construccion);
+        Casilla casilla = new Casilla(fila, columna);
+        mapa.put(casilla, construccion);
     }
     public void agregar(Unidad unidad, int fila, int columna){
-        (casillas [fila][columna]).agregar(unidad);
+        //(casillas [fila][columna]).agregar(unidad);
+        Casilla casilla = new Casilla(fila, columna);
+        mapa.put(casilla, unidad);
     }
 
     public void destruirConstruccion(int fila, int columna) {
@@ -64,8 +71,6 @@ public class Mapa {
         }else{
             (casillas [fila][columna]).destruirConstruccion();
         }
-
-
     }
 
     public boolean hayConstruccion(int fila, int columna) {
@@ -89,57 +94,56 @@ public class Mapa {
         }
          throw new NoEstaEnElMapa();
     }
-        public void setearRadio() {
-            int radio;
-            for (int i = 0; i < 20; i++) {
-                for (int j = 0; j < 20; j++) {
+    public void setearRadio() {
+        int radio;
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 20; j++) {
 
+                if ((casillas[i][j]).esConstruccion(new Criadero())) {
+                    radio = (casillas[i][j]).obtenerRadio();
+                    this.setearRadioTerreno(radio, i, j, new ConMoho());
 
-                    if ((casillas[i][j]).esConstruccion(new Criadero())) {
-                        radio = (casillas[i][j]).obtenerRadio();
-                        this.setearRadioTerreno(radio, i, j, new ConMoho());
-
-                    } else if ((casillas[i][j]).esConstruccion(new Pilon())) {
-                        radio = (casillas[i][j]).obtenerRadio();
-                        this.setearRadioTerreno(radio, i, j, new ConEnergia());
-                    }
-
+                } else if ((casillas[i][j]).esConstruccion(new Pilon())) {
+                    radio = (casillas[i][j]).obtenerRadio();
+                    this.setearRadioTerreno(radio, i, j, new ConEnergia());
                 }
-            }
-        }
 
-        private void setearRadioTerreno ( int radio, int fila, int columna, Terreno terreno){
-
-            for (int i = 0; i < radio; i++) {
-                for (int j = 0; j < radio; j++) {
-
-                    if (!(casillas[fila + i][columna + j].tipoTerreno(new ConMoho()))) {//si en esa posicion tiene moho
-
-                        casillas[fila + i][columna + j].setTerreno(terreno);
-
-                    }
-
-                    if (!(casillas[fila - i][columna - j].tipoTerreno(new ConMoho()))) {
-
-                        casillas[fila - i][columna - j].setTerreno(terreno);
-
-                    }
-                }
-            }
-
-        }
-
-        public boolean tipoTerreno (Terreno terreno,int fila, int columna){
-            return (casillas[fila][columna]).tipoTerreno(terreno);
-
-        }
-
-        public void atacar (Unidad unidad,int fila, int colum){
-            int[]pos = this.buscarUnidad(unidad);
-            int rango = unidad.rango();
-            if((pos[0]+rango>fila && pos[1]+rango>colum)||(pos[0]+rango>fila && pos[1]+rango>colum)) {
-                Casilla casilla = (casillas[fila][colum]);
-                casilla.atacar(unidad);
             }
         }
     }
+
+    private void setearRadioTerreno ( int radio, int fila, int columna, Terreno terreno){
+
+        for (int i = 0; i < radio; i++) {
+            for (int j = 0; j < radio; j++) {
+
+                if (!(casillas[fila + i][columna + j].tipoTerreno(new ConMoho()))) {//si en esa posicion tiene moho
+
+                    casillas[fila + i][columna + j].setTerreno(terreno);
+
+                }
+
+                if (!(casillas[fila - i][columna - j].tipoTerreno(new ConMoho()))) {
+
+                    casillas[fila - i][columna - j].setTerreno(terreno);
+
+                }
+            }
+        }
+
+    }
+
+    public boolean tipoTerreno (Terreno terreno,int fila, int columna){
+        return (casillas[fila][columna]).tipoTerreno(terreno);
+
+    }
+
+    public void atacar (Unidad unidad,int fila, int colum){
+        int[]pos = this.buscarUnidad(unidad);
+        int rango = unidad.rango();
+        if((pos[0]+rango>fila && pos[1]+rango>colum)||(pos[0]+rango>fila && pos[1]+rango>colum)) {
+            Casilla casilla = (casillas[fila][colum]);
+            casilla.atacar(unidad);
+        }
+    }
+}
