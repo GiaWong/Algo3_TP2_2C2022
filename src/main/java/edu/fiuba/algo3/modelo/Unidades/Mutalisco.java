@@ -11,7 +11,7 @@ public class Mutalisco extends Unidad{
     private Construccion preRequisito = new Espiral();
 
     public Mutalisco(){
-        vida = 120;
+        vida = new Vida(120);;
         tiempoConstruccion = 7;
         rango = 3;
         costos.add(100); //Esto es para Minerales
@@ -22,7 +22,7 @@ public class Mutalisco extends Unidad{
 
     @Override
     public void modificarEstadisticas(int danio) {
-        vida-=danio;
+       // vida-=danio;
 
     }
 

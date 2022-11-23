@@ -18,7 +18,6 @@ public class Mapa {
 
     public Casilla [][] casillas = new Casilla[20][20];
 
-    private Map mapa;
 
     public Mapa(){
         for(int i=0; i<20; i++){
@@ -49,14 +48,14 @@ public class Mapa {
     }
 
     public void agregar(Construccion construccion, int fila, int columna){
-        //(casillas [fila][columna]).agregar(construccion);
+        (casillas [fila][columna]).agregar(construccion);
         Casilla casilla = new Casilla(fila, columna);
-        mapa.put(casilla, construccion);
+        //mapa.put(casilla, construccion);
     }
     public void agregar(Unidad unidad, int fila, int columna){
-        //(casillas [fila][columna]).agregar(unidad);
+        (casillas [fila][columna]).agregar(unidad);
         Casilla casilla = new Casilla(fila, columna);
-        mapa.put(casilla, unidad);
+        //mapa.put(casilla, unidad);
     }
 
     public void destruirConstruccion(int fila, int columna) {

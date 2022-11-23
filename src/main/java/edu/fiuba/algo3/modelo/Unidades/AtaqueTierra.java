@@ -6,17 +6,26 @@ public class AtaqueTierra implements Danio{
     public AtaqueTierra(int tierra){
         danioTierra =tierra;
     }
-    @Override
+
     public boolean esPosibleAtacar(Superficie sup) {
         Superficie tierra = new Tierra();
         return tierra.getClass().equals(sup.getClass());
 
     }
 
-    @Override
-    public int danioAInfligir() {
-        return danioTierra;
+
+
+    public void hacerDanioZerg(Vida vida) {
+        vida.inflijirDanio(danioTierra);
     }
+
+    public void hacerDanioProtoss(Vida vida,Escudo escudo) {
+        escudo.inflijirDanio(danioTierra);
+        if(escudo.estaVivo()) {
+            vida.inflijirDanio(danioTierra);
+        }
+    }
+
 
     @Override
     public int danioTierra() {

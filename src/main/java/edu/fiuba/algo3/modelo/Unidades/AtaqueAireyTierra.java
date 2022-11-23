@@ -9,7 +9,7 @@ public class AtaqueAireyTierra implements Danio{
         danioAire = aire;
         danioTierra = tierra;
     }
-    @Override
+
     public boolean esPosibleAtacar(Superficie sup) {
         Superficie air = new Aire();
         if(air.getClass().equals(sup.getClass())){
@@ -21,9 +21,17 @@ public class AtaqueAireyTierra implements Danio{
         return true;
     }
 
+
+    public void hacerDanioZerg(Vida vida) {
+        vida.inflijirDanio(danioInfligir);
+    }
+
     @Override
-    public int danioAInfligir() {
-        return danioInfligir;
+    public void hacerDanioProtoss(Vida vida,Escudo escudo) {
+        escudo.inflijirDanio(danioInfligir);
+        if(escudo.estaVivo()) {
+            vida.inflijirDanio(danioInfligir);
+        }
     }
 
     @Override

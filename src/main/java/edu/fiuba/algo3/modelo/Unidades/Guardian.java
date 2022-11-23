@@ -4,15 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Guardian extends Unidad{
-
-    private int vida;
     private int tiempoConstruccion;
     private int rango;
     private Superficie superficie;
     private List<Integer> costos = new ArrayList<>();
 
     public Guardian(){
-        vida = 100;
+        vida = new Vida(100);
         tiempoConstruccion = 4;
         rango = 10;
         costos.add(50);
@@ -24,7 +22,7 @@ public class Guardian extends Unidad{
 
     @Override
     public void modificarEstadisticas(int danio) {
-        vida -= danio;
+        //vida -= danio;
 
     }
 }
