@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso8;
 
-import edu.fiuba.algo3.modelo.Construccion.*;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.*;
 import edu.fiuba.algo3.modelo.Jugador.Protoss;
 import edu.fiuba.algo3.modelo.Jugador.Raza;
 import org.junit.jupiter.api.Test;

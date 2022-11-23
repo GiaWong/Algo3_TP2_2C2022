@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos;
 
-import edu.fiuba.algo3.modelo.Construccion.Asimilador;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.Asimilador;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.Extractor;
-import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.Extractor;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.NexoMineral;
 
 public class Vacio implements Recurso {
 

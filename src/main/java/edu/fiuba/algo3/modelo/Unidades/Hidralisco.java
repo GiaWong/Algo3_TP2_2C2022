@@ -1,13 +1,13 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.Guarida;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.Guarida;
 
 import java.util.List;
 
 public class Hidralisco extends Unidad{
 
-    private Construccion preRequisito = new Guarida();
+    private Guarida preRequisito = new Guarida();
     private Guardian guardian;
 
     public Hidralisco(){

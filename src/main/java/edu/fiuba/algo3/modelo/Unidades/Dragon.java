@@ -1,13 +1,13 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-import edu.fiuba.algo3.modelo.Construccion.Acceso;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.Acceso;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 
 import java.util.List;
 
 public class Dragon extends Unidad{
 
-    private Construccion preRequisito = new Acceso();
+    private Acceso preRequisito = new Acceso();
 
     private int escudo = 60;
     public Dragon(){

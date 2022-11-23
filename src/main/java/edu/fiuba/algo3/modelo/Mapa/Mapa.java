@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo.Mapa;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.Criadero;
-import edu.fiuba.algo3.modelo.Construccion.Pilon;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.Criadero;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.Pilon;
 import edu.fiuba.algo3.modelo.Exception.NoEstaEnElMapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
@@ -10,7 +10,6 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinNada;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
 import edu.fiuba.algo3.modelo.Unidades.Aire;
 import edu.fiuba.algo3.modelo.Unidades.Superficie;
-import edu.fiuba.algo3.modelo.Unidades.Tierra;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 public class Mapa {
@@ -28,8 +27,8 @@ public class Mapa {
    public void inicializarMapa2ConBases(){
         Criadero criadero = new Criadero();
         Pilon pilon = new Pilon();
-        this.agregar(pilon,5,5);
-        this.agregar(criadero,17,17);
+        this.agregar((Construccion) pilon,5,5);
+        this.agregar((Construccion) criadero,17,17);
    }
 
    public void inicializarConUnaFranjaEspacial(){
@@ -48,6 +47,7 @@ public class Mapa {
         (casillas [fila][columna]).agregar(construccion);
 
     }
+
     public void agregar(Unidad unidad, int fila, int columna){
         (casillas [fila][columna]).agregar(unidad);
     }

@@ -1,6 +1,11 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso17;
 
 import edu.fiuba.algo3.modelo.Construccion.*;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.Acceso;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.PuertoEstelar;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.Espiral;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.Guarida;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.ReservaProduccion;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

@@ -1,11 +1,9 @@
 package edu.fiuba.algo3.entrega_2.CasoDeUso23;
 
-import edu.fiuba.algo3.modelo.Construccion.Acceso;
-import edu.fiuba.algo3.modelo.Construccion.Pilon;
-import edu.fiuba.algo3.modelo.Construccion.ReservaProduccion;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.Acceso;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.Pilon;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.ReservaProduccion;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
-import edu.fiuba.algo3.modelo.Unidades.Unidad;
-import edu.fiuba.algo3.modelo.Unidades.Zealot;
 import edu.fiuba.algo3.modelo.Unidades.Zerling;
 import org.junit.jupiter.api.Test;
 

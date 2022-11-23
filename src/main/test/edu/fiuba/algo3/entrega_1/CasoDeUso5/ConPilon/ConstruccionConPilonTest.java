@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso5.ConPilon;
 
-import edu.fiuba.algo3.modelo.Construccion.*;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.Acceso;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.Asimilador;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.NexoMineral;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.PuertoEstelar;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Vacio;

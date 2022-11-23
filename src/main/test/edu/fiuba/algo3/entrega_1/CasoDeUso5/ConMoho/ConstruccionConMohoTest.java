@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso5.ConMoho;
 
-import edu.fiuba.algo3.modelo.Construccion.Espiral;
-import edu.fiuba.algo3.modelo.Construccion.Extractor;
-import edu.fiuba.algo3.modelo.Construccion.Guarida;
-import edu.fiuba.algo3.modelo.Construccion.ReservaProduccion;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.Espiral;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.Extractor;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.Guarida;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.ReservaProduccion;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Vacio;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;

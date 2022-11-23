@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso10;
 
 import edu.fiuba.algo3.modelo.Construccion.*;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,7 +11,7 @@ public class CasoDeUso10Test {
     @Test
     public void SeDañaAUnCriaderoYDeberiaRecuperarLaVidaPorCadaTurno(){
         int esperado = 500;
-        Construccion criadero = new Criadero();
+        ConstruccionZerg criadero = new Criadero();
         criadero.recibeDanio(30);
         criadero.avanzarTurno();
         criadero.avanzarTurno();
@@ -21,7 +22,7 @@ public class CasoDeUso10Test {
     @Test
     public void SeDañaAUnReservaReproduccionYDeberiaRecuperarLaVidaPorCadaTurno(){
         int esperado = 1000;
-        Construccion reserva = new ReservaProduccion();
+        ConstruccionZerg reserva = new ReservaProduccion();
         reserva.recibeDanio(30);
         reserva.avanzarTurno();
         reserva.avanzarTurno();
@@ -32,7 +33,7 @@ public class CasoDeUso10Test {
     @Test
     public void SeDañaAUnExtractorYDeberiaRecuperarLaVidaPorCadaTurno(){
         int esperado = 750;
-        Construccion extractor = new Extractor();
+        ConstruccionZerg extractor = new Extractor();
         extractor.recibeDanio(30);
         extractor.avanzarTurno();
         extractor.avanzarTurno();
@@ -43,7 +44,7 @@ public class CasoDeUso10Test {
     @Test
     public void SeDañaAUnGuaridaYDeberiaRecuperarLaVidaPorCadaTurno(){
         int esperado = 1250;
-        Construccion guarida = new Guarida();
+        ConstruccionZerg guarida = new Guarida();
         guarida.recibeDanio(30);
         guarida.avanzarTurno();
         guarida.avanzarTurno();
@@ -54,7 +55,7 @@ public class CasoDeUso10Test {
     @Test
     public void SeDañaAUnEspiralYDeberiaRecuperarLaVidaPorCadaTurno(){
         int esperado = 1300;
-        Construccion espiral = new Espiral();
+        ConstruccionZerg espiral = new Espiral();
         espiral.recibeDanio(30);
         espiral.avanzarTurno();
         espiral.avanzarTurno();

@@ -1,13 +1,13 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.PuertoEstelar;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.PuertoEstelar;
 
 import java.util.List;
 
 public class Scout extends Unidad{
 
-    private Construccion preRequisito = new PuertoEstelar();
+    private PuertoEstelar preRequisito = new PuertoEstelar();
 
     private int escudo = 100;
 

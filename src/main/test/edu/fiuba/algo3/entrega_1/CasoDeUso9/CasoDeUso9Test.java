@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso9;
 
-import edu.fiuba.algo3.modelo.Construccion.Acceso;
-import edu.fiuba.algo3.modelo.Construccion.Pilon;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.Acceso;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.Pilon;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import org.junit.jupiter.api.Test;

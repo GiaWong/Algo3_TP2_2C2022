@@ -1,10 +1,10 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso2.construccionZerg;
 
-import edu.fiuba.algo3.modelo.Construccion.Espiral;
-import edu.fiuba.algo3.modelo.Construccion.Guarida;
-import edu.fiuba.algo3.modelo.Construccion.ReservaProduccion;
-import edu.fiuba.algo3.modelo.Construccion.Criadero;
-import edu.fiuba.algo3.modelo.Construccion.Extractor;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.Espiral;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.Guarida;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.ReservaProduccion;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.Criadero;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.Extractor;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

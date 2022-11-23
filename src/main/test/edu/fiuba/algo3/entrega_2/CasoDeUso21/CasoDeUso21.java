@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.entrega_2.CasoDeUso21;
 
-import edu.fiuba.algo3.modelo.Construccion.Extractor;
-import edu.fiuba.algo3.modelo.Jugador.Raza;
 import edu.fiuba.algo3.modelo.Jugador.Zerg;
-import edu.fiuba.algo3.modelo.Unidades.Guardian;
 import edu.fiuba.algo3.modelo.Unidades.Mutalisco;
 import org.junit.jupiter.api.Test;
 

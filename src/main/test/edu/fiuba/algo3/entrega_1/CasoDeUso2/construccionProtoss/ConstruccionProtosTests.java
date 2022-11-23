@@ -1,10 +1,10 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso2.construccionProtoss;
 
-import edu.fiuba.algo3.modelo.Construccion.Asimilador;
-import edu.fiuba.algo3.modelo.Construccion.Acceso;
-import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
-import edu.fiuba.algo3.modelo.Construccion.Pilon;
-import edu.fiuba.algo3.modelo.Construccion.PuertoEstelar;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.Asimilador;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.Acceso;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.NexoMineral;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.Pilon;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.PuertoEstelar;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

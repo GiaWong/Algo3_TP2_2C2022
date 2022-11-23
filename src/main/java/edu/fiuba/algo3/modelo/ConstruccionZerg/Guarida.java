@@ -1,26 +1,19 @@
-package edu.fiuba.algo3.modelo.Construccion;
-
+package edu.fiuba.algo3.modelo.ConstruccionZerg;
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Unidades.Hidralisco;
-import edu.fiuba.algo3.modelo.Unidades.Zerling;
-
-import java.util.ArrayList;
 import java.util.List;
 
-public class Guarida implements ConstruccionNormal{
+public class Guarida extends ConstruccionZerg {
 
-    private Construccion preRequisito = new ReservaProduccion();
-    private int Vida_Total = 1250;
-
-    private int vida;
-    private int tiempoConstruccion = 12;
-
-    private List<Integer> costos = new ArrayList<>();
+    private ReservaProduccion preRequisito = new ReservaProduccion();
     private Hidralisco hidralisco;
 
     public Guarida(){
         costos.add(200); //esto es para Mineral
         costos.add(100); //esto es para Gas
+        Vida_Total = 1250;
         vida = Vida_Total;
+        tiempoConstruccion = 12;
     }
     public boolean preRequisito(List<Construccion> lista){
         if(lista!=null) {
@@ -32,17 +25,7 @@ public class Guarida implements ConstruccionNormal{
         }
         return false;
     }
-    @Override
-    public void construir() {
-        tiempoConstruccion--;
-    }
 
-    @Override
-    public void recibeDanio(int cant) {
-        vida -= cant;
-    }
-    @Override
-    public int obtenerVida() {return vida; }
 
     public void regenerarVida(){
         if(vida <= (Vida_Total-10)){
@@ -56,17 +39,6 @@ public class Guarida implements ConstruccionNormal{
 
     }
 
-    @Override
-    public boolean estaDisponible() {
-        return (tiempoConstruccion<=0);
-    }
-
-    @Override
-    public List<Integer> costo() {
-        return costos;
-    }
-
-    @Override
     public void evolucionar() {
 
     }

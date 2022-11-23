@@ -25,7 +25,7 @@ public abstract class Unidad {
     }
 
     public void atacar(Construccion construccion) {
-        construccion.recibeDanio(danio.danioTierra());
+       // construccion.recibeDanio(danio.danioTierra());
 
     }
     public void atacar(Unidad unidad) {

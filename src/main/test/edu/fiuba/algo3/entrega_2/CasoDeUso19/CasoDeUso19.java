@@ -1,11 +1,9 @@
 package edu.fiuba.algo3.entrega_2.CasoDeUso19;
 
-import edu.fiuba.algo3.modelo.Construccion.Espiral;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.Espiral;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Unidades.*;
 import org.junit.jupiter.api.Test;
-
-import java.nio.file.StandardCopyOption;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

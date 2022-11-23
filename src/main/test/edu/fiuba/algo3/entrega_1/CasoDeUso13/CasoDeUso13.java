@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso13;
 
-import edu.fiuba.algo3.modelo.Construccion.Criadero;
-import edu.fiuba.algo3.modelo.Construccion.ReservaProduccion;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.Criadero;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.ReservaProduccion;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import org.junit.jupiter.api.Test;
 

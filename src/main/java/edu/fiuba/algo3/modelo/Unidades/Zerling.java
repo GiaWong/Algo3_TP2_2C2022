@@ -1,12 +1,12 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.ReservaProduccion;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.ReservaProduccion;
 
 import java.util.List;
 
 public class Zerling extends Unidad{
-    private Construccion preRequisito = new ReservaProduccion();
+    private ReservaProduccion preRequisito = new ReservaProduccion();
     public Zerling(){
 
         vida = 35;

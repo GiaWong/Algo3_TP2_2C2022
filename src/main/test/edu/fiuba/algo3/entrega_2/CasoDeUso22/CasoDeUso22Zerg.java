@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.entrega_2.CasoDeUso22;
 
 import edu.fiuba.algo3.modelo.Construccion.*;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.Espiral;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.Guarida;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.ReservaProduccion;
 import edu.fiuba.algo3.modelo.Unidades.Guardian;
 import edu.fiuba.algo3.modelo.Unidades.Hidralisco;
 import edu.fiuba.algo3.modelo.Unidades.Mutalisco;

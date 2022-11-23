@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso4;
 
-import edu.fiuba.algo3.modelo.Construccion.Asimilador;
-import edu.fiuba.algo3.modelo.Construccion.Extractor;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.Asimilador;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.Extractor;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;

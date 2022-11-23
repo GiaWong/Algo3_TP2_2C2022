@@ -1,14 +1,14 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.Espiral;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.Espiral;
 
 import java.util.List;
 
 public class Mutalisco extends Unidad{
 
     // Deberia poder evolucionarse a Guardian.
-    private Construccion preRequisito = new Espiral();
+    private Espiral preRequisito = new Espiral();
 
     public Mutalisco(){
         vida = 120;

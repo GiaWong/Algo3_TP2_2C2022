@@ -1,15 +1,17 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public interface Construccion {
+public abstract class Construccion {
 
-    void construir();
-    void recibeDanio(int cant);
-    void avanzarTurno();
-    boolean estaDisponible();
+    protected List<Integer> costos = new ArrayList<>();
 
-    List<Integer> costo();
+    public abstract void recibeDanio(int cant);
+    public List<Integer> costo() {
+        return costos;
+    }
 
-    int obtenerVida();
+
+
 }

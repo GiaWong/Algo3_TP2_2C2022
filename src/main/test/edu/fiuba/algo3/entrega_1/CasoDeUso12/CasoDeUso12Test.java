@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso12;
 
-import edu.fiuba.algo3.modelo.Construccion.*;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

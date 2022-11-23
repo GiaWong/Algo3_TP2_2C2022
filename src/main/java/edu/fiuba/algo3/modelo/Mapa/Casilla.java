@@ -1,7 +1,8 @@
 package edu.fiuba.algo3.modelo.Mapa;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.ConstruccionConRadio;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.Pilon;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.Criadero;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupada;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupadaPorZangano;
 
@@ -75,7 +76,15 @@ public class Casilla {
         construccion=null;
     }
 
-    public boolean esConstruccion(Construccion construccionRadio) {
+    public boolean esConstruccion(Criadero construccionRadio) {
+        if(this.hayConstruccion()){
+            return construccionRadio.getClass().equals(construccion.getClass());
+
+        }
+
+        return false;
+    }
+    public boolean esConstruccion(Pilon construccionRadio) {
         if(this.hayConstruccion()){
             return construccionRadio.getClass().equals(construccion.getClass());
 
@@ -86,8 +95,19 @@ public class Casilla {
 
     public int obtenerRadio() {
 
-       ConstruccionConRadio construccionConRadio = (ConstruccionConRadio) construccion;
-        return (construccionConRadio.obtenerRadio()) ;
+       //ConstruccionConRadio construccionConRadio = (ConstruccionConRadio) construccion;
+        if(construccion.getClass().equals(new Criadero())){
+            Criadero cons = (Criadero) construccion;
+            return cons.obtenerRadio();
+
+        } else if (construccion.getClass().equals(new Pilon())) {
+            Pilon cons = (Pilon) construccion;
+            return cons.obtenerRadio();
+
+        }else{
+            return 0;
+        }
+
     }
 
     public void atacar(Unidad unidadAtacante) {

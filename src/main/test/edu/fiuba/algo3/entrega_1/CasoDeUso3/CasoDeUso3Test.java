@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso3;
 
-import edu.fiuba.algo3.modelo.Construccion.*;
+import edu.fiuba.algo3.modelo.ConstruccionProtoss.*;
+import edu.fiuba.algo3.modelo.ConstruccionZerg.*;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
