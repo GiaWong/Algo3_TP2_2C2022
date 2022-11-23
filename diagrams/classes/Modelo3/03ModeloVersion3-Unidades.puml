@@ -65,6 +65,24 @@ class Devorador {
     +ataque()
 }
 
+interface Atacador {
+    +ataque()
+}
+
+interface Defendible {
+    +recibirDanio()
+}
+
+interface Invisiblibilidad {
+}
+
+interface Detector {
+    +detectarUnidad()
+}
+
+interface Recolector {
+    +recolectar()
+}
 
 UnidadZerg <|-- Zangano
 UnidadZerg <|-- AmoSupremo
@@ -77,6 +95,26 @@ UnidadZerg <|-- Devorador
 UnidadProtoss <|-- Zealot
 UnidadProtoss <|-- Dragon
 UnidadProtoss <|-- Scout
+
+AmoSupremo *-- Detector
+
+Zealot *-- Invisiblibilidad
+
+Zerling *-- Atacador
+Hidralisco *-- Atacador
+Mutalisco *-- Atacador
+Guardian *-- Atacador
+Scout *-- Atacador
+Dragon *-- Atacador
+Devorador *-- Atacador
+Zealot *-- Atacador
+
+Zangano *-- Recolector
+
+UnidadProtoss *-left- Defendible
+UnidadZerg *- Defendible
+
+
 
 
 @enduml
