@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
+
 import java.util.List;
 
 public interface Construccion {
@@ -12,4 +14,6 @@ public interface Construccion {
     List<Integer> costo();
 
     int obtenerVida();
+
+    void esPosibleConstruirEn(ConEnergia conEnergia);
 }

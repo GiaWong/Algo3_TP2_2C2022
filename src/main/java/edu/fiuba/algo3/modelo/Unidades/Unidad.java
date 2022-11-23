@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Unidad {
+public abstract class Unidad extends unidadSuprema{
 
     protected Vida vida;
 

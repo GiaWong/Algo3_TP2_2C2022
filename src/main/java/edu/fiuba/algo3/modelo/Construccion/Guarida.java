@@ -1,5 +1,10 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
+import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
+import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Recurso;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Unidades.Hidralisco;
 import edu.fiuba.algo3.modelo.Unidades.Zerling;
 
@@ -68,5 +73,18 @@ public class Guarida extends ConstruccionZerg{
 
     public Hidralisco obtenerZerg() {
         return this.hidralisco;
+    }
+
+    public void esPosibleConstruirEnRecurso(Recurso recurso){
+        throw new NoSePuedeConstruirEsteEdificioSobreUnRecurso();
+    }
+
+    public void esPosibleConstruirEn(ConEnergia energia){
+        throw new NoHayMoho();
+
+    }
+
+    public void esPosibleConstruirEn(ConMoho moho){
+
     }
 }

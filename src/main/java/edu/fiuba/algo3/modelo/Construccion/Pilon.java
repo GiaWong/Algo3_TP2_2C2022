@@ -1,6 +1,13 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
 
+import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
+import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,5 +58,18 @@ public class Pilon extends ConstruccionProtoss {
 
     public int obtenerRadio() {
         return radio;
+    }
+
+    public void esPosibleConstruirEnRecurso(NodoMineral mineral){
+        throw new NoSePuedeConstruirEsteEdificioSobreUnRecurso();
+    }
+
+    public void esPosibleConstruirEn(ConMoho moho){
+        throw new NoEstaEnergizado();
+    }
+
+    public void esPosibleConstruirEn(Terreno terreno){
+
+
     }
 }

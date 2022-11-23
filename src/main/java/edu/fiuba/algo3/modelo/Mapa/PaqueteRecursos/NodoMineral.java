@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Construccion.ConstruccionProtoss;
+import edu.fiuba.algo3.modelo.Construccion.ConstruccionZerg;
 import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
 
 import javax.security.auth.login.CredentialException;
@@ -17,14 +19,15 @@ public class NodoMineral implements Recurso{
         return 0;
     }
 
-    @Override
-    public boolean esPosibleConstruir(Construccion unaConstruccion) {
-        //Devuelve True si la construccion es una RefineriaMineral.
-        unaConstruccion.esPosibleConstruirEn(this);
-        /*
-        NexoMineral nexo = new NexoMineral();
-        return (unaConstruccion.getClass().equals(nexo.getClass()));
 
-         */
+    public void esPosibleConstruir(ConstruccionProtoss unaConstruccion) {
+        unaConstruccion.esPosibleConstruirEnRecurso(this);
     }
+
+
+    public void esPosibleConstruir(ConstruccionZerg unaConstruccion) {
+        unaConstruccion.esPosibleConstruirEnRecurso(this);
+    }
+
+
 }

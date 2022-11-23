@@ -1,6 +1,13 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
 
+import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
+import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
+import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Recurso;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,6 +52,18 @@ public  class Acceso extends ConstruccionProtoss{
     public void avanzarTurno() {
         this.regenerarEscudo();
 
+    }
+
+    public void esPosibleConstruirEnRecurso(Recurso recurso){
+        throw new NoSePuedeConstruirEsteEdificioSobreUnRecurso();
+    }
+
+    public void esPosibleConstruirEn(ConEnergia energia){
+
+    }
+
+    public void esPosibleConstruirEn(ConMoho moho){
+        throw new NoEstaEnergizado();
     }
 
 
