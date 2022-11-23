@@ -11,7 +11,7 @@ public class Hidralisco extends Unidad{
     private Guardian guardian;
 
     public Hidralisco(){
-        vida = 80;
+        vida = new Vida(80);
         tiempoConstruccion = 4;
         rango = 4;
         costos.add(75); //Esto es para Minerales
@@ -24,7 +24,7 @@ public class Hidralisco extends Unidad{
 
     @Override
     public void modificarEstadisticas(int danio) {
-        vida -=danio;
+       // vida -=danio;
     }
 
     public boolean preRequisito(List<Construccion> lista) {

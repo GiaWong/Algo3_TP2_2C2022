@@ -10,7 +10,7 @@ public class Zealot extends Unidad{
     private Construccion preRequisito = new Acceso();
     private int escudo = 60;
     public Zealot() {
-        vida = 100;
+        vida = new Vida(100);
         tiempoConstruccion = 4;
         rango = 3;
         costos.add(100); //Esto es para Minerales
@@ -21,11 +21,11 @@ public class Zealot extends Unidad{
 
     @Override
     public void modificarEstadisticas(int danio) {
-        escudo-= danio;
-        if (escudo<0){
-            vida += escudo;
-            escudo = 0;
-        }
+       // escudo-= danio;
+       // if (escudo<0){
+       //     vida += escudo;
+        //    escudo = 0;
+        //}
     }
 
     public boolean preRequisito(List<Construccion> lista) {

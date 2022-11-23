@@ -7,8 +7,7 @@ import java.util.List;
 
 public abstract class Unidad {
 
-    protected int vida;
-
+    protected Vida vida;
 
     protected int tiempoConstruccion;
 
@@ -34,14 +33,14 @@ public abstract class Unidad {
 
     public void recibirDanio(Danio danio){
         if(danio.esPosibleAtacar(superficie)){
-            this.modificarEstadisticas(danio.danioAInfligir());
+            danio.hacerDanioZerg(vida);
         }
     }
     public int rango() {
         return rango;
     }
 
-    public int vida() {return vida;}
+    public int vida() {return vida.vidaActual();}
 
     public boolean esSuperficie(Superficie otraSuperficie) {
         return (superficie.getClass().equals(otraSuperficie.getClass()));

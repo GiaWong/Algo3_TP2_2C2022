@@ -12,7 +12,7 @@ public class Scout extends Unidad{
     private int escudo = 100;
 
     public Scout(){
-        vida = 150;
+        vida = new Vida(150);
         tiempoConstruccion = 9;
         rango = 4;
         costos.add(300); //Esto es para Minerales
@@ -25,10 +25,6 @@ public class Scout extends Unidad{
     @Override
     public void modificarEstadisticas(int danio) {
         escudo-= danio;
-        if (escudo<0){
-            vida += escudo;
-            escudo = 0;
-        }
 
     }
 

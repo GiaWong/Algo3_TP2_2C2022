@@ -51,8 +51,8 @@ public class VerificarAtaqueDeUnidadesProtoss {
 
         mapa.agregar(scout,10,10);
         mapa.agregar(hidralisco,11,10);
-        mapa.atacar(scout,11,10);
-        assertEquals(72,hidralisco.vida());
+        mapa.atacar(hidralisco,10,10);
+        assertEquals(140,scout.vida());
 
     }
 }

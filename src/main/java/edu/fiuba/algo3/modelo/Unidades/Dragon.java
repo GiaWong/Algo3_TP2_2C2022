@@ -11,7 +11,7 @@ public class Dragon extends Unidad{
 
     private int escudo = 60;
     public Dragon(){
-        vida = 100;
+        vida = new Vida(100);
         tiempoConstruccion = 6;
         rango = 4;
         costos.add(125); //Esto es para Minerales
@@ -22,11 +22,11 @@ public class Dragon extends Unidad{
 
     @Override
     public void modificarEstadisticas(int danio) {
-        escudo-= danio;
-        if (escudo<0){
-            vida += escudo;
-            escudo = 0;
-        }
+        //escudo-= danio;
+        //if (escudo<0){
+          //  vida += escudo;
+          //  escudo = 0;
+       // }
 
     }
 
