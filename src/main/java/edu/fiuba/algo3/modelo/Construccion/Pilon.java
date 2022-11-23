@@ -4,28 +4,20 @@ package edu.fiuba.algo3.modelo.Construccion;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pilon implements ConstruccionConRadio {
+public class Pilon extends ConstruccionProtoss {
 
     private int Vida_Total = 300;
     private int Escudo_total = 300;
-
-    private int vida ;
-    private int escudo ;
-    private int tiempoConstruccion = 5 ;
     private int radio = 3;
-    private List<Integer> costos = new ArrayList<>();
+    private Energia radio;
 
     public Pilon(){
         costos.add(100); //esto es para Mineral
         costos.add(0); //esto es para Gas
         vida = Vida_Total;
         escudo =Escudo_total;
+        tiempoConstruccion = 5;
     }
-    @Override
-    public void construir() {
-        tiempoConstruccion--;
-    }
-
 
     public void regenerarEscudo(){
         if(escudo < (Escudo_total)){
@@ -34,7 +26,7 @@ public class Pilon implements ConstruccionConRadio {
     }
 
     public int obtenerEscudo() {return escudo; }
-    @Override
+
     public void recibeDanio(int cant) {
         escudo-= cant;
         if (escudo<0){
@@ -44,32 +36,19 @@ public class Pilon implements ConstruccionConRadio {
 
 
     }
-    @Override
+
     public int obtenerVida() {return vida; }
 
     @Override
     public void avanzarTurno() {
         this.regenerarEscudo();
-
     }
 
-    @Override
-    public boolean estaDisponible() {
-        return (tiempoConstruccion<=0);
 
-    }
-
-    @Override
-    public List<Integer> costo() {
-        return costos;
-    }
-
-    @Override
     public void ampliarRadio() {
 
     }
 
-    @Override
     public int obtenerRadio() {
         return radio;
     }

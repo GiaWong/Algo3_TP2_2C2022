@@ -6,22 +6,22 @@ import edu.fiuba.algo3.modelo.Unidades.Zerling;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Espiral implements ConstruccionNormal{
+public class Espiral extends ConstruccionZerg {
 
-    private Construccion preRequisito = new Guarida();
+    private ConstruccionZerg preRequisito = new Guarida();
 
     private int Vida_Total = 1300;
-    private int vida ;
-    private int tiempoConstruccion = 10;
-    private List<Integer> costos = new ArrayList<>();
     private Mutalisco zerg;
+
+    private Creador creacion;
 
     public Espiral(){
         costos.add(150); //esto es para Mineral
         costos.add(100); //esto es para Gas
         vida = Vida_Total;
+        tiempoConstruccion = 10;
     }
-    public boolean preRequisito(List<Construccion> lista){
+    public boolean preRequisito(List<Construccion> lista){ //Hay que cambiar
         if(lista!=null) {
             for(int i =0; i<lista.size();i++){
                 if(lista.get(i).getClass().equals(preRequisito.getClass())){
@@ -31,16 +31,12 @@ public class Espiral implements ConstruccionNormal{
         }
         return false;
     }
-    @Override
-    public void construir() {
-        tiempoConstruccion--;
-    }
 
-    @Override
+
     public void recibeDanio(int cant) {
         vida -= cant;
     }
-    @Override
+
     public int obtenerVida() {return vida; }
 
     public void regenerarVida(){
@@ -55,22 +51,7 @@ public class Espiral implements ConstruccionNormal{
 
     }
 
-    @Override
-    public boolean estaDisponible() {
-        return (tiempoConstruccion<=0);
-    }
-
-    @Override
-    public List<Integer> costo() {
-        return costos;
-    }
-
-    @Override
-    public void evolucionar() {
-
-    }
-
-    public void conZerg(Mutalisco mutalisco) {
+    public void conZerg(Mutalisco mutalisco) { //Esto seria el crearMutalisco()
         this.zerg = mutalisco;
         for(int i =0 ; i<=7;i++) {
             this.zerg.construir();
@@ -78,5 +59,9 @@ public class Espiral implements ConstruccionNormal{
     }
     public Mutalisco obtenerZerg() {
         return this.zerg;
+    }
+
+    public void crearMutalisco(){
+
     }
 }

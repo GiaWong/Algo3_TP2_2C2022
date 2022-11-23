@@ -4,20 +4,24 @@ package edu.fiuba.algo3.modelo.Construccion;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Criadero implements ConstruccionConRadio { //antees era ConstruccionNormal
+public class Criadero extends ConstruccionZerg {
 
     private int Vida_Total = 500;
-    private int vida ;
     private int larvas = 3;
-    private int tiempoConstruccion = 4;
     private int tiempoAmpliacion = 2;
-    private int radio = 5;
-    private List<Integer> costos = new ArrayList<>();
+    //private int radio = 5;
+
+    private Creador creacion;
+
+    private int radio; // Este radio no deberia ir
+
+    private Moho radio;
 
     public Criadero(){
         costos.add(50); //esto es para Mineral
         costos.add(0); //esto es para Gas
         vida = Vida_Total;
+        tiempoConstruccion = 4;
     }
     public void evolucionar() {
         larvas--;
@@ -41,15 +45,11 @@ public class Criadero implements ConstruccionConRadio { //antees era Construccio
     public int obtenerCantidadLarvas(){
         return larvas;
     }
-    @Override
-    public void construir() {
-        tiempoConstruccion--;
-    }
 
-    @Override
+
     public void recibeDanio(int cant) {
         vida -= cant;
-    }//recibeDanio creo que es mejoor nombre
+    }
 
     @Override
     public void avanzarTurno(){
@@ -60,14 +60,5 @@ public class Criadero implements ConstruccionConRadio { //antees era Construccio
         this.regenerarVida();
         this.ampliarRadio();
 
-    }
-    @Override
-    public boolean estaDisponible() {
-        return tiempoConstruccion<=0;
-    }
-
-    @Override
-    public List<Integer> costo() {
-        return costos;
     }
 }

@@ -412,14 +412,14 @@ interface Creador {
 
 Juego "1"->"1"Partida
 Partida<-Partida
-Partida "1" *-down->"2"Jugador
+Partida "1" *-down-"2"Jugador
 App -> Juego
 
 
 
 TipoAccion<|.... Avanzar
 TipoAccion<|..... Recolectar
-TipoAccion<|....... Atacar
+TipoAccion<|...... Atacar
 TipoAccion<|.up. Construir
 TipoAccion<|..right.. Unidad
 TipoAccion<|.... Evolucionar
@@ -432,9 +432,9 @@ CrearAccion .right.> TipoAccion
 CrearAccion <|-left- CrearAvanzar
 CrearAccion <|--- CrearRecolectar
 CrearAccion <|--- CrearAtacar
-CrearAccion <|--- CrearConstruir
-CrearAccion <|--- CrearUnidad
-CrearAccion <|-- CrearEvolucionar
+CrearAccion <|-- CrearConstruir
+CrearAccion <|-- CrearUnidad
+CrearAccion <|--- CrearEvolucionar
 
 
 Jugador ....> CrearAccion: Aplicando patron Factory
@@ -448,31 +448,31 @@ Raza <|-- Protoss
 
 
 
-Criadero *--> Radio
-Pilon *-left-> Radio
+Criadero *-- Radio
+Pilon *-left- Radio
 Radio <|.. Moho
 Radio <|.. Energia
 
 
 
 
-Refineria <--* NexoMineral
-Refineria <--* Extractor
-Refineria <--* Asimilador
+Refineria --* NexoMineral
+Refineria --* Extractor
+Refineria --* Asimilador
 Refineria <|.right.. DeGas
 Refineria <|.left.. DeMineral
 
- Creador <----* PuertoEstelar
- Creador <----* ReservaProduccion
- Creador <----* Acceso
- Creador <--right-* Guarida
- Creador <----* Criadero
- Creador <----* Espiral
+ Creador ----* PuertoEstelar
+ Creador ----* ReservaProduccion
+ Creador ----* Acceso
+ Creador --right-* Guarida
+ Creador ----* Criadero
+ Creador ----* Espiral
 
-Construir <|-up- ConstruccionZerg
-Construir <|-up- ConstruccionProtoss
-Construir <|-up- UnidadZerg
-Construir <|-up- UnidadProtoss
+Construir <-up- ConstruccionZerg
+Construir <-up- ConstruccionProtoss
+Construir <-up- UnidadZerg
+Construir <-up- UnidadProtoss
 
 Unidad -right-> Creador
 

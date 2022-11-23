@@ -308,6 +308,16 @@ interface Creador {
     +crearScout()
 }
 
+class CrearUnidad {
+    +crearZangano()
+    +crearZerling()
+    +crearHidralisco()
+    +crearMutalisco()
+    +crearZealot()
+    +crearDragon()
+    +crearScout()
+}
+
 
 
 Partida "2" *- Jugador
@@ -351,6 +361,7 @@ Guarida *-- Creador
 Criadero *-- Creador
 Espiral *-- Creador
 
+Creador <|.. CrearUnidad
 
 
 Casilla "*" -* Mapa

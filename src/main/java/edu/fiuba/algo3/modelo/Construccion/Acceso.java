@@ -4,24 +4,19 @@ package edu.fiuba.algo3.modelo.Construccion;
 import java.util.ArrayList;
 import java.util.List;
 
-public  class Acceso implements ConstruccionNormal {
+public  class Acceso extends ConstruccionProtoss{
 
     private int Vida_Total = 500;
     private int Escudo_total = 500;
-    private int vida ;
-    private int escudo ;
-    private int tiempoConstruccion = 8 ;
-    private List<Integer> costos = new ArrayList<>();
+
+    private Creador creacion;
 
     public Acceso(){
         costos.add(150); //esto es para Mineral
         costos.add(0); //esto es para Gas
         vida = Vida_Total;
         escudo = Escudo_total;
-    }
-    @Override
-    public void construir() {
-        tiempoConstruccion--;
+        tiempoConstruccion = 8;
     }
 
     public void regenerarEscudo(){
@@ -31,7 +26,7 @@ public  class Acceso implements ConstruccionNormal {
     }
 
     public int obtenerEscudo() {return escudo; }
-    @Override
+
     public void recibeDanio(int cant) {
 
         escudo-= cant;
@@ -43,7 +38,7 @@ public  class Acceso implements ConstruccionNormal {
 
 
     }
-    @Override
+
     public int obtenerVida() {return vida; }
 
     @Override
@@ -52,19 +47,12 @@ public  class Acceso implements ConstruccionNormal {
 
     }
 
-    @Override
-    public boolean estaDisponible() {
-        return (tiempoConstruccion<=0);
+
+    public void crearZealot(){ //Deberia ser un crearUnidad() solo?
 
     }
 
-    @Override
-    public List<Integer> costo() {
-        return costos;
-    }
-
-    @Override
-    public void evolucionar() {
+    public void crearDragon(){
 
     }
 }

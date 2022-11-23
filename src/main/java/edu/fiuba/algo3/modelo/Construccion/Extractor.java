@@ -7,18 +7,19 @@ import edu.fiuba.algo3.modelo.Unidades.Zangano;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Extractor implements RefineriaGas{
+public class Extractor extends ConstruccionZerg{
 
     private int Vida_Total = 750;
-    private int vida  ;
-    private int tiempoConstruccion = 6;
+
     private List<Zangano> zanganos = new ArrayList<Zangano>();
-    private List<Integer> costos = new ArrayList<>();
+
+    private RefineriaGas refineria;
 
     public Extractor(){
         costos.add(100); //esto es para Mineral
         costos.add(0); //esto es para Gas
         vida = Vida_Total;
+        tiempoConstruccion = 6;
     }
     public void agregar(Zangano unZangano){
         if (this.estaDisponible() && zanganos.size() < 3){
@@ -28,22 +29,15 @@ public class Extractor implements RefineriaGas{
         }
     }
 
-    @Override
-    public void construir() {
-        tiempoConstruccion--;
-    }
-
-    @Override
     public void recibeDanio(int cant) {
         vida  -= cant;
     }
-    @Override
+
     public int obtenerVida() {return vida; }
 
     @Override
     public void avanzarTurno() {
         this.regenerarVida();
-
 
     }
     public void regenerarVida(){
@@ -63,7 +57,6 @@ public class Extractor implements RefineriaGas{
         return costos;
     }
 
-    @Override
     public int recolectar(Volcan volcan) {
         if (this.estaDisponible()) {
             return volcan.recolectar(zanganos.size() * 10);

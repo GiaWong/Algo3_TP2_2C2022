@@ -5,26 +5,20 @@ import edu.fiuba.algo3.modelo.Unidades.Zerling;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReservaProduccion implements ConstruccionNormal{
+public class ReservaProduccion extends ConstruccionZerg {
 
     private int Vida_Total = 1000;
-    private int vida ;
-    private int tiempoConstruccion = 12;
-    private List<Integer> costos = new ArrayList<>();
     private Zerling zerling;
 
     public ReservaProduccion(){
         costos.add(150); //esto es para Mineral
         costos.add(0); //esto es para Gas
-        vida =Vida_Total;
+        vida = Vida_Total;
+        tiempoConstruccion = 12;
     }
 
-    public void evolucionar() {
-    }
+    public void crearZerling(){
 
-    @Override
-    public void construir() {
-        tiempoConstruccion--;
     }
 
     @Override
@@ -46,15 +40,7 @@ public class ReservaProduccion implements ConstruccionNormal{
 
     }
 
-    @Override
-    public boolean estaDisponible() { return (tiempoConstruccion<=0); }
-
-    @Override
-    public List<Integer> costo() {
-        return costos;
-    }
-
-    public void conZerg(Zerling zerg) {
+    public void conZerg(Zerling zerg) { //Deberia ser el crearZerling()
         this.zerling = zerg;
         for(int i =0 ; i<=1;i++) {
             this.zerling.construir();
