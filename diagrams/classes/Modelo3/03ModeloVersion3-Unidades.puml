@@ -107,7 +107,7 @@ Guardian *-- Atacador
 Scout *-- Atacador
 Dragon *-- Atacador
 Devorador *-- Atacador
-Zealot *-- Atacador
+
 
 Zangano *-- Recolector
 
