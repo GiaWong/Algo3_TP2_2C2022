@@ -8,7 +8,8 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Vacio;
 public class SinNada implements Terreno{
     @Override
     public boolean esPosibleConstruir(Construccion unaConstruccion) {
-
+        unaConstruccion.esPosibleConstruirEn(this);
+        /*
 
         Criadero criadero = new Criadero();
         Pilon pilon = new Pilon();
@@ -20,5 +21,7 @@ public class SinNada implements Terreno{
         }else {
             return false;
         }
+
+         */
     }
 }

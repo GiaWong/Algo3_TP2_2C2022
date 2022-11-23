@@ -5,6 +5,8 @@ import edu.fiuba.algo3.modelo.Construccion.*;
 public class ConEnergia implements Terreno{
     @Override
     public boolean esPosibleConstruir(Construccion unaConstruccion) {
+        unaConstruccion.esPosibleConstruirEn(this);
+        /*
         NexoMineral nexo = new NexoMineral();
         Pilon pilon = new Pilon();
         Asimilador asimilador = new Asimilador();
@@ -20,6 +22,8 @@ public class ConEnergia implements Terreno{
             return true;
         }
         return false;
+
+         */
 
     }
 }

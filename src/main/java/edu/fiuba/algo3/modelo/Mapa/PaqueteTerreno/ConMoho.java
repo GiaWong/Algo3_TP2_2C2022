@@ -6,6 +6,8 @@ public class ConMoho implements Terreno {
 
     @Override
     public boolean esPosibleConstruir(Construccion unaConstruccion) {
+        unaConstruccion.esPosibleConstruirEn(this);
+        /*
         Criadero criadero = new Criadero();
         ReservaProduccion reserva = new ReservaProduccion();
         Extractor extractor = new Extractor();
@@ -21,5 +23,7 @@ public class ConMoho implements Terreno {
             return true;
         }
         return false;
+
+         */
     }
 }

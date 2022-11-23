@@ -1,14 +1,6 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-class Juego {
-    - partidaActual
-    - partidasGuardadas
-
-    + cargarPartida()
-    + jugar()
-}
-
 class Partida {
     - jugadorUno
     - jugadorDos
@@ -52,68 +44,6 @@ class Protoss {
     + agregarConstruccion()
     + recolectar()
     + crearUnidad()
-}
-
-abstract class UnidadZerg {
-    - vida
-    - tiempoConstruccion
-    - costos
-    - superficie: aire o tierra
-    + construir()
-    + ataque(Superficie, fila, columna)
-}
-
-class AmoSupremo {
-
-}
-
-class Zangano {
-    + recolectar()
-}
-
-class Zerling {
-    + ataque()
-}
-
-class Hidralisco {
-
-    +ataque()
-}
-
-class Mutalisco {
-    +evolucionar()
-    +ataque()
-}
-
-class Guardian {
-    +ataque()
-}
-
-class Devorador {
-    +ataque()
-}
-
-abstract class UnidadProtoss {
-    - vida
-    - escudo
-    - tiempoConstruccion
-    - costos
-    - superficie: aire o tierra
-    + construir()
-    + ataque(Superficie, fila, columna)
-}
-
-class Zealot {
-    +ataque()
-}
-
-class Dragon {
-    +ataque()
-}
-
-class Scout {
-   +ataque()
-
 }
 
 abstract class ConstruccionZerg {
@@ -260,18 +190,6 @@ interface Recurso {
     + esPosibleConstruir(construccion)
 }
 
-interface Area {
-    esPosibleAgregar(unidad)
-}
-
-class Espacial {
-    +esPosibleAgregar(unidad)
-}
-
-class Terrestre {
-    +esPosibleAgregar(unidad)
-}
-
 interface Radio {
     +ampliarRadio()
 }
@@ -331,17 +249,17 @@ Raza <|-- Protoss
 Zerg --> ConstruccionZerg
 Protoss --> ConstruccionProtoss
 
-ConstruccionZerg <|-- Criadero
-ConstruccionZerg <|-- ReservaProduccion
-ConstruccionZerg <|-- Extractor
-ConstruccionZerg <|-- Guarida
-ConstruccionZerg <|-- Espiral
+ConstruccionZerg <|--- Criadero
+ConstruccionZerg <|--- ReservaProduccion
+ConstruccionZerg <|--- Extractor
+ConstruccionZerg <|--- Guarida
+ConstruccionZerg <|--- Espiral
 
-ConstruccionProtoss <|-- NexoMineral
-ConstruccionProtoss <|-- Pilon
-ConstruccionProtoss <|-- Asimilador
-ConstruccionProtoss <|-- Acceso
-ConstruccionProtoss <|-- PuertoEstelar
+ConstruccionProtoss <|--- NexoMineral
+ConstruccionProtoss <|--- Pilon
+ConstruccionProtoss <|--- Asimilador
+ConstruccionProtoss <|--- Acceso
+ConstruccionProtoss <|--- PuertoEstelar
 
 Criadero *-- Radio
 Pilon *-- Radio
@@ -376,23 +294,8 @@ Terreno <|.up. ConMoho
 Terreno <|.up. ConEnergia
 Terreno <|.up. SinNada
 
-UnidadZerg <|-- Zangano
-UnidadZerg <|-- AmoSupremo
-UnidadZerg <|-- Zerling
-UnidadZerg <|-- Hidralisco
-UnidadZerg <|-- Mutalisco
-UnidadZerg <|-- Guardian
-UnidadZerg <|-- Devorador
-
-UnidadProtoss <-- Zealot
-UnidadProtoss <-- Dragon
-UnidadProtoss <-- Scout
 
 
-
-interface Danio {
-    +recibirDanio(superficie)
-}
 interface Superficie{
  +esPosibleAgregar(unidad)
 }
@@ -401,14 +304,6 @@ class Tierra{
 }
 class Aire{
 +esPosibleAgregar(unidad)
-}
-
-class AtaqueTierra {
-    +recibirDanio(superficie)
-}
-
-class AtaqueTierraYAire {
-    +recibirDanio(superficie)
 }
 
 

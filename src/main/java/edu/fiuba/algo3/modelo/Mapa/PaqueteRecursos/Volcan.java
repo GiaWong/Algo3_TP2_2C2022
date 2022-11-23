@@ -19,8 +19,13 @@ public class Volcan implements Recurso{
     @Override
     public boolean esPosibleConstruir(Construccion unaConstruccion) {
         //Devuelve True si la construccion es una RefineriaGas.
+
+        unaConstruccion.esPosibleConstruirEn(this);
+        /*
         Asimilador asimilador = new Asimilador();
         Extractor extractor = new Extractor();
         return ((unaConstruccion.getClass().equals(asimilador.getClass()))||(unaConstruccion.getClass().equals(extractor.getClass())));
+
+         */
     }
 }

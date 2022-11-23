@@ -125,8 +125,8 @@ Zangano *-- Recolector
 UnidadProtoss *-left- Defendible
 UnidadZerg *- Defendible
 
-
-
+Atacador <|.. AtaqueTierra
+Atacador <|.. AtaqueAire
 
 
 @enduml
