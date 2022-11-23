@@ -1,9 +1,6 @@
 @startuml
 
 
-
-
-
 class Juego {
 
     + jugar()
@@ -28,9 +25,6 @@ class Partida {
      + jugar()
 
 }
-
-
-
 
 
 note top of Partida
@@ -88,13 +82,6 @@ class App{
 }
 
 
-Juego "1"->"1"Partida
-
-Partida<-Partida
-
-Partida "1" *-down->"2"Jugador
-
-App -> Juego
 
 
 
@@ -113,8 +100,9 @@ class Avanzar{
     +realizarAccion()
 }
 
-
-
+class Evolucionar{
+    +realizarAccion()
+}
 
 class Recolectar{
     +realizarAccion()
@@ -130,11 +118,12 @@ class Unidad{
 
 }
 
-
-
 abstract CrearAccion{
     +{abstract}crearAccion():TipoAccion
     + realizarAccion()
+}
+class CrearEvolucionar{
+    +crearAccion():Evolucionar
 }
 
 class CrearAvanzar{
@@ -238,9 +227,6 @@ abstract class UnidadZerg {
     + ataque(Superficie, fila, columna)
 }
 
-class AmoSupremo {
-
-}
 
 class Zangano {
     + recolectar()
@@ -424,6 +410,10 @@ interface Creador {
 
 
 
+Juego "1"->"1"Partida
+Partida<-Partida
+Partida "1" *-down->"2"Jugador
+App -> Juego
 
 
 
@@ -432,6 +422,7 @@ TipoAccion<|..... Recolectar
 TipoAccion<|....... Atacar
 TipoAccion<|.up. Construir
 TipoAccion<|..right.. Unidad
+TipoAccion<|.... Evolucionar
 
 
 
@@ -443,6 +434,7 @@ CrearAccion <|--- CrearRecolectar
 CrearAccion <|--- CrearAtacar
 CrearAccion <|--- CrearConstruir
 CrearAccion <|--- CrearUnidad
+CrearAccion <|-- CrearEvolucionar
 
 
 Jugador ....> CrearAccion: Aplicando patron Factory
@@ -486,6 +478,8 @@ Unidad -right-> Creador
 
 Recolectar ---> Refineria
 Recolectar -left-> Zangano
+
+Evolucionar -> Mutalisco
 
 
 note top of Creador: Aplicando Patron Bridge
