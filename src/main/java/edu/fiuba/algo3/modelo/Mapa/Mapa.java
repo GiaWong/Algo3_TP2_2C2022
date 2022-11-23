@@ -91,7 +91,7 @@ public class Mapa {
                 }
             }
         }
-         throw new NoEstaEnElMapa();
+        throw new NoEstaEnElMapa();
     }
     public void setearRadio() {
         int radio;

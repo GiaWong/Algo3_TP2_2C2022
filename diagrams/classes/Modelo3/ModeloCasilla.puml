@@ -2,7 +2,7 @@
 'https://plantuml.com/class-diagram
 
 class Casilla {
-    - construible
+    - terreno
 
     + agregarUnidad()
     + agregarConstruccion()
@@ -11,19 +11,19 @@ class Casilla {
 }
 
 interface Construible {
-    asignarConstruccion(construccion)
+    +asignarConstruccion(construccion)
 }
 
 class HayConstruccion {
-    asignarConstruccion(construccion)
+    +asignarConstruccion(construccion)
 }
 
 class NoHayConstruccion {
-    asignarConstruccion()
+    +asignarConstruccion()
 }
 
 interface Terreno {
-    asignarConstruccion()
+    +asignarConstruccion()
 }
 
 class ConMoho {
@@ -46,30 +46,30 @@ interface Recurso {
 }
 
 class Volcan {
-    -construccion
+    -construible
     +asignarConstruccion(refineria : DeGas)
 }
 
 class NodoMineral {
-    -construccion
+    -construible
     +asignarConstruccion(refineria : DeMineral)
 }
 
 class SinRecurso {
-    -construccion
+    -construible
     +asignarConstruccion(unaConstruccion)
 }
 
-Casilla -> Construible
+Casilla -> Terreno
 Construible <|.. HayConstruccion
 Construible <|.. NoHayConstruccion
 
-Construible -> Terreno
+Terreno -> Recurso
 Terreno <|.. ConEnergia
 Terreno <|.. ConMoho
 Terreno <|.. Vacio
 
-Terreno -> Recurso
+Recurso -> Construible
 Recurso <|.. Volcan
 Recurso <|.. NodoMineral
 Recurso <|.. SinRecurso
