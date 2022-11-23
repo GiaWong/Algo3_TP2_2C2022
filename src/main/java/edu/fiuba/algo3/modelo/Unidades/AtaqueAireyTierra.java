@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-public class AtaqueAireyTierra implements Danio{
+public class AtaqueAireyTierra implements Defendible {
     private int danioTierra;
     private int danioAire;
     private int danioInfligir;
@@ -22,12 +22,12 @@ public class AtaqueAireyTierra implements Danio{
     }
 
 
-    public void hacerDanioZerg(Vida vida) {
+    public void recibirDanioZerg(Vida vida) {
         vida.inflijirDanio(danioInfligir);
     }
 
     @Override
-    public void hacerDanioProtoss(Vida vida,Escudo escudo) {
+    public void recibirDanioProtoss(Vida vida, Escudo escudo) {
         escudo.inflijirDanio(danioInfligir);
         if(escudo.estaVivo()) {
             vida.inflijirDanio(danioInfligir);

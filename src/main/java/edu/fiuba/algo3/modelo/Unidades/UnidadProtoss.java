@@ -1,11 +1,11 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Construccion.ConstruccionProtoss;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Unidad {
+public abstract class UnidadProtoss {
 
     protected Vida vida;
 
@@ -23,7 +23,7 @@ public abstract class Unidad {
         tiempoConstruccion--;
     }
 
-    public void atacar(Construccion construccion) {
+    public void atacar(ConstruccionProtoss construccion) {
         construccion.recibeDanio(defendible.danioTierra());
 
     }
@@ -36,6 +36,7 @@ public abstract class Unidad {
             defendible.recibirDanioZerg(vida);
         }
     }
+
     public int rango() {
         return rango;
     }
@@ -55,6 +56,4 @@ public abstract class Unidad {
     }
 
     public abstract void modificarEstadisticas(int danio);
-
-
 }

@@ -66,7 +66,18 @@ class Devorador {
 }
 
 interface Atacador {
-    +ataque()
+    +ataqueUnidad()
+    +ataqueConstruccion()
+}
+
+class AtaqueTierra {
+    +ataqueUnidad()
+    +ataqueConstruccion()
+}
+
+class AtaqueAire {
+    +ataqueUnidad()
+    +ataqueConstruccion()
 }
 
 interface Defendible {
@@ -107,12 +118,13 @@ Guardian *-- Atacador
 Scout *-- Atacador
 Dragon *-- Atacador
 Devorador *-- Atacador
-
+Zealot *-- Atacador
 
 Zangano *-- Recolector
 
 UnidadProtoss *-left- Defendible
 UnidadZerg *- Defendible
+
 
 
 

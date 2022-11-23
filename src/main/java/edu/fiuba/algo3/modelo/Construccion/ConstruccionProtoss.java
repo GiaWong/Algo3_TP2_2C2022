@@ -26,4 +26,7 @@ public abstract class ConstruccionProtoss {
     }
 
     public abstract void avanzarTurno();
+
+    public void recibeDanio(int danioTierra) {
+    }
 }

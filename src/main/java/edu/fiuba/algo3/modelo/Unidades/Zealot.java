@@ -16,7 +16,7 @@ public class Zealot extends Unidad{
         costos.add(100); //Esto es para Minerales
         costos.add(0); // Esto es para Gas
         superficie = new Tierra();
-        danio = new AtaqueTierra(8);
+        defendible = new AtaqueTierra(8);
     }
 
     @Override

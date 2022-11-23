@@ -16,7 +16,7 @@ public class Hidralisco extends Unidad{
         rango = 4;
         costos.add(75); //Esto es para Minerales
         costos.add(25); // Esto es para Gas
-        danio=new AtaqueAireyTierra(10,10);
+        defendible =new AtaqueAireyTierra(10,10);
         superficie = new Tierra();
         guardian = new Guardian();
 

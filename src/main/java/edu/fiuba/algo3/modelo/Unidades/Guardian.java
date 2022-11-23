@@ -16,7 +16,7 @@ public class Guardian extends Unidad{
         costos.add(50);
         costos.add(100);
         superficie = new Aire();
-        danio=new AtaqueTierra(25);
+        defendible =new AtaqueTierra(25);
         ;
     }
 

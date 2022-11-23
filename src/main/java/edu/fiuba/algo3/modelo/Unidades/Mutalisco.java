@@ -17,7 +17,7 @@ public class Mutalisco extends Unidad{
         costos.add(100); //Esto es para Minerales
         costos.add(100); // Esto es para Gas
         superficie = new Aire();
-        danio=new AtaqueAireyTierra(9,9);
+        defendible =new AtaqueAireyTierra(9,9);
     }
 
     @Override

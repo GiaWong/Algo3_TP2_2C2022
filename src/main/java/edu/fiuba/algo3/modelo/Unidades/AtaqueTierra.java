@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-public class AtaqueTierra implements Danio{
+public class AtaqueTierra implements Defendible {
     private int danioTierra;
 
     public AtaqueTierra(int tierra){
@@ -15,11 +15,11 @@ public class AtaqueTierra implements Danio{
 
 
 
-    public void hacerDanioZerg(Vida vida) {
+    public void recibirDanioZerg(Vida vida) {
         vida.inflijirDanio(danioTierra);
     }
 
-    public void hacerDanioProtoss(Vida vida,Escudo escudo) {
+    public void recibirDanioProtoss(Vida vida, Escudo escudo) {
         escudo.inflijirDanio(danioTierra);
         if(escudo.estaVivo()) {
             vida.inflijirDanio(danioTierra);

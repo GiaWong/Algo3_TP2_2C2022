@@ -15,7 +15,7 @@ public class Zerling extends Unidad{
         costos.add(25); //Esto es para Minerales
         costos.add(0); // Esto es para Gas
         superficie = new Tierra();
-        danio=new AtaqueTierra(4);
+        defendible =new AtaqueTierra(4);
         ;
     }
 
