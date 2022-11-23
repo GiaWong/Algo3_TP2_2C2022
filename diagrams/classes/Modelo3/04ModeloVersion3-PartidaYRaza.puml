@@ -1,5 +1,5 @@
 @startuml
-!include Modelo3/ModeloVersion3-Partida.puml
+!include 01ModeloVersion3-Partida.puml
 
 abstract class Raza {
     - bancoDeRecursos
