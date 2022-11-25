@@ -6,9 +6,7 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Recurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Unidades.Hidralisco;
-import edu.fiuba.algo3.modelo.Unidades.Zerling;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Guarida extends ConstruccionZerg{

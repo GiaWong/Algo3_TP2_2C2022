@@ -88,9 +88,7 @@ public class Casilla {
     public boolean esConstruccion(Construccion construccionRadio) {
         if(this.hayConstruccion()){
             return construccionRadio.getClass().equals(construccion.getClass());
-
         }
-
         return false;
     }
 

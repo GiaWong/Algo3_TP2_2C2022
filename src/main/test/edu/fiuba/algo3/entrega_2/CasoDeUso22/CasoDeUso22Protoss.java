@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.entrega_2.CasoDeUso22;
 
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Unidades.*;
 import org.junit.jupiter.api.Test;

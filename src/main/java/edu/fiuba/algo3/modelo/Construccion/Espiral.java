@@ -1,19 +1,15 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
-import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Recurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Unidades.Mutalisco;
-import edu.fiuba.algo3.modelo.Unidades.Zerling;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Espiral extends ConstruccionZerg {

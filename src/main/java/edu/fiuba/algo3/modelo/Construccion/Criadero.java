@@ -36,12 +36,14 @@ public class Criadero extends ConstruccionZerg {
     public void evolucionar() {
         larvas--;
     }
+
     public void ampliarRadio() {
         if (tiempoAmpliacion == 0) {
             radio++;
-            tiempoAmpliacion =2;
+            tiempoAmpliacion = 2;
         }
     }
+
     public void regenerarVida(){
         if(vida < (Vida_Total)){
             vida += 10;

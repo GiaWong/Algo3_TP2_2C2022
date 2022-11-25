@@ -1,21 +1,19 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Acciones.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Unidad implements Defendible{
+public abstract class Unidad {
 
     protected Vida vida;
 
     protected int tiempoConstruccion;
 
-    protected int rango;
-
-    protected Defendible defensa;
-
     protected Superficie superficie;
+
+    protected Defensa defensa = new Detectable();
 
     protected List<Integer> costos = new ArrayList<>();
 
@@ -23,9 +21,6 @@ public abstract class Unidad implements Defendible{
         tiempoConstruccion--;
     }
 
-    public int rango() {
-        return rango;
-    }
     public int vida() {return vida.vidaActual();}
 
     public List<Integer> costo() {

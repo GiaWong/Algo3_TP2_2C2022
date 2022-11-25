@@ -1,22 +1,30 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
+import edu.fiuba.algo3.modelo.Acciones.*;
 import edu.fiuba.algo3.modelo.Construccion.Acceso;
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
 
 import java.util.List;
 
-public class Dragon extends Unidad{
+public class Dragon extends UnidadProtoss{
 
     private Construccion preRequisito = new Acceso();
 
-    private int escudo = 60;
+    protected int rango;
+    private Atacador ataqueTierra;
+    private Atacador ataqueAire;
+
     public Dragon(){
+
         vida = new Vida(100);
+        escudo = new Escudo(60);
         tiempoConstruccion = 6;
         rango = 4;
         costos.add(125); //Esto es para Minerales
         costos.add(50); // Esto es para Gas
         superficie = new Tierra();
-        defendible =new AtaqueAireyTierra(20,20);
+        ataqueAire = new AtaqueAire(20);
+        ataqueTierra = new AtaqueTierra(20);
     }
 
     @Override
@@ -27,6 +35,11 @@ public class Dragon extends Unidad{
           //  escudo = 0;
        // }
 
+    }
+
+    @Override
+    public void recibirDanio(Danio danio) {
+        defensa.recibirDanio(danio, vida, escudo);
     }
 
     public boolean preRequisito(List<Construccion> lista) {

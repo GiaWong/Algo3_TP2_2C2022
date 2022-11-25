@@ -1,18 +1,20 @@
-package edu.fiuba.algo3.modelo.Unidades;
+package edu.fiuba.algo3.modelo.Acciones;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.ConstruccionZerg;
+import edu.fiuba.algo3.modelo.Unidades.Aire;
+import edu.fiuba.algo3.modelo.Unidades.Superficie;
+import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
-public class AtaqueAireyTierra implements Atacador {
+public class AtaqueAire implements Atacador {
 
     private Danio danio;
     private int danioTierra;
     private int danioAire;
     private int danioInfligir;
 
-    public AtaqueAireyTierra(int tierra,int aire){
-        danioAire = aire;
-        danioTierra = tierra;
+    public AtaqueAire(int ataque){
+        //danioAire = ataque;
+        danio = new Danio(ataque);
     }
 
     public boolean esPosibleAtacar(Superficie sup) {

@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-import edu.fiuba.algo3.modelo.Construccion.ConstruccionProtoss;
+import edu.fiuba.algo3.modelo.Acciones.Danio;
+import edu.fiuba.algo3.modelo.Acciones.Escudo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class UnidadProtoss extends Unidad{
@@ -10,11 +10,7 @@ public abstract class UnidadProtoss extends Unidad{
     protected Escudo escudo;
 
     public void recibirDanio(Danio danio) {
-        danio.quitarVida(escudo, vida); //Esto despues analiza como le saca vida a que cosa, si le tiene que sacar al escudo o a la vida.
-    }
-
-    public int rango() {
-        return rango;
+        defensa.recibirDanio(danio, vida, escudo); //Esto despues analiza como le saca vida a que cosa, si le tiene que sacar al escudo o a la vida.
     }
 
     public int vida() {return vida.vidaActual();}

@@ -1,14 +1,16 @@
-package edu.fiuba.algo3.modelo.Unidades;
+package edu.fiuba.algo3.modelo.Acciones;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 public class AtaqueTierra implements Atacador {
 
     private Danio danio;
     private int danioTierra; //Danio es un objeto?
 
-    public AtaqueTierra(int tierra){
-        danioTierra = tierra;
+    public AtaqueTierra(int ataque){
+        //danioTierra = ataque;
+        danio = new Danio(ataque);
     }
 
     public int danioTierra() {

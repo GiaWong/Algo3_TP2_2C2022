@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
+import edu.fiuba.algo3.modelo.Acciones.Detectable;
+import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.*;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.*;
@@ -9,8 +11,9 @@ import java.util.List;
 
 public abstract class Construccion {
 
-    protected int vida;
+    protected Vida vida;
     protected int tiempoConstruccion;
+    protected Detectable defensa = new Detectable();
     protected List<Integer> costos = new ArrayList<>();
 
     public void construir() {

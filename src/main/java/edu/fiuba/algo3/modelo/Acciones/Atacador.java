@@ -1,7 +1,7 @@
-package edu.fiuba.algo3.modelo.Unidades;
+package edu.fiuba.algo3.modelo.Acciones;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.ConstruccionZerg;
+import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 public interface Atacador {
 

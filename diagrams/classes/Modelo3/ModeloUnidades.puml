@@ -1,6 +1,6 @@
 @startuml
 
-interface Defendible {
+interface Defensa {
     +recibirDanio(danio)
 }
 
@@ -25,23 +25,31 @@ abstract class Unidad {
 abstract class UnidadProtoss {
     - escudo
     + construir()
+    +recibirDanio(danio)
 }
 
 class Zealot {
+    -atacadorTierra
+    -atacadorAire
     +ataque()
 }
 
 class Dragon {
+    -atacadorTierra
+    -atacadorAire
     +atacar()
 }
 
 class Scout {
-   +atacar()
+    -atacadorTierra
+    -atacadorAire
+    +atacar()
 
 }
 
 abstract class UnidadZerg {
     + construir()
+    +recibirDanio(danio)
 }
 
 class AmoSupremo {
@@ -53,24 +61,28 @@ class Zangano {
 }
 
 class Zerling {
+    -atacador
     + atacar()
 }
 
 class Hidralisco {
-
+    -atacador
     +atacar()
 }
 
 class Mutalisco {
+    -atacador
     +evolucionar()
     +atacar()
 }
 
 class Guardian {
+    -atacador
     +atacar()
 }
 
 class Devorador {
+    -atacador
     +atacar()
 }
 
@@ -80,11 +92,13 @@ interface Atacador {
 }
 
 class AtaqueTierra {
+    -danio
     +atacar(unidad)
     +atacar(construccion)
 }
 
 class AtaqueAire {
+    -danio
     +atacar(unidad)
     +atacar(construccion)
 }
@@ -132,10 +146,10 @@ Zealot *-- Atacador
 
 Zangano *-- Recolector
 
-Unidad *- Defendible
+Unidad *- Defensa
 
-Defendible <|.up. Invisible
-Defendible <|.up. Detectable
+Defensa <|.up. Invisible
+Defensa <|.up. Detectable
 
 Atacador <|.. AtaqueTierra
 Atacador <|.. AtaqueAire

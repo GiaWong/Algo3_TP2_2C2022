@@ -1,10 +1,18 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
+import edu.fiuba.algo3.modelo.Acciones.Atacador;
+import edu.fiuba.algo3.modelo.Acciones.AtaqueTierra;
+import edu.fiuba.algo3.modelo.Acciones.Vida;
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.ReservaProduccion;
 
 import java.util.List;
 
-public class Zerling extends Unidad{
+public class Zerling extends UnidadZerg{
+
+    private int rango;
+
+    private Atacador ataqueTierra;
     private Construccion preRequisito = new ReservaProduccion();
     public Zerling(){
 
@@ -14,8 +22,8 @@ public class Zerling extends Unidad{
         costos.add(25); //Esto es para Minerales
         costos.add(0); // Esto es para Gas
         superficie = new Tierra();
-        defendible =new AtaqueTierra(4);
-        ;
+        ataqueTierra =new AtaqueTierra(4);
+
     }
 
     @Override

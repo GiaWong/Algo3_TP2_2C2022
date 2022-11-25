@@ -39,6 +39,7 @@ public class Mapa {
             casillas[4][i]= casilla;
         }
    }
+
     public void casillaConTerrenoMoho(int fila, int columna){
 
         (casillas[fila][columna]).setTerreno(new ConMoho());
@@ -126,7 +127,6 @@ public class Mapa {
                 }
             }
         }
-
     }
 
     public boolean tipoTerreno (Terreno terreno,int fila, int columna){

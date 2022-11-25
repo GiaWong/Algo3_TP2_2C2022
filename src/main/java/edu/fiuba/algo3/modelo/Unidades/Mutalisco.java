@@ -1,12 +1,18 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
+import edu.fiuba.algo3.modelo.Acciones.*;
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.Espiral;
 
 import java.util.List;
 
-public class Mutalisco extends Unidad{
+public class Mutalisco extends UnidadZerg{
 
     // Deberia poder evolucionarse a Guardian.
+    private int rango;
+
+    private Atacador ataqueAire;
+    private Atacador ataqueTierra;
     private Construccion preRequisito = new Espiral();
 
     public Mutalisco(){
@@ -16,7 +22,8 @@ public class Mutalisco extends Unidad{
         costos.add(100); //Esto es para Minerales
         costos.add(100); // Esto es para Gas
         superficie = new Aire();
-        defendible =new AtaqueAireyTierra(9,9);
+        ataqueAire =new AtaqueAire(9);
+        ataqueTierra = new AtaqueTierra(9);
     }
 
     @Override

@@ -1,29 +1,35 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
+import edu.fiuba.algo3.modelo.Acciones.*;
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.PuertoEstelar;
 
 import java.util.List;
 
-public class Scout extends Unidad{
+public class Scout extends UnidadProtoss{
 
+    private int rango;
+
+    private Atacador ataqueAire;
+    private Atacador ataqueTierra;
     private Construccion preRequisito = new PuertoEstelar();
-
-    private int escudo = 100;
 
     public Scout(){
         vida = new Vida(150);
+        escudo = new Escudo(100);
         tiempoConstruccion = 9;
         rango = 4;
         costos.add(300); //Esto es para Minerales
         costos.add(150); // Esto es para Gas
         superficie = new Aire();
-        defendible = new AtaqueAireyTierra(8,14);
+        ataqueAire = new AtaqueAire(14);
+        ataqueTierra = new AtaqueTierra(8);
 
     }
 
     @Override
     public void modificarEstadisticas(int danio) {
-        escudo-= danio;
+        //escudo-= danio;
 
     }
 

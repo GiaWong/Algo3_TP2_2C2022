@@ -13,6 +13,10 @@ abstract class Construccion {
 interface Defendible {
     +recibirDanio(ataque)
 }
+class Detectable {
+    +recibirDanio(ataque)
+}
+
 
 abstract class ConstruccionZerg {
     + construir()
@@ -146,6 +150,7 @@ class CrearUnidad {
     +crearScout()
 }
 
+Detectable ..|> Defendible
 Defendible --* Construccion
 
 Zerg --> ConstruccionZerg

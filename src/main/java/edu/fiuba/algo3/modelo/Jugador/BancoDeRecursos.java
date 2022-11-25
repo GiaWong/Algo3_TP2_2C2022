@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Jugador;
 
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 import java.util.List;
