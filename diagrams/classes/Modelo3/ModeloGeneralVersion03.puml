@@ -46,82 +46,23 @@ class Protoss {
     + crearUnidad()
 }
 
-abstract class ConstruccionZerg {
+abstract class Construccion {
     - vida
     - tiempoConstruccion
     - costos
     + construir()
+    + esPosibleConstruirEn()
 }
 
-class Criadero {
-    - moho : Radio
-    - creador
-    - larva : int
-     +crearUnidad()
-     +construir()
-     +ampliarRadio()
-}
-
-class ReservaProduccion {
-    - creador
-    +crearUnidad()
-    +construir()
-}
-
-class Extractor {
-    +recolectar(volcan)
-    +construir()
-    +agregar(Zangano)
-}
-
-class Guarida {
-    - creador
-    +crearUnidad()
-    +construir()
-
-}
-
-class Espiral {
-    - creador
-    +crearUnidad()
-    +construir()
-
+abstract class ConstruccionZerg {
+    + construir()
+    + esPosibleConstruirEn()
 }
 
 abstract class ConstruccionProtoss {
-    - vida
     - escudo
-    - tiempoConstruccion
-    - costos
     + construir()
-}
-
-class Asimilador {
-    +recolectar(volcan)
-    +construir()
-}
-
-class NexoMineral {
-    +recolectar(nodoMineral)
-    +construir()
-}
-
-class Pilon {
-    - energia : Radio
-    +ampliarRadio()
-    +construir()
-}
-
-class PuertoEstelar {
-    - creador
-    +crearUnidad()
-    +construir()
-}
-
-class Acceso {
-    - creador
-     +crearUnidad()
-     +construir()
+    + esPosibleConstruirEn()
 }
 
 class Mapa {
@@ -144,7 +85,7 @@ class Casilla {
     + setRecurso()
 }
 
-class Vacio {
+class SinRecurso {
     + esPosibleConstruir(construccion)
 }
 
@@ -163,7 +104,7 @@ class ConEnergia {
     + esPosibleConstruir(construccion)
 }
 
-class SinNada {
+class SinTerreno {
     + esPosibleConstruir(construccion)
 }
 
@@ -184,63 +125,22 @@ class Turno {
    +avanzarTurno(Jugador)
    +jugar(Jugador)
 
-   }
+}
+note right
+Acordarnos de ver como podemos hacer
+para que turno tenga algun tipo de comportamiento
+con las construcciones...
+end note
 
 interface Recurso {
     + esPosibleConstruir(construccion)
-}
-
-interface Radio {
-    +ampliarRadio()
-}
-
-class Moho {
-    -radio : int
-    +ampliarRadio()
-}
-
-class Energia {
-    -radio : int
-    +ampliarRadio()
-}
-
-interface Refineria {
-    +recolectar(recurso)
-}
-
-class DeGas {
-    +recolectar(volcan)
-}
-
-class DeMineral {
-    +recolectar(volcan)
-}
-
-interface Creador {
-    +crearZangano()
-    +crearZerling()
-    +crearHidralisco()
-    +crearMutalisco()
-    +crearZealot()
-    +crearDragon()
-    +crearScout()
-}
-
-class CrearUnidad {
-    +crearZangano()
-    +crearZerling()
-    +crearHidralisco()
-    +crearMutalisco()
-    +crearZealot()
-    +crearDragon()
-    +crearScout()
 }
 
 
 
 Partida "2" *- Jugador
 Mapa -* Partida
-Partida *-- Turno
+Partida *-up- Turno
 
 Jugador *- Raza
 Raza <|-- Zerg
@@ -248,70 +148,34 @@ Raza <|-- Protoss
 
 Zerg --> ConstruccionZerg
 Protoss --> ConstruccionProtoss
-
-ConstruccionZerg <|--- Criadero
-ConstruccionZerg <|--- ReservaProduccion
-ConstruccionZerg <|--- Extractor
-ConstruccionZerg <|--- Guarida
-ConstruccionZerg <|--- Espiral
-
-ConstruccionProtoss <|--- NexoMineral
-ConstruccionProtoss <|--- Pilon
-ConstruccionProtoss <|--- Asimilador
-ConstruccionProtoss <|--- Acceso
-ConstruccionProtoss <|--- PuertoEstelar
-
-Criadero *-- Radio
-Pilon *-- Radio
-Radio <|.. Moho
-Radio <|.. Energia
-
-NexoMineral *-- Refineria
-Extractor *-- Refineria
-Asimilador *-- Refineria
-Refineria <|.. DeGas
-Refineria <|.. DeMineral
-
-PuertoEstelar *-- Creador
-ReservaProduccion *-- Creador
-Acceso *-- Creador
-Guarida *-- Creador
-Criadero *-- Creador
-Espiral *-- Creador
-
-Creador <|.. CrearUnidad
-
+ConstruccionProtoss --|> Construccion
+ConstruccionZerg --|> Construccion
 
 Casilla "*" -* Mapa
 Terreno -* Casilla
 
-Casilla *-- Recurso
+Casilla *--- Recurso
 Recurso <|.. Volcan
-Recurso <|.up. NodoMineral
-Recurso <|.. Vacio
+Recurso <|.. NodoMineral
+Recurso <|.. SinRecurso
 
-Terreno <|.up. ConMoho
-Terreno <|.up. ConEnergia
-Terreno <|.up. SinNada
+Terreno <|.. ConMoho
+Terreno <|.. ConEnergia
+Terreno <|.. SinTerreno
 
-
-
-interface Superficie{
+interface Area{
  +esPosibleAgregar(unidad)
 }
-class Tierra{
+class AreaTerrestre{
 +esPosibleAgregar(unidad)
 }
-class Aire{
+class AreaEspacial{
 +esPosibleAgregar(unidad)
 }
 
-
-
-
-Casilla *-- Superficie
-Superficie <|.. Tierra
-Superficie <|.. Aire
+Casilla *-- Area
+Area <|.. AreaTerrestre
+Area <|.. AreaEspacial
 
 
 

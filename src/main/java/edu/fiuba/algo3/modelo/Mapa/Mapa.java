@@ -6,13 +6,11 @@ import edu.fiuba.algo3.modelo.Construccion.Pilon;
 import edu.fiuba.algo3.modelo.Exception.NoEstaEnElMapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinNada;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
 import edu.fiuba.algo3.modelo.Unidades.Aire;
 import edu.fiuba.algo3.modelo.Unidades.Superficie;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
-
-import java.util.Map;
 
 public class Mapa {
 
@@ -23,7 +21,6 @@ public class Mapa {
         for(int i=0; i<20; i++){
             for(int j=0; j<20;j++){
                 casillas[i][j]= new Casilla();
-
             }
         }
     }
@@ -63,7 +60,7 @@ public class Mapa {
         if((casillas [fila][columna]).esConstruccion(new Pilon())){
 
             int radio = (casillas [fila][columna]).obtenerRadio();
-            this.setearRadioTerreno(radio,fila, columna, new SinNada());
+            this.setearRadioTerreno(radio,fila, columna, new SinTerreno());
             (casillas [fila][columna]).destruirConstruccion();
             this.setearRadio();
 

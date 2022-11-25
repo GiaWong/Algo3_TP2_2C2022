@@ -1,6 +1,11 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-public class AtaqueAireyTierra implements Defendible {
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Construccion.ConstruccionZerg;
+
+public class AtaqueAireyTierra implements Atacador {
+
+    private Danio danio;
     private int danioTierra;
     private int danioAire;
     private int danioInfligir;
@@ -22,20 +27,13 @@ public class AtaqueAireyTierra implements Defendible {
     }
 
 
-    public void recibirDanioZerg(Vida vida) {
-        vida.inflijirDanio(danioInfligir);
+    @Override
+    public void atacar(Unidad unidad) {
+        unidad.recibirDanio(danio); //El "danio" tengo pensado que sea un objeto con los atributos de danio, y que despues danio se encargue de bajarle la vida/escudo a unidad.
     }
 
     @Override
-    public void recibirDanioProtoss(Vida vida, Escudo escudo) {
-        escudo.inflijirDanio(danioInfligir);
-        if(escudo.estaVivo()) {
-            vida.inflijirDanio(danioInfligir);
-        }
-    }
-
-    @Override
-    public int danioTierra() {
-        return danioTierra;
+    public void atacar(Construccion construccion) {
+        construccion.recibirDanio(danio); //La interaz de Defendible la deberia tener la Construccion Madre tambien, porque todas las construcciones reciben Danio.
     }
 }

@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 
-public class Zangano extends Unidad{
+public class Zangano extends UnidadZerg{
 
     public Zangano(){
         vida = new Vida(25);

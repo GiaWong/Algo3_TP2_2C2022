@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-public class Vida {
+public class Vida { //Esto podria usarse para Construccion tambien, deberia estar en otra carpeta
     protected int Salud;
     protected int SaludMaxima;
 

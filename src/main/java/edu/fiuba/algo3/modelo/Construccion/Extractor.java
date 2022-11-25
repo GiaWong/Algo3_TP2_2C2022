@@ -1,12 +1,15 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
 
+import edu.fiuba.algo3.modelo.Exception.ErrorEsteEdificioSoloSeConstruyeEnUnRecurso;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Unidades.Zangano;
 
 import java.util.ArrayList;
@@ -40,28 +43,11 @@ public class Extractor extends ConstruccionZerg{
 
     public int obtenerVida() {return vida; }
 
-    @Override
-    public void avanzarTurno() {
-        this.regenerarVida();
-
-    }
     public void regenerarVida(){
         if(vida <= (Vida_Total-10)){
             vida += 10;
         }
     }
-
-    @Override
-    public boolean estaDisponible() {
-        return (tiempoConstruccion<=0);
-
-    }
-
-    @Override
-    public List<Integer> costo() {
-        return costos;
-    }
-
     public int recolectar(Volcan volcan) {
         if (this.estaDisponible()) {
             return volcan.recolectar(zanganos.size() * 10);
@@ -69,20 +55,40 @@ public class Extractor extends ConstruccionZerg{
         return 0;
     }
 
-    public void esPosibleConstruirEnRecurso(Volcan volcan){
-        return;
-    }
-    public void esPosibleConstruirEnRecurso(NodoMineral mineral){
-        throw new NoSePuedeConstruirEsteEdificioSobreUnRecurso();
+    @Override
+    public void avanzarTurno() {
+        this.regenerarVida();
+
     }
 
-    public void esPosibleConstruirEn(ConEnergia energia){
+    @Override
+    public void esPosibleConstruirEn(Volcan volcan) {
+
+    }
+
+    @Override
+    public void esPosibleConstruirEn(NodoMineral nodoMineral) {
+        throw new ErrorEsteEdificioSoloSeConstruyeEnUnRecurso();
+    }
+
+    @Override
+    public void esPosibleConstruirEn(SinRecurso sinRecurso) {
+        throw new ErrorEsteEdificioSoloSeConstruyeEnUnRecurso();
+    }
+
+    @Override
+    public void esPosibleConstruirEn(ConEnergia energia) {
         throw new NoHayMoho();
+    }
+
+    @Override
+    public void esPosibleConstruirEn(ConMoho moho) {
 
     }
 
-    public void esPosibleConstruirEn(ConMoho moho){
-
+    @Override
+    public void esPosibleConstruirEn(SinTerreno nada) {
+        throw new NoHayMoho();
     }
 
 }

@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Construccion.Acceso;
-import edu.fiuba.algo3.modelo.Construccion.Construccion;
 
 import java.util.List;
 

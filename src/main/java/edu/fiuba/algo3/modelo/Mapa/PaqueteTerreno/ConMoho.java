@@ -4,8 +4,7 @@ import edu.fiuba.algo3.modelo.Construccion.*;
 
 public class ConMoho implements Terreno {
 
-    @Override
-    public boolean esPosibleConstruir(Construccion unaConstruccion) {
+    public void esPosibleConstruir(Construccion unaConstruccion) {
         unaConstruccion.esPosibleConstruirEn(this);
         /*
         Criadero criadero = new Criadero();

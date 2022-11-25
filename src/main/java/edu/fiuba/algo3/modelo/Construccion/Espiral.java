@@ -3,9 +3,13 @@ package edu.fiuba.algo3.modelo.Construccion;
 import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Recurso;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Unidades.Mutalisco;
 import edu.fiuba.algo3.modelo.Unidades.Zerling;
 
@@ -71,16 +75,33 @@ public class Espiral extends ConstruccionZerg {
 
     }
 
-    public void esPosibleConstruirEnRecurso(Recurso recurso){
+    @Override
+    public void esPosibleConstruirEn(Volcan volcan) {
         throw new NoSePuedeConstruirEsteEdificioSobreUnRecurso();
     }
 
+    @Override
+    public void esPosibleConstruirEn(NodoMineral nodoMineral) {
+        throw new NoSePuedeConstruirEsteEdificioSobreUnRecurso();
+    }
+
+    @Override
+    public void esPosibleConstruirEn(SinRecurso sinRecurso) {
+
+    }
+
+    @Override
+    public void esPosibleConstruirEn(SinTerreno nada) {
+        throw new NoHayMoho();
+    }
+    @Override
     public void esPosibleConstruirEn(ConEnergia energia){
         throw new NoHayMoho();
     }
 
+    @Override
     public void esPosibleConstruirEn(ConMoho moho){
-        return;
+
     }
 
 

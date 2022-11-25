@@ -5,36 +5,12 @@ import edu.fiuba.algo3.modelo.Construccion.ConstruccionProtoss;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class UnidadProtoss {
+public abstract class UnidadProtoss extends Unidad{
 
-    protected Vida vida;
+    protected Escudo escudo;
 
-    protected int tiempoConstruccion;
-
-    protected int rango;
-
-    protected Defendible defendible;
-
-    protected Superficie superficie;
-
-    protected List<Integer> costos = new ArrayList<>();
-
-    public void construir() {
-        tiempoConstruccion--;
-    }
-
-    public void atacar(ConstruccionProtoss construccion) {
-        construccion.recibeDanio(defendible.danioTierra());
-
-    }
-    public void atacar(Unidad unidad) {
-        unidad.recibirDanio(defendible);
-    }
-
-    public void recibirDanio(Defendible defendible){
-        if(defendible.esPosibleAtacar(superficie)){
-            defendible.recibirDanioZerg(vida);
-        }
+    public void recibirDanio(Danio danio) {
+        danio.quitarVida(escudo, vida); //Esto despues analiza como le saca vida a que cosa, si le tiene que sacar al escudo o a la vida.
     }
 
     public int rango() {
@@ -42,10 +18,6 @@ public abstract class UnidadProtoss {
     }
 
     public int vida() {return vida.vidaActual();}
-
-    public boolean esSuperficie(Superficie otraSuperficie) {
-        return (superficie.getClass().equals(otraSuperficie.getClass()));
-    }
 
     public List<Integer> costo() {
         return costos;

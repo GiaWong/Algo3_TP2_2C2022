@@ -1,17 +1,9 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
 
-import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
-import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
-import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Recurso;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
-
-import java.util.ArrayList;
-import java.util.List;
+import edu.fiuba.algo3.modelo.Exception.*;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.*;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.*;
 
 public class  Asimilador extends ConstruccionProtoss {
 
@@ -59,19 +51,25 @@ public class  Asimilador extends ConstruccionProtoss {
         return 0;
     }
 
-    public void esPosibleConstruirEnRecurso(Volcan volcan){
-        return;
-    }
-    public void esPosibleConstruirEnRecurso(NodoMineral mineral){
+    @Override
+    public void esPosibleConstruirEn(Volcan volcan) {}
+
+    @Override
+    public void esPosibleConstruirEn(NodoMineral nodoMineral) {
         throw new NoSePuedeConstruirEsteEdificioSobreUnRecurso();
     }
 
-    public void esPosibleConstruirEn(ConEnergia energia){
+    @Override
+    public void esPosibleConstruirEn(SinTerreno nada) { throw new NoEstaEnergizado(); }
 
-
-    }
+    public void esPosibleConstruirEn(ConEnergia energia){}
 
     public void esPosibleConstruirEn(ConMoho moho){
         throw new NoEstaEnergizado();
+    }
+
+    @Override
+    public void esPosibleConstruirEn(SinRecurso sinRecurso) {
+        throw new ErrorEsteEdificioSoloSeConstruyeEnUnRecurso();
     }
 }

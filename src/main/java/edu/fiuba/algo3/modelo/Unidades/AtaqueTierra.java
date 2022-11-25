@@ -1,44 +1,31 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-public class AtaqueTierra implements Defendible {
-    private int danioTierra;
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
+
+public class AtaqueTierra implements Atacador {
+
+    private Danio danio;
+    private int danioTierra; //Danio es un objeto?
 
     public AtaqueTierra(int tierra){
-        danioTierra =tierra;
+        danioTierra = tierra;
     }
 
-    public boolean esPosibleAtacar(Superficie sup) {
-        Superficie tierra = new Tierra();
-        return tierra.getClass().equals(sup.getClass());
-
-    }
-
-
-
-    public void recibirDanioZerg(Vida vida) {
-        vida.inflijirDanio(danioTierra);
-    }
-
-    public void recibirDanioProtoss(Vida vida, Escudo escudo) {
-        escudo.inflijirDanio(danioTierra);
-        if(escudo.estaVivo()) {
-            vida.inflijirDanio(danioTierra);
-        }
-    }
-
-
-    @Override
     public int danioTierra() {
         return danioTierra;
+    }
+
+    @Override
+    public void atacar(Unidad unidad) {
+        unidad.recibirDanio(danio); //Aca tambien, pensar que danio es un objeto
+    }
+
+    @Override
+    public void atacar(Construccion construccion) {
+        construccion.recibirDanio(danio);
     }
 }
 /*
 UnidadAtacante.atacar(unidadAtacada){
     UnidadAtacada.recibirdanio(ataqueTierra)
-
-
-////
-NombrePendiente(ataqueTieerra)
-    ataqueTierra.esPos(sup)
-        unidadRecibirdanioo(ataqueTierra.danio)
-    */
+*/

@@ -75,7 +75,7 @@ public class Guarida extends ConstruccionZerg{
         return this.hidralisco;
     }
 
-    public void esPosibleConstruirEnRecurso(Recurso recurso){
+    public void esPosibleConstruirEn(Recurso recurso){
         throw new NoSePuedeConstruirEsteEdificioSobreUnRecurso();
     }
 

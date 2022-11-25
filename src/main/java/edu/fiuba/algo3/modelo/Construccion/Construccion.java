@@ -1,19 +1,40 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
-import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.*;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public interface Construccion {
+public abstract class Construccion {
 
-    void construir();
-    void recibeDanio(int cant);
-    void avanzarTurno();
-    boolean estaDisponible();
+    protected int vida;
+    protected int tiempoConstruccion;
+    protected List<Integer> costos = new ArrayList<>();
 
-    List<Integer> costo();
+    public void construir() {
+        tiempoConstruccion--;
+    }
 
-    int obtenerVida();
+    public List<Integer> costo() {
+        return costos;
+    }
 
-    void esPosibleConstruirEn(ConEnergia conEnergia);
+    public boolean estaDisponible() {
+        return tiempoConstruccion<=0;
+    }
+
+    public abstract void esPosibleConstruirEn(Volcan volcan);
+
+    public abstract void esPosibleConstruirEn(NodoMineral nodoMineral);
+
+    public abstract void esPosibleConstruirEn(SinRecurso sinRecurso);
+
+
+    public abstract void esPosibleConstruirEn(ConEnergia energia);
+
+    public abstract void esPosibleConstruirEn(ConMoho moho);
+
+    public abstract void esPosibleConstruirEn(SinTerreno nada);
 }

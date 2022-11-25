@@ -4,8 +4,8 @@ import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupada;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupadaPorZangano;
 
-import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Vacio;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinNada;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Recurso;
 import edu.fiuba.algo3.modelo.Unidades.Superficie;
@@ -26,14 +26,14 @@ public class Casilla {
 
     public Casilla(){
         superficie = new Tierra();
-        recurso = new Vacio();
-        terreno = new SinNada();
+        recurso = new SinRecurso();
+        terreno = new SinTerreno();
     }
 
     public Casilla(int f, int c){
         superficie = new Tierra();
-        recurso = new Vacio();
-        terreno = new SinNada();
+        recurso = new SinRecurso();
+        terreno = new SinTerreno();
         fila = f;
         columna = c;
     }
@@ -59,14 +59,14 @@ public class Casilla {
         }
     }
 
-    public void agregar(Construccion unaConstruccion) throws CasillaOcupada, CasillaOcupadaPorZangano {
+    public void agregar(Construccion unaConstruccion) throws CasillaOcupada, CasillaOcupadaPorZangano { //Esto hay que cambiarlo
         boolean hayConst = this.hayConstruccion();
         if(hayConst){
             throw new CasillaOcupada();
         }else if(unidad!=null){
             throw new CasillaOcupadaPorZangano();
         }
-        if (terreno.esPosibleConstruir(unaConstruccion) && recurso.esPosibleConstruir(unaConstruccion)){
+        if (terreno.esPosibleConstruir(unaConstruccion) && recurso.esPosibleConstruir(unaConstruccion)){ //Porque el esPosibleConstruir() ya no devuelve un bool
 
             construccion = unaConstruccion;
         }

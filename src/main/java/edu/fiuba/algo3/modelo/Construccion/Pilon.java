@@ -2,10 +2,14 @@ package edu.fiuba.algo3.modelo.Construccion;
 
 
 import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
+import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEnEsteTerreno;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
 
 import java.util.ArrayList;
@@ -51,25 +55,32 @@ public class Pilon extends ConstruccionProtoss {
         this.regenerarEscudo();
     }
 
-
-    public void ampliarRadio() {
-
-    }
-
-    public int obtenerRadio() {
-        return radio;
-    }
-
-    public void esPosibleConstruirEnRecurso(NodoMineral mineral){
+    @Override
+    public void esPosibleConstruirEn(Volcan volcan) {
         throw new NoSePuedeConstruirEsteEdificioSobreUnRecurso();
     }
 
-    public void esPosibleConstruirEn(ConMoho moho){
-        throw new NoEstaEnergizado();
+    @Override
+    public void esPosibleConstruirEn(NodoMineral nodoMineral) {
+        throw new NoSePuedeConstruirEsteEdificioSobreUnRecurso();
     }
 
-    public void esPosibleConstruirEn(Terreno terreno){
+    @Override
+    public void esPosibleConstruirEn(SinRecurso sinRecurso) {
 
+    }
+
+    @Override
+    public void esPosibleConstruirEn(ConEnergia energia) {
+
+    }
+
+    public void esPosibleConstruirEn(ConMoho moho){
+        throw new NoSePuedeConstruirEnEsteTerreno();
+    }
+
+    @Override
+    public void esPosibleConstruirEn(SinTerreno nada) {
 
     }
 }

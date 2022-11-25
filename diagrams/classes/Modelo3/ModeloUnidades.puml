@@ -1,0 +1,144 @@
+@startuml
+
+interface Defendible {
+    +recibirDanio(danio)
+}
+
+class Invisible {
+    +recibirDanio(danio)
+}
+
+class Detectable {
+    +recibirDanio(danio)
+}
+
+abstract class Unidad {
+    - vida
+    - tiempoConstruccion
+    - costos
+    - defendible
+    + construir()
+    +recibirDanio(danio)
+}
+
+
+abstract class UnidadProtoss {
+    - escudo
+    + construir()
+}
+
+class Zealot {
+    +ataque()
+}
+
+class Dragon {
+    +atacar()
+}
+
+class Scout {
+   +atacar()
+
+}
+
+abstract class UnidadZerg {
+    + construir()
+}
+
+class AmoSupremo {
+
+}
+
+class Zangano {
+    + recolectar()
+}
+
+class Zerling {
+    + atacar()
+}
+
+class Hidralisco {
+
+    +atacar()
+}
+
+class Mutalisco {
+    +evolucionar()
+    +atacar()
+}
+
+class Guardian {
+    +atacar()
+}
+
+class Devorador {
+    +atacar()
+}
+
+interface Atacador {
+    +atacar(unidad)
+    +atacar(construccion)
+}
+
+class AtaqueTierra {
+    +atacar(unidad)
+    +atacar(construccion)
+}
+
+class AtaqueAire {
+    +atacar(unidad)
+    +atacar(construccion)
+}
+
+
+interface Invisiblibilidad {
+}
+
+interface Detector {
+    +detectarUnidad()
+}
+
+interface Recolector {
+    +recolectar()
+}
+
+Unidad <|-- UnidadZerg
+Unidad <|-- UnidadProtoss
+
+
+UnidadZerg <|--- Zangano
+UnidadZerg <|--- AmoSupremo
+UnidadZerg <|--- Zerling
+UnidadZerg <|--- Hidralisco
+UnidadZerg <|--- Mutalisco
+UnidadZerg <|--- Guardian
+UnidadZerg <|--- Devorador
+
+UnidadProtoss <|--- Zealot
+UnidadProtoss <|--- Dragon
+UnidadProtoss <|--- Scout
+
+AmoSupremo *-- Detector
+
+Zealot *-- Invisiblibilidad
+
+Zerling *-- Atacador
+Hidralisco *-- Atacador
+Mutalisco *-- Atacador
+Guardian *-- Atacador
+Scout *-- Atacador
+Dragon *-- Atacador
+Devorador *-- Atacador
+Zealot *-- Atacador
+
+Zangano *-- Recolector
+
+Unidad *- Defendible
+
+Defendible <|.up. Invisible
+Defendible <|.up. Detectable
+
+Atacador <|.. AtaqueTierra
+Atacador <|.. AtaqueAire
+
+
+@enduml

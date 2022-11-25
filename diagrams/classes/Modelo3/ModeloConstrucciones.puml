@@ -1,0 +1,188 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Construccion {
+    - vida
+    - tiempoConstruccion
+    - costos
+    + construir()
+    + recibirDanio(ataque)
+    + esPosibleConstruirEn()
+}
+
+interface Defendible {
+    +recibirDanio(ataque)
+}
+
+abstract class ConstruccionZerg {
+    + construir()
+    + recibirDanio(ataque)
+    + esPosibleConstruirEn()
+}
+
+class Criadero {
+    - moho : Radio
+    - creador
+    - larva : int
+     +crearUnidad()
+     +construir()
+     +ampliarRadio()
+     +esPosibleConstruirEn()
+}
+
+class ReservaProduccion {
+    - creador
+    +crearUnidad()
+    +construir()
+    +esPosibleConstruirEn()
+}
+
+class Extractor {
+    +recolectar(volcan)
+    +construir()
+    +agregar(Zangano)
+    +esPosibleConstruirEn()
+}
+
+class Guarida {
+    - creador
+    +crearUnidad()
+    +construir()
+    +esPosibleConstruirEn()
+
+}
+
+class Espiral {
+    - creador
+    +crearUnidad()
+    +construir()
+    +esPosibleConstruirEn()
+
+}
+
+abstract class ConstruccionProtoss {
+    - escudo
+    + construir()
+    + recibirDanio(ataque)
+    + esPosibleConstruirEn()
+}
+
+class Asimilador {
+    +recolectar(volcan)
+    +construir()
+    +esPosibleConstruirEn()
+}
+
+class NexoMineral {
+    +recolectar(nodoMineral)
+    +construir()
+    +esPosibleConstruirEn()
+}
+
+class Pilon {
+    - energia : Radio
+    +ampliarRadio()
+    +construir()
+    +esPosibleConstruirEn()
+}
+
+class PuertoEstelar {
+    - creador
+    +crearUnidad()
+    +construir()
+    +esPosibleConstruirEn()
+}
+
+class Acceso {
+    - creador
+     +crearUnidad()
+     +construir()
+     +esPosibleConstruirEn()
+}
+
+interface Radio {
+    +ampliarRadio()
+}
+
+class Moho {
+    -radio : int
+    +ampliarRadio()
+}
+
+class Energia {
+    -radio : int
+    +ampliarRadio()
+}
+
+interface Refineria {
+    +recolectar(recurso)
+}
+
+class DeGas {
+    +recolectar(volcan)
+}
+
+class DeMineral {
+    +recolectar(volcan)
+}
+
+interface Creador {
+    +crearZangano()
+    +crearZerling()
+    +crearHidralisco()
+    +crearMutalisco()
+    +crearZealot()
+    +crearDragon()
+    +crearScout()
+}
+
+class CrearUnidad {
+    +crearZangano()
+    +crearZerling()
+    +crearHidralisco()
+    +crearMutalisco()
+    +crearZealot()
+    +crearDragon()
+    +crearScout()
+}
+
+Defendible --* Construccion
+
+Zerg --> ConstruccionZerg
+Protoss --> ConstruccionProtoss
+ConstruccionZerg -|> Construccion
+ConstruccionProtoss -left-|> Construccion
+
+ConstruccionZerg <|---- Criadero
+ConstruccionZerg <|---- ReservaProduccion
+ConstruccionZerg <|---- Extractor
+ConstruccionZerg <|---- Guarida
+ConstruccionZerg <|---- Espiral
+
+ConstruccionProtoss <|---- NexoMineral
+ConstruccionProtoss <|---- Pilon
+ConstruccionProtoss <|---- Asimilador
+ConstruccionProtoss <|---- Acceso
+ConstruccionProtoss <|---- PuertoEstelar
+
+Criadero *-- Radio
+Pilon *-- Radio
+Radio <|.. Moho
+Radio <|.. Energia
+
+NexoMineral *-- Refineria
+Extractor *-- Refineria
+Asimilador *-- Refineria
+Refineria <|.. DeGas
+Refineria <|.. DeMineral
+
+PuertoEstelar *-- Creador
+ReservaProduccion *-- Creador
+Acceso *-- Creador
+Guarida *-- Creador
+Criadero *-- Creador
+Espiral *-- Creador
+
+Creador <|.. CrearUnidad
+
+@enduml

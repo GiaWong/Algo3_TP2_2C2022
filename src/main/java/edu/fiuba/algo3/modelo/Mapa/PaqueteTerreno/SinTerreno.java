@@ -1,13 +1,10 @@
 package edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.Criadero;
-import edu.fiuba.algo3.modelo.Construccion.Pilon;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Vacio;
 
-public class SinNada implements Terreno{
-    @Override
-    public boolean esPosibleConstruir(Construccion unaConstruccion) {
+public class SinTerreno implements Terreno{
+
+    public void esPosibleConstruir(Construccion unaConstruccion) {
         unaConstruccion.esPosibleConstruirEn(this);
         /*
 
