@@ -4,12 +4,12 @@ import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupada;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupadaPorZangano;
 
+import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.*;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Recurso;
-import edu.fiuba.algo3.modelo.Unidades.Superficie;
-import edu.fiuba.algo3.modelo.Unidades.Tierra;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 
@@ -20,18 +20,18 @@ public class Casilla {
 
     protected Unidad unidad;
     private Recurso recurso;
-    private Superficie superficie;
+    private Area area;
     protected Terreno terreno;
     protected Construccion construccion;
 
     public Casilla(){
-        superficie = new Tierra();
+        area = new AreaTerrestre();
         recurso = new SinRecurso();
         terreno = new SinTerreno();
     }
 
     public Casilla(int f, int c){
-        superficie = new Tierra();
+        area = new AreaTerrestre();
         recurso = new SinRecurso();
         terreno = new SinTerreno();
         fila = f;
@@ -42,8 +42,8 @@ public class Casilla {
         return (construccion != null);
     }
 
-    public void asignarSuperficie(Superficie superficie1){
-        superficie =superficie1;
+    public void asignarArea(Area unArea){
+        area = unArea;
     }
     public boolean hayUnidad() {
         return (unidad != null);
@@ -54,9 +54,13 @@ public class Casilla {
     }
 
     public void agregar(Unidad unaUnidad){
-        if(superficie.esPosibleAgregar(unaUnidad)){
+        area.esPosibleAgregar(unaUnidad);
+        unidad = unaUnidad;
+        /*
+        if(area.esPosibleAgregar(unaUnidad)){
             unidad = unaUnidad;
         }
+         */
     }
 
     public void agregar(Construccion unaConstruccion) throws CasillaOcupada, CasillaOcupadaPorZangano { //Esto hay que cambiarlo
@@ -93,9 +97,12 @@ public class Casilla {
     }
 
     public int obtenerRadio() {
-
+/*
        ConstruccionConRadio construccionConRadio = (ConstruccionConRadio) construccion;
         return (construccionConRadio.obtenerRadio()) ;
+
+ */
+        return 0;
     }
 
     public void atacar(Unidad unidadAtacante) {

@@ -35,5 +35,9 @@ public abstract class Unidad {
 
     public abstract void recibirDanio(Danio danio);
 
+    public boolean esPosibleSerAtacadoPor(Atacador ataque){
+        return ataque.esPosibleAtacar(superficie);
+    }
+
 
 }

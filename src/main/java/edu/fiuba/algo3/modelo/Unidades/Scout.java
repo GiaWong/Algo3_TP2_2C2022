@@ -27,6 +27,19 @@ public class Scout extends UnidadProtoss{
 
     }
 
+    public void atacar(Unidad unaUnidad){
+        if (unaUnidad.esPosibleSerAtacadoPor(ataqueTierra)){
+            ataqueTierra.atacar(unaUnidad);
+
+        } else if (unaUnidad.esPosibleSerAtacadoPor(ataqueAire)){
+            ataqueAire.atacar(unaUnidad);
+        }
+    }
+
+    public void atacar(Construccion unaConstruccion){
+        ataqueTierra.atacar(unaConstruccion);
+    }
+
     @Override
     public void modificarEstadisticas(int danio) {
         //escudo-= danio;

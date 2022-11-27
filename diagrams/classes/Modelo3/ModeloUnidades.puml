@@ -31,7 +31,7 @@ abstract class UnidadProtoss {
 class Zealot {
     -atacadorTierra
     -atacadorAire
-    +ataque()
+    +atacar()
 }
 
 class Dragon {
@@ -53,7 +53,7 @@ abstract class UnidadZerg {
 }
 
 class AmoSupremo {
-
+    +detectarUnidad()
 }
 
 class Zangano {

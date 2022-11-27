@@ -1,9 +1,12 @@
 package edu.fiuba.algo3.modelo.Acciones;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Unidades.Aire;
+import edu.fiuba.algo3.modelo.Unidades.Superficie;
+import edu.fiuba.algo3.modelo.Unidades.Tierra;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
-public class AtaqueTierra implements Atacador {
+public class AtaqueTierra implements Atacador { //Supuesto: TODAS LAS CONSTRUCCIONES RECIBEN SOLO ATAQUE TIERRA
 
     private Danio danio;
     private int danioTierra; //Danio es un objeto?
@@ -26,6 +29,12 @@ public class AtaqueTierra implements Atacador {
     public void atacar(Construccion construccion) {
         construccion.recibirDanio(danio);
     }
+
+    @Override
+    public boolean esPosibleAtacar(Superficie superficie) {
+        return superficie.esPosibleSerAtacadoPorAtaqueTierra();
+    }
+
 }
 /*
 UnidadAtacante.atacar(unidadAtacada){

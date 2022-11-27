@@ -26,10 +26,17 @@ public class Mutalisco extends UnidadZerg{
         ataqueTierra = new AtaqueTierra(9);
     }
 
-    @Override
-    public void modificarEstadisticas(int danio) {
-       // vida-=danio;
+    public void atacar(Unidad unaUnidad){
+        if (unaUnidad.esPosibleSerAtacadoPor(ataqueTierra)){
+            ataqueTierra.atacar(unaUnidad);
 
+        } else if (unaUnidad.esPosibleSerAtacadoPor(ataqueAire)){
+            ataqueAire.atacar(unaUnidad);
+        }
+    }
+
+    public void atacar(Construccion unaConstruccion){
+        ataqueTierra.atacar(unaConstruccion);
     }
 
     public Unidad evolucionar() {
@@ -45,5 +52,11 @@ public class Mutalisco extends UnidadZerg{
             }
         }
         return false;
+    }
+
+    @Override
+    public void modificarEstadisticas(int danio) {
+        // vida-=danio;
+
     }
 }

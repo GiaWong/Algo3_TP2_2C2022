@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Unidades;
 import edu.fiuba.algo3.modelo.Acciones.Atacador;
 import edu.fiuba.algo3.modelo.Acciones.AtaqueAire;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
 
 public class Devorador extends UnidadZerg{
 
@@ -20,6 +21,16 @@ public class Devorador extends UnidadZerg{
     }
     @Override
     public void modificarEstadisticas(int danio) {
+
+    }
+
+    public void atacar(Unidad unaUnidad){
+        if (unaUnidad.esPosibleSerAtacadoPor(ataqueAire)){
+            ataqueAire.atacar(unaUnidad);
+        }
+    }
+
+    public void atacar(Construccion unaConstruccion){
 
     }
 }

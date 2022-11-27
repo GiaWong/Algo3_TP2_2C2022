@@ -1,4 +1,10 @@
 package edu.fiuba.algo3.modelo.Mapa.PaqueteAreas;
 
-public class AreaEspacial {
+import edu.fiuba.algo3.modelo.Unidades.Unidad;
+
+public class AreaEspacial implements Area{
+    @Override
+    public void esPosibleAgregar(Unidad unidad) {
+        unidad.esPosibleMoverseEn(this);
+    }
 }

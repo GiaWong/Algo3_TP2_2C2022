@@ -26,6 +26,16 @@ public class Zerling extends UnidadZerg{
 
     }
 
+    public void atacar(Unidad unaUnidad){
+        if (unaUnidad.esPosibleSerAtacadoPor(ataqueTierra)){
+            ataqueTierra.atacar(unaUnidad);
+        }
+    }
+
+    public void atacar(Construccion unaConstruccion){
+        ataqueTierra.atacar(unaConstruccion);
+    }
+
     @Override
     public void modificarEstadisticas(int danio) {
        // vida -= danio;

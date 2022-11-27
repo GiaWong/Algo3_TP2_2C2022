@@ -1,8 +1,5 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-import edu.fiuba.algo3.modelo.Acciones.AtaqueAire;
-import edu.fiuba.algo3.modelo.Acciones.AtaqueTierra;
-import edu.fiuba.algo3.modelo.Acciones.Detectable;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
 
 public class AmoSupremo extends UnidadZerg{

@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Acciones.Atacador;
 import edu.fiuba.algo3.modelo.Acciones.AtaqueTierra;
 import edu.fiuba.algo3.modelo.Acciones.Detectable;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,16 @@ public class Guardian extends UnidadZerg{
         superficie = new Aire();
         ataqueTierra = new AtaqueTierra(25);
 
+    }
+
+    public void atacar(Unidad unaUnidad){
+        if (unaUnidad.esPosibleSerAtacadoPor(ataqueTierra)){
+            ataqueTierra.atacar(unaUnidad);
+        }
+    }
+
+    public void atacar(Construccion unaConstruccion){
+        ataqueTierra.atacar(unaConstruccion);
     }
 
     @Override

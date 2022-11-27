@@ -29,11 +29,6 @@ public class Dragon extends UnidadProtoss{
 
     @Override
     public void modificarEstadisticas(int danio) {
-        //escudo-= danio;
-        //if (escudo<0){
-          //  vida += escudo;
-          //  escudo = 0;
-       // }
 
     }
 
@@ -52,6 +47,19 @@ public class Dragon extends UnidadProtoss{
         }
         return false;
 
+    }
+
+    public void atacar(Unidad unaUnidad){
+        if (unaUnidad.esPosibleSerAtacadoPor(ataqueTierra)){
+            ataqueTierra.atacar(unaUnidad);
+
+        } else if (unaUnidad.esPosibleSerAtacadoPor(ataqueAire)){
+            ataqueAire.atacar(unaUnidad);
+        }
+    }
+
+    public void atacar(Construccion unaConstruccion){
+        ataqueTierra.atacar(unaConstruccion);
     }
 
 }

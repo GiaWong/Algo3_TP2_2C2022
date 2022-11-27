@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.Acciones;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Unidades.Aire;
 import edu.fiuba.algo3.modelo.Unidades.Superficie;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
@@ -12,22 +11,10 @@ public class AtaqueAire implements Atacador {
     private int danioAire;
     private int danioInfligir;
 
-    public AtaqueAire(int ataque){
+    public AtaqueAire(int ataque) {
         //danioAire = ataque;
         danio = new Danio(ataque);
     }
-
-    public boolean esPosibleAtacar(Superficie sup) {
-        Superficie air = new Aire();
-        if(air.getClass().equals(sup.getClass())){
-            danioInfligir = danioAire;
-        }
-        else {
-            danioInfligir = danioTierra;
-        }
-        return true;
-    }
-
 
     @Override
     public void atacar(Unidad unidad) {
@@ -37,5 +24,10 @@ public class AtaqueAire implements Atacador {
     @Override
     public void atacar(Construccion construccion) {
         construccion.recibirDanio(danio); //La interaz de Defendible la deberia tener la Construccion Madre tambien, porque todas las construcciones reciben Danio.
+    }
+
+    @Override
+    public boolean esPosibleAtacar(Superficie superficie) {
+        return superficie.esPosibleSerAtacadoPorAtaqueAire();
     }
 }

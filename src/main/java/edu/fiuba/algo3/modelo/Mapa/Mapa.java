@@ -35,7 +35,7 @@ public class Mapa {
         for(int i=0; i<5; i++) {
             Superficie sup= new Aire();
             Casilla casilla = new Casilla();
-            casilla.asignarSuperficie(sup);
+            casilla.asignarArea(sup);
             casillas[4][i]= casilla;
         }
    }
