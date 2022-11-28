@@ -22,9 +22,9 @@ public class CasoDeUso25 {
 
 
 
-        assertEquals(partida.primerJugador().obtenernombre(),"Matias");
-        assertEquals(partida.primerJugador().obtenercolor(),"Azul");
-        assertEquals(partida.primerJugador().obtenerraza().getClass(),raza.getClass());
+        assertEquals(partida.primerJugador().tieneMismoNombre("Matias"),true);
+        assertEquals(partida.primerJugador().tieneMismoColor("Azul"),true);
+        assertEquals(partida.primerJugador().tieneMismaRaza(raza),true);
 
     }
 
