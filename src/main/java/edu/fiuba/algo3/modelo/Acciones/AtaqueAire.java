@@ -26,4 +26,13 @@ public class AtaqueAire implements Atacador {
     public boolean esPosibleAtacar(Superficie superficie) {
         return superficie.esPosibleSerAtacadoPorAtaqueAire();
     }
+
+    @Override
+    void ultimoGolpe(Construccion construccion){
+        construccion.estaOperativo;
+    }
+    @Override
+    void ultimoGolpe(Unidad unidad){
+        unidad.estaOperativo();
+    }
 }

@@ -10,6 +10,8 @@ import java.util.List;
 
 public class Zealot extends UnidadProtoss{
 
+    private int rango;
+    private int asesinatos = 0;
     private boolean visible;
     private Construccion preRequisito = new Acceso();
 
@@ -28,10 +30,25 @@ public class Zealot extends UnidadProtoss{
         if (unaUnidad.esPosibleSerAtacadoPor(atacador)){
             atacador.atacar(unaUnidad);
         }
+        try {
+            atacador.ultimoGolpe(unaUnidad);
+
+        }catch (Exception UnidadMuerta){
+            asesinatos++;
+        }
+
     }
 
     public void atacar(Construccion unaConstruccion){
+
         atacador.atacar(unaConstruccion);
+        try {
+            atacador.ultimoGolpe(unaConstruccion);
+
+        }catch (Exception ConstruccionDestruida){
+            asesinatos++;
+        }
+
     }
 
     public void setDetectable(){
