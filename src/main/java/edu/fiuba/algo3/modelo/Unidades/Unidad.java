@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Unidades;
 import edu.fiuba.algo3.modelo.Acciones.*;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,17 +14,23 @@ public abstract class Unidad {
 
     protected int tiempoConstruccion;
 
+    protected int rango;
+
     protected Superficie superficie;
 
     protected Atacador atacador;
 
     protected Defensa defensa = new Detectable();
 
+    protected Coordenada coordenada;
+
     protected List<Integer> costos = new ArrayList<>();
 
     public void construir() {
         tiempoConstruccion--;
     }
+
+    public void asignarPosicion(Coordenada coord) { coordenada = coord; }
 
     public int vida() {return vida.vidaActual();}
 
@@ -41,6 +48,10 @@ public abstract class Unidad {
 
     public  void detectado(){
         return;
+    }
+
+    public boolean estaEnRango(Coordenada otrCoord){
+        return coordenada.estaEnRango(otrCoord, rango);
     }
 
     public abstract void modificarSuministro(Suministro suministro); //Este metodo no deberia existir

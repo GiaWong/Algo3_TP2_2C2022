@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Scout extends UnidadProtoss{
 
-    private int rango;
     private Atacador ataqueTierra;
     private Construccion preRequisito = new PuertoEstelar();
 

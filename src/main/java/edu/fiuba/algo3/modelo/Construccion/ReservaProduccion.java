@@ -19,7 +19,6 @@ import java.util.List;
 public class ReservaProduccion extends ConstruccionZerg {
 
     private Creador creacion = new CrearUnidad();
-    private Zerling zerling;
 
     public ReservaProduccion(){
         costos.add(150); //esto es para Mineral
@@ -42,17 +41,6 @@ public class ReservaProduccion extends ConstruccionZerg {
     public void avanzarTurno() {
         this.regenerarVida();
 
-    }
-
-    public void conZerg(Zerling zerg) { //Deberia ser el crearZerling()
-        this.zerling = zerg;
-        for(int i =0 ; i<=1;i++) {
-            this.zerling.construir();
-        }
-    }
-
-    public Zerling obtenerZerg() {
-        return this.zerling;
     }
 
     @Override

@@ -20,7 +20,17 @@ public class Coordenada {
         return (fila == unaFila && columna == unaCol);
     }
 
-    public boolean estaEnRango(Unidad unidadAtacante){
-        return unidadAtacante.
+    public boolean estaEnRango(Coordenada otraCoordenada, int rango){
+        int filaMasRango = fila + rango;
+        int filaMenosRango = fila - rango;
+        int columnaMasRango = columna + rango;
+        int columnaMenosRango = columna - rango;
+
+        return otraCoordenada.estaDentroDe(filaMasRango, filaMenosRango, columnaMasRango, columnaMenosRango);
+
+    }
+
+    public boolean estaDentroDe(int filaMasRango, int filaMenosRango, int colMasRango, int colMenosRango){
+        return (filaMasRango <= fila || filaMenosRango >= fila || colMasRango <= columna || colMenosRango >= columna);
     }
 }

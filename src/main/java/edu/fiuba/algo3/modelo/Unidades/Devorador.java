@@ -8,8 +8,6 @@ import edu.fiuba.algo3.modelo.Jugador.Suministro;
 
 public class Devorador extends UnidadZerg{
 
-    private int rango;
-
     public Devorador(){
         vida = new Vida(200);
         tiempoConstruccion = 4;

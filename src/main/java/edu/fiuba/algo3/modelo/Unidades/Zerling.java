@@ -11,7 +11,6 @@ import java.util.List;
 
 public class Zerling extends UnidadZerg{
 
-    private int rango;
 
     private Construccion preRequisito = new ReservaProduccion();
     public Zerling(){

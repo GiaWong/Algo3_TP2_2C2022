@@ -10,7 +10,6 @@ import java.util.List;
 public class Mutalisco extends UnidadZerg{
 
     // Deberia poder evolucionarse a Guardian.
-    private int rango;
     private Atacador ataqueTierra;
     private Construccion preRequisito = new Espiral();
 

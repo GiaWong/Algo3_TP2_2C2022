@@ -10,6 +10,7 @@ public class Zangano extends UnidadZerg {
     public Zangano(){
         vida = new Vida(25);
         tiempoConstruccion = 1;
+        rango = 0;
         costos.add(25); //Esto es para Minerales
         costos.add(0); // Esto es para Gas
         superficie = new Tierra();

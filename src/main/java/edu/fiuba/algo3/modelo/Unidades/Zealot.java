@@ -10,7 +10,6 @@ import java.util.List;
 
 public class Zealot extends UnidadProtoss{
 
-    private int rango;
     private boolean visible;
     private Construccion preRequisito = new Acceso();
 

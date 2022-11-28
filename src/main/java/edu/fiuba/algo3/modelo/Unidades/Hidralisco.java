@@ -8,8 +8,6 @@ import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import java.util.List;
 
 public class Hidralisco extends UnidadZerg{
-
-    private int rango;
     private Atacador ataqueTierra;
     private Construccion preRequisito = new Guarida();
 

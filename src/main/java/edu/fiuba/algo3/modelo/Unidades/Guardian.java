@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Guardian extends UnidadZerg{
-    private int rango;
 
     public Guardian(){
         vida = new Vida(100);

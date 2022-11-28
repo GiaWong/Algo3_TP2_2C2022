@@ -7,7 +7,6 @@ import edu.fiuba.algo3.modelo.Jugador.Suministro;
 public class AmoSupremo extends UnidadZerg{
 
     // Necesitaria tener algo para poder detectar unidades
-    private int rango; //Este seria el rango para detectar las unidades, no para atacar
 
     public AmoSupremo(){
         vida = new Vida(200);;

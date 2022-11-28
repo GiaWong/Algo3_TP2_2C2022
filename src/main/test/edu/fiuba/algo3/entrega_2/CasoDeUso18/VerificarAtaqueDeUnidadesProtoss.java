@@ -37,10 +37,12 @@ public class VerificarAtaqueDeUnidadesProtoss {
         Mapa mapa = new Mapa(20,20);
         Dragon dragon = new Dragon();
         Zerling zerling = new Zerling();
+        Coordenada coordDragon = new Coordenada(10,10);
+        Coordenada coordZerling = new Coordenada(11,10);
 
-        mapa.agregar(dragon,10,10);
-        mapa.agregar(zerling,11,10);
-        mapa.atacar(dragon,11,10);
+        mapa.agregar(dragon,coordDragon);
+        mapa.agregar(zerling,coordZerling);
+        mapa.atacar(dragon,coordZerling);
         assertEquals(15,zerling.vida());
 
     }
@@ -48,13 +50,15 @@ public class VerificarAtaqueDeUnidadesProtoss {
     @Test
     public void UnScoutAtacaAUnaConstruccionProtossYDeberiaHacerleDanio() {
 
-        Mapa mapa = new Mapa();
+        Mapa mapa = new Mapa(20,20);
         Scout scout = new Scout();
         Hidralisco hidralisco = new Hidralisco();
+        Coordenada coordScout = new Coordenada(10,10);
+        Coordenada coordHidra = new Coordenada(11,10);
 
-        mapa.agregar(scout,10,10);
-        mapa.agregar(hidralisco,11,10);
-        mapa.atacar(hidralisco,10,10);
+        mapa.agregar(scout,coordScout);
+        mapa.agregar(hidralisco,coordHidra);
+        mapa.atacar(hidralisco,coordScout);
         assertEquals(140,scout.vida());
 
     }

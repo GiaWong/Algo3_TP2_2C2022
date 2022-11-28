@@ -50,6 +50,7 @@ public class Mapa {
 
     public void agregar(Unidad unidad, Coordenada coord){
         Casilla casilla = this.buscar(coord);
+        unidad.asignarPosicion(coord);
         casilla.agregar(unidad);
 
     }
@@ -168,7 +169,7 @@ public class Mapa {
 
     public void atacar (Unidad unidadAtacante, Coordenada coord){ //Puede ser que se ocupe Raza de esto...
         Casilla casillaAtacada = this.buscar(coord);
-        if (coord.estaEnRango(unidadAtacante)){
+        if (unidadAtacante.estaEnRango(coord)){
             casillaAtacada.atacar(unidadAtacante);
         }
     }

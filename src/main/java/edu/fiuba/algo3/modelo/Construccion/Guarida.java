@@ -19,7 +19,7 @@ import java.util.List;
 public class Guarida extends ConstruccionZerg{
 
     private ConstruccionZerg preRequisito = new ReservaProduccion();
-    private Hidralisco hidralisco;
+    private Unidad hidralisco = new Hidralisco();
 
     private Creador creacion;
 
@@ -56,16 +56,14 @@ public class Guarida extends ConstruccionZerg{
         return creacion.crearHidralisco();
     }
 
-    public void conZerg(Hidralisco hidra) { //Esto seria el metodo de crearUnidad()
-        this.hidralisco = hidra;
-        for(int i =0 ; i<=3;i++) {
-            this.hidralisco.construir();
-        }
+    public void construirUnidad() { //Esto seria el metodo de crearUnidad()
+
+        this.hidralisco.construir();
     }
 
-    public Hidralisco obtenerZerg() {
+    public Unidad obtenerZerg() {
         return this.hidralisco;
-    } //Este metodo seria el crearUnidad()
+    }
 
     @Override
     public void esPosibleConstruirEn(ConEnergia energia){

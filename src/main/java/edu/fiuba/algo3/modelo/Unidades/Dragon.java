@@ -10,8 +10,6 @@ import java.util.List;
 public class Dragon extends UnidadProtoss{
 
     private Construccion preRequisito = new Acceso();
-
-    protected int rango;
     private Atacador ataqueTierra;
 
     public Dragon(){
