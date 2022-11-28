@@ -16,7 +16,7 @@ public class CasoDeUso28 {
     @Test
     public void  NoSepuedeAtacarAlZelotCuandoEstaInvisible(){
         Zealot zealot = new Zealot();
-        Mapa mapa = new Mapa();
+        Mapa mapa = new Mapa(20,20);
         Zerling zerling = new Zerling();
         Zerling zerling1 = new Zerling();
         Zerling zerling2 = new Zerling();
@@ -40,10 +40,11 @@ public class CasoDeUso28 {
         assertThrows(UnidadNoTargeteable.class,()->zerling3.atacar(zealot));
 
     }
+    @Test
 
     public void  SepuedeAtacarAlZelotCuandoEstaInvisiblePeroHayUnAmoSupremoEnRango(){
         Zealot zealot = new Zealot();
-        Mapa mapa = new Mapa();
+        Mapa mapa = new Mapa(20,20);
         Zerling zerling = new Zerling();
         Zerling zerling1 = new Zerling();
         Zerling zerling2 = new Zerling();

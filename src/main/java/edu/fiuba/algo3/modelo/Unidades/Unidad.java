@@ -63,7 +63,7 @@ public abstract class Unidad {
 
     public abstract void atacar(Construccion unaConstruccion);
 
-    public void estaOperativo() throws Exception{
+    public void estaOperativo() throws UnidadMuerta{
         if(!vida.estaVivo()){
             throw new UnidadMuerta();
         }
