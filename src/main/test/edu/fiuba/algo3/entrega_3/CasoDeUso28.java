@@ -7,12 +7,17 @@ import edu.fiuba.algo3.modelo.Unidades.AmoSupremo;
 import edu.fiuba.algo3.modelo.Unidades.Zealot;
 import edu.fiuba.algo3.modelo.Unidades.Zerling;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+
 public class CasoDeUso28 {
 
+    @Mock
+    private Zealot zealot1;
     @Test
     public void  NoSepuedeAtacarAlZelotCuandoEstaInvisible(){
         Zealot zealot = new Zealot();

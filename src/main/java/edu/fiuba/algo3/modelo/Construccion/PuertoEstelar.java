@@ -11,6 +11,7 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
+import edu.fiuba.algo3.modelo.Unidades.Scout;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 import java.util.List;

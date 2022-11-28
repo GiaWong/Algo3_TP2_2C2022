@@ -4,6 +4,8 @@ import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
+import edu.fiuba.algo3.modelo.Unidades.UnidadProtoss;
+import edu.fiuba.algo3.modelo.Unidades.UnidadZerg;
 
 public abstract class Raza {
 
@@ -30,5 +32,8 @@ public abstract class Raza {
     }
 
     public abstract void recolectar();
+
+
+
 
 }

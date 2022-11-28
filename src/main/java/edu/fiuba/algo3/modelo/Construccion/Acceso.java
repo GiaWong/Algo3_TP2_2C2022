@@ -31,7 +31,7 @@ public  class Acceso extends ConstruccionProtoss{
     }
 
     public void crearUnidad(){
-        //Ver luego como hacer este metodo para Acceso...
+
     }
 
     public int obtenerEscudo() {return 0; }
