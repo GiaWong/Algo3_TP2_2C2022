@@ -29,15 +29,12 @@ public class Guarida extends ConstruccionZerg{
         vida = new Vida(1250);
         tiempoConstruccion = 12;
     }
-    public boolean preRequisito(List<Construccion> lista){
-        if(lista!=null) {
-            for(int i =0; i<lista.size();i++){
-                if(lista.get(i).getClass().equals(preRequisito.getClass())){
-                    return true;
-                }
-            }
-        }
+    public boolean esRequisitoDe(Construccion construccion){
         return false;
+    }
+
+    public boolean esRequisitoDe(Guarida guarida){
+        return true;
     }
 
     public int obtenerVida() {return 0; }
@@ -49,7 +46,7 @@ public class Guarida extends ConstruccionZerg{
     @Override
     public void avanzarTurno() {
         this.regenerarVida();
-
+        tiempoConstruccion--;
     }
 
     public Unidad crearUnidad(){

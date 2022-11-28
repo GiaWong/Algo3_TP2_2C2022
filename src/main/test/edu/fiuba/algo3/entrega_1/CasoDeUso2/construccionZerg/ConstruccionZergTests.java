@@ -5,72 +5,89 @@ import edu.fiuba.algo3.modelo.Construccion.Guarida;
 import edu.fiuba.algo3.modelo.Construccion.ReservaProduccion;
 import edu.fiuba.algo3.modelo.Construccion.Criadero;
 import edu.fiuba.algo3.modelo.Construccion.Extractor;
+import edu.fiuba.algo3.modelo.Exception.CasillaOcupada;
+import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.Unidades.Unidad;
+import edu.fiuba.algo3.modelo.Unidades.Zangano;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ConstruccionZergTests {
-    @Test
-    public void SeArrancaAConstruirCriaderoYDeberiaEstarInactivoPorFaltaDeTurnos() {
-        boolean esperado = false;
-        Criadero criadero = new Criadero();
-        criadero.construir();
-        boolean resultado= criadero.estaDisponible();
-        assertEquals(resultado,esperado);
 
+    @Test
+    public void SeArrancaAConstruirCriaderoYNoPasanTurnosYDeberiaEstarInactivo() {
+        Criadero criadero = new Criadero();
+        assertThrows( EdificioNoEstaOperativo.class, criadero::evolucionarLarva);
+    }
+    @Test
+    public void SeArrancaAConstruirCriaderoPasaUnTurnoYDeberiaEstarInactivoPorFaltaDeTurnos() {
+        Criadero criadero = new Criadero();
+        criadero.avanzarTurno();
+        assertThrows( EdificioNoEstaOperativo.class, criadero::evolucionarLarva);
     }
 
     @Test
-    public void SeConstruyeElCriaderoYDeberiaEstarActivo() {
-        boolean esperado = true;
+    public void SeTerminaDeConstruirElCriaderoYDeberiaEstarActivo() {
         Criadero criadero = new Criadero();
-        for(int i =0 ; i<=3;i++) {
-
-            criadero.construir();
+        for(int i =0 ; i <= 3;i++) {
+            criadero.avanzarTurno();
         }
-        boolean resultado = criadero.estaDisponible();
-        assertEquals(resultado,esperado);
+        assertDoesNotThrow(criadero::evolucionarLarva);
     }
-    @Test
 
-    public void SeArrancaAConstruirReservaReproduccionYDeberiaEstarInactivoPorFaltaDeTurnos() {
-        boolean esperado = false;
+    @Test
+    public void SeArrancaAConstruirReservaReproduccionYNoPasanTurnosYDeberiaEstarInactivo() {
         ReservaProduccion reserva = new ReservaProduccion();
-        reserva.construir();
-        boolean resultado= reserva.estaDisponible();
-        assertEquals(resultado,esperado);
+        assertThrows( EdificioNoEstaOperativo.class, reserva::crearUnidad);
+    }
+    @Test
+
+    public void SeArrancaAConstruirReservaReproduccionPasaUnTurnoYDeberiaEstarInactivoPorFaltaDeTurnos() {
+        ReservaProduccion reserva = new ReservaProduccion();
+        reserva.avanzarTurno();
+        assertThrows( EdificioNoEstaOperativo.class, reserva::crearUnidad);
 
     }
     @Test
-    public void SeConstruyeReservaReproduccionYDeberiaEstarActivo() {
-        boolean esperado = true;
+    public void SeTerminaDeConstruirReservaReproduccionYDeberiaEstarActivo() {
         ReservaProduccion reserva = new ReservaProduccion();
         for(int i =0 ; i<=12;i++) {
-            reserva.construir();
+            reserva.avanzarTurno();
         }
-        boolean resultado = reserva.estaDisponible();
-        assertEquals(resultado,esperado);
+        assertDoesNotThrow(()->{
+            reserva.crearUnidad();
+        });
+    }
+
+    @Test
+    public void SeArrancaAConstruirExtractorYNoPasanTurnosYDeberiaEstarInactivo() {
+        Extractor extractor = new Extractor();
+        Zangano zangano = new Zangano();
+        assertThrows( EdificioNoEstaOperativo.class, ()->extractor.agregarZangano(zangano));
     }
     @Test
-    public void SeArrancaAConstruirExtractorYDeberiaEstarInactivoPorFaltaDeTurnos() {
-        boolean esperado = false;
+    public void SeArrancaAConstruirExtractorYPasaUnTurnoYDeberiaEstarInactivoPorFaltaDeTurnos() {
         Extractor extractor = new Extractor();
-        extractor.construir();
-        boolean resultado = extractor.estaDisponible();
-        assertEquals(resultado,esperado);
-
-
-}
+        Zangano zangano = new Zangano();
+        extractor.avanzarTurno();
+        assertThrows( EdificioNoEstaOperativo.class, ()->extractor.agregarZangano(zangano));
+    }
     @Test
-    public void SeConstruyeExtractorYDeberiaEstarActivo() {
-        boolean esperado = true;
+    public void SeTerminaDeConstruirExtractorYDeberiaEstarActivo() {
         Extractor extractor = new Extractor();
+        Zangano zangano = new Zangano();
         for(int i =0 ; i<=5;i++) {
-            extractor.construir();
+            extractor.avanzarTurno();
         }
+        assertDoesNotThrow(()->{(extractor.agregarZangano(zangano);
+        });
+    }
 
-        boolean resultado = extractor.estaDisponible();
-        assertEquals(resultado,esperado);
+    @Test
+    public void SeArrancaAConstruirGuaridaYNoPasanTurnosYDeberiaEstarInactivo() {
+        Guarida guarida = new Guarida(); //acá quedé
+        guarida.esRequisitoDe(new Guarida());
     }
     @Test
     public void SeArrancaAConstruirGuaridaYDeberiaEstarInactivoPorFaltaDeTurnos() {

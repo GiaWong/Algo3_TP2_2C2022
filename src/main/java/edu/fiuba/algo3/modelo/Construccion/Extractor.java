@@ -3,8 +3,9 @@ package edu.fiuba.algo3.modelo.Construccion;
 
 import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Exception.ErrorEsteEdificioSoloSeConstruyeEnUnRecurso;
+import edu.fiuba.algo3.modelo.Exception.FaltaUnZanganoParaRecolectar;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
-import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
+import edu.fiuba.algo3.modelo.Exception.NoSePuedeAgregarOtroZangano;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
@@ -27,11 +28,12 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
         vida = new Vida(750);
         tiempoConstruccion = 6;
     }
-    public void agregar(Zangano unZangano){
-        if (this.estaDisponible() && zanganos.size() < 3){
+    public void agregarZangano(Zangano unZangano){
+        verificarEdificioOperativo();
+        if (zanganos.size() < 3){
             zanganos.add(unZangano);
         } else {
-            //Lanzar un error o algo
+            throw new NoSePuedeAgregarOtroZangano();
         }
     }
 
@@ -43,10 +45,12 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
 
     @Override
     public int recolectar(Volcan volcan) {
-        if (this.estaDisponible()) {
+        verificarEdificioOperativo();
+        if (!zanganos.isEmpty()) {
             return volcan.recolectar(zanganos.size() * 10);
+        } else {
+            throw new FaltaUnZanganoParaRecolectar();
         }
-        return 0;
     }
 
     @Override

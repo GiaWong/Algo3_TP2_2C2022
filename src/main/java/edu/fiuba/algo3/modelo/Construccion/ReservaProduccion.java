@@ -28,6 +28,8 @@ public class ReservaProduccion extends ConstruccionZerg {
     }
 
     public Unidad crearUnidad(){
+
+        verificarEdificioOperativo();
         return creacion.crearZerling();
     }
 

@@ -24,7 +24,6 @@ public class Criadero extends ConstruccionZerg {
 
     private int radio; // Este radio no deberia ir
 
-    private Moho radio;
 
     public Criadero(){
         costos.add(50); //esto es para Mineral
