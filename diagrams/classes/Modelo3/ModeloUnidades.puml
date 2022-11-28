@@ -99,12 +99,6 @@ class AtaqueAire {
     +atacar(construccion)
 }
 
-class SinAtaque {
-    +atacar(unidad)
-    +atacar(construccion)
-}
-
-
 
 interface Invisiblibilidad {
 }
@@ -148,7 +142,6 @@ Defensa <|.up. Detectable
 
 Atacador <|.up. AtaqueTierra
 Atacador <|.up. AtaqueAire
-Atacador <|.up. SinAtaque
 
 
 @enduml
