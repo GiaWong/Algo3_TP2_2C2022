@@ -1,9 +1,10 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Acciones.*;
+import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 
-public class Zangano extends UnidadZerg{
+public class Zangano extends UnidadZerg {
 
     public Zangano(){
         vida = new Vida(25);
@@ -19,8 +20,7 @@ public class Zangano extends UnidadZerg{
     }
 
     @Override
-    public void modificarEstadisticas(int danio) {
-       // vida -=danio;
-
+    public void modificarSuministro(Suministro suministro) {
+        suministro.aumentarCapacidad(1);
     }
 }

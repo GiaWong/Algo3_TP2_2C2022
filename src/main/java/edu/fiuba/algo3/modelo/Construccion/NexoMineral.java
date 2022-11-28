@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Exception.ErrorEsteEdificioSoloSeConstruyeEnUnRecu
 import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
+import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Recurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
@@ -17,12 +18,7 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NexoMineral extends ConstruccionProtoss {
-
-    private int Vida_Total = 250;
-    private int Escudo_total = 250;
-
-    private RefineriaMineral refineria;
+public class NexoMineral extends ConstruccionProtoss implements RefineriaMineral{
 
     public NexoMineral(){
         costos.add(50); //esto es para Mineral
@@ -33,12 +29,7 @@ public class NexoMineral extends ConstruccionProtoss {
     }
 
     public void regenerarEscudo(){
-        /*
-        if(escudo < (Escudo_total)){
-            escudo += 10;
-        }
-
-         */
+        escudo.regenerarEscudo(10);
     }
 
     public int obtenerEscudo() {return 0; }
@@ -51,6 +42,7 @@ public class NexoMineral extends ConstruccionProtoss {
 
     }
 
+    @Override
     public int recolectar(NodoMineral nodo) {
        if (this.estaDisponible()) {
             return nodo.recolectar(20);
@@ -85,5 +77,10 @@ public class NexoMineral extends ConstruccionProtoss {
     @Override
     public void esPosibleConstruirEn(SinTerreno nada) {
         throw new NoEstaEnergizado();
+    }
+
+    @Override
+    public void aumentarSuministro(Suministro suministro) {
+
     }
 }

@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Unidades;
 import edu.fiuba.algo3.modelo.Acciones.*;
 import edu.fiuba.algo3.modelo.Construccion.Acceso;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Jugador.Suministro;
 
 import java.util.List;
 
@@ -25,16 +26,6 @@ public class Dragon extends UnidadProtoss{
         superficie = new Tierra();
         ataqueAire = new AtaqueAire(20);
         ataqueTierra = new AtaqueTierra(20);
-    }
-
-    @Override
-    public void modificarEstadisticas(int danio) {
-
-    }
-
-    @Override
-    public void recibirDanio(Danio danio) {
-        defensa.recibirDanio(danio, vida, escudo);
     }
 
     public boolean preRequisito(List<Construccion> lista) {
@@ -60,6 +51,16 @@ public class Dragon extends UnidadProtoss{
 
     public void atacar(Construccion unaConstruccion){
         ataqueTierra.atacar(unaConstruccion);
+    }
+
+    @Override
+    public void recibirDanio(Danio danio) {
+        defensa.recibirDanio(danio, vida, escudo);
+    }
+
+    @Override
+    public void modificarSuministro(Suministro suministro) {
+        suministro.aumentarCapacidad(3);
     }
 
 }

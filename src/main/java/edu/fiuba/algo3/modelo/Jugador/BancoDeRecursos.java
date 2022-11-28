@@ -11,13 +11,21 @@ public class BancoDeRecursos {
 
     public void comprar(Construccion construccion) {
         List<Integer>costos = construccion.costo();
-        bancoMineral -= costos.get(0);
-        bancoGasVespeno -= costos.get(1);
+        if (esPosibleComprar(construccion)){
+            bancoMineral -= costos.get(0);
+            bancoGasVespeno -= costos.get(1);
+        } else {
+            //Lanzar un error
+        }
     }
     public void comprar(Unidad unidad) {
         List<Integer>costos = unidad.costo();
-        bancoMineral -= costos.get(0);
-        bancoGasVespeno -= costos.get(1);
+        if (esPosibleComprar(unidad)){
+            bancoMineral -= costos.get(0);
+            bancoGasVespeno -= costos.get(1);
+        } else {
+            //Lanzar un error
+        }
     }
 
     public boolean esPosibleComprar(Construccion construccion){
@@ -38,4 +46,6 @@ public class BancoDeRecursos {
         }
         return true;
     }
+
+
 }

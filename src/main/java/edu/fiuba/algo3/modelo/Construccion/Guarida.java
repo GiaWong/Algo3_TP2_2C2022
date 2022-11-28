@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEnEsteTerreno;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
+import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
@@ -39,20 +40,10 @@ public class Guarida extends ConstruccionZerg{
         return false;
     }
 
-
-    public void recibeDanio(int cant) {
-        //vida -= cant;
-    }
-
     public int obtenerVida() {return 0; }
 
     public void regenerarVida(){
-        /*
-        if(vida <= (Vida_Total-10)){
-            vida += 10;
-        }
-
-         */
+        vida.regenerarSalud(5);
     }
 
     @Override
@@ -65,7 +56,7 @@ public class Guarida extends ConstruccionZerg{
         return creacion.crearHidralisco();
     }
 
-    public void conZerg(Hidralisco hidra) { //Esto seria el metodo de crearHidralisco()
+    public void conZerg(Hidralisco hidra) { //Esto seria el metodo de crearUnidad()
         this.hidralisco = hidra;
         for(int i =0 ; i<=3;i++) {
             this.hidralisco.construir();
@@ -74,7 +65,7 @@ public class Guarida extends ConstruccionZerg{
 
     public Hidralisco obtenerZerg() {
         return this.hidralisco;
-    }
+    } //Este metodo seria el crearUnidad()
 
     @Override
     public void esPosibleConstruirEn(ConEnergia energia){
@@ -103,6 +94,11 @@ public class Guarida extends ConstruccionZerg{
 
     @Override
     public void esPosibleConstruirEn(SinRecurso sinRecurso) {
+
+    }
+
+    @Override
+    public void aumentarSuministro(Suministro suministro) {
 
     }
 }

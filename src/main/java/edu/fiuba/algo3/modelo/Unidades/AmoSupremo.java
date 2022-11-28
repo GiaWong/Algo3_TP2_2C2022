@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Acciones.Vida;
+import edu.fiuba.algo3.modelo.Jugador.Suministro;
 
 public class AmoSupremo extends UnidadZerg{
 
@@ -17,7 +18,8 @@ public class AmoSupremo extends UnidadZerg{
     }
 
     @Override
-    public void modificarEstadisticas(int danio) {
-
+    public void modificarSuministro(Suministro suministro) {
+        int aumentoDeSuministro = 5;
+        suministro.aumentarCapacidadTotal(aumentoDeSuministro);
     }
 }

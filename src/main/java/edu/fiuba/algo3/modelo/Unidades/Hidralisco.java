@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Unidades;
 import edu.fiuba.algo3.modelo.Acciones.*;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.Guarida;
+import edu.fiuba.algo3.modelo.Jugador.Suministro;
 
 import java.util.List;
 
@@ -41,11 +42,6 @@ public class Hidralisco extends UnidadZerg{
         ataqueTierra.atacar(unaConstruccion);
     }
 
-    @Override
-    public void modificarEstadisticas(int danio) {
-       // vida -=danio;
-    }
-
     public boolean preRequisito(List<Construccion> lista) {
         if(lista!=null) {
             for(int i =0; i<lista.size();i++){
@@ -57,4 +53,8 @@ public class Hidralisco extends UnidadZerg{
         return false;
     }
 
+    @Override
+    public void modificarSuministro(Suministro suministro) {
+        suministro.aumentarCapacidad(2);
+    }
 }

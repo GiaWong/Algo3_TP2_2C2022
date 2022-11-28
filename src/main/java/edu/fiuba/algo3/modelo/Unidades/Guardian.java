@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Acciones.AtaqueTierra;
 import edu.fiuba.algo3.modelo.Acciones.Detectable;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Jugador.Suministro;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,10 +34,8 @@ public class Guardian extends UnidadZerg{
     public void atacar(Construccion unaConstruccion){
         ataqueTierra.atacar(unaConstruccion);
     }
-
     @Override
-    public void modificarEstadisticas(int danio) {
-        //vida -= danio;
+    public void modificarSuministro(Suministro suministro) {
 
     }
 }

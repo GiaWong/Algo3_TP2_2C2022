@@ -66,13 +66,13 @@ abstract class ConstruccionProtoss {
 }
 
 class Mapa {
-    - mapa : Map
+    - mapa[][] : Casillas
 
-    + agregarUnidad()
-    + agregarConstruccion()
+    + buscar(Coordenada) : Casilla
 }
 
 class Casilla {
+    - coordenada
     - unidad
     - recurso
     - terreno
@@ -85,6 +85,14 @@ class Casilla {
     + setRecurso()
 }
 
+class Coordenada {
+    - fila
+    - columna
+
+    +esIgual(Coordenada)
+    +tieneMismaFilaColumna()
+}
+
 class SinRecurso {
     + esPosibleConstruir(construccion)
 }
@@ -92,9 +100,6 @@ class SinRecurso {
 interface Terreno {
     + esPosibleConstruir(construccion)
 }
-
-interface Terreno
-note left: Se aplica patrón Strategy
 
 class ConMoho {
     + esPosibleConstruir(construccion)
@@ -153,15 +158,16 @@ ConstruccionZerg --|> Construccion
 
 Casilla "*" -* Mapa
 Terreno -* Casilla
+Coordenada --> Casilla
+Casilla *-- Recurso
 
-Casilla *--- Recurso
 Recurso <|.. Volcan
 Recurso <|.. NodoMineral
 Recurso <|.. SinRecurso
 
-Terreno <|.. ConMoho
+ConMoho ..|> Terreno
 Terreno <|.. ConEnergia
-Terreno <|.. SinTerreno
+SinTerreno .|> Terreno
 
 interface Area{
  +esPosibleAgregar(unidad)

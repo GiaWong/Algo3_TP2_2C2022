@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEnEsteTerreno;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
+import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
@@ -19,7 +20,7 @@ import java.util.List;
 
 public class Pilon extends ConstruccionProtoss {
 
-    private int radio = 3;
+    private int radio = 3; //El radio es mejor que sea un entero o un objeto?
     private Energia radio;
 
     public Pilon(){
@@ -31,12 +32,7 @@ public class Pilon extends ConstruccionProtoss {
     }
 
     public void regenerarEscudo(){
-        /*
-        if(escudo < (Escudo_total)){
-            escudo += 10;
-        }
-
-         */
+        escudo.regenerarEscudo(10);
     }
 
     public int obtenerEscudo() {return 0; }
@@ -75,5 +71,10 @@ public class Pilon extends ConstruccionProtoss {
     @Override
     public void esPosibleConstruirEn(SinTerreno nada) {
 
+    }
+
+    @Override
+    public void aumentarSuministro(Suministro suministro) {
+        suministro.aumentarCapacidadTotal(5);
     }
 }

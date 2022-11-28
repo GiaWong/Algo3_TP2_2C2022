@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Unidades;
 import edu.fiuba.algo3.modelo.Acciones.*;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.Espiral;
+import edu.fiuba.algo3.modelo.Jugador.Suministro;
 
 import java.util.List;
 
@@ -55,8 +56,7 @@ public class Mutalisco extends UnidadZerg{
     }
 
     @Override
-    public void modificarEstadisticas(int danio) {
-        // vida-=danio;
-
+    public void modificarSuministro(Suministro suministro) {
+        suministro.aumentarCapacidad(4);
     }
 }

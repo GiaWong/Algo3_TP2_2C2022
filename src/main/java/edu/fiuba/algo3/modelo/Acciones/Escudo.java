@@ -24,7 +24,7 @@ public class Escudo {
         return escudo >0;
     }
 
-    public void regenerarSalud(int regeneracion){
+    public void regenerarEscudo(int regeneracion){
         escudo += regeneracion;
         if(escudo > escudoMaximo){
             escudo = escudoMaximo;

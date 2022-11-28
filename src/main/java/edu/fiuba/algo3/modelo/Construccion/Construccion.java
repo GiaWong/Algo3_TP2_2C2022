@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Construccion;
 import edu.fiuba.algo3.modelo.Acciones.Danio;
 import edu.fiuba.algo3.modelo.Acciones.Detectable;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
+import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.*;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.*;
@@ -43,4 +44,6 @@ public abstract class Construccion {
     public abstract void esPosibleConstruirEn(SinTerreno nada);
 
     public abstract void recibirDanio(Danio danio);
+
+    public abstract void aumentarSuministro(Suministro suministro);
 }

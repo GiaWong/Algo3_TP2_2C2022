@@ -118,16 +118,12 @@ class Energia {
     +ampliarRadio()
 }
 
-interface Refineria {
-    +recolectar(recurso)
+interface RefineriaGas {
+    +recolectar(Volcan)
 }
 
-class DeGas {
-    +recolectar(volcan)
-}
-
-class DeMineral {
-    +recolectar(volcan)
+interface RefineriaMineral {
+    +recolectar(NodoMineral)
 }
 
 interface Creador {
@@ -175,11 +171,9 @@ Pilon *-- Radio
 Radio <|.. Moho
 Radio <|.. Energia
 
-NexoMineral *-- Refineria
-Extractor *-- Refineria
-Asimilador *-- Refineria
-Refineria <|.. DeGas
-Refineria <|.. DeMineral
+NexoMineral ..|> RefineriaMineral
+Extractor ..|> RefineriaGas
+Asimilador ..|> RefineriaGas
 
 PuertoEstelar *-- Creador
 ReservaProduccion *-- Creador

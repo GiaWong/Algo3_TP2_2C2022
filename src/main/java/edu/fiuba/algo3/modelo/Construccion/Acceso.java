@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Acciones.Escudo;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
+import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
@@ -26,16 +27,11 @@ public  class Acceso extends ConstruccionProtoss{
     }
 
     public void regenerarEscudo(){
-        /*
-        if(escudo < (Escudo_total)){
-            escudo += 10;
-        }
-
-         */
+        escudo.regenerarEscudo(10);
     }
 
-    public void crearUnidad(){ //Deberia ser un crearUnidad() solo?
-
+    public void crearUnidad(){
+        //Ver luego como hacer este metodo para Acceso...
     }
 
     public int obtenerEscudo() {return 0; }
@@ -48,6 +44,7 @@ public  class Acceso extends ConstruccionProtoss{
 
     }
 
+    @Override
     public void esPosibleConstruirEn(Volcan volcan){
         throw new NoSePuedeConstruirEsteEdificioSobreUnRecurso();
     }
@@ -60,14 +57,21 @@ public  class Acceso extends ConstruccionProtoss{
     @Override
     public void esPosibleConstruirEn(SinTerreno nada) { throw new NoEstaEnergizado(); }
 
+    @Override
     public void esPosibleConstruirEn(ConEnergia energia){}
 
+    @Override
     public void esPosibleConstruirEn(ConMoho moho){
         throw new NoEstaEnergizado();
     }
 
     @Override
     public void esPosibleConstruirEn(SinRecurso sinRecurso) {
+
+    }
+
+    @Override
+    public void aumentarSuministro(Suministro suministro) {
 
     }
 

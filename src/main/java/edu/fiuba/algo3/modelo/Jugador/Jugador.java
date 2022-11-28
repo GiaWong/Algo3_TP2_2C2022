@@ -8,6 +8,11 @@ public class Jugador {
     private String color;
     private Raza raza;
 
+    public Jugador(String unNombre, String unColor, Raza unaRaza){
+        this.setNombre(unNombre);
+        this.setColor(unColor);
+        this.setRaza(unaRaza);
+    }
     public void setNombre(String unNombre) throws NombreDeberiaTener6caracteresComoMinimo {
         if(unNombre.length()<6){
             throw new NombreDeberiaTener6caracteresComoMinimo();
@@ -23,12 +28,25 @@ public class Jugador {
         raza = unaRaza;
     }
 
-    public void avanzarturno() {
-    }
-
     public void jugar() {
     }
 
+    public boolean mismasCaracteristicasQue(Jugador otroJugador) {
+        return (otroJugador.tieneMismoNombre(nombre) && otroJugador.tieneMismoColor(color) && otroJugador.tieneMismaRaza(raza));
+    }
+
+    public boolean tieneMismoNombre(String otroNombre){
+        return nombre.equals(otroNombre);
+    }
+
+    public boolean tieneMismoColor(String otroColor){
+        return color.equals(otroColor);
+    }
+
+    public boolean tieneMismaRaza(Raza otraRaza){
+        return raza.equals(otraRaza); //No se si esto lo toma
+    }
+    /*
     public boolean comparar(Jugador jugador) {
         String nombreJ =jugador.obtenernombre();
         String colorJ =jugador.obtenercolor();
@@ -37,7 +55,7 @@ public class Jugador {
 
     }
 
-    public Raza obtenerraza() {return raza;
+    public Raza obtenerraza() {return raza;     //NO ESTA BUENO USAR GETTERS!!
     }
 
     public String obtenercolor() {return color;
@@ -45,4 +63,6 @@ public class Jugador {
 
     public String obtenernombre() {return nombre;
     }
+
+     */
 }

@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Unidades;
 import edu.fiuba.algo3.modelo.Acciones.*;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.PuertoEstelar;
+import edu.fiuba.algo3.modelo.Jugador.Suministro;
 
 import java.util.List;
 
@@ -40,12 +41,6 @@ public class Scout extends UnidadProtoss{
         ataqueTierra.atacar(unaConstruccion);
     }
 
-    @Override
-    public void modificarEstadisticas(int danio) {
-        //escudo-= danio;
-
-    }
-
     public boolean preRequisito(List<Construccion> lista) {
         if(lista!=null) {
             for(int i =0; i<lista.size();i++){
@@ -56,5 +51,10 @@ public class Scout extends UnidadProtoss{
         }
         return false;
 
+    }
+
+    @Override
+    public void modificarSuministro(Suministro suministro) {
+        suministro.aumentarCapacidad(4);
     }
 }

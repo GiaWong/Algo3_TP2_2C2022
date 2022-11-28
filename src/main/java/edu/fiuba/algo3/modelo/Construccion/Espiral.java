@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Construccion;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
+import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
@@ -42,12 +43,7 @@ public class Espiral extends ConstruccionZerg {
     public int obtenerVida() {return 0; }
 
     public void regenerarVida(){
-        /*
-        if(vida <= (Vida_Total-10)){
-            vida += 10;
-        }
-
-         */
+        vida.regenerarSalud(5);
     }
 
     @Override
@@ -86,6 +82,7 @@ public class Espiral extends ConstruccionZerg {
     public void esPosibleConstruirEn(SinTerreno nada) {
         throw new NoHayMoho();
     }
+
     @Override
     public void esPosibleConstruirEn(ConEnergia energia){
         throw new NoHayMoho();
@@ -93,6 +90,11 @@ public class Espiral extends ConstruccionZerg {
 
     @Override
     public void esPosibleConstruirEn(ConMoho moho){
+
+    }
+
+    @Override
+    public void aumentarSuministro(Suministro suministro) {
 
     }
 

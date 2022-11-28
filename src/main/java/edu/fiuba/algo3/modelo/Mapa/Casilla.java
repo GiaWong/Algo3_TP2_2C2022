@@ -15,8 +15,7 @@ import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 public class Casilla {
 
-    private int fila;
-    private int columna;
+    public Coordenada coordenada;
 
     protected Unidad unidad;
     private Recurso recurso;
@@ -30,12 +29,11 @@ public class Casilla {
         terreno = new SinTerreno();
     }
 
-    public Casilla(int f, int c){
+    public Casilla(Coordenada coord){
         area = new AreaTerrestre();
         recurso = new SinRecurso();
         terreno = new SinTerreno();
-        fila = f;
-        columna = c;
+        coordenada = coord;
     }
 
     public boolean hayConstruccion() {
@@ -56,24 +54,12 @@ public class Casilla {
     public void agregar(Unidad unaUnidad){
         area.esPosibleAgregar(unaUnidad);
         unidad = unaUnidad;
-        /*
-        if(area.esPosibleAgregar(unaUnidad)){
-            unidad = unaUnidad;
-        }
-         */
     }
 
-    public void agregar(Construccion unaConstruccion) throws CasillaOcupada, CasillaOcupadaPorZangano { //Esto hay que cambiarlo
-        boolean hayConst = this.hayConstruccion();
-        if(hayConst){
-            throw new CasillaOcupada();
-        }else if(unidad!=null){
-            throw new CasillaOcupadaPorZangano();
-        }
-        if (terreno.esPosibleConstruir(unaConstruccion) && recurso.esPosibleConstruir(unaConstruccion)){ //Porque el esPosibleConstruir() ya no devuelve un bool
-
-            construccion = unaConstruccion;
-        }
+    public void agregar(Construccion unaConstruccion){
+        recurso.esPosibleConstruir(unaConstruccion);
+        terreno.esPosibleConstruir(unaConstruccion);
+        construccion = unaConstruccion;
     }
 
 
@@ -121,6 +107,10 @@ public class Casilla {
         }
 
         return false;
+    }
+
+    public Coordenada coordenada(){
+        return coordenada;
     }
 
 }

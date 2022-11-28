@@ -4,6 +4,8 @@ import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.Criadero;
 import edu.fiuba.algo3.modelo.Construccion.Pilon;
 import edu.fiuba.algo3.modelo.Exception.NoEstaEnElMapa;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.Area;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
@@ -14,16 +16,33 @@ import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 public class Mapa {
 
-    public Casilla [][] casillas = new Casilla[20][20];
+    private int base;
+    private int altura;
+    private Casilla [][] mapa;
 
-
-    public Mapa(){
-        for(int i=0; i<20; i++){
-            for(int j=0; j<20;j++){
-                casillas[i][j]= new Casilla();
+    public Mapa(int unaBase, int unaAltura){
+        base = unaBase;
+        altura = unaAltura;
+        mapa = new Casilla[base][altura];
+        for(int i=0; i < base; i++){
+            for(int j=0; j < altura;j++){
+                mapa[i][j] = new Casilla(new Coordenada(i, j));
             }
         }
     }
+
+    public Casilla buscar(Coordenada coord) throws NoEstaEnElMapa{
+        for(int i=0; i < base; i++) {
+            for (int j = 0; j < altura; j++) {
+                if (coord.esIgual(mapa[i][j].coordenada())) {
+                    return mapa[i][j];
+                }
+            }
+        }
+        throw new NoEstaEnElMapa();
+    }
+
+    /*
    public void inicializarMapa2ConBases(){
         Criadero criadero = new Criadero();
         Pilon pilon = new Pilon();
@@ -31,58 +50,49 @@ public class Mapa {
         this.agregar(criadero,17,17);
    }
 
+     */
+
    public void inicializarConUnaFranjaEspacial(){
-        for(int i=0; i<5; i++) {
-            Superficie sup= new Aire();
+        for(int i=0; i < 5; i++) {
+            Area area = new AreaEspacial();
             Casilla casilla = new Casilla();
-            casilla.asignarArea(sup);
-            casillas[4][i]= casilla;
+            casilla.asignarArea(area);
+            mapa[4][i]= casilla;
         }
    }
 
     public void casillaConTerrenoMoho(int fila, int columna){
 
-        (casillas[fila][columna]).setTerreno(new ConMoho());
+        (mapa[fila][columna]).setTerreno(new ConMoho());
     }
 
-    public void agregar(Construccion construccion, int fila, int columna){
-        (casillas [fila][columna]).agregar(construccion);
-        Casilla casilla = new Casilla(fila, columna);
-        //mapa.put(casilla, construccion);
-    }
-    public void agregar(Unidad unidad, int fila, int columna){
-        (casillas [fila][columna]).agregar(unidad);
-        Casilla casilla = new Casilla(fila, columna);
-        //mapa.put(casilla, unidad);
-    }
+    public void destruirConstruccion(int fila, int columna) { //Puede ser que se ocupe Raza de esto...
 
-    public void destruirConstruccion(int fila, int columna) {
+        if((mapa [fila][columna]).esConstruccion(new Pilon())){
 
-        if((casillas [fila][columna]).esConstruccion(new Pilon())){
-
-            int radio = (casillas [fila][columna]).obtenerRadio();
+            int radio = (mapa [fila][columna]).obtenerRadio();
             this.setearRadioTerreno(radio,fila, columna, new SinTerreno());
-            (casillas [fila][columna]).destruirConstruccion();
+            (mapa [fila][columna]).destruirConstruccion();
             this.setearRadio();
 
         }else{
-            (casillas [fila][columna]).destruirConstruccion();
+            (mapa [fila][columna]).destruirConstruccion();
         }
     }
 
     public boolean hayConstruccion(int fila, int columna) {
-        return (casillas [fila][columna]).hayConstruccion();
+        return (mapa [fila][columna]).hayConstruccion();
     }
 
     public boolean hayUnidad(int fila, int columna) {
-        return (casillas [fila][columna]).hayUnidad();
+        return (mapa [fila][columna]).hayUnidad();
     }
 
-    public int[] buscarUnidad(Unidad unidad) throws NoEstaEnElMapa{
+    public int[] buscarUnidad(Unidad unidad) throws NoEstaEnElMapa{ //Puede ser que se ocupe Raza de esto...
         int [] pos = new int[10];
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
-                if ((casillas[i][j]).esUnidad(unidad)) {
+                if ((mapa[i][j]).esUnidad(unidad)) {
                     pos[0]=i;
                     pos[1]=j;
                     return pos;
@@ -91,17 +101,17 @@ public class Mapa {
         }
         throw new NoEstaEnElMapa();
     }
-    public void setearRadio() {
+    public void setearRadio() { //Puede ser que se ocupe Raza de esto...
         int radio;
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
 
-                if ((casillas[i][j]).esConstruccion(new Criadero())) {
-                    radio = (casillas[i][j]).obtenerRadio();
+                if ((mapa[i][j]).esConstruccion(new Criadero())) {
+                    radio = (mapa[i][j]).obtenerRadio();
                     this.setearRadioTerreno(radio, i, j, new ConMoho());
 
-                } else if ((casillas[i][j]).esConstruccion(new Pilon())) {
-                    radio = (casillas[i][j]).obtenerRadio();
+                } else if ((mapa[i][j]).esConstruccion(new Pilon())) {
+                    radio = (mapa[i][j]).obtenerRadio();
                     this.setearRadioTerreno(radio, i, j, new ConEnergia());
                 }
 
@@ -114,15 +124,15 @@ public class Mapa {
         for (int i = 0; i < radio; i++) {
             for (int j = 0; j < radio; j++) {
 
-                if (!(casillas[fila + i][columna + j].tipoTerreno(new ConMoho()))) {//si en esa posicion tiene moho
+                if (!(mapa[fila + i][columna + j].tipoTerreno(new ConMoho()))) {//si en esa posicion tiene moho
 
-                    casillas[fila + i][columna + j].setTerreno(terreno);
+                    mapa[fila + i][columna + j].setTerreno(terreno);
 
                 }
 
-                if (!(casillas[fila - i][columna - j].tipoTerreno(new ConMoho()))) {
+                if (!(mapa[fila - i][columna - j].tipoTerreno(new ConMoho()))) {
 
-                    casillas[fila - i][columna - j].setTerreno(terreno);
+                    mapa[fila - i][columna - j].setTerreno(terreno);
 
                 }
             }
@@ -130,26 +140,25 @@ public class Mapa {
     }
 
     public boolean tipoTerreno (Terreno terreno,int fila, int columna){
-        return (casillas[fila][columna]).tipoTerreno(terreno);
-
+        return (mapa[fila][columna]).tipoTerreno(terreno);
     }
 
     public void detectar(Unidad unidad){
         int[]pos = this.buscarUnidad(unidad); //falta terminar de codear esta parte
         for(int i = 0; i <   4; i++){
             for(int j = 0; j <  4; j++){
-                if(casillas[pos[0]+i][pos[0]+j].hayUnidad()){
-                    casillas[pos[0]+i][pos[0]+j].unidad.detectado();
+                if(mapa[pos[0]+i][pos[0]+j].hayUnidad()){
+                    mapa[pos[0]+i][pos[0]+j].unidad.detectado();
                 }
             }
         }
-
     }
-    public void atacar (Unidad unidad,int fila, int colum){
+
+    public void atacar (Unidad unidad,int fila, int colum){ //Puede ser que se ocupe Raza de esto...
         int[]pos = this.buscarUnidad(unidad);
         int rango = unidad.rango();
         if((pos[0]+rango>fila && pos[1]+rango>colum)||(pos[0]+rango>fila && pos[1]+rango>colum)) {
-            Casilla casilla = (casillas[fila][colum]);
+            Casilla casilla = (mapa[fila][colum]);
             casilla.atacar(unidad);
         }
     }

@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Acciones.*;
 import edu.fiuba.algo3.modelo.Construccion.Acceso;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Exception.UnidadNoTargeteable;
+import edu.fiuba.algo3.modelo.Jugador.Suministro;
 
 import java.util.List;
 
@@ -39,15 +40,6 @@ public class Zealot extends UnidadProtoss{
         defensa = new Detectable();
     }
 
-    @Override
-    public void modificarEstadisticas(int danio) {
-       // escudo-= danio;
-       // if (escudo<0){
-       //     vida += escudo;
-        //    escudo = 0;
-        //}
-    }
-
     public boolean preRequisito(List<Construccion> lista) {
         if(lista!=null) {
             for(int i =0; i<lista.size();i++){
@@ -68,6 +60,12 @@ public class Zealot extends UnidadProtoss{
             throw new UnidadNoTargeteable();
         }
     }
+
+    @Override
+    public void modificarSuministro(Suministro suministro) {
+        suministro.aumentarCapacidad(2);
+    }
+
     @Override
     public  void detectado(){
         visible = true;

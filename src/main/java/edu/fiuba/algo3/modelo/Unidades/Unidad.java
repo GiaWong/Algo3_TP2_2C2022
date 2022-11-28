@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Acciones.*;
+import edu.fiuba.algo3.modelo.Jugador.Suministro;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,10 +32,6 @@ public abstract class Unidad {
         return (tiempoConstruccion<=0);
     }
 
-    public abstract void modificarEstadisticas(int danio); //Este metodo no deberia existir
-
-    public abstract void recibirDanio(Danio danio);
-
     public boolean esPosibleSerAtacadoPor(Atacador ataque){
         return ataque.esPosibleAtacar(superficie);
     }
@@ -42,6 +39,10 @@ public abstract class Unidad {
     public  void detectado(){
         return;
     }
+
+    public abstract void modificarSuministro(Suministro suministro); //Este metodo no deberia existir
+
+    public abstract void recibirDanio(Danio danio);
 
 
 }
