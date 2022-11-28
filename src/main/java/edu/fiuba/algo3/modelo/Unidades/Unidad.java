@@ -39,5 +39,9 @@ public abstract class Unidad {
         return ataque.esPosibleAtacar(superficie);
     }
 
+    public  void detectado(){
+        return;
+    }
+
 
 }

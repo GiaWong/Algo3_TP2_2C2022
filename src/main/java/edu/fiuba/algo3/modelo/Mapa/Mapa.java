@@ -134,6 +134,17 @@ public class Mapa {
 
     }
 
+    public void detectar(Unidad unidad){
+        int[]pos = this.buscarUnidad(unidad); //falta terminar de codear esta parte
+        for(int i = 0; i <   4; i++){
+            for(int j = 0; j <  4; j++){
+                if(casillas[pos[0]+i][pos[0]+j].hayUnidad()){
+                    casillas[pos[0]+i][pos[0]+j].unidad.detectado();
+                }
+            }
+        }
+
+    }
     public void atacar (Unidad unidad,int fila, int colum){
         int[]pos = this.buscarUnidad(unidad);
         int rango = unidad.rango();
