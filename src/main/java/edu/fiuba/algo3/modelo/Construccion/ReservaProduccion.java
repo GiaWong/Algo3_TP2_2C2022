@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
 import edu.fiuba.algo3.modelo.Acciones.Vida;
+import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
@@ -27,7 +28,7 @@ public class ReservaProduccion extends ConstruccionZerg {
         tiempoConstruccion = 12;
     }
 
-    public Unidad crearUnidad(){
+    public Unidad crearUnidad() throws EdificioNoEstaOperativo {
 
         verificarEdificioOperativo();
         return creacion.crearZerling();

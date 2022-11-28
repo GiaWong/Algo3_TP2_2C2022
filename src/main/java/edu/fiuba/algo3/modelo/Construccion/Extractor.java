@@ -2,10 +2,7 @@ package edu.fiuba.algo3.modelo.Construccion;
 
 
 import edu.fiuba.algo3.modelo.Acciones.Vida;
-import edu.fiuba.algo3.modelo.Exception.ErrorEsteEdificioSoloSeConstruyeEnUnRecurso;
-import edu.fiuba.algo3.modelo.Exception.FaltaUnZanganoParaRecolectar;
-import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
-import edu.fiuba.algo3.modelo.Exception.NoSePuedeAgregarOtroZangano;
+import edu.fiuba.algo3.modelo.Exception.*;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
@@ -28,7 +25,7 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
         vida = new Vida(750);
         tiempoConstruccion = 6;
     }
-    public void agregarZangano(Zangano unZangano){
+    public void agregarZangano(Zangano unZangano) throws EdificioNoEstaOperativo, NoSePuedeAgregarOtroZangano {
         verificarEdificioOperativo();
         if (zanganos.size() < 3){
             zanganos.add(unZangano);

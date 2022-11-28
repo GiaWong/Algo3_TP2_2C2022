@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.Jugador;
 
 import edu.fiuba.algo3.modelo.Exception.NombreDeberiaTener6caracteresComoMinimo;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
+import edu.fiuba.algo3.modelo.Turno.Turno;
 
 public class Jugador {
 
@@ -28,7 +30,9 @@ public class Jugador {
         raza = unaRaza;
     }
 
-    public void jugar() {
+    public void jugar(Turno turno, Mapa mapa) {
+
+
     }
 
     public boolean mismasCaracteristicasQue(Jugador otroJugador) {

@@ -29,19 +29,20 @@ abstract class Raza {
     - bancoDeRecursos
     - capacidadSuministro
 
-    + agregarConstruccion()
-    + recolectar()
-    + crearUnidad()
+    + comprar(construccion)
+    + comprar(unidad)
 }
 
 class Zerg {
-    + agregarConstruccion()
+    + agregar(construccion)
+    + agregar(unidad)
     + recolectar()
     + crearUnidad()
 }
 
 class Protoss {
-    + agregarConstruccion()
+    + agregar(construccion)
+    + agregar(unidad)
     + recolectar()
     + crearUnidad()
 }

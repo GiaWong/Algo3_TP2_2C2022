@@ -9,11 +9,11 @@ public class Turno {
     }
 
     public void avanzarTurno(Jugador jugador){
-        jugador.avanzarturno();
+        //jugador.avanzarturno();
     }
 
     public void jugar(Jugador jugador){
-        jugador.jugar();
+        //jugador.jugar();
     }
 
     public int getCantidad (){

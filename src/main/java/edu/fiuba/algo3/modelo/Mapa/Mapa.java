@@ -45,14 +45,12 @@ public class Mapa {
     public void agregar(Construccion construccion, Coordenada coord){
         Casilla casilla = this.buscar(coord);
         casilla.agregar(construccion);
-
     }
 
     public void agregar(Unidad unidad, Coordenada coord){
         Casilla casilla = this.buscar(coord);
         unidad.asignarPosicion(coord);
         casilla.agregar(unidad);
-
     }
 
     /*

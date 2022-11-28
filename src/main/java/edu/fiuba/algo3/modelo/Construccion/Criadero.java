@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Construccion;
 
 
 import edu.fiuba.algo3.modelo.Acciones.Vida;
+import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.Exception.NoHayLarvasDisponiblesParaEvolucionar;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
@@ -48,7 +49,7 @@ public class Criadero extends ConstruccionZerg {
         }
     }
 
-    public Unidad evolucionarLarva() throws NoHayLarvasDisponiblesParaEvolucionar {
+    public Unidad evolucionarLarva() throws NoHayLarvasDisponiblesParaEvolucionar, EdificioNoEstaOperativo {
         verificarEdificioOperativo();
         verificarDisponibilidadDeLarvas();
         return crearUnidad();

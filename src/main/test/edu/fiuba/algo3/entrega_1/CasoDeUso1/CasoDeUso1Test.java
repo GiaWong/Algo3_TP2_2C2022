@@ -1,7 +1,8 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso1;
 
 import edu.fiuba.algo3.modelo.Construccion.Criadero;
-import edu.fiuba.algo3.modelo.Unidades.Zangano;
+import edu.fiuba.algo3.modelo.Exception.NoHayLarvasDisponiblesParaEvolucionar;
+import edu.fiuba.algo3.modelo.Unidades.Unidad;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,30 +10,29 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CasoDeUso1Test {
 
     @Test
-    public void CriaderoSeIniciaCon3LarvasYUnaEvolucionaAUnZangano() {
+    public void CriaderoSeIniciaCon3LarvasYUnaEvolucionaAUnZangano() throws NoHayLarvasDisponiblesParaEvolucionar {
         Criadero criaderoUno = new Criadero(0); //se crea con 3 larvas
         Criadero criaderoDos = new Criadero(0);
-        Zangano zangano = criaderoDos.evolucionarLarva();
+        Unidad zangano = criaderoDos.evolucionarLarva();
         assertFalse(criaderoUno.equals(criaderoDos));
-
     }
 
     @Test
-    public void EvolucionaUnaLarvaDeCriaderoYAlPasarTurnoDeberiaTener3Larvas() {
+    public void EvolucionaUnaLarvaDeCriaderoYAlPasarTurnoDeberiaTener3Larvas() throws NoHayLarvasDisponiblesParaEvolucionar {
         Criadero criaderoUno = new Criadero(0); //se crea con 3 larvas
         Criadero criaderoDos = new Criadero(0);
-        Zangano zangano = criaderoUno.evolucionarLarva();
+        Unidad zangano = criaderoUno.evolucionarLarva();
         criaderoDos.avanzarTurno();
         assertTrue( criaderoUno.equals(criaderoDos) );
     }
 
     @Test
-    public void EvolucionanDosLarvasDeCriaderoYAlPasarTurnoDeberiaTener2Larvas() {
+    public void EvolucionanDosLarvasDeCriaderoYAlPasarTurnoDeberiaTener2Larvas() throws NoHayLarvasDisponiblesParaEvolucionar {
         Criadero criaderoUno = new Criadero(0); //se crea con 3 larvas
         Criadero criaderoDos = new Criadero(0);
-        Zangano zanganoUno = criaderoUno.evolucionarLarva();
-        Zangano zanganoDos = criaderoUno.evolucionarLarva();
+        Unidad zanganoUno = criaderoUno.evolucionarLarva();
+        Unidad zanganoDos = criaderoUno.evolucionarLarva();
         criaderoUno.avanzarTurno();
-        assertFalse(  criaderoUno.equals(criaderoDos) );
+        assertFalse( criaderoUno.equals(criaderoDos) );
     }
 }

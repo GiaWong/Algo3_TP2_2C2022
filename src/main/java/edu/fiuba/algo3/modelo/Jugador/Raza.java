@@ -17,6 +17,7 @@ public abstract class Raza {
             suministro.agregar(construccion);
         }
     }
+
     public void comprar(Unidad unidad) {
         if (banco.esPosibleComprar(unidad)){
             banco.comprar(unidad);
@@ -25,7 +26,7 @@ public abstract class Raza {
     }
 
     public void avanzar(Turno turno, Mapa mapa){
-        turno.avanzar(mapa);
+        //turno.avanzar(mapa);
     }
 
     public abstract void recolectar();
