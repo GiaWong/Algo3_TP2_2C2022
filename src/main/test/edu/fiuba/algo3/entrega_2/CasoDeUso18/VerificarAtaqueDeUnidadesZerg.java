@@ -60,6 +60,7 @@ public class VerificarAtaqueDeUnidadesZerg {
             construccionEnemiga.construir();
         }
 
+
         mapa.agregar(guarida,10,10);
         mapa.agregar(construccionEnemiga,11,11);
         Hidralisco hidralisco = guarida.obtenerZerg();

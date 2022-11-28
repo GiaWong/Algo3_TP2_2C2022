@@ -57,8 +57,8 @@ public class Guarida extends ConstruccionZerg{
     }
 
     public void construirUnidad() { //Esto seria el metodo de crearUnidad()
-
         this.hidralisco.construir();
+
     }
 
     public Unidad obtenerZerg() {
