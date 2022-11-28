@@ -13,7 +13,6 @@ public class Dragon extends UnidadProtoss{
 
     protected int rango;
     private Atacador ataqueTierra;
-    private Atacador ataqueAire;
 
     public Dragon(){
 
@@ -24,7 +23,7 @@ public class Dragon extends UnidadProtoss{
         costos.add(125); //Esto es para Minerales
         costos.add(50); // Esto es para Gas
         superficie = new Tierra();
-        ataqueAire = new AtaqueAire(20);
+        atacador = new AtaqueAire(20);
         ataqueTierra = new AtaqueTierra(20);
     }
 
@@ -44,8 +43,8 @@ public class Dragon extends UnidadProtoss{
         if (unaUnidad.esPosibleSerAtacadoPor(ataqueTierra)){
             ataqueTierra.atacar(unaUnidad);
 
-        } else if (unaUnidad.esPosibleSerAtacadoPor(ataqueAire)){
-            ataqueAire.atacar(unaUnidad);
+        } else if (unaUnidad.esPosibleSerAtacadoPor(atacador)){
+            atacador.atacar(unaUnidad);
         }
     }
 

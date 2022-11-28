@@ -10,8 +10,6 @@ import java.util.List;
 public class Hidralisco extends UnidadZerg{
 
     private int rango;
-
-    private Atacador ataqueAire;
     private Atacador ataqueTierra;
     private Construccion preRequisito = new Guarida();
 
@@ -23,7 +21,7 @@ public class Hidralisco extends UnidadZerg{
         rango = 4;
         costos.add(75); //Esto es para Minerales
         costos.add(25); // Esto es para Gas
-        ataqueAire = new AtaqueAire(10);
+        atacador = new AtaqueAire(10);
         ataqueTierra = new AtaqueTierra(10);
         superficie = new Tierra();
 
@@ -33,8 +31,8 @@ public class Hidralisco extends UnidadZerg{
         if (unaUnidad.esPosibleSerAtacadoPor(ataqueTierra)){
             ataqueTierra.atacar(unaUnidad);
 
-        } else if (unaUnidad.esPosibleSerAtacadoPor(ataqueAire)){
-            ataqueAire.atacar(unaUnidad);
+        } else if (unaUnidad.esPosibleSerAtacadoPor(atacador)){
+            atacador.atacar(unaUnidad);
         }
     }
 

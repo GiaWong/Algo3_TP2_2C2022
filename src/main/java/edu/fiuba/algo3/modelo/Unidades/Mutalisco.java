@@ -11,8 +11,6 @@ public class Mutalisco extends UnidadZerg{
 
     // Deberia poder evolucionarse a Guardian.
     private int rango;
-
-    private Atacador ataqueAire;
     private Atacador ataqueTierra;
     private Construccion preRequisito = new Espiral();
 
@@ -23,7 +21,7 @@ public class Mutalisco extends UnidadZerg{
         costos.add(100); //Esto es para Minerales
         costos.add(100); // Esto es para Gas
         superficie = new Aire();
-        ataqueAire =new AtaqueAire(9);
+        atacador = new AtaqueAire(9);
         ataqueTierra = new AtaqueTierra(9);
     }
 
@@ -31,8 +29,8 @@ public class Mutalisco extends UnidadZerg{
         if (unaUnidad.esPosibleSerAtacadoPor(ataqueTierra)){
             ataqueTierra.atacar(unaUnidad);
 
-        } else if (unaUnidad.esPosibleSerAtacadoPor(ataqueAire)){
-            ataqueAire.atacar(unaUnidad);
+        } else if (unaUnidad.esPosibleSerAtacadoPor(atacador)){
+            atacador.atacar(unaUnidad);
         }
     }
 

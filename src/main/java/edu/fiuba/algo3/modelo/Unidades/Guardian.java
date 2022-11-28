@@ -12,7 +12,6 @@ import java.util.List;
 
 public class Guardian extends UnidadZerg{
     private int rango;
-    private Atacador ataqueTierra;
 
     public Guardian(){
         vida = new Vida(100);
@@ -21,18 +20,18 @@ public class Guardian extends UnidadZerg{
         costos.add(50);
         costos.add(100);
         superficie = new Aire();
-        ataqueTierra = new AtaqueTierra(25);
+        atacador = new AtaqueTierra(25);
 
     }
 
     public void atacar(Unidad unaUnidad){
-        if (unaUnidad.esPosibleSerAtacadoPor(ataqueTierra)){
-            ataqueTierra.atacar(unaUnidad);
+        if (unaUnidad.esPosibleSerAtacadoPor(atacador)){
+            atacador.atacar(unaUnidad);
         }
     }
 
     public void atacar(Construccion unaConstruccion){
-        ataqueTierra.atacar(unaConstruccion);
+        atacador.atacar(unaConstruccion);
     }
     @Override
     public void modificarSuministro(Suministro suministro) {

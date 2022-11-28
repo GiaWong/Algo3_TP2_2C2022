@@ -10,8 +10,6 @@ import java.util.List;
 public class Scout extends UnidadProtoss{
 
     private int rango;
-
-    private Atacador ataqueAire;
     private Atacador ataqueTierra;
     private Construccion preRequisito = new PuertoEstelar();
 
@@ -23,7 +21,7 @@ public class Scout extends UnidadProtoss{
         costos.add(300); //Esto es para Minerales
         costos.add(150); // Esto es para Gas
         superficie = new Aire();
-        ataqueAire = new AtaqueAire(14);
+        atacador = new AtaqueAire(14);
         ataqueTierra = new AtaqueTierra(8);
 
     }
@@ -32,8 +30,8 @@ public class Scout extends UnidadProtoss{
         if (unaUnidad.esPosibleSerAtacadoPor(ataqueTierra)){
             ataqueTierra.atacar(unaUnidad);
 
-        } else if (unaUnidad.esPosibleSerAtacadoPor(ataqueAire)){
-            ataqueAire.atacar(unaUnidad);
+        } else if (unaUnidad.esPosibleSerAtacadoPor(atacador)){
+            atacador.atacar(unaUnidad);
         }
     }
 

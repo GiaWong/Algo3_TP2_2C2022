@@ -43,13 +43,13 @@ public class Criadero extends ConstruccionZerg {
     }
 
 
-    public void verificarDisponibilidadDeLarvas() {
+    public void verificarDisponibilidadDeLarvas() throws NoHayLarvasDisponiblesParaEvolucionar {
         if(larvas < 0){
-            throw  new NoHayLarvasDisponiblesParaEvolucionar();
+            throw new NoHayLarvasDisponiblesParaEvolucionar();
         }
     }
 
-    public Unidad evolucionarLarva() {
+    public Unidad evolucionarLarva() throws NoHayLarvasDisponiblesParaEvolucionar {
         verificarEdificioOperativo();
         verificarDisponibilidadDeLarvas();
         return crearUnidad();

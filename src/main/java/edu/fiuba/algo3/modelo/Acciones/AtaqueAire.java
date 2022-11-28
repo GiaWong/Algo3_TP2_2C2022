@@ -7,12 +7,8 @@ import edu.fiuba.algo3.modelo.Unidades.Unidad;
 public class AtaqueAire implements Atacador {
 
     private Danio danio;
-    private int danioTierra;
-    private int danioAire;
-    private int danioInfligir;
 
     public AtaqueAire(int ataque) {
-        //danioAire = ataque;
         danio = new Danio(ataque);
     }
 

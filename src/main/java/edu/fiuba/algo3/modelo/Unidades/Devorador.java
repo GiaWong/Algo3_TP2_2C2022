@@ -9,7 +9,6 @@ import edu.fiuba.algo3.modelo.Jugador.Suministro;
 public class Devorador extends UnidadZerg{
 
     private int rango;
-    private Atacador ataqueAire;
 
     public Devorador(){
         vida = new Vida(200);
@@ -18,12 +17,12 @@ public class Devorador extends UnidadZerg{
         costos.add(150); //Esto es para Minerales
         costos.add(50); // Esto es para Gas
         superficie = new Aire();
-        ataqueAire = new AtaqueAire(15);
+        atacador = new AtaqueAire(15);
     }
 
     public void atacar(Unidad unaUnidad){
-        if (unaUnidad.esPosibleSerAtacadoPor(ataqueAire)){
-            ataqueAire.atacar(unaUnidad);
+        if (unaUnidad.esPosibleSerAtacadoPor(atacador)){
+            atacador.atacar(unaUnidad);
         }
     }
 

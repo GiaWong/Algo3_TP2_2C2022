@@ -17,8 +17,10 @@ abstract class Unidad {
     - tiempoConstruccion
     - costos
     - defendible
+    - atacador
     + construir()
-    +recibirDanio(danio)
+    + atacar()
+    + recibirDanio(danio)
 }
 
 
@@ -29,20 +31,17 @@ abstract class UnidadProtoss {
 }
 
 class Zealot {
-    -atacadorTierra
-    -atacadorAire
+    -atacador
     +atacar()
 }
 
 class Dragon {
-    -atacadorTierra
-    -atacadorAire
+    -atacador
     +atacar()
 }
 
 class Scout {
-    -atacadorTierra
-    -atacadorAire
+    -atacador
     +atacar()
 
 }
@@ -61,7 +60,6 @@ class Zangano {
 }
 
 class Zerling {
-    -atacador
     + atacar()
 }
 
@@ -77,12 +75,10 @@ class Mutalisco {
 }
 
 class Guardian {
-    -atacador
     +atacar()
 }
 
 class Devorador {
-    -atacador
     +atacar()
 }
 
@@ -102,6 +98,12 @@ class AtaqueAire {
     +atacar(unidad)
     +atacar(construccion)
 }
+
+class SinAtaque {
+    +atacar(unidad)
+    +atacar(construccion)
+}
+
 
 
 interface Invisiblibilidad {
@@ -135,24 +137,18 @@ AmoSupremo *-- Detector
 
 Zealot *-- Invisiblibilidad
 
-Zerling *-- Atacador
-Hidralisco *-- Atacador
-Mutalisco *-- Atacador
-Guardian *-- Atacador
-Scout *-- Atacador
-Dragon *-- Atacador
-Devorador *-- Atacador
-Zealot *-- Atacador
 
 Zangano *-- Recolector
 
 Unidad *- Defensa
+Unidad *-left- Atacador
 
 Defensa <|.up. Invisible
 Defensa <|.up. Detectable
 
-Atacador <|.. AtaqueTierra
-Atacador <|.. AtaqueAire
+Atacador <|.up. AtaqueTierra
+Atacador <|.up. AtaqueAire
+Atacador <|.up. SinAtaque
 
 
 @enduml

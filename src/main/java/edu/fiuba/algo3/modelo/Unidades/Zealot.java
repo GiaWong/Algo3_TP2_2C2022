@@ -11,7 +11,6 @@ import java.util.List;
 public class Zealot extends UnidadProtoss{
 
     private int rango;
-    private Atacador ataqueTierra;
     private boolean visible;
     private Construccion preRequisito = new Acceso();
 
@@ -22,18 +21,18 @@ public class Zealot extends UnidadProtoss{
         costos.add(100); //Esto es para Minerales
         costos.add(0); // Esto es para Gas
         superficie = new Tierra();
-        ataqueTierra = new AtaqueTierra(8);
+        atacador = new AtaqueTierra(8);
         defensa = new Detectable();
     }
 
     public void atacar(Unidad unaUnidad){
-        if (unaUnidad.esPosibleSerAtacadoPor(ataqueTierra)){
-            ataqueTierra.atacar(unaUnidad);
+        if (unaUnidad.esPosibleSerAtacadoPor(atacador)){
+            atacador.atacar(unaUnidad);
         }
     }
 
     public void atacar(Construccion unaConstruccion){
-        ataqueTierra.atacar(unaConstruccion);
+        atacador.atacar(unaConstruccion);
     }
 
     public void setDetectable(){

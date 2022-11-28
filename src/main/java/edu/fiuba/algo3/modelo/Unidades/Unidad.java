@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Acciones.*;
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 
 import java.util.ArrayList;
@@ -13,6 +14,8 @@ public abstract class Unidad {
     protected int tiempoConstruccion;
 
     protected Superficie superficie;
+
+    protected Atacador atacador;
 
     protected Defensa defensa = new Detectable();
 
@@ -44,5 +47,8 @@ public abstract class Unidad {
 
     public abstract void recibirDanio(Danio danio);
 
+    public abstract void atacar(Unidad unaUnidad);
+
+    public abstract void atacar(Construccion unaConstruccion);
 
 }
