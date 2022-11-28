@@ -1,22 +1,22 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
 
+import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Recurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
+import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Criadero extends ConstruccionZerg {
 
-    private int Vida_Total = 500;
     private int larvas = 3;
     private int tiempoAmpliacion = 2;
     //private int radio = 5;
@@ -30,8 +30,9 @@ public class Criadero extends ConstruccionZerg {
     public Criadero(){
         costos.add(50); //esto es para Mineral
         costos.add(0); //esto es para Gas
-        vida = Vida_Total;
+        vida = new Vida(500);
         tiempoConstruccion = 4;
+        creacion = new CrearUnidad();
     }
     public void evolucionar() {
         larvas--;
@@ -45,12 +46,15 @@ public class Criadero extends ConstruccionZerg {
     }
 
     public void regenerarVida(){
+        /*
         if(vida < (Vida_Total)){
             vida += 10;
         }
+
+         */
     }
 
-    public int obtenerVida() {return vida; }
+    public int obtenerVida() {return 0; }
     public int obtenerRadio(){
         return radio;
     }
@@ -58,9 +62,8 @@ public class Criadero extends ConstruccionZerg {
         return larvas;
     }
 
-
-    public void recibeDanio(int cant) {
-        vida -= cant;
+    public Unidad crearUnidad(){
+        return creacion.crearZangano();
     }
 
     @Override

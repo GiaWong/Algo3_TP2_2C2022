@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
+import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
@@ -9,6 +10,7 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Unidades.Mutalisco;
+import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 import java.util.List;
 
@@ -16,7 +18,6 @@ public class Espiral extends ConstruccionZerg {
 
     private ConstruccionZerg preRequisito = new Guarida();
 
-    private int Vida_Total = 1300;
     private Mutalisco zerg;
 
     private Creador creacion;
@@ -24,7 +25,7 @@ public class Espiral extends ConstruccionZerg {
     public Espiral(){
         costos.add(150); //esto es para Mineral
         costos.add(100); //esto es para Gas
-        vida = Vida_Total;
+        vida = new Vida(1300);
         tiempoConstruccion = 10;
     }
     public boolean preRequisito(List<Construccion> lista){ //Hay que cambiar
@@ -38,17 +39,15 @@ public class Espiral extends ConstruccionZerg {
         return false;
     }
 
-
-    public void recibeDanio(int cant) {
-        vida -= cant;
-    }
-
-    public int obtenerVida() {return vida; }
+    public int obtenerVida() {return 0; }
 
     public void regenerarVida(){
+        /*
         if(vida <= (Vida_Total-10)){
             vida += 10;
         }
+
+         */
     }
 
     @Override
@@ -63,12 +62,9 @@ public class Espiral extends ConstruccionZerg {
             this.zerg.construir();
         }
     }
-    public Mutalisco obtenerZerg() {
-        return this.zerg;
-    }
 
-    public void crearMutalisco(){
-
+    public Unidad crearUnidad(){
+        return creacion.crearMutalisco();
     }
 
     @Override

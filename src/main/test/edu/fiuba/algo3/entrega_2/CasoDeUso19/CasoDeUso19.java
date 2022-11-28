@@ -5,8 +5,6 @@ import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Unidades.*;
 import org.junit.jupiter.api.Test;
 
-import java.nio.file.StandardCopyOption;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso19 {
@@ -17,7 +15,7 @@ public class CasoDeUso19 {
         Zerling zerling = new Zerling();
         Espiral espiral = new Espiral();
         espiral.conZerg(new Mutalisco());//ver en reserva en dond se guardaré zerlings, lista? //cambiar nombre con eevolucionar
-        Mutalisco muta = espiral.obtenerZerg();
+        Mutalisco muta = espiral.crearUnidad();
         mapa.agregar(muta,11,10);
 
         Unidad mutalisco = new Mutalisco();
@@ -34,7 +32,7 @@ public class CasoDeUso19 {
         Zerling zerling = new Zerling();
         Espiral espiral = new Espiral();
         espiral.conZerg(new Mutalisco());//ver en reserva en dond se guardaré zerlings, lista? //cambiar nombre con eevolucionar
-        Mutalisco muta = espiral.obtenerZerg();
+        Mutalisco muta = espiral.crearUnidad();
         mapa.agregar(muta,11,10);
         mapa.agregar(zerling,10,10);
         mapa.atacar(muta,10,10);

@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
+import edu.fiuba.algo3.modelo.Acciones.Escudo;
+import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
@@ -8,23 +10,21 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
+import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 import java.util.List;
 
 public class PuertoEstelar extends ConstruccionProtoss {
 
     private ConstruccionProtoss preRequisito = new Acceso();
-    private int Vida_Total = 600;
-
-    private int Escudo_total = 600;
 
     private Creador creacion;
 
     public PuertoEstelar(){
         costos.add(150); //esto es para Mineral
         costos.add(150); //esto es para Gas
-        vida = Vida_Total;
-        escudo = Escudo_total;
+        vida = new Vida(600);
+        escudo = new Escudo(600);
         tiempoConstruccion = 10;
     }
 
@@ -41,23 +41,17 @@ public class PuertoEstelar extends ConstruccionProtoss {
 
 
     public void regenerarEscudo(){
+        /*
         if(escudo < (Escudo_total)){
             escudo += 10;
         }
+
+         */
     }
 
-    public int obtenerEscudo() {return escudo; }
+    public int obtenerEscudo() {return 0; }
 
-    public void recibeDanio(int cant) {
-        escudo-= cant;
-        if (escudo<0){
-            vida += escudo;
-            escudo = 0;
-        }
-
-
-    }
-    public int obtenerVida() {return vida; }
+    public int obtenerVida() {return 0; }
 
     @Override
     public void avanzarTurno() {
@@ -65,8 +59,8 @@ public class PuertoEstelar extends ConstruccionProtoss {
 
     }
 
-    public void crearScout(){
-
+    public Unidad crearUnidad(){
+        return creacion.crearScout();
     }
 
     @Override

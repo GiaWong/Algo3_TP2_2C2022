@@ -85,7 +85,7 @@ public class VerificarAtaqueDeUnidadesZerg {
         }
         mapa.agregar(espiral,10,10);
         mapa.agregar(construccionEnemiga,11,11);
-        Mutalisco muta = espiral.obtenerZerg();
+        Mutalisco muta = espiral.crearUnidad();
         mapa.agregar(muta,12,12);
         mapa.atacar(muta,11,11);
         assertEquals(491,construccionEnemiga.obtenerEscudo());

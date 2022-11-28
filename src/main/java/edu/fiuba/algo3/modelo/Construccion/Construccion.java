@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
+import edu.fiuba.algo3.modelo.Acciones.Danio;
 import edu.fiuba.algo3.modelo.Acciones.Detectable;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
@@ -40,4 +41,6 @@ public abstract class Construccion {
     public abstract void esPosibleConstruirEn(ConMoho moho);
 
     public abstract void esPosibleConstruirEn(SinTerreno nada);
+
+    public abstract void recibirDanio(Danio danio);
 }

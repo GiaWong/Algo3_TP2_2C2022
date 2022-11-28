@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
 
+import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Exception.ErrorEsteEdificioSoloSeConstruyeEnUnRecurso;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
@@ -17,16 +18,14 @@ import java.util.List;
 
 public class Extractor extends ConstruccionZerg{
 
-    private int Vida_Total = 750;
-
-    private List<Zangano> zanganos = new ArrayList<Zangano>();
+    private List<Zangano> zanganos = new ArrayList<>();
 
     private RefineriaGas refineria;
 
     public Extractor(){
         costos.add(100); //esto es para Mineral
         costos.add(0); //esto es para Gas
-        vida = Vida_Total;
+        vida = new Vida(750);
         tiempoConstruccion = 6;
     }
     public void agregar(Zangano unZangano){
@@ -37,16 +36,15 @@ public class Extractor extends ConstruccionZerg{
         }
     }
 
-    public void recibeDanio(int cant) {
-        vida  -= cant;
-    }
-
-    public int obtenerVida() {return vida; }
+    public int obtenerVida() {return 0; }
 
     public void regenerarVida(){
+        /*
         if(vida <= (Vida_Total-10)){
             vida += 10;
         }
+
+         */
     }
     public int recolectar(Volcan volcan) {
         if (this.estaDisponible()) {

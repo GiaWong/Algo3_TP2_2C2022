@@ -1,38 +1,45 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
+import edu.fiuba.algo3.modelo.Unidades.*;
+
 public class CrearUnidad implements Creador{
     @Override
-    public void crearZangano() {
+    public Unidad crearZangano() {
+        return new Zangano();
+    }
+
+    @Override
+    public Unidad crearZerling() {
+        return new Zerling();
+    }
+
+    @Override
+    public Unidad crearHidralisco() {
+        return new Hidralisco();
 
     }
 
     @Override
-    public void crearZerling() {
+    public Unidad crearMutalisco() {
+        return new Mutalisco();
 
     }
 
     @Override
-    public void crearHidralisco() {
+    public Unidad crearZealot() {
+        return new Zealot();
 
     }
 
     @Override
-    public void crearMutalisco() {
+    public Unidad crearDragon() {
+        return new Dragon();
 
     }
 
     @Override
-    public void crearZealot() {
-
-    }
-
-    @Override
-    public void crearDragon() {
-
-    }
-
-    @Override
-    public void crearScout() {
+    public Unidad crearScout() {
+        return new Scout();
 
     }
 }
