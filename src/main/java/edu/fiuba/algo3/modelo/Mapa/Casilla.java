@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.modelo.Mapa;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Exception.CasillaOcupada;
-import edu.fiuba.algo3.modelo.Exception.CasillaOcupadaPorZangano;
-
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.*;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;

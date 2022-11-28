@@ -166,12 +166,10 @@ public class Mapa {
         }
     }
 
-    public void atacar (Unidad unidad,int fila, int colum){ //Puede ser que se ocupe Raza de esto...
-        int[]pos = this.buscarUnidad(unidad);
-        int rango = unidad.rango();
-        if((pos[0]+rango>fila && pos[1]+rango>colum)||(pos[0]+rango>fila && pos[1]+rango>colum)) {
-            Casilla casilla = (mapa[fila][colum]);
-            casilla.atacar(unidad);
+    public void atacar (Unidad unidadAtacante, Coordenada coord){ //Puede ser que se ocupe Raza de esto...
+        Casilla casillaAtacada = this.buscar(coord);
+        if (coord.estaEnRango(unidadAtacante)){
+            casillaAtacada.atacar(unidadAtacante);
         }
     }
 }
