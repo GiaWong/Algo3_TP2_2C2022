@@ -10,15 +10,16 @@ public class Protoss extends Raza {
 
     public void agregar(ConstruccionProtoss construccion, Coordenada coordenada, Mapa mapa) {
         mapa.agregar(construccion, coordenada);
+
     }
 
     public void agregar(UnidadProtoss unidad, Coordenada coordenada, Mapa mapa) {
         mapa.agregar(unidad, coordenada);
+
     }
 
     @Override
     public void recolectar() {
-
     }
 
 
