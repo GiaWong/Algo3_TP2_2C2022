@@ -60,12 +60,11 @@ public class Criadero extends ConstruccionZerg {
     }
 
     @Override
-    public boolean equals(Object object){
-        if (!(object instanceof Criadero)) return false;
+    public boolean equals(Criadero object){
         return object.tieneMismaCantidadDeLarvas(larvas);
     }
 
-    private boolean tieneMismaCantidadDeLarvas(int cantidadDeLarvas) {
+    public boolean tieneMismaCantidadDeLarvas(int cantidadDeLarvas) {
         return larvas == cantidadDeLarvas;
     }
 

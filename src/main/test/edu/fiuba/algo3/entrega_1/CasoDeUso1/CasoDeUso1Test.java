@@ -22,7 +22,7 @@ public class CasoDeUso1Test {
         Criadero criaderoDos = new Criadero(0);
         criaderoUno.evolucionarLarva();
         criaderoDos.avanzarTurno();
-        assertTrue(  criaderoUno.equals(criaderoDos) );
+        assertTrue( criaderoUno.equals(criaderoDos) );
     }
 
     @Test
