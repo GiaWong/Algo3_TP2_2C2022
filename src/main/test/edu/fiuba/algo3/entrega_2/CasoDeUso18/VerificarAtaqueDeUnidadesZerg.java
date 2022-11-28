@@ -60,24 +60,27 @@ public class VerificarAtaqueDeUnidadesZerg {
             construccionEnemiga.construir();
         }
 
+        Coordenada coordGuarida = new Coordenada(10,10);
+        Coordenada coordAtacada = new Coordenada(11,11);
+        Coordenada coordHidra = new Coordenada(12, 12);
 
-        mapa.agregar(guarida,10,10);
-        mapa.agregar(construccionEnemiga,11,11);
-        Hidralisco hidralisco = guarida.obtenerZerg();
-        mapa.agregar(hidralisco,12,12);
-        mapa.atacar(hidralisco,11,11);
+        mapa.agregar(guarida,coordGuarida);
+        mapa.agregar(construccionEnemiga,coordAtacada);
+        Unidad hidralisco = new Hidralisco();
+        mapa.agregar(hidralisco,coordHidra);
+        mapa.atacar(hidralisco,coordAtacada);
         assertEquals(490,construccionEnemiga.obtenerEscudo());
 
     }
 
     @Test
     public void UnMutaliscoAtacaAUnaConstruccionProtossYDeberiaHacerleDanio() {
-        Mapa mapa = new Mapa();
+        Mapa mapa = new Mapa(20,20);
         Pilon pilon = new Pilon();
         for(int i =0 ; i<=4;i++) {
             pilon.construir();
         }
-        mapa.agregar(pilon,10,9);
+        mapa.agregar(pilon,new Coordenada(10,9));
         mapa.setearRadio();
         Espiral espiral = new Espiral();
         espiral.conZerg(new Mutalisco());//ver en reserva en dond se guardaré zerlings, lista? //cambiar nombre con eevolucionar
@@ -86,11 +89,16 @@ public class VerificarAtaqueDeUnidadesZerg {
         for(int i =0 ; i<=7;i++) {
             construccionEnemiga.construir();
         }
-        mapa.agregar(espiral,10,10);
-        mapa.agregar(construccionEnemiga,11,11);
-        Mutalisco muta = espiral.crearUnidad();
-        mapa.agregar(muta,12,12);
-        mapa.atacar(muta,11,11);
+
+        Coordenada coordEspiral = new Coordenada(10,10);
+        Coordenada coordAtacada = new Coordenada(11,11);
+        Coordenada coordMutalisco = new Coordenada(12, 12);
+
+        mapa.agregar(espiral,coordEspiral);
+        mapa.agregar(construccionEnemiga,coordAtacada);
+        Unidad muta = new Mutalisco();
+        mapa.agregar(muta,coordMutalisco);
+        mapa.atacar(muta,coordAtacada);
         assertEquals(491,construccionEnemiga.obtenerEscudo());
 
     }
@@ -99,23 +107,26 @@ public class VerificarAtaqueDeUnidadesZerg {
     public void UnGuardianAtacaAUnaConstruccionProtossYDeberiaHacerleDanio() {
         //Deberia evolucionar de Mutalisco
 
-        Mapa mapa = new Mapa();
+        Mapa mapa = new Mapa(20,20);
         Pilon pilon = new Pilon();
         Guardian guardian = new Guardian();
 
         for(int i =0 ; i<=4;i++) {
             pilon.construir();
         }
-        mapa.agregar(pilon,10,9);
+        mapa.agregar(pilon,new Coordenada(10,9));
         mapa.setearRadio();
 
         Acceso construccionEnemiga = new Acceso();
         for(int i =0 ; i<=7;i++) {
             construccionEnemiga.construir();
         }
-        mapa.agregar(construccionEnemiga,11,11);
-        mapa.agregar(guardian,12,12);
-        mapa.atacar(guardian,11,11);
+        Coordenada coordAtacada = new Coordenada(11,11);
+        Coordenada coordGuardian = new Coordenada(12, 12);
+
+        mapa.agregar(construccionEnemiga,coordAtacada);
+        mapa.agregar(guardian,coordGuardian);
+        mapa.atacar(guardian,coordAtacada);
         assertEquals(475,construccionEnemiga.obtenerEscudo());
 
     }

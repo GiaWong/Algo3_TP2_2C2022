@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.Jugador;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
+import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 public abstract class Raza {
@@ -20,6 +22,10 @@ public abstract class Raza {
             banco.comprar(unidad);
             suministro.agregar(unidad);
         }
+    }
+
+    public void avanzar(Turno turno, Mapa mapa){
+        turno.avanzar(mapa);
     }
 
     public abstract void recolectar();

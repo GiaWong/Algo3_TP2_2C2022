@@ -14,14 +14,14 @@ public class CasoDeUso22Protoss {
     @Test
     public void SeVerificaPreRequisitoZealot() {
         Zealot zealot = new Zealot();
-        List<Construccion> lisst = new ArrayList<>();
+        List<Construccion> list = new ArrayList<>();
         Acceso acceso = new Acceso();
-        lisst.add(acceso);
+        list.add(acceso);
         for(int i=0;i<4;i++ ){
             zealot.construir();
         }
         assertEquals(true,zealot.estaDisponible());
-        assertEquals(true, zealot.preRequisito(lisst));
+        assertEquals(true, zealot.preRequisito(list));
     }
 
     @Test
