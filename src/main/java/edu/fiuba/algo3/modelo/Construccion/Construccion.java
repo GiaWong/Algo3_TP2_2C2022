@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Construccion;
 import edu.fiuba.algo3.modelo.Acciones.Danio;
 import edu.fiuba.algo3.modelo.Acciones.Detectable;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
+import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.*;
@@ -20,6 +21,12 @@ public abstract class Construccion {
 
     public void construir() {
         tiempoConstruccion--;
+    }
+
+    public void verificarEdificioOperativo() {
+        if(tiempoConstruccion > 0 ){
+            throw  new EdificioNoEstaOperativo();
+        }
     }
 
     public List<Integer> costo() {

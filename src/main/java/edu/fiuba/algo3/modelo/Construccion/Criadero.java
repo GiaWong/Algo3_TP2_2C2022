@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Construccion;
 
 
 import edu.fiuba.algo3.modelo.Acciones.Vida;
+import edu.fiuba.algo3.modelo.Exception.NoHayLarvasDisponiblesParaEvolucionar;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
@@ -12,9 +13,6 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Criadero extends ConstruccionZerg {
 
@@ -35,8 +33,40 @@ public class Criadero extends ConstruccionZerg {
         tiempoConstruccion = 4;
         creacion = new CrearUnidad();
     }
-    public void evolucionar() {
-        larvas--;
+
+    public Criadero(int turnosParaEstarOperativo){
+        costos.add(50); //esto es para Mineral
+        costos.add(0); //esto es para Gas
+        vida = new Vida(500);
+        tiempoConstruccion = turnosParaEstarOperativo;
+        creacion = new CrearUnidad();
+    }
+
+
+    public void verificarDisponibilidadDeLarvas() {
+        if(larvas < 0){
+            throw  new NoHayLarvasDisponiblesParaEvolucionar();
+        }
+    }
+
+    public Unidad evolucionarLarva() {
+        verificarEdificioOperativo();
+        verificarDisponibilidadDeLarvas();
+        return crearUnidad();
+    }
+
+    public Unidad crearUnidad(){
+        return creacion.crearZangano();
+    }
+
+    @Override
+    public boolean equals(Object object){
+        if (!(object instanceof Criadero)) return false;
+        return object.tieneMismaCantidadDeLarvas(larvas);
+    }
+
+    private boolean tieneMismaCantidadDeLarvas(int cantidadDeLarvas) {
+        return larvas == cantidadDeLarvas;
     }
 
     public void ampliarRadio() {
@@ -54,13 +84,7 @@ public class Criadero extends ConstruccionZerg {
     public int obtenerRadio(){
         return radio;
     }
-    public int obtenerCantidadLarvas(){
-        return larvas;
-    }
 
-    public Unidad crearUnidad(){
-        return creacion.crearZangano();
-    }
 
     @Override
     public void avanzarTurno(){
