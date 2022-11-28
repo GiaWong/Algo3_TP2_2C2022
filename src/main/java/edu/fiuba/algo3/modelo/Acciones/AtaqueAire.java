@@ -29,7 +29,7 @@ public class AtaqueAire implements Atacador {
 
     @Override
     void ultimoGolpe(Construccion construccion){
-        construccion.estaOperativo;
+        construccion.estaOperativo();
     }
     @Override
     void ultimoGolpe(Unidad unidad){

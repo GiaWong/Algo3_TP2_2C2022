@@ -30,8 +30,14 @@ public class AtaqueTierra implements Atacador { //Supuesto: TODAS LAS CONSTRUCCI
         return superficie.esPosibleSerAtacadoPorAtaqueTierra();
     }
 
+    @Override
+    void ultimoGolpe(Construccion construccion){
+        construccion.estaOperativo();
+    }
+    @Override
+    void ultimoGolpe(Unidad unidad){
+        unidad.estaOperativo();
+    }
+
 }
-/*
-UnidadAtacante.atacar(unidadAtacada){
-    UnidadAtacada.recibirdanio(ataqueTierra)
-*/
+
