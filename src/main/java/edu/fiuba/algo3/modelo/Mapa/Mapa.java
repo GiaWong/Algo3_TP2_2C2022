@@ -42,6 +42,16 @@ public class Mapa {
         throw new NoEstaEnElMapa();
     }
 
+    public void agregar(Construccion construccion, Coordenada coord){
+        Casilla casilla = this.buscar(coord);
+        casilla.agregar(construccion);
+    }
+
+    public void agregar(Unidad unidad, Coordenada coord){
+        Casilla casilla = this.buscar(coord);
+        casilla.agregar(unidad);
+    }
+
     /*
    public void inicializarMapa2ConBases(){
         Criadero criadero = new Criadero();

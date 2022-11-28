@@ -9,13 +9,11 @@ import edu.fiuba.algo3.modelo.Unidades.UnidadProtoss;
 public class Protoss extends Raza {
 
     public void agregar(ConstruccionProtoss construccion, Coordenada coordenada, Mapa mapa) {
-        Casilla casilla = mapa.buscar(coordenada);
-        casilla.agregar(construccion);
+        mapa.agregar(construccion, coordenada);
     }
 
     public void agregar(UnidadProtoss unidad, Coordenada coordenada, Mapa mapa) {
-        Casilla casilla = mapa.buscar(coordenada);
-        casilla.agregar(unidad);
+        mapa.agregar(unidad, coordenada);
     }
 
     @Override
