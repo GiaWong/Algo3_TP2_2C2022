@@ -59,7 +59,6 @@ public class Criadero extends ConstruccionZerg {
         return creacion.crearZangano();
     }
 
-    @Override
     public boolean equals(Criadero object){
         return object.tieneMismaCantidadDeLarvas(larvas);
     }
