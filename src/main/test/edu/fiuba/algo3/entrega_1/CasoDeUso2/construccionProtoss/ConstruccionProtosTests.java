@@ -142,7 +142,7 @@ public class ConstruccionProtosTests {
     }
 
     @Test
-    public void SeConstruyePuertoEstelarYDeberiaEstarActivo() {
+    public void SeTerminaDeConstruirPuertoEstelarYDeberiaEstarActivo() {
         Acceso acceso = new Acceso();
         Mapa mapa = new Mapa(20,20);
         mapa.agregar(acceso,new Coordenada(1,3));
