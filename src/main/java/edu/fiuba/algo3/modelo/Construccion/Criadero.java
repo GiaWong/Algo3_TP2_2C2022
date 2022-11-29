@@ -20,7 +20,6 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
 
     private int larvas = 3;
     private int tiempoAmpliacion = 2;
-    //private int radio = 5;
 
     private Creador creacion;
 
