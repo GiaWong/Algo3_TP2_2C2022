@@ -7,6 +7,8 @@ import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEnEsteTerreno;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.Coordenada;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
@@ -39,6 +41,10 @@ public class Pilon extends ConstruccionProtoss implements ConstruccionConRadio{
     public int obtenerEscudo() {return 0; }
 
     public int obtenerVida() {return 0; }
+
+    public void energizar(Mapa mapa, Coordenada coordenada){
+        mapa.energizar(coordenada,radio);
+    }
 
     @Override
     public void avanzarTurno() {

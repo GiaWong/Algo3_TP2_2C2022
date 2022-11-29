@@ -169,4 +169,7 @@ public class Mapa {
             casillaAtacada.atacar(unidadAtacante);
         }
     }
+
+    public void energizar(Coordenada coordenada, int radio) {
+    }
 }

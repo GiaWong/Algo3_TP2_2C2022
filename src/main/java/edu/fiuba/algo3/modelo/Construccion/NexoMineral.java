@@ -47,6 +47,7 @@ public class NexoMineral extends ConstruccionProtoss implements RefineriaMineral
     @Override
     public void avanzarTurno() {
         this.regenerarEscudo();
+        tiempoConstruccion--;
 
     }
 

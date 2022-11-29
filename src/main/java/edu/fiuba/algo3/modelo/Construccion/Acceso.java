@@ -50,6 +50,7 @@ public  class Acceso extends ConstruccionProtoss{
     @Override
     public void avanzarTurno() {
         this.regenerarEscudo();
+        tiempoConstruccion--;
 
     }
 
