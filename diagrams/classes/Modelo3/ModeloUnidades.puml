@@ -138,7 +138,7 @@ UnidadProtoss <|--- Zealot
 UnidadProtoss <|--- Dragon
 UnidadProtoss <|--- Scout
 
-AmoSupremo *-- Detector
+AmoSupremo ..|> Detector
 
 Zealot ..|> Invisiblibilidad
 
