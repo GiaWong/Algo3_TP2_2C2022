@@ -57,6 +57,7 @@ public class Casilla {
         recurso.esPosibleConstruir(unaConstruccion);
         terreno.esPosibleConstruir(unaConstruccion);
         construccion = unaConstruccion;
+
     }
 
 

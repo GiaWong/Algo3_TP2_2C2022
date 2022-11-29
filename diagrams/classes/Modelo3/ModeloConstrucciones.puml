@@ -116,21 +116,21 @@ interface RefineriaMineral {
     +recolectar(NodoMineral)
 }
 
-interface Creador {
-    +crearZangano()
-    +crearZerling()
-    +crearHidralisco()
-    +crearMutalisco()
-    +crearZealot()
-    +crearDragon()
-    +crearScout()
+class Larva {
+    +mutarZangano()
+    +mutarZerling()
+    +mutarHidralisco()
+    +mutarMutalisco()
 }
 
-class CrearUnidad {
-    +crearZangano()
-    +crearZerling()
-    +crearHidralisco()
-    +crearMutalisco()
+interface Mutador {
+    +mutarZangano()
+    +mutarZerling()
+    +mutarHidralisco()
+    +mutarMutalisco()
+}
+
+interface Creardor {
     +crearZealot()
     +crearDragon()
     +crearScout()
@@ -163,13 +163,10 @@ NexoMineral ..|> RefineriaMineral
 Extractor ..|> RefineriaGas
 Asimilador ..|> RefineriaGas
 
-PuertoEstelar *-- Creador
-ReservaProduccion *-- Creador
-Acceso *-- Creador
-Guarida *-- Creador
-Criadero *-- Creador
-Espiral *-- Creador
+Criadero --> Larva
+Larva ..|> Mutador
 
-Creador <|.. CrearUnidad
+Acceso ..|> Creardor
+PuertoEstelar ..|> Creardor
 
 @enduml

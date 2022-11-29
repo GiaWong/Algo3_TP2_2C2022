@@ -51,6 +51,7 @@ abstract class UnidadZerg {
     +recibirDanio(danio)
 }
 
+
 class AmoSupremo {
     +detectarUnidad()
 }
@@ -113,7 +114,6 @@ interface Recolector {
 
 Unidad <|-- UnidadZerg
 Unidad <|-- UnidadProtoss
-
 
 UnidadZerg <|--- Zangano
 UnidadZerg <|--- AmoSupremo
