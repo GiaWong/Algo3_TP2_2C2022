@@ -7,6 +7,8 @@ import edu.fiuba.algo3.modelo.Construccion.Criadero;
 import edu.fiuba.algo3.modelo.Construccion.Extractor;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupada;
 import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.Mapa.Coordenada;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 import edu.fiuba.algo3.modelo.Unidades.Zangano;
 import org.junit.jupiter.api.Test;
@@ -56,8 +58,7 @@ public class ConstruccionZergTests {
             reserva.avanzarTurno();
         }
         assertDoesNotThrow(()->{
-            reserva.crearUnidad();
-        });
+            reserva.crearUnidad();});
     }
 
     @Test
@@ -80,53 +81,84 @@ public class ConstruccionZergTests {
         for(int i =0 ; i<=5;i++) {
             extractor.avanzarTurno();
         }
-        assertDoesNotThrow(()->{extractor.agregarZangano(zangano);}
+        assertDoesNotThrow(()->{extractor.agregarZangano(zangano);});
 
     }
 
     @Test
     public void SeArrancaAConstruirGuaridaYNoPasanTurnosYDeberiaEstarInactivo() {
-        Guarida guarida = new Guarida(); //acá quedé
-        guarida.esRequisitoDe(new Guarida());
+        Mapa mapa = new Mapa(20,20);
+        ReservaProduccion reserva = new ReservaProduccion();
+        mapa.agregar(reserva,new Coordenada(1,2));
+        Guarida guarida = new Guarida();
+        mapa.agregar(guarida,new Coordenada(1,8));
+        assertThrows( EdificioNoEstaOperativo.class, guarida::crearUnidad);
     }
     @Test
-    public void SeArrancaAConstruirGuaridaYDeberiaEstarInactivoPorFaltaDeTurnos() {
-        boolean esperado = false;
+    public void SeArrancaAConstruirGuaridaYPasaUnTurnoYDeberiaEstarInactivoPorFaltaDeTurnos() {
+        Mapa mapa = new Mapa(20,20);
+        ReservaProduccion reserva = new ReservaProduccion();
+        mapa.agregar(reserva,new Coordenada(1,2));
         Guarida guarida = new Guarida();
-        guarida.construir();
-        boolean resultado = guarida.estaDisponible();
-        assertEquals(resultado,esperado);}
+        mapa.agregar(guarida,new Coordenada(1,8));
+        guarida.avanzarTurno();
+        assertThrows( EdificioNoEstaOperativo.class, guarida::crearUnidad);
+    }
 
     @Test
-    public void SeConstruyeGuaridaYDeberiaEstarActivo() {
-        boolean esperado = true;
+    public void SeTerminaDeConstruirGuaridaYDeberiaEstarActivo() {
+        Mapa mapa = new Mapa(20,20);
+        ReservaProduccion reserva = new ReservaProduccion();
+        mapa.agregar(reserva,new Coordenada(1,2));
         Guarida guarida = new Guarida();
+        mapa.agregar(guarida,new Coordenada(1,8));
         for(int i =0 ; i<=12;i++) {
-            guarida.construir();
+            guarida.avanzarTurno();
         }
-        boolean resultado = guarida.estaDisponible();
-        assertEquals(resultado,esperado);
+        assertDoesNotThrow(()->{guarida.crearUnidad();});
     }
 
     @Test
-    public void SeArrancaAConstruirEspiralYDeberiaEstarInactivoPorFaltaDeTurnos() {
-        boolean esperado = false;
+    public void SeArrancaAConstruirEspiralYNoPasanTurnosYDeberiaEstarInactivo() {
+        Mapa mapa = new Mapa(20,20);
+        ReservaProduccion reserva = new ReservaProduccion();
+        mapa.agregar(reserva,new Coordenada(1,2));
+        Guarida guarida = new Guarida();
+        mapa.agregar(guarida,new Coordenada(1,8));
         Espiral espiral = new Espiral();
-        espiral.construir();
-        boolean resultado = espiral.estaDisponible();
-        assertEquals(resultado,esperado);}
+        mapa.agregar(espiral,new Coordenada(2,6));
+        assertThrows( EdificioNoEstaOperativo.class, espiral::crearUnidad);
+    }
+
+    @Test
+    public void SeArrancaAConstruirEspiralYAvanzaUnTurnoYDeberiaEstarInactivoPorFaltaDeTurnos() {
+        Mapa mapa = new Mapa(20,20);
+        ReservaProduccion reserva = new ReservaProduccion();
+        mapa.agregar(reserva,new Coordenada(1,2));
+        Guarida guarida = new Guarida();
+        mapa.agregar(guarida,new Coordenada(1,8));
+        Espiral espiral = new Espiral();
+        mapa.agregar(espiral,new Coordenada(2,6));
+        espiral.avanzarTurno();
+        assertThrows( EdificioNoEstaOperativo.class, espiral::crearUnidad);
+    }
+
     @Test
     public void SeConstruyeEspiralYDeberiaEstarActivo() {
-        boolean esperado = true;
+        Mapa mapa = new Mapa(20,20);
+        ReservaProduccion reserva = new ReservaProduccion();
+        mapa.agregar(reserva,new Coordenada(1,2));
+        Guarida guarida = new Guarida();
+        mapa.agregar(guarida,new Coordenada(1,8));
         Espiral espiral = new Espiral();
+        mapa.agregar(espiral,new Coordenada(2,6));
         for(int i =0 ; i<=9;i++) {
-            espiral.construir();
+            espiral.avanzarTurno();
         }
-        boolean resultado = espiral.estaDisponible();
-        assertEquals(resultado,esperado);
+        assertDoesNotThrow(()->{guarida.crearUnidad();});
+    }
+}
 
-    }
-    }
 
 
 
