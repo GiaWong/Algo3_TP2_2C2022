@@ -14,21 +14,19 @@ public abstract class Raza {
 
 
     public void comprar(Construccion construccion) {
-        if (banco.esPosibleComprar(construccion)){
-            banco.comprar(construccion);
-            suministro.agregar(construccion);
-        }
+        banco.comprar(construccion);
+        suministro.agregar(construccion);
     }
 
     public void comprar(Unidad unidad) {
-        if (banco.esPosibleComprar(unidad)){
-            banco.comprar(unidad);
-            suministro.agregar(unidad);
-        }
+        banco.comprar(unidad);
+        suministro.agregar(unidad);
+
     }
 
     public void avanzar(Turno turno, Mapa mapa){
         //turno.avanzar(mapa);
+        //mapa.avanzar(turno);
     }
 
     public abstract void recolectar();

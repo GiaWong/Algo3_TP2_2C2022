@@ -25,13 +25,13 @@ public class Zangano extends UnidadZerg {
     public void atacar(Construccion unaConstruccion){
     }
 
+    public int recolectar(NodoMineral nodo) {
+        return nodo.recolectar(10);
+    }
+
     @Override
     public void esPosibleMoverseEn(AreaEspacial areaEspacial) {
         throw new EstaUnidadNoSeMuevePorAreaEspacial();
-    }
-
-    public int recolectar(NodoMineral nodo) {
-        return nodo.recolectar(10);
     }
 
     @Override

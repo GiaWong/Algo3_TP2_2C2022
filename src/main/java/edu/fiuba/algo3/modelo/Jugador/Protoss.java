@@ -13,28 +13,22 @@ import javafx.scene.layout.CornerRadii;
 public class Protoss extends Raza {
 
     public void agregar(ConstruccionProtoss construccion, Coordenada coordenada, Mapa mapa) {
-        mapa.agregar(construccion, coordenada);
-
+        if (banco.esPosibleComprar(construccion)){
+            this.comprar(construccion);
+            mapa.agregar(construccion, coordenada);
+        }
     }
 
     public void agregar(UnidadProtoss unidad, Coordenada coordenada, Mapa mapa) {
-        mapa.agregar(unidad, coordenada);
-
+        if (banco.esPosibleComprar(unidad)){
+            this.comprar(unidad);
+            mapa.agregar(unidad, coordenada);
+        }
     }
 
     @Override
     public void recolectar() {
     }
-
-    public void crearUnidad(Zealot Zealot, Mapa mapa){
-        //mapa.buscar
-        //mapa.agregar(new Acceso());
-
-    }
-    public void crearUnidad(Scout Scout){
-
-    }
-    public void crearUnidad(Dragon Dragon){}
 
 
 }

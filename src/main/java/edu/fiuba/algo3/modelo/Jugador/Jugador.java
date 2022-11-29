@@ -33,10 +33,15 @@ public class Jugador {
     public void jugar(Turno turno, Mapa mapa) {
 
         // while raza.noTengaMasRecursos(){
-        //       raza.construir()
-        //       raza.crearUnidad()
+        //       Construccion const = pedirUnaConstruccionAlUsuario();
+        //       Coordenada coord = pedirUnaCoordenadaAlUsuario();
+        //       raza.agregar(const, coord, mapa);
+
+        //       Coordenada otraCoord = pedirUnaCoordenadaAlUsuario();
+        //       raza.crearUnidad(otraCoord, mapa);
+
         //       raza.atacar()
-        turno.aumentarTurno();
+        raza.avanzar(turno, mapa);
     }
 
     public boolean comparar(Jugador otroJugador) {
@@ -51,19 +56,8 @@ public class Jugador {
         return color.equals(otroColor);
     }
 
-    public boolean tieneMismaRaza(Raza otraRaza){
+    public boolean tieneMismaRaza(Raza otraRaza) {
         return raza.equals(otraRaza); //No se si esto lo toma
     }
 
-    /*
-    public Raza obtenerraza() {return raza;     //NO ESTA BUENO USAR GETTERS!!
-    }
-
-    public String obtenercolor() {return color;
-    }
-
-    public String obtenernombre() {return nombre;
-    }
-
-     */
 }
