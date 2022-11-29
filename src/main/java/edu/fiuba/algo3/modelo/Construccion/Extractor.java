@@ -33,12 +33,16 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
         tiempoConstruccion = tiempoDeConstruccion;
     }
 
-    public void agregarZangano(Zangano unZangano) throws EdificioNoEstaOperativo, NoSePuedeAgregarOtroZangano {
-        verificarEdificioOperativo();
-        if (zanganos.size() < 3){
+    public void agregarZangano(Zangano unZangano) {
+        try {
+            verificarEdificioOperativo();
+        } catch (Exception EdificioNoEstaOperativo){
+            System.out.println("Este edificio no está operativo aún.");
+        }
+        try {
             zanganos.add(unZangano);
-        } else {
-            throw new NoSePuedeAgregarOtroZangano();
+        } catch (Exception NoSePuedeAgregarOtroZangano){
+            System.out.println("Extractor completo. No se puede agregar otro zángano.");
         }
     }
 
