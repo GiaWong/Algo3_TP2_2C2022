@@ -18,6 +18,7 @@ public class Casilla {
     private Recurso recurso;
     private Area area;
     protected Terreno terreno;
+
     protected Construccion construccion;
 
     public Casilla(){

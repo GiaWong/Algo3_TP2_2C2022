@@ -16,9 +16,11 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
+import java.util.ArrayList;
+
 public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
 
-    private int larvas = 3;
+    private ArrayList<Larva> larvas = new ArrayList<>();
     private int tiempoAmpliacion = 2;
 
     private Creador creacion;
@@ -32,6 +34,9 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         vida = new Vida(500);
         tiempoConstruccion = 4;
         creacion = new CrearUnidad();
+        larvas.add(new Larva());
+        larvas.add(new Larva());
+        larvas.add(new Larva());
     }
 
     public Criadero(int turnosParaEstarOperativo){
@@ -40,11 +45,14 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         vida = new Vida(500);
         tiempoConstruccion = turnosParaEstarOperativo;
         creacion = new CrearUnidad();
+        larvas.add(new Larva());
+        larvas.add(new Larva());
+        larvas.add(new Larva());
     }
 
 
     public void verificarDisponibilidadDeLarvas() throws NoHayLarvasDisponiblesParaEvolucionar {
-        if(larvas < 0){
+        if(larvas.size() == 0){
             throw new NoHayLarvasDisponiblesParaEvolucionar();
         }
     }
@@ -57,14 +65,14 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
 
     public Unidad crearUnidad(){
         return creacion.crearZangano();
-    }
+    } //Como resuelvo esto? Tengo que usar larvas para que mute a zangano ahora. Como pongo la unidad en la casilla?
 
     public boolean equals(Criadero object){
-        return object.tieneMismaCantidadDeLarvas(larvas);
-    }
+        return object.tieneMismaCantidadDeLarvas(larvas.size());
+    } //No entiendo pa que sirve este metodo
 
     public boolean tieneMismaCantidadDeLarvas(int cantidadDeLarvas) {
-        return larvas == cantidadDeLarvas;
+        return larvas.size() == cantidadDeLarvas;
     }
 
     public void ampliarRadio() {
@@ -86,8 +94,8 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
 
     @Override
     public void avanzarTurno(){
-        if(larvas<3){
-            larvas++;
+        if(larvas.size() < 3){
+            larvas.add(new Larva());
         }
         tiempoAmpliacion--;
         this.regenerarVida();

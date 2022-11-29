@@ -130,10 +130,13 @@ interface Mutador {
     +mutarMutalisco()
 }
 
-interface Creardor {
+interface CreadorPuertoEstelar {
+    +crearScout()
+}
+
+interface CreadorAcceso {
     +crearZealot()
     +crearDragon()
-    +crearScout()
 }
 
 Detectable ..|> Defendible
@@ -166,7 +169,7 @@ Asimilador ..|> RefineriaGas
 Criadero --> Larva
 Larva ..|> Mutador
 
-Acceso ..|> Creardor
-PuertoEstelar ..|> Creardor
+Acceso ..|> CreadorPuertoEstelar
+PuertoEstelar ..|> CreadorAcceso
 
 @enduml

@@ -31,7 +31,7 @@ public class Zealot extends UnidadProtoss{
             atacador.atacar(unaUnidad);
         }
         try {
-            atacador.ultimoGolpe(unaUnidad);
+            //atacador.ultimoGolpe(unaUnidad);
 
         }catch (Exception UnidadMuerta){
             asesinatos++;
@@ -43,7 +43,7 @@ public class Zealot extends UnidadProtoss{
 
         atacador.atacar(unaConstruccion);
         try {
-            atacador.ultimoGolpe(unaConstruccion);
+            //atacador.ultimoGolpe(unaConstruccion);
 
         }catch (Exception ConstruccionDestruida){
             asesinatos++;

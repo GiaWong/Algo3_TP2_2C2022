@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Acciones.*;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.Espiral;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 
 import java.util.List;
 
@@ -35,6 +36,11 @@ public class Mutalisco extends UnidadZerg{
 
     public void atacar(Construccion unaConstruccion){
         ataqueTierra.atacar(unaConstruccion);
+    }
+
+    @Override
+    public void esPosibleMoverseEn(AreaEspacial areaEspacial) {
+
     }
 
     public Unidad evolucionar() {

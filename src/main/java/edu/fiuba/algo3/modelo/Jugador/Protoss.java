@@ -26,9 +26,9 @@ public class Protoss extends Raza {
     public void recolectar() {
     }
 
-    public void crearUnidad(Zealot Zealot, mapa){
-        mapa.buscar
-        mapa.agregar(new Acceso());
+    public void crearUnidad(Zealot Zealot, Mapa mapa){
+        //mapa.buscar
+        //mapa.agregar(new Acceso());
 
     }
     public void crearUnidad(Scout Scout){

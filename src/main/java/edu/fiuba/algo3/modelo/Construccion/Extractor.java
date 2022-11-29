@@ -35,7 +35,7 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
 
     public void agregarZangano(Zangano unZangano) {
         try {
-            verificarEdificioOperativo();
+            //verificarEdificioOperativo();
         } catch (Exception EdificioNoEstaOperativo){
             System.out.println("Este edificio no está operativo aún.");
         }

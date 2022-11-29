@@ -13,8 +13,11 @@ public class VerificarAtaqueDeUnidadesZerg {
     //Verificar que todas las unidades cuasen el daño que dicen que causan en sus ataques
 
     // Unidad Zerg ataca a Construccion Protoss
+
+    /*
     @Test
     public void UnZerlingAtacaAUnaConstruccionProtossYDeberiaHacerleDanio() {
+
 
         Mapa mapa = new Mapa(20,20);
         Pilon pilon = new Pilon();
@@ -130,4 +133,6 @@ public class VerificarAtaqueDeUnidadesZerg {
         assertEquals(475,construccionEnemiga.obtenerEscudo());
 
     }
+
+     */
 }

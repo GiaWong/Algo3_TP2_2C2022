@@ -27,6 +27,7 @@ public class AtaqueAire implements Atacador {
         return superficie.esPosibleSerAtacadoPorAtaqueAire();
     }
 
+    /*
     @Override
     void ultimoGolpe(Construccion construccion){
         construccion.estaOperativo();
@@ -35,4 +36,6 @@ public class AtaqueAire implements Atacador {
     void ultimoGolpe(Unidad unidad){
         unidad.estaOperativo();
     }
+
+     */
 }

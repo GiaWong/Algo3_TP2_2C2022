@@ -5,7 +5,9 @@ import edu.fiuba.algo3.modelo.Acciones.AtaqueTierra;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.ReservaProduccion;
+import edu.fiuba.algo3.modelo.Exception.EstaUnidadNoSeMuevePorAreaEspacial;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 
 import java.util.List;
 
@@ -33,6 +35,11 @@ public class Zerling extends UnidadZerg{
 
     public void atacar(Construccion unaConstruccion){
         atacador.atacar(unaConstruccion);
+    }
+
+    @Override
+    public void esPosibleMoverseEn(AreaEspacial areaEspacial) {
+        throw new EstaUnidadNoSeMuevePorAreaEspacial();
     }
 
     public boolean preRequisito(List<Construccion> lista) {

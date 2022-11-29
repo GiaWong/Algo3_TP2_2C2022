@@ -30,6 +30,7 @@ public class AtaqueTierra implements Atacador { //Supuesto: TODAS LAS CONSTRUCCI
         return superficie.esPosibleSerAtacadoPorAtaqueTierra();
     }
 
+    /*
     @Override
     void ultimoGolpe(Construccion construccion){
         construccion.estaOperativo();
@@ -38,6 +39,9 @@ public class AtaqueTierra implements Atacador { //Supuesto: TODAS LAS CONSTRUCCI
     void ultimoGolpe(Unidad unidad){
         unidad.estaOperativo();
     }
+
+     */
+
 
 }
 

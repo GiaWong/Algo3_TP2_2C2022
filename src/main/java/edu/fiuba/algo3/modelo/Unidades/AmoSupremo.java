@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.Unidades;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaTerrestre;
 
 public class AmoSupremo extends UnidadZerg{
 
@@ -29,5 +31,8 @@ public class AmoSupremo extends UnidadZerg{
     public void modificarSuministro(Suministro suministro) {
         int aumentoDeSuministro = 5;
         suministro.aumentarCapacidadTotal(aumentoDeSuministro);
+    }
+
+    public void esPosibleMoverseEn(AreaEspacial areaEspacial) {
     }
 }
