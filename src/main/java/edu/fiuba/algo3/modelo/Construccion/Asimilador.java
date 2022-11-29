@@ -18,6 +18,14 @@ public class  Asimilador extends ConstruccionProtoss implements RefineriaGas {
         tiempoConstruccion =6;
     }
 
+    public Asimilador(int tiempoDeConstruccion){
+        costos.add(100); //esto es para Mineral
+        costos.add(0); //esto es para Gas
+        vida = new Vida(450);
+        escudo = new Escudo(450);
+        tiempoConstruccion = tiempoDeConstruccion;
+    }
+
     public void regenerarEscudo(){
         escudo.regenerarEscudo(10);
     }

@@ -104,17 +104,7 @@ class Acceso {
      +esPosibleConstruirEn()
 }
 
-interface Radio {
-    +ampliarRadio()
-}
-
-class Moho {
-    -radio : int
-    +ampliarRadio()
-}
-
-class Energia {
-    -radio : int
+interface ConstruccionConRadio {
     +ampliarRadio()
 }
 
@@ -166,10 +156,8 @@ ConstruccionProtoss <|---- Asimilador
 ConstruccionProtoss <|---- Acceso
 ConstruccionProtoss <|---- PuertoEstelar
 
-Criadero *-- Radio
-Pilon *-- Radio
-Radio <|.. Moho
-Radio <|.. Energia
+Criadero ..|> ConstruccionConRadio
+Pilon ..|> ConstruccionConRadio
 
 NexoMineral ..|> RefineriaMineral
 Extractor ..|> RefineriaGas

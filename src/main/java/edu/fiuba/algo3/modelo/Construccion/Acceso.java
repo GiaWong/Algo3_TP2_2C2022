@@ -26,6 +26,15 @@ public  class Acceso extends ConstruccionProtoss{
         creacion = new CrearUnidad();
     }
 
+    public Acceso(int tiempoDeConstruccion){
+        costos.add(150); //esto es para Mineral
+        costos.add(0); //esto es para Gas
+        vida = new Vida(500);
+        escudo = new Escudo(500);
+        tiempoConstruccion = tiempoDeConstruccion;
+        creacion = new CrearUnidad();
+    }
+
     public void regenerarEscudo(){
         escudo.regenerarEscudo(10);
     }

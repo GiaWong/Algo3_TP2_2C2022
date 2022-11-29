@@ -145,8 +145,8 @@ interface Recurso {
 
 
 Partida "2" *- Jugador
-Mapa -* Partida
-Partida *-up- Turno
+Mapa -o Partida
+Partida o-up- Turno
 
 Jugador *- Raza
 Raza <|-- Zerg
@@ -159,7 +159,7 @@ ConstruccionZerg --|> Construccion
 
 Casilla "*" -* Mapa
 Terreno -* Casilla
-Coordenada --> Casilla
+Coordenada --o Casilla
 Casilla *-- Recurso
 
 Recurso <|.. Volcan

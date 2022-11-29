@@ -29,6 +29,13 @@ public class Espiral extends ConstruccionZerg {
         vida = new Vida(1300);
         tiempoConstruccion = 10;
     }
+
+    public Espiral(int tiempoDeConstruccion){
+        costos.add(150); //esto es para Mineral
+        costos.add(100); //esto es para Gas
+        vida = new Vida(1300);
+        tiempoConstruccion = tiempoDeConstruccion;
+    }
     public boolean preRequisito(List<Construccion> lista){ //Hay que cambiar
         if(lista!=null) {
             for(int i =0; i<lista.size();i++){

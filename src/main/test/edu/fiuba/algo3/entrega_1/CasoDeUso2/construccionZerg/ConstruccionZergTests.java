@@ -80,8 +80,8 @@ public class ConstruccionZergTests {
         for(int i =0 ; i<=5;i++) {
             extractor.avanzarTurno();
         }
-        assertDoesNotThrow(()->{(extractor.agregarZangano(zangano);
-        });
+        assertDoesNotThrow(()->{extractor.agregarZangano(zangano);}
+
     }
 
     @Test

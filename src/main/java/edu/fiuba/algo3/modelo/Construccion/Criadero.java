@@ -13,9 +13,10 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
+import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
-public class Criadero extends ConstruccionZerg {
+public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
 
     private int larvas = 3;
     private int tiempoAmpliacion = 2;
@@ -126,5 +127,10 @@ public class Criadero extends ConstruccionZerg {
     @Override
     public void aumentarSuministro(Suministro suministro) {
         suministro.aumentarCapacidadTotal(5);
+    }
+
+    @Override
+    public void ampliarRadio(Turno turno) {
+
     }
 }

@@ -29,6 +29,13 @@ public class Guarida extends ConstruccionZerg{
         vida = new Vida(1250);
         tiempoConstruccion = 12;
     }
+
+    public Guarida(int tiempoDeConstruccion){
+        costos.add(200); //esto es para Mineral
+        costos.add(100); //esto es para Gas
+        vida = new Vida(1250);
+        tiempoConstruccion = tiempoDeConstruccion;
+    }
     public boolean esRequisitoDe(Construccion construccion){
         return false;
     }

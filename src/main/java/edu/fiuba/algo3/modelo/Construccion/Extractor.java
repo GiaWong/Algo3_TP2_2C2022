@@ -25,6 +25,14 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
         vida = new Vida(750);
         tiempoConstruccion = 6;
     }
+
+    public Extractor(int tiempoDeConstruccion){
+        costos.add(100); //esto es para Mineral
+        costos.add(0); //esto es para Gas
+        vida = new Vida(750);
+        tiempoConstruccion = tiempoDeConstruccion;
+    }
+
     public void agregarZangano(Zangano unZangano) throws EdificioNoEstaOperativo, NoSePuedeAgregarOtroZangano {
         verificarEdificioOperativo();
         if (zanganos.size() < 3){
@@ -42,12 +50,10 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
 
     @Override
     public int recolectar(Volcan volcan) {
-        verificarEdificioOperativo();
         if (!zanganos.isEmpty()) {
             return volcan.recolectar(zanganos.size() * 10);
-        } else {
-            throw new FaltaUnZanganoParaRecolectar();
         }
+        return 0;
     }
 
     @Override
