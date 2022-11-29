@@ -32,10 +32,14 @@ public class Jugador {
 
     public void jugar(Turno turno, Mapa mapa) {
 
-
+        // while raza.noTengaMasRecursos(){
+        //       raza.construir()
+        //       raza.crearUnidad()
+        //       raza.atacar()
+        turno.aumentarTurno();
     }
 
-    public boolean mismasCaracteristicasQue(Jugador otroJugador) {
+    public boolean comparar(Jugador otroJugador) {
         return (otroJugador.tieneMismoNombre(nombre) && otroJugador.tieneMismoColor(color) && otroJugador.tieneMismaRaza(raza));
     }
 
@@ -50,15 +54,8 @@ public class Jugador {
     public boolean tieneMismaRaza(Raza otraRaza){
         return raza.equals(otraRaza); //No se si esto lo toma
     }
+
     /*
-    public boolean comparar(Jugador jugador) {
-        String nombreJ =jugador.obtenernombre();
-        String colorJ =jugador.obtenercolor();
-        Raza razaJ =jugador.obtenerraza();
-        return (nombre!=nombreJ&&colorJ!=color&&!(razaJ.getClass().equals(raza.getClass())));
-
-    }
-
     public Raza obtenerraza() {return raza;     //NO ESTA BUENO USAR GETTERS!!
     }
 

@@ -19,7 +19,8 @@ public class Partida {
     private Turno turno;
 
     public Partida() {
-        mapa = new Mapa();
+
+        mapa = new Mapa(20,20);
     }
 
     public void asignarJugador(Jugador jugador)throws JugadorDosNoPuedeTenerLosMismosAtributosQueJugadorUno {
@@ -36,16 +37,17 @@ public class Partida {
 
     public void jugar() {
 
+        // while jugadorUno.tengaConstrucciones() && jugadorDos.tengaConstrucciones()
+            jugadorUno.jugar(turno, mapa);
+            jugadorDos.jugar(turno, mapa);
+
+
     }
 
     public void agregarJugador(String nombre,String color,Raza raza) {
-        Jugador jugador = new Jugador();
-        jugador.setNombre(nombre);
-        jugador.setRaza(raza);
-        jugador.setColor(color);
+        Jugador jugador = new Jugador(nombre, color, raza);
         asignarJugador(jugador);
     }
 
-    public Jugador primerJugador() {return jugadorUno;
-    }
+    public Jugador primerJugador() { return jugadorUno; }
 }
