@@ -16,7 +16,7 @@ public class Jugador {
         this.setRaza(unaRaza);
     }
     public void setNombre(String unNombre) throws NombreDeberiaTener6caracteresComoMinimo {
-        if(unNombre.length()<6){
+        if (unNombre.length() < 6) {
             throw new NombreDeberiaTener6caracteresComoMinimo();
         }
         nombre = unNombre;
@@ -33,14 +33,14 @@ public class Jugador {
     public void jugar(Turno turno, Mapa mapa) {
 
         // while raza.noTengaMasRecursos(){
-        //       Construccion const = pedirUnaConstruccionAlUsuario();
-        //       Coordenada coord = pedirUnaCoordenadaAlUsuario();
-        //       raza.agregar(const, coord, mapa);
+        //      Construccion const = pedirUnaConstruccionAlUsuario();
+        //      Coordenada coord = pedirUnaCoordenadaAlUsuario();
+        //      raza.agregar(const, coord, mapa);
 
-        //       Coordenada otraCoord = pedirUnaCoordenadaAlUsuario();
-        //       raza.crearUnidad(otraCoord, mapa);
+        //      Coordenada otraCoord = pedirUnaCoordenadaAlUsuario();
+        //      raza.crearUnidad(otraCoord, mapa);
 
-        //       raza.atacar()
+        //      raza.atacar()
         raza.avanzar(turno, mapa);
     }
 

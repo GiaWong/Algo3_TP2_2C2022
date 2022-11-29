@@ -12,8 +12,9 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
+import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
-public  class Acceso extends ConstruccionProtoss{
+public  class Acceso extends ConstruccionProtoss implements CreadorAcceso{
 
     private Creador creacion;
 
@@ -85,4 +86,13 @@ public  class Acceso extends ConstruccionProtoss{
 
     }
 
+    @Override
+    public Unidad crearZealot() {
+        return null;
+    }
+
+    @Override
+    public Unidad crearDragon() {
+        return null;
+    }
 }

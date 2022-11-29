@@ -123,7 +123,7 @@ class Larva {
     +mutarMutalisco()
 }
 
-interface Mutador {
+interface MutadorUnidad {
     +mutarZangano()
     +mutarZerling()
     +mutarHidralisco()
@@ -167,7 +167,7 @@ Extractor ..|> RefineriaGas
 Asimilador ..|> RefineriaGas
 
 Criadero --> Larva
-Larva ..|> Mutador
+Larva ..|> MutadorUnidad
 
 Acceso ..|> CreadorPuertoEstelar
 PuertoEstelar ..|> CreadorAcceso

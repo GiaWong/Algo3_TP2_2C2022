@@ -1,13 +1,14 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Acciones.*;
-import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Exception.EstaUnidadNoSeMuevePorAreaEspacial;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.Casilla;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 
-public class Zangano extends UnidadZerg {
+public class Zangano extends UnidadZerg implements MutadorConstruccion {
 
     public Zangano(){
         vida = new Vida(25);
@@ -37,5 +38,25 @@ public class Zangano extends UnidadZerg {
     @Override
     public void modificarSuministro(Suministro suministro) {
         suministro.aumentarCapacidad(1);
+    }
+
+    @Override
+    public void mutarReservaProduccion(Casilla casilla) {
+        casilla.agregar(new ReservaProduccion());
+    }
+
+    @Override
+    public void mutarExtractor(Casilla casilla) {
+        casilla.agregar(new Extractor());
+    }
+
+    @Override
+    public void mutarGuarida(Casilla casilla) {
+        casilla.agregar(new Guarida());
+    }
+
+    @Override
+    public void mutarEspiral(Casilla casilla) {
+        casilla.agregar(new Espiral());
     }
 }
