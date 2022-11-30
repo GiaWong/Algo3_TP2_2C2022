@@ -39,7 +39,9 @@ public class Dragon extends UnidadProtoss{
         return false;
 
     }
+    public int obtenerEscudo() {return escudo.escudoActual(); }
 
+    public int obtenerVida() {return vida.vidaActual(); }
     public void atacar(Unidad unaUnidad){
         if (unaUnidad.esPosibleSerAtacadoPor(ataqueTierra)){
             ataqueTierra.atacar(unaUnidad);

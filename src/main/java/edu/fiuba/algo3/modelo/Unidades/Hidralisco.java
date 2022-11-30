@@ -63,4 +63,6 @@ public class Hidralisco extends UnidadZerg{
     public void modificarSuministro(Suministro suministro) {
         suministro.aumentarCapacidad(2);
     }
+
+    public int obtenerVida() {return vida.vidaActual(); }
 }

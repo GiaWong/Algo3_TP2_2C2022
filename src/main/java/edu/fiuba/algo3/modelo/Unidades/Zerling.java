@@ -42,6 +42,8 @@ public class Zerling extends UnidadZerg{
         throw new EstaUnidadNoSeMuevePorAreaEspacial();
     }
 
+    public int obtenerVida() {return vida.vidaActual(); }
+
     /*
     public boolean preRequisito(List<Construccion> lista) {
         if (lista != null) {
@@ -53,7 +55,7 @@ public class Zerling extends UnidadZerg{
         }
         return false;
     }
-
+    public int obtenerVida() {return vida.vidaActual(); }
      */
 
     @Override

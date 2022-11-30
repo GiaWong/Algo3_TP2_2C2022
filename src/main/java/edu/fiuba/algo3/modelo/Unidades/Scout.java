@@ -55,6 +55,9 @@ public class Scout extends UnidadProtoss{
         return false;
 
     }
+    public int obtenerEscudo() {return escudo.escudoActual(); }
+
+    public int obtenerVida() {return vida.vidaActual(); }
 
     @Override
     public void modificarSuministro(Suministro suministro) {

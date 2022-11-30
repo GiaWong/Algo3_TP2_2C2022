@@ -39,6 +39,8 @@ public class Guardian extends UnidadZerg{
 
     }
 
+
+    public int obtenerVida() {return vida.vidaActual(); }
     @Override
     public void modificarSuministro(Suministro suministro) {
 

@@ -43,6 +43,9 @@ public class Mutalisco extends UnidadZerg{
 
     }
 
+
+    public int obtenerVida() {return vida.vidaActual(); }
+
     public Unidad evolucionar() {
         return new Guardian();
     }
