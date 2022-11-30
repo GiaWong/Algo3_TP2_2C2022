@@ -20,7 +20,7 @@ public class RecoleccionMineralesProtossTest {
         casilla.setRecurso(nodo);
         NexoMineral nexo = new NexoMineral();
         for(int i = 0; i < 4; i++){
-            nexo.construir();
+            nexo.avanzarTurno();
         }
 
         int resultado = nexo.recolectar(nodo);

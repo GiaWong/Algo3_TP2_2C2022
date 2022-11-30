@@ -10,9 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ComprobarRecursosConstruccionProtoss {
 
-    /*
+
     @Test
-    public void SeIntentanAdquirir5NexoMineralYSeCompranSolo4PorFaltaDeRecursos(){
+    public void SeIntentanAdquirir5NexoMineralYSeConstruyenSolo4PorFaltaDeRecursos(){
         //Toda raza comienza con 200 Minerales y 0 GasVespeno.
         //int construccionesEsperadas = 4;
         Mapa mapa = new Mapa(20,20);

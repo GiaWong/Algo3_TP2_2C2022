@@ -101,7 +101,7 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         //tiempoAmpliacion--;
         this.regenerarVida();
         this.ampliarRadio();
-
+        turnos++;
     }
 
     public void avanzarTurno(Mapa mapa, Coordenada coordenada){
@@ -116,7 +116,9 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
     }
 
     public void expandirMoho(Mapa mapa, Coordenada coordenada){
-        mapa.expandirMoho(coordenada,radio);
+        if(turnos % 2 == 0){
+            mapa.expandirMoho(coordenada,radio);
+        }
     }
     @Override
     public void esPosibleConstruirEn(Volcan volcan) {
