@@ -5,7 +5,6 @@ import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaTerrestre;
 
 public class Devorador extends UnidadZerg{
 

@@ -50,26 +50,24 @@ public abstract class Unidad {
     }
 
     public  void detectado(){
-        return;
+
     }
 
     public boolean estaEnRango(Coordenada otrCoord){
         return coordenada.estaEnRango(otrCoord, rango);
     }
 
-    public abstract void modificarSuministro(Suministro suministro); //Este metodo no deberia existir
-
-    public abstract void recibirDanio(Danio danio);
+    public boolean estaVivo() {
+        return vida.tieneVida();
+    }
 
     public abstract void atacar(Unidad unaUnidad);
 
     public abstract void atacar(Construccion unaConstruccion);
 
-    public void estaOperativo() throws UnidadMuerta{
-        if(!vida.estaVivo()){
-            throw new UnidadMuerta();
-        }
-    }
+    public abstract void recibirDanio(Danio danio);
 
     public abstract void esPosibleMoverseEn(AreaEspacial areaEspacial);
+
+    public abstract void modificarSuministro(Suministro suministro);
 }

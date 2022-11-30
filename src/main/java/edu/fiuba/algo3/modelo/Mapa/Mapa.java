@@ -29,7 +29,7 @@ public class Mapa {
         }
     }
 
-    public Casilla buscar(Coordenada coordenada) throws NoEstaEnElMapa{
+    public Casilla buscar(Coordenada coordenada) {
         return coordenada.buscar(mapa);
     }
 

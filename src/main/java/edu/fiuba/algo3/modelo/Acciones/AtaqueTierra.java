@@ -8,8 +8,7 @@ import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 public class AtaqueTierra implements Atacador { //Supuesto: TODAS LAS CONSTRUCCIONES RECIBEN SOLO ATAQUE TIERRA
 
-    private Danio danio;
-    private int danioTierra;
+    private final Danio danio;
 
     public AtaqueTierra(int ataque){
         danio = new Danio(ataque);

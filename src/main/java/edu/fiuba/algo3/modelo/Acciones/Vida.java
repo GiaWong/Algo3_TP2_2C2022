@@ -29,4 +29,8 @@ public class Vida { //Esto podria usarse para Construccion tambien, deberia esta
         return salud;
     }
 
+    public boolean tieneVida(){
+        return (salud > 0);
+    }
+
 }

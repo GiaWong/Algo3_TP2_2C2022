@@ -11,17 +11,7 @@ public abstract class UnidadProtoss extends Unidad{
     protected Escudo escudo;
 
     public void recibirDanio(Danio danio) {
-        defensa.recibirDanio(danio, vida, escudo); //Esto despues analiza como le saca vida a que cosa, si le tiene que sacar al escudo o a la vida.
-    }
-
-    public int vida() {return vida.vidaActual();}
-
-    public List<Integer> costo() {
-        return costos;
-    }
-
-    public boolean estaDisponible() {
-        return (tiempoConstruccion<=0);
+        defensa.recibirDanio(danio, vida, escudo);
     }
 
     public abstract void modificarSuministro(Suministro suministro);

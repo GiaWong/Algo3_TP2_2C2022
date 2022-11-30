@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 public class AtaqueAire implements Atacador {
 
-    private Danio danio;
+    private final Danio danio;
 
     public AtaqueAire(int ataque) {
         danio = new Danio(ataque);
@@ -14,12 +14,12 @@ public class AtaqueAire implements Atacador {
 
     @Override
     public void atacar(Unidad unidad) {
-        unidad.recibirDanio(danio); //El "danio" tengo pensado que sea un objeto con los atributos de danio, y que despues danio se encargue de bajarle la vida/escudo a unidad.
+        unidad.recibirDanio(danio);
     }
 
     @Override
     public void atacar(Construccion construccion) {
-        construccion.recibirDanio(danio); //La interaz de Defendible la deberia tener la Construccion Madre tambien, porque todas las construcciones reciben Danio.
+        construccion.recibirDanio(danio);
     }
 
     @Override
