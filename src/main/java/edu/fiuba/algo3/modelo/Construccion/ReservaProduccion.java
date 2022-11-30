@@ -19,7 +19,7 @@ import java.util.List;
 
 public class ReservaProduccion extends ConstruccionZerg {
 
-    private Creador creacion = new CrearUnidad();
+    private ArrayList<Larva> larvas = new ArrayList<>();
 
     public ReservaProduccion(){
         costos.add(150); //esto es para Mineral
@@ -28,10 +28,15 @@ public class ReservaProduccion extends ConstruccionZerg {
         tiempoConstruccion = 12;
     }
 
-    public Unidad crearUnidad() throws EdificioNoEstaOperativo {
+    public void agregarLarva(Larva larva){
+        larvas.add(larva);
+    }
 
-        verificarEdificioOperativo();
-        return creacion.crearZerling();
+    public Unidad crearUnidad() {
+
+        //verificarEdificioOperativo();
+        //return creacion.crearZerling();
+        return null;
     }
 
     public int obtenerVida() {return 0; }

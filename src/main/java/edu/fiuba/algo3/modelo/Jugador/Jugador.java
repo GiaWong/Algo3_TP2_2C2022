@@ -30,7 +30,7 @@ public class Jugador {
         raza = unaRaza;
     }
 
-    public void jugar(Turno turno, Mapa mapa) {
+    public void jugar(Turno turno, Mapa mapa){
 
         // while raza.noTengaMasRecursos(){
         //      Construccion const = pedirUnaConstruccionAlUsuario();

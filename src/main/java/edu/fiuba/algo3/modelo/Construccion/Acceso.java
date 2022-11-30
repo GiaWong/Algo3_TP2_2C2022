@@ -14,9 +14,10 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
-public  class Acceso extends ConstruccionProtoss implements CreadorAcceso{
+import java.util.ArrayList;
+import java.util.List;
 
-    private Creador creacion;
+public  class Acceso extends ConstruccionProtoss{
 
     public Acceso(){
         costos.add(150); //esto es para Mineral
@@ -24,7 +25,6 @@ public  class Acceso extends ConstruccionProtoss implements CreadorAcceso{
         vida = new Vida(500);
         escudo = new Escudo(500);
         tiempoConstruccion = 8;
-        creacion = new CrearUnidad();
     }
 
     public Acceso(int tiempoDeConstruccion){
@@ -33,14 +33,17 @@ public  class Acceso extends ConstruccionProtoss implements CreadorAcceso{
         vida = new Vida(500);
         escudo = new Escudo(500);
         tiempoConstruccion = tiempoDeConstruccion;
-        creacion = new CrearUnidad();
     }
 
     public void regenerarEscudo(){
         escudo.regenerarEscudo(10);
     }
 
-    public void crearUnidad(){
+    public void agregarLarva(Larva unaLarva){
+        larvas.add(unaLarva);
+    }
+
+    public void crearUnidad(){ //Deberia capaz pasarle un atributo de Casilla y asignarle la unidad creada.
 
     }
 
@@ -86,12 +89,12 @@ public  class Acceso extends ConstruccionProtoss implements CreadorAcceso{
 
     }
 
-    @Override
+
     public Unidad crearZealot() {
         return null;
     }
 
-    @Override
+
     public Unidad crearDragon() {
         return null;
     }

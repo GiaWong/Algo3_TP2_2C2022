@@ -25,11 +25,14 @@ public abstract class Construccion {
         tiempoConstruccion--;
     }
 
+    /*
     public void verificarEdificioOperativo() throws EdificioNoEstaOperativo {
         if(tiempoConstruccion > 0 ){
             throw new EdificioNoEstaOperativo();
         }
     }
+
+     */
 
     public List<Integer> costo() {
         return costos;

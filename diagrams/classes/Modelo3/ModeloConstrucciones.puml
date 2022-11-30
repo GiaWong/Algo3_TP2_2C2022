@@ -26,7 +26,6 @@ abstract class ConstruccionZerg {
 
 class Criadero {
     - moho : Radio
-    - creador
     - larva : int
      +crearUnidad()
      +construir()
@@ -35,7 +34,7 @@ class Criadero {
 }
 
 class ReservaProduccion {
-    - creador
+    -larvas : Collection
     +crearUnidad()
     +construir()
     +esPosibleConstruirEn()
@@ -49,7 +48,7 @@ class Extractor {
 }
 
 class Guarida {
-    - creador
+    -larvas : Collection
     +crearUnidad()
     +construir()
     +esPosibleConstruirEn()
@@ -57,7 +56,7 @@ class Guarida {
 }
 
 class Espiral {
-    - creador
+    -larvas : Collection
     +crearUnidad()
     +construir()
     +esPosibleConstruirEn()
@@ -91,14 +90,12 @@ class Pilon {
 }
 
 class PuertoEstelar {
-    - creador
     +crearUnidad()
     +construir()
     +esPosibleConstruirEn()
 }
 
 class Acceso {
-    - creador
      +crearUnidad()
      +construir()
      +esPosibleConstruirEn()
@@ -128,15 +125,6 @@ interface MutadorUnidad {
     +mutarZerling()
     +mutarHidralisco()
     +mutarMutalisco()
-}
-
-interface CreadorPuertoEstelar {
-    +crearScout()
-}
-
-interface CreadorAcceso {
-    +crearZealot()
-    +crearDragon()
 }
 
 Detectable ..|> Defendible

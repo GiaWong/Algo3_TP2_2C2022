@@ -23,8 +23,6 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
     private ArrayList<Larva> larvas = new ArrayList<>();
     private int tiempoAmpliacion = 2;
 
-    private Creador creacion;
-
     private int radio; // Este radio no deberia ir
 
 
@@ -33,7 +31,6 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         costos.add(0); //esto es para Gas
         vida = new Vida(500);
         tiempoConstruccion = 4;
-        creacion = new CrearUnidad();
         larvas.add(new Larva());
         larvas.add(new Larva());
         larvas.add(new Larva());
@@ -44,7 +41,6 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         costos.add(0); //esto es para Gas
         vida = new Vida(500);
         tiempoConstruccion = turnosParaEstarOperativo;
-        creacion = new CrearUnidad();
         larvas.add(new Larva());
         larvas.add(new Larva());
         larvas.add(new Larva());
@@ -58,13 +54,14 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
     }
 
     public Unidad evolucionarLarva() throws NoHayLarvasDisponiblesParaEvolucionar, EdificioNoEstaOperativo {
-        verificarEdificioOperativo();
+        //verificarEdificioOperativo(); NO DEBERIA LANZAR ERROR PARA MI
         verificarDisponibilidadDeLarvas();
         return crearUnidad();
     }
 
     public Unidad crearUnidad(){
-        return creacion.crearZangano();
+        //return creacion.crearZangano();
+        return null;
     } //Como resuelvo esto? Tengo que usar larvas para que mute a zangano ahora. Como pongo la unidad en la casilla?
 
     public boolean equals(Criadero object){

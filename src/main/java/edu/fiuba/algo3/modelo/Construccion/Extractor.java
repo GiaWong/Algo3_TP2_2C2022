@@ -34,6 +34,7 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
     }
 
     public void agregarZangano(Zangano unZangano) {
+        /*
         try {
             //verificarEdificioOperativo();
         } catch (Exception EdificioNoEstaOperativo){
@@ -43,6 +44,11 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
             zanganos.add(unZangano);
         } catch (Exception NoSePuedeAgregarOtroZangano){
             System.out.println("Extractor completo. No se puede agregar otro zángano.");
+        }
+
+         */
+        if (this.estaDisponible() && zanganos.size() < 3){
+            zanganos.add(unZangano);
         }
     }
 

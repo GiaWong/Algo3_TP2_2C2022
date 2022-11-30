@@ -14,6 +14,7 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Unidades.Hidralisco;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Guarida extends ConstruccionZerg{
@@ -21,7 +22,7 @@ public class Guarida extends ConstruccionZerg{
     private ConstruccionZerg preRequisito = new ReservaProduccion();
     private Unidad hidralisco = new Hidralisco();
 
-    private Creador creacion;
+    private ArrayList<Larva> larvas = new ArrayList<>();
 
     public Guarida(){
         costos.add(200); //esto es para Mineral
@@ -56,8 +57,13 @@ public class Guarida extends ConstruccionZerg{
         tiempoConstruccion--;
     }
 
-    public Unidad crearUnidad(){
-        return creacion.crearHidralisco();
+    public void agregarLarva(Larva larva){
+        larvas.add(larva);
+    }
+
+    public Unidad crearUnidad(){ //Deberia pasarle la casilla y asignarle la unidad a casilla
+        //return creacion.crearHidralisco();
+        return null;
     }
 
     public void construirUnidad() { //Esto seria el metodo de crearUnidad()

@@ -12,7 +12,9 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Unidades.Mutalisco;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
+import edu.fiuba.algo3.modelo.Unidades.Zangano;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Espiral extends ConstruccionZerg {
@@ -21,7 +23,7 @@ public class Espiral extends ConstruccionZerg {
 
     private Mutalisco zerg;
 
-    private Creador creacion;
+    private ArrayList<Larva> larvas = new ArrayList<>();
 
     public Espiral(){
         costos.add(150); //esto es para Mineral
@@ -66,8 +68,13 @@ public class Espiral extends ConstruccionZerg {
         }
     }
 
-    public Unidad crearUnidad(){
-        return creacion.crearMutalisco();
+    public void agregarLarva(Larva larva){
+        larvas.add(larva);
+    }
+
+    public Unidad crearUnidad(){ //Nose si pasarle por parametro la casilla y que la misma agregue la unidad (y que sea un metodo void)
+        //return creacion.crearMutalisco();
+        return null;
     }
 
     @Override

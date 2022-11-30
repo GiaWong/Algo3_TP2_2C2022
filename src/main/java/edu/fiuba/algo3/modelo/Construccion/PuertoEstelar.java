@@ -16,11 +16,9 @@ import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 import java.util.List;
 
-public class PuertoEstelar extends ConstruccionProtoss {
+public class PuertoEstelar extends ConstruccionProtoss implements CreadorPuertoEstelar {
 
     private ConstruccionProtoss preRequisito = new Acceso();
-
-    private Creador creacion;
 
     public PuertoEstelar(){
         costos.add(150); //esto es para Mineral
@@ -56,8 +54,9 @@ public class PuertoEstelar extends ConstruccionProtoss {
 
     }
 
-    public Unidad crearUnidad(){
-        return creacion.crearScout();
+    public Unidad crearUnidad(){ //Creo que deberia pasarle la casilla. Y EL BANCO  DE RECURSOS tambien?
+        //return creacion.crearScout();
+        return null;
     }
 
     @Override
@@ -92,6 +91,11 @@ public class PuertoEstelar extends ConstruccionProtoss {
 
     @Override
     public void aumentarSuministro(Suministro suministro) {
+
+    }
+
+    @Override
+    public void crearScout() {
 
     }
 }
