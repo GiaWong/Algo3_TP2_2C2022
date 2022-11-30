@@ -42,7 +42,7 @@ public class Pilon extends ConstruccionProtoss {
         escudo.regenerarEscudo(10);
     }
 
-    public int obtenerEscudo() {return 0; }
+    public int obtenerEscudo() {return escudo.escudoActual(); }
 
     public int obtenerVida() {return vida.vidaActual(); }
 
