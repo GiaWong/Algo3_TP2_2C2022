@@ -8,7 +8,7 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 
 import java.util.List;
 
-public class Mutalisco extends UnidadZerg{
+public class Mutalisco extends UnidadZerg implements Evolucionador{
 
     // Deberia poder evolucionarse a Guardian.
     private Atacador ataqueTierra;
@@ -67,5 +67,15 @@ public class Mutalisco extends UnidadZerg{
     @Override
     public void modificarSuministro(Suministro suministro) {
         suministro.aumentarCapacidad(4);
+    }
+
+    @Override
+    public Unidad evolucionarGuardian() {
+        return null;
+    }
+
+    @Override
+    public Unidad evolucionarDevorador() {
+        return null;
     }
 }
