@@ -39,6 +39,17 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         turnos = 0;
     }
 
+    public Criadero(Vida vida1){
+        costos.add(50); //esto es para Mineral
+        costos.add(0); //esto es para Gas
+        vida = vida1;
+        tiempoConstruccion = 4;
+        larvas.add(new Larva());
+        larvas.add(new Larva());
+        larvas.add(new Larva());
+        turnos = 0;
+    }
+
     public Criadero(int turnosParaEstarOperativo){
         costos.add(50); //esto es para Mineral
         costos.add(0); //esto es para Gas
@@ -90,7 +101,7 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         vida.regenerarSalud(5);
     }
 
-    public int obtenerVida() {return 0; }
+    public int obtenerVida() {return vida.vidaActual(); }
 
 
     @Override

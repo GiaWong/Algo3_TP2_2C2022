@@ -39,7 +39,8 @@ public class ReservaProduccion extends ConstruccionZerg {
         return null;
     }
 
-    public int obtenerVida() {return 0; }
+    public int obtenerVida() {return vida.vidaActual(); }
+
 
     public void regenerarVida(){
         vida.regenerarSalud(10);

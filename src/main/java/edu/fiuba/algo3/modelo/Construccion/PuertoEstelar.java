@@ -46,7 +46,8 @@ public class PuertoEstelar extends ConstruccionProtoss {
 
     public int obtenerEscudo() {return 0; }
 
-    public int obtenerVida() {return 0; }
+    public int obtenerVida() {return vida.vidaActual(); }
+
 
     @Override
     public void avanzarTurno() {
