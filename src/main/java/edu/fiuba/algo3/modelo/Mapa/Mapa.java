@@ -29,15 +29,8 @@ public class Mapa {
         }
     }
 
-    public Casilla buscar(Coordenada coord) throws NoEstaEnElMapa{
-        for(int i=0; i < base; i++) {
-            for (int j = 0; j < altura; j++) {
-                if (coord.esIgual(mapa[i][j].coordenada())) {
-                    return mapa[i][j];
-                }
-            }
-        }
-        throw new NoEstaEnElMapa();
+    public Casilla buscar(Coordenada coordenada) throws NoEstaEnElMapa{
+        return coordenada.buscar(mapa);
     }
 
     public void agregar(Construccion construccion, Coordenada coord){
@@ -73,6 +66,18 @@ public class Mapa {
     public void casillaConTerrenoMoho(int fila, int columna){
 
         (mapa[fila][columna]).setTerreno(new ConMoho());
+    }
+
+    public void expandirMoho(Coordenada coordenada, int radio){
+       int filaSuperior = coordenada.calculoFilaSuperior(radio,altura);
+       int filaInferior = coordenada.calculoFilaInferior(radio,base);
+       int columnaSuperior = coordenada.calculoColumnaSuperior(radio,altura);
+       int columnaInferior = coordenada.calculoColumnaInferior(radio,base);
+        for(int i=filaInferior; i < filaSuperior; i++){
+            for(int j=columnaInferior; j < columnaSuperior;j++){
+                mapa[i][j].setTerreno(new ConMoho());
+            }
+        }
     }
 
     public void destruirConstruccion(int fila, int columna) { //Puede ser que se ocupe Raza de esto...

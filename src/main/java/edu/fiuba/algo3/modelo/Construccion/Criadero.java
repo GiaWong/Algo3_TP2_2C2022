@@ -7,6 +7,8 @@ import edu.fiuba.algo3.modelo.Exception.NoHayLarvasDisponiblesParaEvolucionar;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.Coordenada;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
@@ -21,9 +23,10 @@ import java.util.ArrayList;
 public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
 
     private ArrayList<Larva> larvas = new ArrayList<>();
-    private int tiempoAmpliacion = 2;
 
-    private int radio; // Este radio no deberia ir
+    private int radio;
+
+    private int turnos;
 
 
     public Criadero(){
@@ -34,6 +37,7 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         larvas.add(new Larva());
         larvas.add(new Larva());
         larvas.add(new Larva());
+        turnos = 0;
     }
 
     public Criadero(int turnosParaEstarOperativo){
@@ -44,6 +48,7 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         larvas.add(new Larva());
         larvas.add(new Larva());
         larvas.add(new Larva());
+        turnos = 0;
     }
 
 
@@ -84,9 +89,6 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
     }
 
     public int obtenerVida() {return 0; }
-    public int obtenerRadio(){
-        return radio;
-    }
 
 
     @Override
@@ -98,6 +100,21 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         this.regenerarVida();
         this.ampliarRadio();
 
+    }
+
+    public void avanzarTurno(Mapa mapa, Coordenada coordenada){
+        if(larvas.size() < 3){
+            larvas.add(new Larva());
+        }
+        tiempoAmpliacion--;
+        this.regenerarVida();
+        this.ampliarRadio();
+        turnos++;
+        this.expandirMoho(mapa,coordenada);
+    }
+
+    public void expandirMoho(Mapa mapa, Coordenada coordenada){
+        mapa.expandirMoho(coordenada,radio);
     }
     @Override
     public void esPosibleConstruirEn(Volcan volcan) {
