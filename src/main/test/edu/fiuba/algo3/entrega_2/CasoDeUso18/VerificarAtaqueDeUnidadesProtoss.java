@@ -12,7 +12,6 @@ public class VerificarAtaqueDeUnidadesProtoss {
     @Test
     public void UnZealotAtacaAUnZerlingProtosYDeberiaHacerleDanio() {
 
-
         Mapa mapa = new Mapa(20,20);
         Unidad zealot = new Zealot();
         Unidad zerling = new Zerling();
@@ -29,7 +28,6 @@ public class VerificarAtaqueDeUnidadesProtoss {
 
     @Test
     public void UnDragonAtacaAUnaZerlingProtossYDeberiaHacerleDanio() {
-
 
         Mapa mapa = new Mapa(20,20);
         Unidad dragon = new Dragon();
