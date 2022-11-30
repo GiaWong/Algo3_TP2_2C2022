@@ -44,6 +44,13 @@ public class Mapa {
         casilla.agregar(unidad);
     }
 
+    public void atacar (Unidad unidadAtacante, Coordenada coord){ //Puede ser que se ocupe Raza de esto...
+        Casilla casillaAtacada = this.buscar(coord);
+        if (unidadAtacante.estaEnRango(coord)){
+            casillaAtacada.atacar(unidadAtacante);
+        }
+    }
+
     /*
    public void inicializarMapa2ConBases(){
         Criadero criadero = new Criadero();
@@ -101,7 +108,6 @@ public class Mapa {
     public boolean hayUnidad(int fila, int columna) {
         return (mapa [fila][columna]).hayUnidad();
     }
-
     public int[] buscarUnidad(Unidad unidad) throws NoEstaEnElMapa{ //Puede ser que se ocupe Raza de esto...
         int [] pos = new int[10];
         for (int i = 0; i < 20; i++) {
@@ -115,6 +121,7 @@ public class Mapa {
         }
         throw new NoEstaEnElMapa();
     }
+
     public void setearRadio() { //Puede ser que se ocupe Raza de esto...
         int radio;
         for (int i = 0; i < 20; i++) {
@@ -165,13 +172,6 @@ public class Mapa {
                     mapa[pos[0]+i][pos[0]+j].unidad.detectado();
                 }
             }
-        }
-    }
-
-    public void atacar (Unidad unidadAtacante, Coordenada coord){ //Puede ser que se ocupe Raza de esto...
-        Casilla casillaAtacada = this.buscar(coord);
-        if (unidadAtacante.estaEnRango(coord)){
-            casillaAtacada.atacar(unidadAtacante);
         }
     }
 

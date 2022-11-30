@@ -31,7 +31,7 @@ public class Coordenada {
     }
 
     public boolean estaDentroDe(int filaMasRango, int filaMenosRango, int colMasRango, int colMenosRango){
-        return (filaMasRango <= fila || filaMenosRango >= fila || colMasRango <= columna || colMenosRango >= columna);
+        return (filaMasRango >= fila || filaMenosRango <= fila || colMasRango >= columna || colMenosRango <= columna);
     }
 
     public int calculoFilaSuperior(int radio, int altura) {

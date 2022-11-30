@@ -14,8 +14,8 @@ public class VerificarAtaqueDeUnidadesProtoss {
 
 
         Mapa mapa = new Mapa(20,20);
-        Zealot zealot = new Zealot();
-        Zerling zerling = new Zerling();
+        Unidad zealot = new Zealot();
+        Unidad zerling = new Zerling();
         Coordenada coordZealot = new Coordenada(10,10);
         Coordenada coordZerling = new Coordenada(11,10);
 
@@ -30,9 +30,10 @@ public class VerificarAtaqueDeUnidadesProtoss {
     @Test
     public void UnDragonAtacaAUnaZerlingProtossYDeberiaHacerleDanio() {
 
+
         Mapa mapa = new Mapa(20,20);
-        Dragon dragon = new Dragon();
-        Zerling zerling = new Zerling();
+        Unidad dragon = new Dragon();
+        Unidad zerling = new Zerling();
         Coordenada coordDragon = new Coordenada(10,10);
         Coordenada coordZerling = new Coordenada(11,10);
 
@@ -41,18 +42,23 @@ public class VerificarAtaqueDeUnidadesProtoss {
         mapa.atacar(dragon,coordZerling);
         assertEquals(15,zerling.vida());
 
+
     }
 
     @Test
     public void UnScoutAtacaAUnaConstruccionProtossYDeberiaHacerleDanio() {
 
-
+        Mapa mapa = new Mapa(20,20);
         Unidad scout = new Scout();
         Unidad hidralisco = new Hidralisco();
+        Coordenada coordScout = new Coordenada(10,10);
+        Coordenada coordHidralisco = new Coordenada(11,10);
 
-        scout.atacar(hidralisco);
+        mapa.agregar(scout, coordScout);
+        mapa.agregar(hidralisco, coordHidralisco);
+        mapa.atacar(scout, coordHidralisco);
 
-        assertEquals(72, hidralisco.vida()); //Me da un error de StackOverflow... watt
+        assertEquals(72, hidralisco.vida());
 
     }
 }

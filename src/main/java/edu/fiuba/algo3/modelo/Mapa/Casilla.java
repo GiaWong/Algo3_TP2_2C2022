@@ -92,7 +92,6 @@ public class Casilla {
 
     public void atacar(Unidad unidadAtacante) {
         if(this.hayConstruccion()){
-
             unidadAtacante.atacar(construccion);
         }else if(this.hayUnidad()){
             unidadAtacante.atacar(unidad);

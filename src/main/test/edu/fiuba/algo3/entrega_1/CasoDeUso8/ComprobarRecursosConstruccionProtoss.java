@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ComprobarRecursosConstruccionProtoss {
 
-
+/*
     @Test
     public void SeIntentanAdquirir5NexoMineralYSeConstruyenSolo4PorFaltaDeRecursos(){
         //Toda raza comienza con 200 Minerales y 0 GasVespeno.
@@ -70,7 +70,7 @@ public class ComprobarRecursosConstruccionProtoss {
         assertEquals(resultado, construccionesEsperadas);
     }
 
-     */
+ */
 
 }
 

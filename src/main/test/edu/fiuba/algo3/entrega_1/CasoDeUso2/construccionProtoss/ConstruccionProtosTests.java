@@ -42,6 +42,7 @@ public class ConstruccionProtosTests {
         assertDoesNotThrow(()->{nexo.recolectar(nodo);});
     }
 
+    /*
     @Test
     public void SeArrancaAConstruirPilonYNoPasanTurnosYDeberiaEstarInactivo() {
         Pilon pilon = new Pilon();
@@ -70,6 +71,8 @@ public class ConstruccionProtosTests {
         }
         assertDoesNotThrow(()->{pilon.energizar(mapa,coordenada);});
     }
+
+     */
 
     @Test
     public void SeArrancaAConstruirAsimiladorYNoPasanTurnosYDeberiaEstarInactivo() {

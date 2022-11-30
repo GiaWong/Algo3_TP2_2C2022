@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Hidralisco extends UnidadZerg{
     private Atacador ataqueTierra;
-    private Construccion preRequisito = new Guarida();
+    //private Construccion preRequisito = new Guarida();
 
     private Guardian guardian = new Guardian(); //Habria que cambiar esto...
 
@@ -45,6 +45,7 @@ public class Hidralisco extends UnidadZerg{
         throw new EstaUnidadNoSeMuevePorAreaEspacial();
     }
 
+    /*
     public boolean preRequisito(List<Construccion> lista) {
         if(lista!=null) {
             for(int i =0; i<lista.size();i++){
@@ -55,6 +56,8 @@ public class Hidralisco extends UnidadZerg{
         }
         return false;
     }
+
+     */
 
     @Override
     public void modificarSuministro(Suministro suministro) {

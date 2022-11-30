@@ -14,7 +14,7 @@ import java.util.List;
 public class Zerling extends UnidadZerg{
 
 
-    private Construccion preRequisito = new ReservaProduccion();
+    //private Construccion preRequisito = new ReservaProduccion();
     public Zerling(){
 
         vida = new Vida(35);
@@ -42,6 +42,7 @@ public class Zerling extends UnidadZerg{
         throw new EstaUnidadNoSeMuevePorAreaEspacial();
     }
 
+    /*
     public boolean preRequisito(List<Construccion> lista) {
         if (lista != null) {
             for (int i = 0; i < lista.size(); i++) {
@@ -52,6 +53,8 @@ public class Zerling extends UnidadZerg{
         }
         return false;
     }
+
+     */
 
     @Override
     public void modificarSuministro(Suministro suministro) {

@@ -15,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso22Zerg {
 
+    /*
     @Test
     public void SeVerificaPreRequisitoZerling() {
         Zerling zerling = new Zerling();
@@ -64,4 +65,6 @@ public class CasoDeUso22Zerg {
         }
         assertEquals(true,guardian.estaDisponible());
     }
+
+     */
 }

@@ -23,9 +23,9 @@ public abstract class Unidad {
 
     protected Atacador atacador;
 
-    protected Defensa defensa = new Detectable();
-
     protected Coordenada coordenada;
+
+    protected Defensa defensa = new Detectable();
 
     protected List<Integer> costos = new ArrayList<>();
 
