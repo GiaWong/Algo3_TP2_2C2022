@@ -58,4 +58,10 @@ public class TestConstruccion {
         assertEquals(600,construccion.obtenerVida());
     }
 
+    @Test
+    public void unNexoMineralSeCreaCorrectamenteConLaVidaCorrespondiente(){
+        NexoMineral construccion =new NexoMineral();
+        assertEquals(250,construccion.obtenerVida());
+    }
+
 }
