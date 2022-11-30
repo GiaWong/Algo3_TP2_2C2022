@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.entrega_2.CasoDeUso19;
 
-import com.sun.prism.image.CachingCompoundImage;
-import edu.fiuba.algo3.modelo.Construccion.Espiral;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Unidades.*;
@@ -15,20 +13,20 @@ public class CasoDeUso19 {
     public void ZerlingAtacaUnScoutYNoDeberiaHacerleDaño(){ //Esto es para checkear lo de los AtaqueAire y AtaqueTierra
         Mapa mapa = new Mapa(20,20);
         Unidad zerling = new Zerling();
-        Unidad scout = new Scout();
+        UnidadProtoss scout = new Scout();
         Coordenada coordAtacada = new Coordenada(11,10);
         mapa.agregar(scout,coordAtacada);
         mapa.agregar(zerling,new Coordenada(10,10));
         mapa.atacar(zerling,coordAtacada);
 
-        assertEquals(120,scout.vida()); //Esta mal la vida
+        assertEquals(100,scout.escudo());
     }
 
     @Test
     public void MutaAtacaUnZerlingYDeberiaHacerleDaño(){
         Mapa mapa = new Mapa(20,20);
         Unidad zerling = new Zerling();
-        Mutalisco muta = new Mutalisco();
+        Unidad muta = new Mutalisco();
         Coordenada coordAtacada = new Coordenada(10,10);
 
         mapa.agregar(muta,new Coordenada(11,10));
@@ -48,7 +46,7 @@ public class CasoDeUso19 {
         mapa.agregar(muta, new Coordenada(11,10));
         mapa.atacar(muta, coordAtacada);
 
-        assertEquals(106,scout.vida());
+        assertEquals(150,scout.vida());
     }
 
 

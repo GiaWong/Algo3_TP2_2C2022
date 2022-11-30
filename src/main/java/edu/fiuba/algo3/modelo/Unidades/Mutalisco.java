@@ -12,7 +12,7 @@ public class Mutalisco extends UnidadZerg{
 
     // Deberia poder evolucionarse a Guardian.
     private Atacador ataqueTierra;
-    private Construccion preRequisito = new Espiral();
+    //private Construccion preRequisito = new Espiral();
 
     public Mutalisco(){
         vida = new Vida(120);;
@@ -47,6 +47,7 @@ public class Mutalisco extends UnidadZerg{
         return new Guardian();
     }
 
+    /*
     public boolean preRequisito(List<Construccion> lista) {
         if(lista!=null) {
             for(int i =0; i<lista.size();i++){
@@ -57,6 +58,8 @@ public class Mutalisco extends UnidadZerg{
         }
         return false;
     }
+
+     */
 
     @Override
     public void modificarSuministro(Suministro suministro) {

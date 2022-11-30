@@ -20,11 +20,6 @@ import static org.mockito.Mockito.*;
 public class CasoDeUso4Test {
 
     Volcan volcan = mock(Volcan.class);
-    /*@BeforeAll
-    public void setUp(){
-        volcan = mock(Volcan.class);
-
-    }*/
 
     @Test
     public void SeConstruyeUnExtractorSobreGasVespenoYAlNoTenerZanganoNoProduceGasVespeno() {

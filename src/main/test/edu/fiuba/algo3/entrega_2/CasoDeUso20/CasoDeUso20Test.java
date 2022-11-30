@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.entrega_2.CasoDeUso20;
 
+import edu.fiuba.algo3.modelo.Construccion.ReservaProduccion;
+import edu.fiuba.algo3.modelo.Exception.EstaUnidadNoSeMuevePorAreaEspacial;
+import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Unidades.Scout;
@@ -7,6 +10,7 @@ import edu.fiuba.algo3.modelo.Unidades.Zerling;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CasoDeUso20Test {
 
@@ -15,8 +19,7 @@ public class CasoDeUso20Test {
         Mapa mapa= new Mapa(20,20);
         mapa.inicializarConUnaFranjaEspacial();
         Zerling zerling = new Zerling();
-        mapa.agregar(zerling, new Coordenada(4,1));
-        assertEquals(false,mapa.hayUnidad(4,1));
+        assertThrows( EstaUnidadNoSeMuevePorAreaEspacial.class,()->{mapa.agregar(zerling, new Coordenada(4,1));});
 
     }
     @Test

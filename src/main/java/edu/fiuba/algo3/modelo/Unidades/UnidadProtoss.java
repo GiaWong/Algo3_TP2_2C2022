@@ -14,5 +14,6 @@ public abstract class UnidadProtoss extends Unidad{
         defensa.recibirDanio(danio, vida, escudo);
     }
 
+    public int escudo(){ return escudo.escudoActual();}
     public abstract void modificarSuministro(Suministro suministro);
 }

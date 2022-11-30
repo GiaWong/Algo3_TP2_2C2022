@@ -75,7 +75,8 @@ class Hidralisco {
 
 class Mutalisco {
     -atacador
-    +evolucionar()
+    +evolucionarGuardian()
+    +evolucionarDevorador()
     +atacar()
 }
 
@@ -123,6 +124,11 @@ interface MutadorConstruccion {
     +mutarEspiral()
 }
 
+interface Evolucionador {
+    +evolucionarGuardian()
+    +evolucionarDevorador()
+}
+
 Unidad <|-- UnidadZerg
 Unidad <|-- UnidadProtoss
 
@@ -157,5 +163,6 @@ Defensa <|.up. Detectable
 Atacador <|.up. AtaqueTierra
 Atacador <|.up. AtaqueAire
 
+Mutalisco ..|> Evolucionador
 
 @enduml
