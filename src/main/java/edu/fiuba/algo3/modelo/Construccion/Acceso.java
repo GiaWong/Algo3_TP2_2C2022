@@ -39,10 +39,6 @@ public  class Acceso extends ConstruccionProtoss{
         escudo.regenerarEscudo(10);
     }
 
-    public void agregarLarva(Larva unaLarva){
-        larvas.add(unaLarva);
-    }
-
     public void crearUnidad(){ //Deberia capaz pasarle un atributo de Casilla y asignarle la unidad creada.
 
     }

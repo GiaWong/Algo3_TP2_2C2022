@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso9Test {
 
+    /*
     @Test
     public void SeTieneDosPilonesSeDestruyeUnoYlaConstruccionDebriaSeguirEstandoActiva() {
 
@@ -35,4 +36,6 @@ public class CasoDeUso9Test {
 
 
     }
+
+     */
 }

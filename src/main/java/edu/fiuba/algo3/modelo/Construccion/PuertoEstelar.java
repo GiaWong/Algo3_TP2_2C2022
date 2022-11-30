@@ -16,7 +16,7 @@ import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 import java.util.List;
 
-public class PuertoEstelar extends ConstruccionProtoss implements CreadorPuertoEstelar {
+public class PuertoEstelar extends ConstruccionProtoss {
 
     private ConstruccionProtoss preRequisito = new Acceso();
 
@@ -91,11 +91,6 @@ public class PuertoEstelar extends ConstruccionProtoss implements CreadorPuertoE
 
     @Override
     public void aumentarSuministro(Suministro suministro) {
-
-    }
-
-    @Override
-    public void crearScout() {
 
     }
 }

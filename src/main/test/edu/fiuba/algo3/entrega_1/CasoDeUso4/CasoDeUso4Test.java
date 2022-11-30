@@ -80,7 +80,7 @@ public class CasoDeUso4Test {
         casilla.setRecurso(volcan);
         casilla.setTerreno(new ConMoho());
         for (int i = 0; i < 6; i++){
-            extractor.avanzarTurno();
+            extractor.construir();
         }
         //Le meto 3 zánganos a extractor.
         extractor.agregarZangano(new Zangano());
@@ -99,13 +99,11 @@ public class CasoDeUso4Test {
         Volcan volcan = new Volcan();
         casilla.setRecurso(volcan);
         casilla.setTerreno(new ConMoho());
-        for (int i = 0; i < 6; i++){
-            extractor.avanzarTurno();
-        }
+
+        extractor.agregarZangano(new Zangano());
+        extractor.agregarZangano(new Zangano());
+        extractor.agregarZangano(new Zangano());
         casilla.agregar(extractor);
-        extractor.agregarZangano(new Zangano());
-        extractor.agregarZangano(new Zangano());
-        extractor.agregarZangano(new Zangano());
         assertThrows( NoSePuedeAgregarOtroZangano.class,()->{extractor.agregarZangano(new Zangano());});
 
     }

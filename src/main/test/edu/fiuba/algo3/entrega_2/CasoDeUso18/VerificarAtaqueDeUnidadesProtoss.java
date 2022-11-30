@@ -1,9 +1,5 @@
 package edu.fiuba.algo3.entrega_2.CasoDeUso18;
 
-import edu.fiuba.algo3.modelo.Construccion.Acceso;
-import edu.fiuba.algo3.modelo.Construccion.Asimilador;
-import edu.fiuba.algo3.modelo.Construccion.Pilon;
-import edu.fiuba.algo3.modelo.Construccion.ReservaProduccion;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Unidades.*;
@@ -50,16 +46,13 @@ public class VerificarAtaqueDeUnidadesProtoss {
     @Test
     public void UnScoutAtacaAUnaConstruccionProtossYDeberiaHacerleDanio() {
 
-        Mapa mapa = new Mapa(20,20);
-        Scout scout = new Scout();
-        Hidralisco hidralisco = new Hidralisco();
-        Coordenada coordScout = new Coordenada(10,10);
-        Coordenada coordHidra = new Coordenada(11,10);
 
-        mapa.agregar(scout,coordScout);
-        mapa.agregar(hidralisco,coordHidra);
-        mapa.atacar(hidralisco,coordScout);
-        assertEquals(140,scout.vida());
+        Unidad scout = new Scout();
+        Unidad hidralisco = new Hidralisco();
+
+        scout.atacar(hidralisco);
+
+        assertEquals(72, hidralisco.vida()); //Me da un error de StackOverflow... watt
 
     }
 }

@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso11Test {
+    /*
     @Test
     public void SeDañaAUnPuertoEstelarYDeberiaRecuperarElEscudoPorCadaTurno(){
         int esperado = 600;
@@ -62,4 +63,6 @@ public class CasoDeUso11Test {
         int resultado = acceso.obtenerEscudo();//Esto habria que ponerlo en construccion
         assertEquals(resultado, esperado);
     }
+
+     */
 }

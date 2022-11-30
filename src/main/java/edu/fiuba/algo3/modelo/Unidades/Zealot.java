@@ -3,14 +3,15 @@ package edu.fiuba.algo3.modelo.Unidades;
 import edu.fiuba.algo3.modelo.Acciones.*;
 import edu.fiuba.algo3.modelo.Construccion.Acceso;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Exception.EstaUnidadNoSeMuevePorAreaEspacial;
 import edu.fiuba.algo3.modelo.Exception.UnidadNoTargeteable;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 
 import java.util.List;
 
 public class Zealot extends UnidadProtoss{
 
-    private int rango;
     private int asesinatos = 0;
     private boolean visible;
     private Construccion preRequisito = new Acceso();
@@ -49,6 +50,11 @@ public class Zealot extends UnidadProtoss{
             asesinatos++;
         }
 
+    }
+
+    @Override
+    public void esPosibleMoverseEn(AreaEspacial areaEspacial) {
+        throw new EstaUnidadNoSeMuevePorAreaEspacial();
     }
 
     public void setDetectable(){

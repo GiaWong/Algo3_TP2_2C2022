@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ComprobarRecursosConstruccionZerg {
 
+    /*
     @Test
     public void SeIntentanAdquirir5CriaderosYSeCompranSolo4PorFaltaDeRecursos(){
         //Toda raza comienza con 200 Minerales y 0 GasVespeno.

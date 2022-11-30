@@ -60,7 +60,7 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
 
     @Override
     public int recolectar(Volcan volcan) {
-        if (!zanganos.isEmpty()) {
+        if (!zanganos.isEmpty() && estaDisponible()) {
             return volcan.recolectar(zanganos.size() * 10);
         }
         return 0;

@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CasoDeUso3Test {
 
+    /*
     @Test
     public void SeDeberiaPoderConstruirUnAsimiladorSobreGasVespeno() {
         Casilla casilla = new Casilla();
@@ -103,6 +104,8 @@ public class CasoDeUso3Test {
         Espiral espiral = new Espiral();
         assertThrows( NoSePuedeConstruirEsteEdificioSobreUnVolcan.class,()->{casilla.agregar(espiral);});
     }
+
+     */
 
 }
 
