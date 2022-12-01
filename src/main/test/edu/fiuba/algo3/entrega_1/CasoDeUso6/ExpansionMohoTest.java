@@ -25,7 +25,7 @@ public class ExpansionMohoTest {
             criadero.avanzarTurno(mapa,coordenada);
         }
         assertDoesNotThrow(()->{mapa.agregar(new ReservaProduccion(), new Coordenada(9,10));});
-        assertThrows( NoHayMoho.class,()->{mapa.agregar(new ReservaProduccion(), new Coordenada(16,16));});
+        assertThrows( NoHayMoho.class,()->{mapa.agregar(new ReservaProduccion(), new Coordenada(19,19));});
     }
 
     @Test

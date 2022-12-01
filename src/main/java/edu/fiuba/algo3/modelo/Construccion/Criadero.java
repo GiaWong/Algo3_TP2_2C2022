@@ -35,6 +35,7 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         costos.add(0); //esto es para Gas
         vida = new Vida(500);
         tiempoConstruccion = 4;
+        radio = 5;
         larvas.add(new Larva());
         larvas.add(new Larva());
         larvas.add(new Larva());
@@ -46,6 +47,7 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         costos.add(0); //esto es para Gas
         vida = vida1;
         tiempoConstruccion = 4;
+        radio = 5;
         larvas.add(new Larva());
         larvas.add(new Larva());
         larvas.add(new Larva());
@@ -57,6 +59,7 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         costos.add(0); //esto es para Gas
         vida = new Vida(500);
         tiempoConstruccion = turnosParaEstarOperativo;
+        radio = 5;
         larvas.add(new Larva());
         larvas.add(new Larva());
         larvas.add(new Larva());
