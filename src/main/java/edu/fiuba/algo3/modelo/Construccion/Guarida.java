@@ -46,7 +46,7 @@ public class Guarida extends ConstruccionZerg {
         return true;
     }
 
-    public int obtenerVida() { return 0; }
+    public int obtenerVida() { return vida.vidaActual(); }
 
     public void regenerarVida(){
         vida.regenerarSalud(5);

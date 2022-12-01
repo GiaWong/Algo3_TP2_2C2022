@@ -39,6 +39,7 @@ public class Espiral extends ConstruccionZerg {
         vida = new Vida(1300);
         tiempoConstruccion = tiempoDeConstruccion;
     }
+
     public boolean preRequisito(List<Construccion> lista){ //Hay que cambiar
         if(lista!=null) {
             for(int i =0; i<lista.size();i++){

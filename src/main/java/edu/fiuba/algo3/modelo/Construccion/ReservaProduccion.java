@@ -28,6 +28,13 @@ public class ReservaProduccion extends ConstruccionZerg {
         tiempoConstruccion = 12;
     }
 
+    public ReservaProduccion(int tiempoDeConstruccion){
+        costos.add(150); //esto es para Mineral
+        costos.add(0); //esto es para Gas
+        vida = new Vida(1000);
+        tiempoConstruccion = tiempoDeConstruccion;
+    }
+
     public void agregarLarva(Larva larva){
         larvas.add(larva);
     }

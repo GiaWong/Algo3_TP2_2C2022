@@ -29,6 +29,14 @@ public class PuertoEstelar extends ConstruccionProtoss {
         tiempoConstruccion = 10;
     }
 
+    public PuertoEstelar(int tiempoDeConstruccion){
+        costos.add(150); //esto es para Mineral
+        costos.add(150); //esto es para Gas
+        vida = new Vida(600);
+        escudo = new Escudo(600);
+        tiempoConstruccion = 10;
+    }
+
 
     public boolean preRequisito(List<Construccion> lista){
         if(lista!=null) {
