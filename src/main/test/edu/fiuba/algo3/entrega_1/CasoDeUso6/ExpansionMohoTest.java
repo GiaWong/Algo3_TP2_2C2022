@@ -19,13 +19,13 @@ public class ExpansionMohoTest {
     public void CompruebaLaAmpliacionDelMohoAPartirDeUnCriadero(){
         Mapa mapa = new Mapa(20,20);
         Criadero criadero = new Criadero();
-        Coordenada coordenada = new Coordenada(1,2);
+        Coordenada coordenada = new Coordenada(10,10);
         mapa.agregar(criadero,coordenada);
-        for(int i =0; i<=3; i++) {
+        for(int i = 0; i <= 3; i++) {
             criadero.avanzarTurno(mapa,coordenada);
         }
-        assertDoesNotThrow(()->{mapa.agregar(new ReservaProduccion(), new Coordenada(6,5));});
-        assertThrows( NoHayMoho.class,()->{mapa.agregar(new ReservaProduccion(), new Coordenada(7,5));});
+        assertDoesNotThrow(()->{mapa.agregar(new ReservaProduccion(), new Coordenada(9,10));});
+        assertThrows( NoHayMoho.class,()->{mapa.agregar(new ReservaProduccion(), new Coordenada(16,16));});
     }
 
     @Test

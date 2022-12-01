@@ -35,23 +35,27 @@ public class Coordenada {
     }
 
     public int calculoFilaSuperior(int radio, int altura) {
-        int calculo = fila + radio;
-        return Math.min(calculo, altura);
+        //int calculo = fila + radio;
+        //return Math.min(calculo, altura);
+        return (fila + radio);
     }
 
     public int calculoFilaInferior(int radio, int base) {
-        int calculo = fila - radio;
-        return Math.max(calculo, base);
+        //int calculo = fila - radio;
+        //return Math.max(calculo, base);
+        return (fila - radio);
     }
 
     public int calculoColumnaSuperior(int radio, int altura) {
-        int calculo = columna + radio;
-        return Math.min(calculo, altura);
+        //int calculo = columna + radio;
+        //return Math.min(calculo, altura);
+        return (columna + radio);
     }
 
     public int calculoColumnaInferior(int radio, int base) {
-        int calculo = columna - radio;
-        return Math.max(calculo, base);
+        //int calculo = columna - radio;
+        //return Math.max(calculo, base);
+        return (columna - radio);
     }
 
     public Casilla buscar(Casilla[][] mapa) {

@@ -76,10 +76,10 @@ public class Mapa {
     }
 
     public void expandirMoho(Coordenada coordenada, int radio){
-       int filaSuperior = coordenada.calculoFilaSuperior(radio,altura);
-       int filaInferior = coordenada.calculoFilaInferior(radio,base);
-       int columnaSuperior = coordenada.calculoColumnaSuperior(radio,altura);
-       int columnaInferior = coordenada.calculoColumnaInferior(radio,base);
+        int filaSuperior = coordenada.calculoFilaSuperior(radio,altura);
+        int filaInferior = coordenada.calculoFilaInferior(radio,base);
+        int columnaSuperior = coordenada.calculoColumnaSuperior(radio,altura);
+        int columnaInferior = coordenada.calculoColumnaInferior(radio,base);
         for(int i=filaInferior; i < filaSuperior; i++){
             for(int j=columnaInferior; j < columnaSuperior;j++){
                 mapa[i][j].setTerreno(new ConMoho());
