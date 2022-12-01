@@ -34,6 +34,7 @@ public class Pilon extends ConstruccionProtoss implements ConstruccionConRadio{
         escudo = new Escudo(300);
         tiempoConstruccion = 5;
     }
+
     public Pilon(Vida vida1){
         costos.add(100); //esto es para Mineral
         costos.add(0); //esto es para Gas

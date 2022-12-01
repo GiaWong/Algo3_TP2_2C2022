@@ -29,6 +29,7 @@ public class PuertoEstelar extends ConstruccionProtoss {
         tiempoConstruccion = 10;
     }
 
+
     public boolean preRequisito(List<Construccion> lista){
         if(lista!=null) {
             for(int i =0; i<lista.size();i++){
