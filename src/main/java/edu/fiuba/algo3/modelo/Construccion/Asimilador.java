@@ -37,11 +37,11 @@ public class  Asimilador extends ConstruccionProtoss implements RefineriaGas {
     @Override
     public void avanzarTurno() {
         this.regenerarEscudo();
-        tiempoConstruccion--;
+        this.construir();
     }
     @Override
-    public int recolectar(Volcan volcan) {
-        //verificarEdificioOperativo();
+    public int recolectar(Volcan volcan) throws EdificioNoEstaOperativo{
+        verificarEdificioOperativo();
         return volcan.recolectar(20);
     }
 

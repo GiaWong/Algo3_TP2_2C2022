@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Construccion;
 
 import edu.fiuba.algo3.modelo.Acciones.Escudo;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
+import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
@@ -12,7 +13,9 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
+import edu.fiuba.algo3.modelo.Unidades.Dragon;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
+import edu.fiuba.algo3.modelo.Unidades.Zealot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,10 +42,6 @@ public  class Acceso extends ConstruccionProtoss{
         escudo.regenerarEscudo(10);
     }
 
-    public void crearUnidad(){ //Deberia capaz pasarle un atributo de Casilla y asignarle la unidad creada.
-
-    }
-
     public int obtenerEscudo() {return 0; }
 
     public int obtenerVida() {return 0; }
@@ -50,12 +49,12 @@ public  class Acceso extends ConstruccionProtoss{
     @Override
     public void avanzarTurno() {
         this.regenerarEscudo();
-        tiempoConstruccion--;
+        this.construir();
 
     }
 
     @Override
-    public void esPosibleConstruirEn(Volcan volcan){
+    public void esPosibleConstruirEn(Volcan volcan) {
         throw new NoSePuedeConstruirEsteEdificioSobreUnRecurso();
     }
 
@@ -65,7 +64,9 @@ public  class Acceso extends ConstruccionProtoss{
     }
 
     @Override
-    public void esPosibleConstruirEn(SinTerreno nada) { throw new NoEstaEnergizado(); }
+    public void esPosibleConstruirEn(SinTerreno nada) {
+        throw new NoEstaEnergizado();
+    }
 
     @Override
     public void esPosibleConstruirEn(ConEnergia energia){}
@@ -86,12 +87,16 @@ public  class Acceso extends ConstruccionProtoss{
     }
 
 
-    public Unidad crearZealot() {
-        return null;
+    public Unidad crearZealot() throws EdificioNoEstaOperativo{
+        verificarEdificioOperativo();
+        return new Zealot();
     }
 
 
-    public Unidad crearDragon() {
-        return null;
+    public Unidad crearDragon() throws EdificioNoEstaOperativo{
+        if (!estaDisponible()){
+            throw new EdificioNoEstaOperativo();
+        }
+        return new Dragon();
     }
 }

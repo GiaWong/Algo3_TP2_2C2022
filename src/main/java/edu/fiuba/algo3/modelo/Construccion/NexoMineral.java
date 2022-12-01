@@ -2,10 +2,7 @@ package edu.fiuba.algo3.modelo.Construccion;
 
 import edu.fiuba.algo3.modelo.Acciones.Escudo;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
-import edu.fiuba.algo3.modelo.Exception.ErrorEsteEdificioSoloSeConstruyeEnUnRecurso;
-import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
-import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
-import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
+import edu.fiuba.algo3.modelo.Exception.*;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Recurso;
@@ -47,16 +44,17 @@ public class NexoMineral extends ConstruccionProtoss implements RefineriaMineral
     @Override
     public void avanzarTurno() {
         this.regenerarEscudo();
-        tiempoConstruccion--;
+        this.construir();
 
     }
 
     @Override
-    public int recolectar(NodoMineral nodo) {
-       if (this.estaDisponible()) {
+    public int recolectar(NodoMineral nodo) throws EdificioNoEstaOperativo {
+        verificarEdificioOperativo();
+        if (this.estaDisponible()) {
             return nodo.recolectar(20);
         }
-       return 0;
+        return 0;
     }
 
     @Override

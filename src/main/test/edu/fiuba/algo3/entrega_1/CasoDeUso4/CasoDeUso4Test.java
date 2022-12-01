@@ -88,7 +88,7 @@ public class CasoDeUso4Test {
     }
 
     @Test
-    public void SeConstruyeUnExtractorSobreGasVespenoYCon4ZanganoYaNoProduceGasVespeno() throws NoSePuedeAgregarOtroZangano, EdificioNoEstaOperativo, FaltaUnZanganoParaRecolectar {
+    public void SeConstruyeUnExtractorSobreGasVespenoYCon4ZanganoYaNoProduceGasVespeno() throws EdificioNoEstaOperativo, FaltaUnZanganoParaRecolectar, NoSePuedeAgregarOtroZangano {
 
         int esperado = 30;
         Extractor extractor = new Extractor();

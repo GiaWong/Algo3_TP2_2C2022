@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso5.ConPilon;
 
 import edu.fiuba.algo3.modelo.Construccion.*;
+import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
@@ -20,7 +21,7 @@ public class ConstruccionConPilonTest {
         casilla.setTerreno(new SinTerreno());
         casilla.setRecurso(new NodoMineral());
         NexoMineral nexoMineral = new NexoMineral();
-        assertThrows( NoHayMoho.class,()->{casilla.agregar(nexoMineral);});
+        assertThrows( NoEstaEnergizado.class,()->{casilla.agregar(nexoMineral);});
 
     }
     @Test
@@ -30,7 +31,7 @@ public class ConstruccionConPilonTest {
         casilla.setTerreno(new SinTerreno());
         casilla.setRecurso(new Volcan());
         Asimilador asimilador = new Asimilador();
-        assertThrows( NoHayMoho.class,()->{casilla.agregar(asimilador);});
+        assertThrows( NoEstaEnergizado.class,()->{casilla.agregar(asimilador);});
 
     }
     @Test
@@ -39,7 +40,7 @@ public class ConstruccionConPilonTest {
         casilla.setTerreno(new SinTerreno());
         casilla.setRecurso(new SinRecurso());
         Acceso acceso = new Acceso();
-        assertThrows( NoHayMoho.class,()->{casilla.agregar(acceso);});
+        assertThrows( NoEstaEnergizado.class,()->{casilla.agregar(acceso);});
 
     }
     @Test
@@ -48,7 +49,7 @@ public class ConstruccionConPilonTest {
         casilla.setTerreno(new SinTerreno());
         casilla.setRecurso(new SinRecurso());
         PuertoEstelar puertoEstelar = new PuertoEstelar();
-        assertThrows( NoHayMoho.class,()->{casilla.agregar(puertoEstelar);});
+        assertThrows( NoEstaEnergizado.class,()->{casilla.agregar(puertoEstelar);});
 
     }
 

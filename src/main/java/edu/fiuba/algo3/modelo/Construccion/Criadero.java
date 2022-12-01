@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.Exception.NoHayLarvasDisponiblesParaEvolucionar;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
+import edu.fiuba.algo3.modelo.Jugador.BancoDeRecursos;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
@@ -17,6 +18,7 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
+import edu.fiuba.algo3.modelo.Unidades.Zangano;
 
 import java.util.ArrayList;
 
@@ -61,27 +63,13 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         turnos = 0;
     }
 
-
-    public void verificarDisponibilidadDeLarvas() throws NoHayLarvasDisponiblesParaEvolucionar {
-        if(larvas.size() == 0){
-            throw new NoHayLarvasDisponiblesParaEvolucionar();
-        }
+    public Unidad evolucionarLarva(BancoDeRecursos bancoDeRecursos) throws EdificioNoEstaOperativo {
+        verificarEdificioOperativo();
+        Larva larva = larvas.get(0);
+        larvas.remove(0);
+        bancoDeRecursos.comprar(new Zangano()); //Esto puede ir en un futuro de distinta manera
+        return larva.crearZangano();
     }
-
-    public Unidad evolucionarLarva() throws NoHayLarvasDisponiblesParaEvolucionar, EdificioNoEstaOperativo {
-        //verificarEdificioOperativo(); NO DEBERIA LANZAR ERROR PARA MI
-        verificarDisponibilidadDeLarvas();
-        return crearUnidad();
-    }
-
-    public Unidad crearUnidad(){
-        //return creacion.crearZangano();
-        return null;
-    } //Como resuelvo esto? Tengo que usar larvas para que mute a zangano ahora. Como pongo la unidad en la casilla?
-
-    public boolean equals(Criadero object){
-        return object.tieneMismaCantidadDeLarvas(larvas.size());
-    } //No entiendo pa que sirve este metodo
 
     public boolean tieneMismaCantidadDeLarvas(int cantidadDeLarvas) {
         return larvas.size() == cantidadDeLarvas;
@@ -109,7 +97,7 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         if(larvas.size() < 3){
             larvas.add(new Larva());
         }
-        //tiempoAmpliacion--;
+        this.construir();
         this.regenerarVida();
         this.ampliarRadio();
         turnos++;
@@ -119,7 +107,7 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         if(larvas.size() < 3){
             larvas.add(new Larva());
         }
-        //tiempoAmpliacion--;
+        this.construir();
         this.regenerarVida();
         this.ampliarRadio();
         turnos++;

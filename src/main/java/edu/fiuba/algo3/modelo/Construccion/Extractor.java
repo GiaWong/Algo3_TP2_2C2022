@@ -33,22 +33,13 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
         tiempoConstruccion = tiempoDeConstruccion;
     }
 
-    public void agregarZangano(Zangano unZangano) {
-        /*
-        try {
-            //verificarEdificioOperativo();
-        } catch (Exception EdificioNoEstaOperativo){
-            System.out.println("Este edificio no está operativo aún.");
-        }
-        try {
-            zanganos.add(unZangano);
-        } catch (Exception NoSePuedeAgregarOtroZangano){
-            System.out.println("Extractor completo. No se puede agregar otro zángano.");
-        }
+    public void agregarZangano(Zangano unZangano) throws EdificioNoEstaOperativo, NoSePuedeAgregarOtroZangano {
 
-         */
-        if (this.estaDisponible() && zanganos.size() < 3){
+        verificarEdificioOperativo();
+        if (zanganos.size() < 3){
             zanganos.add(unZangano);
+        } else {
+            throw new NoSePuedeAgregarOtroZangano();
         }
     }
 
@@ -59,17 +50,19 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
     }
 
     @Override
-    public int recolectar(Volcan volcan) {
+    public int recolectar(Volcan volcan) throws EdificioNoEstaOperativo, FaltaUnZanganoParaRecolectar{
+        verificarEdificioOperativo();
         if (!zanganos.isEmpty() && estaDisponible()) {
             return volcan.recolectar(zanganos.size() * 10);
+        } else {
+            throw new FaltaUnZanganoParaRecolectar();
         }
-        return 0;
     }
 
     @Override
     public void avanzarTurno() {
         this.regenerarVida();
-
+        this.construir();
     }
 
     @Override

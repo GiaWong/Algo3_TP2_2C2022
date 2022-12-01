@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
 import edu.fiuba.algo3.modelo.Acciones.Vida;
+import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
@@ -58,23 +59,17 @@ public class Espiral extends ConstruccionZerg {
     @Override
     public void avanzarTurno() {
         this.regenerarVida();
+        this.construir();
 
-    }
-
-    public void conZerg(Mutalisco mutalisco) { //Esto seria el crearMutalisco()
-        this.zerg = mutalisco;
-        for(int i =0 ; i<=7;i++) {
-            this.zerg.construir();
-        }
     }
 
     public void agregarLarva(Larva larva){
         larvas.add(larva);
     }
 
-    public Unidad crearUnidad(){ //Nose si pasarle por parametro la casilla y que la misma agregue la unidad (y que sea un metodo void)
-        //return creacion.crearMutalisco();
-        return null;
+    public Unidad crearMutalisco() throws EdificioNoEstaOperativo {
+        verificarEdificioOperativo();
+        return new Mutalisco();
     }
 
     @Override

@@ -11,6 +11,7 @@ import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -42,7 +43,7 @@ public class ConstruccionProtosTests {
         assertDoesNotThrow(()->{nexo.recolectar(nodo);});
     }
 
-    /*
+
     @Test
     public void SeArrancaAConstruirPilonYNoPasanTurnosYDeberiaEstarInactivo() {
         Pilon pilon = new Pilon();
@@ -72,7 +73,6 @@ public class ConstruccionProtosTests {
         assertDoesNotThrow(()->{pilon.energizar(mapa,coordenada);});
     }
 
-     */
 
     @Test
     public void SeArrancaAConstruirAsimiladorYNoPasanTurnosYDeberiaEstarInactivo() {
@@ -102,14 +102,15 @@ public class ConstruccionProtosTests {
     @Test
     public void SeArrancaAConstruirAccesoYNoPasanTurnosYDeberiaEstarInactivo() {
         Acceso acceso = new Acceso();
-        assertThrows( EdificioNoEstaOperativo.class, acceso::crearUnidad);
+        assertThrows( EdificioNoEstaOperativo.class, acceso::crearDragon);
     }
 
     @Test
     public void SeArrancaAConstruirAccesoYPasaUnTurnoYDeberiaEstarInactivoPorFaltaDeTurnos() {
         Acceso acceso = new Acceso();
         acceso.avanzarTurno();
-        assertThrows( EdificioNoEstaOperativo.class, acceso::crearUnidad);
+        assertThrows( EdificioNoEstaOperativo.class, acceso::crearZealot);
+
     }
 
     @Test
@@ -120,40 +121,29 @@ public class ConstruccionProtosTests {
 
             acceso.avanzarTurno();
         }
-        assertDoesNotThrow(acceso::crearUnidad);
+        assertDoesNotThrow(acceso::crearDragon);
     }
 
     @Test
     public void SeArrancaAConstruirPuertoEstelarYNoPasanTurnosYDeberiaEstarInactivo() {
-        Acceso acceso = new Acceso();
-        Mapa mapa = new Mapa(20,20);
-        mapa.agregar(acceso,new Coordenada(1,3));
         PuertoEstelar puerto = new PuertoEstelar();
-        mapa.agregar(puerto,new Coordenada(1,9));
-        assertThrows( EdificioNoEstaOperativo.class, puerto::crearUnidad);
+        assertThrows( EdificioNoEstaOperativo.class, puerto::crearScout);
     }
 
     @Test
     public void SeArrancaAConstruirPuertoEstelarYPasaUnTurnoYDeberiaEstarInactivoPorFaltaDeTurnos() {
-        Acceso acceso = new Acceso();
-        Mapa mapa = new Mapa(20,20);
-        mapa.agregar(acceso,new Coordenada(1,3));
         PuertoEstelar puerto = new PuertoEstelar();
-        mapa.agregar(puerto,new Coordenada(1,9));
         puerto.avanzarTurno();
-        assertThrows( EdificioNoEstaOperativo.class, puerto::crearUnidad);
+        assertThrows( EdificioNoEstaOperativo.class, puerto::crearScout);
     }
 
     @Test
     public void SeTerminaDeConstruirPuertoEstelarYDeberiaEstarActivo() {
-        Acceso acceso = new Acceso();
-        Mapa mapa = new Mapa(20,20);
-        mapa.agregar(acceso,new Coordenada(1,3));
+
         PuertoEstelar puerto = new PuertoEstelar();
-        mapa.agregar(puerto,new Coordenada(1,9));
         for(int i =0 ; i<=10;i++) {
             puerto.avanzarTurno();
         }
-        assertDoesNotThrow(puerto::crearUnidad);
+        assertDoesNotThrow(puerto::crearScout);
     }
 }

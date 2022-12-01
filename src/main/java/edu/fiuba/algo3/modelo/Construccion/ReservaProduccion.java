@@ -32,9 +32,9 @@ public class ReservaProduccion extends ConstruccionZerg {
         larvas.add(larva);
     }
 
-    public Unidad crearUnidad() {
+    public Unidad crearZerling() throws EdificioNoEstaOperativo {
 
-        //verificarEdificioOperativo();
+        verificarEdificioOperativo();
         //return creacion.crearZerling();
         return null;
     }
@@ -49,7 +49,7 @@ public class ReservaProduccion extends ConstruccionZerg {
     @Override
     public void avanzarTurno() {
         this.regenerarVida();
-
+        this.construir();
     }
 
     @Override

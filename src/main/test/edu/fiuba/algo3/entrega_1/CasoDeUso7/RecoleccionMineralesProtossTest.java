@@ -2,6 +2,7 @@ package edu.fiuba.algo3.entrega_1.CasoDeUso7;
 
 
 import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
+import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
@@ -12,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RecoleccionMineralesProtossTest {
 
     @Test
-    public void ExtraccionMineralesProtoss(){
+    public void ExtraccionMineralesProtoss() throws EdificioNoEstaOperativo {
         int esperado = 20 ;
         Casilla casilla = new Casilla();
         NodoMineral nodo = new NodoMineral();

@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Construccion.Extractor;
 import edu.fiuba.algo3.modelo.Construccion.Guarida;
 import edu.fiuba.algo3.modelo.Construccion.ReservaProduccion;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
-import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnVolcan;
+import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEnEsteTerreno;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
@@ -42,7 +42,7 @@ public class ConstruccionConMohoTest {
         casilla.setTerreno(new SinTerreno());
         casilla.setRecurso(new SinRecurso());
         Guarida guarida = new Guarida();
-        assertThrows( NoHayMoho.class,()->{casilla.agregar(guarida);});
+        assertThrows( NoSePuedeConstruirEnEsteTerreno.class,()->{casilla.agregar(guarida);});
     }
 
     @Test

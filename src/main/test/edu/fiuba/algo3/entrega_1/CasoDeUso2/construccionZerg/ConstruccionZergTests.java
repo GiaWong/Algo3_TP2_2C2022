@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.Construccion.Criadero;
 import edu.fiuba.algo3.modelo.Construccion.Extractor;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupada;
 import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.Jugador.BancoDeRecursos;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
@@ -20,35 +21,35 @@ public class ConstruccionZergTests {
     @Test
     public void SeArrancaAConstruirCriaderoYNoPasanTurnosYDeberiaEstarInactivo() {
         Criadero criadero = new Criadero();
-        assertThrows( EdificioNoEstaOperativo.class, criadero::evolucionarLarva);
+        assertThrows( EdificioNoEstaOperativo.class, ()->criadero.evolucionarLarva(new BancoDeRecursos()));
     }
     @Test
     public void SeArrancaAConstruirCriaderoPasaUnTurnoYDeberiaEstarInactivoPorFaltaDeTurnos() {
         Criadero criadero = new Criadero();
         criadero.avanzarTurno();
-        assertThrows( EdificioNoEstaOperativo.class, criadero::evolucionarLarva);
+        assertThrows( EdificioNoEstaOperativo.class, ()->criadero.evolucionarLarva(new BancoDeRecursos()));
     }
 
     @Test
     public void SeTerminaDeConstruirElCriaderoYDeberiaEstarActivo() {
         Criadero criadero = new Criadero();
-        for(int i =0 ; i <= 3;i++) {
+        for(int i =0 ; i < 4;i++) {
             criadero.avanzarTurno();
         }
-        assertDoesNotThrow(criadero::evolucionarLarva);
+        assertDoesNotThrow(()->criadero.evolucionarLarva(new BancoDeRecursos()));
     }
 
     @Test
     public void SeArrancaAConstruirReservaReproduccionYNoPasanTurnosYDeberiaEstarInactivo() {
         ReservaProduccion reserva = new ReservaProduccion();
-        assertThrows( EdificioNoEstaOperativo.class, reserva::crearUnidad);
+        assertThrows( EdificioNoEstaOperativo.class, reserva::crearZerling);
     }
     @Test
 
     public void SeArrancaAConstruirReservaReproduccionPasaUnTurnoYDeberiaEstarInactivoPorFaltaDeTurnos() {
         ReservaProduccion reserva = new ReservaProduccion();
         reserva.avanzarTurno();
-        assertThrows( EdificioNoEstaOperativo.class, reserva::crearUnidad);
+        assertThrows( EdificioNoEstaOperativo.class, reserva::crearZerling);
 
     }
     @Test
@@ -58,7 +59,7 @@ public class ConstruccionZergTests {
             reserva.avanzarTurno();
         }
         assertDoesNotThrow(()->{
-            reserva.crearUnidad();});
+            reserva.crearZerling();});
     }
 
     @Test
@@ -87,75 +88,46 @@ public class ConstruccionZergTests {
 
     @Test
     public void SeArrancaAConstruirGuaridaYNoPasanTurnosYDeberiaEstarInactivo() {
-        Mapa mapa = new Mapa(20,20);
-        ReservaProduccion reserva = new ReservaProduccion();
-        mapa.agregar(reserva,new Coordenada(1,2));
         Guarida guarida = new Guarida();
-        mapa.agregar(guarida,new Coordenada(1,8));
-        assertThrows( EdificioNoEstaOperativo.class, guarida::crearUnidad);
+        assertThrows( EdificioNoEstaOperativo.class, guarida::crearHidralisco);
     }
     @Test
     public void SeArrancaAConstruirGuaridaYPasaUnTurnoYDeberiaEstarInactivoPorFaltaDeTurnos() {
-        Mapa mapa = new Mapa(20,20);
-        ReservaProduccion reserva = new ReservaProduccion();
-        mapa.agregar(reserva,new Coordenada(1,2));
         Guarida guarida = new Guarida();
-        mapa.agregar(guarida,new Coordenada(1,8));
         guarida.avanzarTurno();
-        assertThrows( EdificioNoEstaOperativo.class, guarida::crearUnidad);
+        assertThrows( EdificioNoEstaOperativo.class, guarida::crearHidralisco);
     }
 
     @Test
     public void SeTerminaDeConstruirGuaridaYDeberiaEstarActivo() {
-        Mapa mapa = new Mapa(20,20);
-        ReservaProduccion reserva = new ReservaProduccion();
-        mapa.agregar(reserva,new Coordenada(1,2));
         Guarida guarida = new Guarida();
-        mapa.agregar(guarida,new Coordenada(1,8));
         for(int i =0 ; i<=12;i++) {
             guarida.avanzarTurno();
         }
-        assertDoesNotThrow(()->{guarida.crearUnidad();});
+        assertDoesNotThrow(()->{guarida.crearHidralisco();});
     }
 
     @Test
     public void SeArrancaAConstruirEspiralYNoPasanTurnosYDeberiaEstarInactivo() {
-        Mapa mapa = new Mapa(20,20);
-        ReservaProduccion reserva = new ReservaProduccion();
-        mapa.agregar(reserva,new Coordenada(1,2));
-        Guarida guarida = new Guarida();
-        mapa.agregar(guarida,new Coordenada(1,8));
         Espiral espiral = new Espiral();
-        mapa.agregar(espiral,new Coordenada(2,6));
-        assertThrows( EdificioNoEstaOperativo.class, espiral::crearUnidad);
+        assertThrows( EdificioNoEstaOperativo.class, espiral::crearMutalisco);
     }
 
     @Test
     public void SeArrancaAConstruirEspiralYAvanzaUnTurnoYDeberiaEstarInactivoPorFaltaDeTurnos() {
-        Mapa mapa = new Mapa(20,20);
-        ReservaProduccion reserva = new ReservaProduccion();
-        mapa.agregar(reserva,new Coordenada(1,2));
-        Guarida guarida = new Guarida();
-        mapa.agregar(guarida,new Coordenada(1,8));
+
         Espiral espiral = new Espiral();
-        mapa.agregar(espiral,new Coordenada(2,6));
         espiral.avanzarTurno();
-        assertThrows( EdificioNoEstaOperativo.class, espiral::crearUnidad);
+        assertThrows( EdificioNoEstaOperativo.class, espiral::crearMutalisco);
     }
 
     @Test
     public void SeConstruyeEspiralYDeberiaEstarActivo() {
-        Mapa mapa = new Mapa(20,20);
-        ReservaProduccion reserva = new ReservaProduccion();
-        mapa.agregar(reserva,new Coordenada(1,2));
-        Guarida guarida = new Guarida();
-        mapa.agregar(guarida,new Coordenada(1,8));
         Espiral espiral = new Espiral();
-        mapa.agregar(espiral,new Coordenada(2,6));
         for(int i =0 ; i<=9;i++) {
             espiral.avanzarTurno();
         }
-        assertDoesNotThrow(()->{guarida.crearUnidad();});
+        assertDoesNotThrow(()->{espiral.crearMutalisco();});
     }
 }
 

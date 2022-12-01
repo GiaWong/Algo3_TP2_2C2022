@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
 import edu.fiuba.algo3.modelo.Acciones.Vida;
+import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEnEsteTerreno;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
@@ -17,7 +18,7 @@ import edu.fiuba.algo3.modelo.Unidades.Unidad;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Guarida extends ConstruccionZerg{
+public class Guarida extends ConstruccionZerg {
 
     private ConstruccionZerg preRequisito = new ReservaProduccion();
     private Unidad hidralisco = new Hidralisco();
@@ -45,7 +46,7 @@ public class Guarida extends ConstruccionZerg{
         return true;
     }
 
-    public int obtenerVida() {return 0; }
+    public int obtenerVida() { return 0; }
 
     public void regenerarVida(){
         vida.regenerarSalud(5);
@@ -54,25 +55,21 @@ public class Guarida extends ConstruccionZerg{
     @Override
     public void avanzarTurno() {
         this.regenerarVida();
-        tiempoConstruccion--;
+        this.construir();
     }
 
     public void agregarLarva(Larva larva){
         larvas.add(larva);
     }
 
-    public Unidad crearUnidad(){ //Deberia pasarle la casilla y asignarle la unidad a casilla
-        //return creacion.crearHidralisco();
-        return null;
+    public Unidad crearHidralisco() throws EdificioNoEstaOperativo { //Deberia pasarle la casilla y asignarle la unidad a casilla
+        verificarEdificioOperativo();
+        return new Hidralisco();
     }
 
     public void construirUnidad() { //Esto seria el metodo de crearUnidad()
         this.hidralisco.construir();
 
-    }
-
-    public Unidad obtenerZerg() {
-        return this.hidralisco;
     }
 
     @Override

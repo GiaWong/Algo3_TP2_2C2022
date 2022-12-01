@@ -3,10 +3,13 @@ package edu.fiuba.algo3.modelo.Construccion;
 
 import edu.fiuba.algo3.modelo.Acciones.Escudo;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
+import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEnEsteTerreno;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.Coordenada;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
@@ -49,6 +52,7 @@ public class Pilon extends ConstruccionProtoss {
     @Override
     public void avanzarTurno() {
         this.regenerarEscudo();
+        this.construir();
     }
 
     @Override
@@ -83,5 +87,9 @@ public class Pilon extends ConstruccionProtoss {
     @Override
     public void aumentarSuministro(Suministro suministro) {
         suministro.aumentarCapacidadTotal(5);
+    }
+
+    public void energizar(Mapa mapa, Coordenada coordenada) throws EdificioNoEstaOperativo{
+        verificarEdificioOperativo();
     }
 }

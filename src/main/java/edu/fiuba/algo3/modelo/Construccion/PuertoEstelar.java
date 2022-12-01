@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Construccion;
 
 import edu.fiuba.algo3.modelo.Acciones.Escudo;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
+import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
@@ -52,12 +53,12 @@ public class PuertoEstelar extends ConstruccionProtoss {
     @Override
     public void avanzarTurno() {
         this.regenerarEscudo();
-
+        this.construir();
     }
 
-    public Unidad crearUnidad(){ //Creo que deberia pasarle la casilla. Y EL BANCO  DE RECURSOS tambien?
-        //return creacion.crearScout();
-        return null;
+    public Unidad crearScout() throws EdificioNoEstaOperativo { //Creo que deberia pasarle la casilla. Y EL BANCO  DE RECURSOS tambien?
+        verificarEdificioOperativo();
+        return new Scout();
     }
 
     @Override
