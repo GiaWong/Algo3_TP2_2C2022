@@ -24,6 +24,10 @@ public class Zerg extends Raza {
         mapa.agregar(unidad, coordenada);
     }
 
+    public void criaderoDestruido (){
+        suministro.disminuirCapacidad(5);
+    }
+
     public void crearUnidad(Coordenada coordenada, Mapa mapa){
 
     }

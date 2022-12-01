@@ -151,7 +151,7 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
 
     @Override
     public void aumentarSuministro(Suministro suministro) {
-        suministro.aumentarCapacidadTotal(5);
+        suministro.aumentarCapacidad(5);
     }
 
 }

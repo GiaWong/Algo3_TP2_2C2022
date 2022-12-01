@@ -54,9 +54,9 @@ public class Suministro {
         }
     }
 
-   /* public void disminuirCapacidad(int unaCantidad){
+    public void disminuirCapacidad(int unaCantidad){
         capacidadSuministro -= unaCantidad;
-    }*/
+    }
 
 
 }

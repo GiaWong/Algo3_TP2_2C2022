@@ -16,6 +16,7 @@ public abstract class Raza {
         suministro.agregar(construccion);
     }
 
+
     public  int capacidadActual(){
         return suministro.capacidadActual();
     }
