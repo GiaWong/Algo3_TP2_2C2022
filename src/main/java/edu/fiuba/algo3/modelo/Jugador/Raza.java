@@ -17,13 +17,11 @@ public abstract class Raza {
     }
 
     public  int capacidadActual(){
-        int k = suministro.capacidadActual();
-        return k;
+        return suministro.capacidadActual();
     }
 
     public  int capacidadTotal(){
-        int k = suministro.capacidadTotal();
-        return k;
+        return suministro.capacidadTotal();
     }
     public void comprar(Unidad unidad) {
         banco.comprar(unidad);

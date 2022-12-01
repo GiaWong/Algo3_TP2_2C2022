@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CasoDeUso27 {
+public class CasoDeUso27Test {
     BancoDeRecursos banco = mock(BancoDeRecursos.class);
     @Test
     public void SeEvolucionaUnMutaliscoYDeberiaPoderEvolucionarADevorador(){

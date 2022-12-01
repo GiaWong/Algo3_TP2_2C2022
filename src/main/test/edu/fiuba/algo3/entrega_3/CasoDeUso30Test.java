@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-public class CasoDeUso30 {
+public class CasoDeUso30Test {
 
     BancoDeRecursos banco = mock(BancoDeRecursos.class);
     Coordenada coordenada = mock(Coordenada.class);
@@ -25,7 +25,6 @@ public class CasoDeUso30 {
         for (int i =0 ;i<200;i++) {
             zerg.agregar(new Zerling(),coordenada,mapa);
         }
-
         assertThrows(HasLlegadAlLimiteDeUnidadesCreadas.class,()->{zerg.agregar(new Zerling(),coordenada,mapa);});
 
     }

@@ -16,11 +16,15 @@ public class Suministro {
     }
 
     public int  capacidadActual(){
-        int k = this.capacidadSuministro;
-        return  k;
+        return this.capacidadSuministro;
+    }
+
+    public int capacidadTotal() {
+        return this.capacidadTotalSuministro;
     }
 
     public void agregar(Unidad unidad)throws HasLlegadAlLimiteDeUnidadesCreadas{
+
         if (capacidadSuministro < capacidadTotalSuministro){ // este if es para ver si se puede agregar una Unidad o no por la capacidad de Poblacion
             unidad.modificarSuministro(this);
         } else {
@@ -32,7 +36,7 @@ public class Suministro {
         if (capacidadSuministro == capacidadTotalSuministro){
             construccion.aumentarSuministro(this);
         } else {
-
+            throw new HasLlegadAlLimiteDeUnidadesCreadas();
         }
     }
 
@@ -41,6 +45,10 @@ public class Suministro {
     }
 
     public void aumentarCapacidad(int unaCantidad){
-        capacidadSuministro =+ unaCantidad;
+        capacidadSuministro += unaCantidad;
+    }
+
+    public void disminuirCapacidad(int unaCantidad){
+        capacidadSuministro -= unaCantidad;
     }
 }

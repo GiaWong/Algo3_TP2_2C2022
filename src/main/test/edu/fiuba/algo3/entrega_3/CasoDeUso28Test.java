@@ -7,14 +7,12 @@ import edu.fiuba.algo3.modelo.Unidades.AmoSupremo;
 import edu.fiuba.algo3.modelo.Unidades.Zealot;
 import edu.fiuba.algo3.modelo.Unidades.Zerling;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
-public class CasoDeUso28 {
+public class CasoDeUso28Test {
 
     @Mock
     private Zealot zealot1;

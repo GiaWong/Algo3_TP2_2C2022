@@ -1,10 +1,8 @@
 package edu.fiuba.algo3.entrega_3;
 
 import edu.fiuba.algo3.modelo.Construccion.Pilon;
-import edu.fiuba.algo3.modelo.Exception.HasLlegadAlLimiteDeUnidadesCreadas;
 import edu.fiuba.algo3.modelo.Jugador.BancoDeRecursos;
 import edu.fiuba.algo3.modelo.Jugador.Protoss;
-import edu.fiuba.algo3.modelo.Jugador.Raza;
 import edu.fiuba.algo3.modelo.Jugador.Zerg;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
@@ -15,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
-public class CasoDeUso29 {
+public class CasoDeUso29Test {
     BancoDeRecursos banco = mock(BancoDeRecursos.class);
     Coordenada coordenada = mock(Coordenada.class);
     Mapa mapa = mock(Mapa.class);
@@ -28,7 +26,7 @@ public class CasoDeUso29 {
             zerg.agregar(new AmoSupremo(),coordenada,mapa);
         }
 
-        assertEquals(200,zerg.capacidadTotal());
+        assertEquals(400,zerg.capacidadTotal());
     }
 
     @Test
