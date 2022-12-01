@@ -33,7 +33,7 @@ public class Suministro {
     }
 
     public void agregar(Construccion construccion)throws HasLlegadAlLimiteDeUnidadesCreadas {
-        if (capacidadSuministro == capacidadTotalSuministro){
+        if (capacidadSuministro < capacidadTotalSuministro){
             construccion.aumentarSuministro(this);
         } else {
             throw new HasLlegadAlLimiteDeUnidadesCreadas();
@@ -42,13 +42,21 @@ public class Suministro {
 
     public void aumentarCapacidadTotal(int unaCantidad){
         capacidadTotalSuministro += unaCantidad;
+        if (capacidadTotalSuministro>200){
+            capacidadTotalSuministro =200;
+        }
     }
 
     public void aumentarCapacidad(int unaCantidad){
         capacidadSuministro += unaCantidad;
+        if (capacidadSuministro>200){
+            capacidadSuministro = 200;
+        }
     }
 
-    public void disminuirCapacidad(int unaCantidad){
+   /* public void disminuirCapacidad(int unaCantidad){
         capacidadSuministro -= unaCantidad;
-    }
+    }*/
+
+
 }

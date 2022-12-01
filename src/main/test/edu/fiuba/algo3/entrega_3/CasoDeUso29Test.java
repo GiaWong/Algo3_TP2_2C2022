@@ -10,7 +10,7 @@ import edu.fiuba.algo3.modelo.Unidades.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import static org.mockito.Mockito.mock;
 
 public class CasoDeUso29Test {
@@ -26,7 +26,7 @@ public class CasoDeUso29Test {
             zerg.agregar(new AmoSupremo(),coordenada,mapa);
         }
 
-        assertEquals(400,zerg.capacidadTotal());
+        assertEquals(200,zerg.capacidadTotal());
     }
 
     @Test
