@@ -11,7 +11,7 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Guardian extends UnidadZerg{
+public class Guardian extends UnidadProtoss{
 
     public Guardian(){
         vida = new Vida(100);

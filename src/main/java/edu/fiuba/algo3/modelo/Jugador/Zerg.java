@@ -8,7 +8,12 @@ import edu.fiuba.algo3.modelo.Unidades.UnidadZerg;
 
 public class Zerg extends Raza {
 
+    public Zerg(){
 
+    }
+    public Zerg(BancoDeRecursos bancoDeRecurso){
+        this.banco  = bancoDeRecurso;
+    }
     public void agregar(ConstruccionZerg construccion, Coordenada coordenada, Mapa mapa) {
         this.comprar(construccion);
         mapa.agregar(construccion, coordenada);

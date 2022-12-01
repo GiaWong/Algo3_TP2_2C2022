@@ -20,6 +20,11 @@ public class Suministro {
         return  k;
     }
 
+    public int  capacidadTotal(){
+        int k = this.capacidadTotalSuministro;
+        return  k;
+    }
+
     public void agregar(Unidad unidad)throws HasLlegadAlLimiteDeUnidadesCreadas{
         if (capacidadSuministro < capacidadTotalSuministro){ // este if es para ver si se puede agregar una Unidad o no por la capacidad de Poblacion
             unidad.modificarSuministro(this);
@@ -41,6 +46,6 @@ public class Suministro {
     }
 
     public void aumentarCapacidad(int unaCantidad){
-        capacidadSuministro =+ unaCantidad;
+        capacidadSuministro += unaCantidad;
     }
 }
