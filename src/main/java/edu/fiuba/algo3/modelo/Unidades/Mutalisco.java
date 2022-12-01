@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.Unidades;
 import edu.fiuba.algo3.modelo.Acciones.*;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.Espiral;
+import edu.fiuba.algo3.modelo.Construccion.Guarida;
+import edu.fiuba.algo3.modelo.Jugador.BancoDeRecursos;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 
@@ -46,9 +48,6 @@ public class Mutalisco extends UnidadZerg implements Evolucionador{
 
     public int obtenerVida() {return vida.vidaActual(); }
 
-    public Unidad evolucionar() {
-        return new Guardian();
-    }
 
     /*
     public boolean preRequisito(List<Construccion> lista) {
@@ -70,12 +69,16 @@ public class Mutalisco extends UnidadZerg implements Evolucionador{
     }
 
     @Override
-    public Unidad evolucionarGuardian() {
-        return null;
+    public Unidad evolucionarGuardian(BancoDeRecursos banco) {
+        Guardian guardian = new Guardian();
+        banco.comprar(guardian);
+        return guardian;
     }
 
     @Override
-    public Unidad evolucionarDevorador() {
-        return null;
+    public Unidad evolucionarDevorador(BancoDeRecursos banco) {
+        Devorador devorador = new Devorador();
+        banco.comprar(devorador);
+        return devorador;
     }
 }

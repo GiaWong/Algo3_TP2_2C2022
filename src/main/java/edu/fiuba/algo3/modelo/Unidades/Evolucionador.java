@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
+import edu.fiuba.algo3.modelo.Jugador.BancoDeRecursos;
+
 public interface Evolucionador {
 
-    Unidad evolucionarGuardian();
+    Unidad evolucionarGuardian(BancoDeRecursos banco);
 
-    Unidad evolucionarDevorador();
+    Unidad evolucionarDevorador(BancoDeRecursos banco);
 }

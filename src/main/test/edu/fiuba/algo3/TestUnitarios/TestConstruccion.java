@@ -36,11 +36,11 @@ public class TestConstruccion {
         verify(vida).vidaActual();
     }
 
-    /*@Test
+    @Test
     public void unEspiralSeCreaCorrectamenteConLaVidaCorrespondiente(){
         Espiral espiral = new Espiral();
-        assertEquals(500,espiral.obtenerVida());
-    }*/
+        assertEquals(1300,espiral.obtenerVida());
+    }
 
     @Test
     public void unExtractrSeCreaCorrectamenteConLaVidaCorrespondiente(){

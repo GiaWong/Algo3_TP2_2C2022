@@ -41,7 +41,7 @@ public class Coordenada {
 
     public int calculoFilaInferior(int radio, int base) {
         int calculo = fila - radio;
-        return Math.max(calculo, base);
+        return Math.max(calculo, 0);
     }
 
     public int calculoColumnaSuperior(int radio, int altura) {
@@ -51,7 +51,7 @@ public class Coordenada {
 
     public int calculoColumnaInferior(int radio, int base) {
         int calculo = columna - radio;
-        return Math.max(calculo, base);
+        return Math.max(calculo, 0);
     }
 
     public Casilla buscar(Casilla[][] mapa) {

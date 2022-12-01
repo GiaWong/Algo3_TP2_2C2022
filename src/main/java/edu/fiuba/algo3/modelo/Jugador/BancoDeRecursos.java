@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Jugador;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Exception.NoTienesLosMaterialesNecesariosParaCrearEsaUnidad;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 import java.util.List;
@@ -18,13 +19,13 @@ public class BancoDeRecursos {
             //Lanzar un error
         }
     }
-    public void comprar(Unidad unidad) {
+    public void comprar(Unidad unidad) throws NoTienesLosMaterialesNecesariosParaCrearEsaUnidad {
         List<Integer>costos = unidad.costo();
         if (esPosibleComprar(unidad)){
             bancoMineral -= costos.get(0);
             bancoGasVespeno -= costos.get(1);
         } else {
-            //Lanzar un error
+            throw new NoTienesLosMaterialesNecesariosParaCrearEsaUnidad();
         }
     }
 

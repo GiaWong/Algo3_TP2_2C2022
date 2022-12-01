@@ -51,8 +51,8 @@ public class VerificarAtaqueDeUnidadesZerg {
         Coordenada coordHidra = new Coordenada(10,10);
 
         mapa.agregar(hidralisco, coordHidra);
-        mapa.atacar(hidralisco, coordPilon);
-        assertEquals(296, pilon.obtenerEscudo());
+        hidralisco.atacar(pilon);
+        assertEquals(290, pilon.obtenerEscudo());
 
     }
 
@@ -72,7 +72,7 @@ public class VerificarAtaqueDeUnidadesZerg {
 
         mapa.agregar(mutalisco, coordMuta);
         mapa.atacar(mutalisco, coordPilon);
-        assertEquals(296, pilon.obtenerEscudo());
+        assertEquals(291, pilon.obtenerEscudo());
 
     }
 
@@ -92,7 +92,7 @@ public class VerificarAtaqueDeUnidadesZerg {
 
         mapa.agregar(guardian, coordGuardian);
         mapa.atacar(guardian, coordPilon);
-        assertEquals(296, pilon.obtenerEscudo());
+        assertEquals(275, pilon.obtenerEscudo());
 
     }
 

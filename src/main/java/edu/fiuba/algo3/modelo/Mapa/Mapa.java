@@ -80,8 +80,11 @@ public class Mapa {
         int filaInferior = coordenada.calculoFilaInferior(radio,base);
         int columnaSuperior = coordenada.calculoColumnaSuperior(radio,altura);
         int columnaInferior = coordenada.calculoColumnaInferior(radio,base);
+        System.out.println('f');
         for(int i=filaInferior; i < filaSuperior; i++){
             for(int j=columnaInferior; j < columnaSuperior;j++){
+
+
                 mapa[i][j].setTerreno(new ConMoho());
             }
         }
