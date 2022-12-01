@@ -14,7 +14,7 @@ public class CasoDeUso13 {
     public void SeDestruyeUnCriaderoYLaCasillaQuedaSinConstruccionYSeVuelveConstruirSobreElMohoAnterior(){
 
 
-        Mapa mapa = new Mapa();
+        Mapa mapa = new Mapa(20,20);
         Criadero criadero = new Criadero();
         for(int i = 0; i<3; i++){
             criadero.avanzarTurno();
