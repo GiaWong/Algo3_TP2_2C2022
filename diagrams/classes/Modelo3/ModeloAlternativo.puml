@@ -1,0 +1,199 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Partida {
+    - jugadorUno
+    - jugadorDos
+    - mapa
+    - turno
+
+    + asignarNombre(Jugador)
+    + asignarColor(Jugador)
+    + asignarRaza(Jugador)
+    + jugar()
+    + . . .  ()
+}
+
+class Jugador {
+    - nombre
+    - color
+    - raza
+
+    + contruir()
+    + atacar()
+    + recolectar()
+    + crearUnidad()
+}
+
+abstract class Raza {
+    - listaUnidades
+    - listaConstrucciones
+    - bancoDeRecursos
+    - capacidadSuministro
+
+    + comprar(construccion)
+    + comprar(unidad)
+}
+
+class Zerg {
+    + agregar(construccion)
+    + agregar(unidad)
+    + recolectar()
+    + crearUnidad()
+}
+
+class Protoss {
+    + agregar(construccion)
+    + agregar(unidad)
+    + recolectar()
+    + crearUnidad()
+}
+
+abstract class Construccion {
+    - vida
+    - tiempoConstruccion
+    - costos
+    + construir()
+    + esPosibleConstruirEn()
+}
+
+abstract class ConstruccionZerg {
+    + construir()
+    + esPosibleConstruirEn()
+}
+
+abstract class ConstruccionProtoss {
+    - escudo
+    + construir()
+    + esPosibleConstruirEn()
+}
+
+class Mapa {
+    - mapa[][] : Casillas
+    + agregar(construccion)
+    + agregar(unidad)
+    + buscar(Coordenada) : Casilla
+}
+
+class Casilla {
+    - coordenada
+    - recurso
+    - terreno
+    - area
+
+    + agregarUnidad()
+    + agregarConstruccion()
+    + setTerrreno()
+    + setRecurso()
+}
+
+note left
+Pensamos que capaz casilla no deberia
+conocer la unidad ni la construccion que
+tiene dentro, sino que solo deberia ver
+de si puede agregar una unidad o construccion
+a la lista correspondiente de Raza.
+end note
+
+
+class Coordenada {
+    - fila
+    - columna
+
+    +esIgual(Coordenada)
+    +tieneMismaFilaColumna()
+}
+
+class SinRecurso {
+    + esPosibleConstruir(construccion)
+}
+
+interface Terreno {
+    + esPosibleConstruir(construccion)
+}
+
+class ConMoho {
+    + esPosibleConstruir(construccion)
+}
+
+class ConEnergia {
+    + esPosibleConstruir(construccion)
+}
+
+class SinTerreno {
+    + esPosibleConstruir(construccion)
+}
+
+class Volcan {
+    - cantidad
+    + recolectar() : int
+    + esPosibleConstruir(construccion)
+}
+
+class NodoMineral {
+    - cantidad
+    + recolectar() : int
+    + esPosibleConstruir(construccion)
+}
+
+class Turno {
+
+   +avanzarTurno(Jugador)
+   +jugar(Jugador)
+
+}
+note right
+Acordarnos de ver como podemos hacer
+para que turno tenga algun tipo de comportamiento
+con las construcciones...
+end note
+
+interface Recurso {
+    + esPosibleConstruir(construccion)
+}
+
+
+
+Partida "2" *- Jugador
+Mapa -o Partida
+Partida o-up- Turno
+
+Jugador *- Raza
+Raza <|-- Zerg
+Raza <|-- Protoss
+
+Zerg --> ConstruccionZerg
+Protoss --> ConstruccionProtoss
+ConstruccionProtoss --|> Construccion
+ConstruccionZerg --|> Construccion
+
+Casilla "*" -* Mapa
+Terreno --* Casilla
+Coordenada --o Casilla
+Casilla *-- Recurso
+
+Recurso <|.. Volcan
+Recurso <|.. NodoMineral
+Recurso <|.. SinRecurso
+
+ConMoho ..|> Terreno
+Terreno <|.. ConEnergia
+SinTerreno .|> Terreno
+
+interface Area{
+ +esPosibleAgregar(unidad)
+}
+class AreaTerrestre{
++esPosibleAgregar(unidad)
+}
+class AreaEspacial{
++esPosibleAgregar(unidad)
+}
+
+Casilla *-- Area
+Area <|.. AreaTerrestre
+Area <|.. AreaEspacial
+
+
+
+@enduml
