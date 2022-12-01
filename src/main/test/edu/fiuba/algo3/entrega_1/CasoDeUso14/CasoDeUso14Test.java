@@ -8,8 +8,7 @@ import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CasoDeUso14Test {
     @Test
@@ -31,27 +30,23 @@ public class CasoDeUso14Test {
     }
 
     @Test
-    public void SeCreaUnCriaderoYElMohoPisaAlaEnergia(){
-        /*
-        Mapa mapa = new Mapa();
+    public void MohoNoSeExpandeACasillasConConstrucciones(){
+        Mapa mapa = new Mapa(20,20);
+
+        Coordenada coordenada = new Coordenada(10,10);
         Criadero criadero = new Criadero();
         Pilon pilon = new Pilon();
-        for(int i = 0; i<3; i++){
-            criadero.construir();
-            pilon.construir();
+        mapa.agregar(criadero,new Coordenada(10,10));
+        Coordenada coordenadaPilon = new Coordenada(10,16);
+        mapa.agregar(pilon,coordenadaPilon);
+        for(int i = 0; i<5; i++){
+            criadero.avanzarTurno(mapa,coordenada);
+            pilon.avanzarTurno();
         }
-        mapa.agregar(criadero,10,10);
-        mapa.agregar(pilon,10,16);
-        mapa.setearRadio();
-        assertEquals(true, mapa.tipoTerreno(new ConMoho(),10,14));
-        assertEquals(false, mapa.tipoTerreno(new ConMoho(),10,15));
-        criadero.avanzarTurno();
-        criadero.avanzarTurno();
-        mapa.setearRadio();
-        assertEquals(true, mapa.tipoTerreno(new ConMoho(),10,15));
-
-         */
-
+        mapa.destruirConstruccion(coordenadaPilon);
+        assertDoesNotThrow( ()-> {
+            mapa.agregar(new Pilon(), coordenadaPilon);
+        });
     }
 
 
