@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso11;
 
-import edu.fiuba.algo3.modelo.Acciones.Danio;
 import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Unidades.Zerling;
 import org.junit.jupiter.api.Test;
@@ -22,8 +21,11 @@ public class CasoDeUso11Test {
         int esperado = 600;
         Zerling zerling = new Zerling();
         zerling.atacar(puerto);
-        when(puerto.obtenerEscudo()).thenReturn(600);
-        //Usar mockito, verificar que le saca vida el zerling a la construccion... y en todos los tests de abajo
+        when(puerto.obtenerEscudo()).thenReturn(596);
+
+        for (int i = 0; i < 3; i++) {
+            puerto.avanzarTurno();
+        }
         int resultado = puerto.obtenerEscudo();
         assertEquals(esperado,resultado );
 
@@ -34,7 +36,7 @@ public class CasoDeUso11Test {
         Zerling zerling = new Zerling();
 
         zerling.atacar(pilon);
-        when(pilon.obtenerEscudo()).thenReturn(300);
+        when(pilon.obtenerEscudo()).thenReturn(296);
 
         for (int i = 0; i < 3; i++) {
             pilon.avanzarTurno();
@@ -49,7 +51,11 @@ public class CasoDeUso11Test {
         Zerling zerling = new Zerling();
 
         zerling.atacar(nexo);
-        when(nexo.obtenerEscudo()).thenReturn(250);
+        when(nexo.obtenerEscudo()).thenReturn(246);
+
+        for (int i = 0; i < 3; i++) {
+            puerto.avanzarTurno();
+        }
         int resultado = nexo.obtenerEscudo();//Esto habria que ponerlo en construccion
         assertEquals(esperado,resultado );
 
@@ -60,7 +66,11 @@ public class CasoDeUso11Test {
         Zerling zerling = new Zerling();
 
         zerling.atacar(asimilador);
-        when(asimilador.obtenerEscudo()).thenReturn(450);
+        when(asimilador.obtenerEscudo()).thenReturn(446);
+
+        for (int i = 0; i < 3; i++) {
+            puerto.avanzarTurno();
+        }
         int resultado = asimilador.obtenerEscudo();//Esto habria que ponerlo en construccion
         assertEquals(esperado,resultado );
 
@@ -69,9 +79,13 @@ public class CasoDeUso11Test {
     public void SeDañaAUnAccesoYDeberiaRecuperarElEscudoPorCadaTurno(){
         int esperado = 500;
         Zerling zerling = new Zerling();
-        when(acceso.obtenerEscudo()).thenReturn(500);
 
         zerling.atacar(acceso);
+        when(acceso.obtenerEscudo()).thenReturn(496);
+
+        for (int i = 0; i < 3; i++) {
+            puerto.avanzarTurno();
+        }
         int resultado = acceso.obtenerEscudo();//Esto habria que ponerlo en construccion
         assertEquals(esperado,resultado );
     }

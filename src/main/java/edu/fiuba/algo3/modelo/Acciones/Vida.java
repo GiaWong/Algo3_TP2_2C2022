@@ -15,7 +15,7 @@ public class Vida { //Esto podria usarse para Construccion tambien, deberia esta
     }
 
     public boolean estaVivo(){
-        return salud >0;
+        return salud > 0;
     }
 
     public void regenerarSalud(int regeneracion){

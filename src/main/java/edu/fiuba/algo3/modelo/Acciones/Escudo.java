@@ -8,20 +8,20 @@ public class Escudo {
     public Escudo(int vidaEscudo){
         escudo = vidaEscudo;
         escudoMaximo = vidaEscudo;
-
     }
 
     public void inflijirDanio(int danio, Vida vida){
 
         escudo -= danio;
         if (escudo <= 0){
-            int danioNuevo = escudo * 2;
+            int danioNuevo = (-1) * escudo;
             vida.inflijirDanio(danioNuevo);
+            escudo = 0;
         }
     }
 
     public boolean estaVivo(){
-        return escudo >0;
+        return escudo > 0;
     }
 
     public void regenerarEscudo(int regeneracion){

@@ -11,12 +11,11 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Unidades.Zangano;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class CasoDeUso16 {
+public class CasoDeUso16Test {
     @Test
-    public void NoSeDeberiaPoderConstruirUnAsimiladorSobreExtractor() {
+    public void NoSeDeberiaPoderConstruirUnExtractorSobreUnAsimilador() {
         Casilla casilla = new Casilla();
         casilla.setRecurso(new Volcan());
         casilla.setTerreno(new ConEnergia());
@@ -28,7 +27,7 @@ public class CasoDeUso16 {
     }
 
     @Test
-    public void NoSeDeberiaPoderConstruirUnNexoMineralUnZangano() {
+    public void NoSeDeberiaPoderConstruirUnNexoMineralSobreUnZangano() {
         Casilla casilla = new Casilla();
         casilla.setRecurso(new Volcan());
         casilla.setTerreno(new ConEnergia());

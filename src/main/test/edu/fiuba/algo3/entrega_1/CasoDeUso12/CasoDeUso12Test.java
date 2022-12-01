@@ -14,10 +14,8 @@ public class CasoDeUso12Test {
         int escudoesperado = 600;
         int vidaesperada = 570;
 
-        PuertoEstelar puerto = new PuertoEstelar();
-        for(int i = 0; i<10; i++){
-            puerto.avanzarTurno();
-        }
+        PuertoEstelar puerto = new PuertoEstelar(0);
+
         puerto.recibirDanio(new Danio(630));
         for(int i = 0; i<60; i++){
             puerto.avanzarTurno();

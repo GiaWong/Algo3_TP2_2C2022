@@ -3,6 +3,9 @@ package edu.fiuba.algo3.entrega_1.CasoDeUso15;
 import edu.fiuba.algo3.modelo.Construccion.Asimilador;
 import edu.fiuba.algo3.modelo.Construccion.Extractor;
 import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
+import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.Exception.FaltaUnZanganoParaRecolectar;
+import edu.fiuba.algo3.modelo.Exception.NoSePuedeAgregarOtroZangano;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
@@ -13,13 +16,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CasoDeUso15 {
+public class CasoDeUso15Test {
 
 
     // Caso mineral para Protoss
-    /*
+
     @Test
-    public void NexoMineralNoDeberiaRecolectarDeUnMineralCuandoElRecursoSeAgoto(){//falta hacer el resot de las clases
+    public void NexoMineralNoDeberiaRecolectarDeUnMineralCuandoElRecursoSeAgoto() throws EdificioNoEstaOperativo {//falta hacer el resot de las clases
 
         int esperado = 0;
         Casilla casilla = new Casilla();
@@ -59,7 +62,7 @@ public class CasoDeUso15 {
 
     // Caso de gas para los Protoss
     @Test
-    public void AsimiladorNoDeberiaRecolectarDeUnGasVespenoCuandoElRecursoSeAgoto(){
+    public void AsimiladorNoDeberiaRecolectarDeUnGasVespenoCuandoElRecursoSeAgoto() throws EdificioNoEstaOperativo {
         int esperado = 0 ;
         Casilla casilla = new Casilla();
         Volcan volcan = new Volcan();
@@ -79,8 +82,8 @@ public class CasoDeUso15 {
 
     // Caso de gas para los Zerg
     @Test
-    public void ExtractorNoDeberiaRecolectarDeUnGasVespenoCuandoElRecursoSeAgoto(){
-        /*
+    public void ExtractorNoDeberiaRecolectarDeUnGasVespenoCuandoElRecursoSeAgoto() throws NoSePuedeAgregarOtroZangano, EdificioNoEstaOperativo, FaltaUnZanganoParaRecolectar {
+
         int esperado = 0 ;
         Casilla casilla = new Casilla();
         Volcan volcan = new Volcan();
@@ -90,9 +93,9 @@ public class CasoDeUso15 {
         for(int i = 0; i < 6; i++){
             extractor.construir();
         }
-        extractor.agregar(new Zangano());
-        extractor.agregar(new Zangano());
-        extractor.agregar(new Zangano());
+        extractor.agregarZangano(new Zangano());
+        extractor.agregarZangano(new Zangano());
+        extractor.agregarZangano(new Zangano());
         for(int j = 0; j < 200; j++){
             extractor.recolectar(volcan);
         }
@@ -101,7 +104,5 @@ public class CasoDeUso15 {
 
 
     }
-
-     */
 
 }

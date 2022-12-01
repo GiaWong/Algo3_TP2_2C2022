@@ -4,16 +4,14 @@ import edu.fiuba.algo3.modelo.Construccion.Acceso;
 import edu.fiuba.algo3.modelo.Construccion.Criadero;
 import edu.fiuba.algo3.modelo.Construccion.Pilon;
 import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
-import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class CasoDeUso14 {
+public class CasoDeUso14Test {
     @Test
     public void SeCreaUnPilonYNoDeberiaEnergizarUnaCasillaConMoho(){
         Mapa mapa = new Mapa(20,20);
