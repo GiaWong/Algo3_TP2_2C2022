@@ -1,20 +1,24 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso12;
 
+import edu.fiuba.algo3.modelo.Acciones.Danio;
 import edu.fiuba.algo3.modelo.Construccion.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso12Test {
-/*
+
 
     @Test
     public void SeDañaAUnPuertoEstelarYDeberiaRecuperarElEsucudoPorCadaTurnoPeroNoLaVida() {
         int escudoesperado = 600;
         int vidaesperada = 570;
 
-        Unidad puerto = new PuertoEstelar();
-        puerto.recibeDanio(630);
+        PuertoEstelar puerto = new PuertoEstelar();
+        for(int i = 0; i<10; i++){
+            puerto.avanzarTurno();
+        }
+        puerto.recibirDanio(new Danio(630));
         for(int i = 0; i<60; i++){
             puerto.avanzarTurno();
         }
@@ -29,7 +33,10 @@ public class CasoDeUso12Test {
         int escudoesperado = 300;
         int vidaesperada = 270;
         Pilon pilon = new Pilon();
-        pilon.recibeDanio(330);
+        for(int i = 0; i<5; i++){
+            pilon.avanzarTurno();
+        }
+        pilon.recibirDanio(new Danio(330));
         for(int i = 0; i<30; i++){
             pilon.avanzarTurno();
         }
@@ -43,7 +50,10 @@ public class CasoDeUso12Test {
         int escudoesperado = 250;
         int vidaesperada = 220;
         NexoMineral nexo = new NexoMineral();
-        nexo.recibeDanio(280);
+        for(int i = 0; i<4; i++){
+            nexo.avanzarTurno();
+        }
+        nexo.recibirDanio(new Danio(280));
         for(int i = 0; i<25; i++){
             nexo.avanzarTurno();
         }
@@ -54,11 +64,13 @@ public class CasoDeUso12Test {
     }
     @Test
     public void SeDañaAUnAsimiladorYDeberiaRecuperarElEsucudoPorCadaTurnoPeroNoLaVida(){
-        int esperado = 450;
         int escudoesperado = 450;
         int vidaesperada = 420;
         Asimilador asimilador = new Asimilador();
-        asimilador.recibeDanio(480);
+        for(int i = 0; i<6; i++){
+            asimilador.avanzarTurno();
+        }
+        asimilador.recibirDanio(new Danio(480));
         for(int i = 0; i<45; i++){
             asimilador.avanzarTurno();
         }
@@ -69,11 +81,13 @@ public class CasoDeUso12Test {
     }
     @Test
     public void SeDañaAUnAccesoYDeberiaRecuperarElEsucudoPorCadaTurnoPeroNoLaVida(){
-        int esperado = 500;
         int escudoesperado = 500;
         int vidaesperada = 470;
         Acceso acceso = new Acceso();
-        acceso.recibeDanio(530);
+        for(int i = 0; i<8; i++){
+            acceso.avanzarTurno();
+        }
+        acceso.recibirDanio(new Danio(530));
         for(int i = 0; i<50; i++){
             acceso.avanzarTurno();
         }
@@ -82,8 +96,5 @@ public class CasoDeUso12Test {
         assertEquals(escudoesperado, resultadoEscudo);
         assertEquals(vidaesperada, resultadoVida);
     }
-
- */
-
 
 }
