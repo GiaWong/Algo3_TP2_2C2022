@@ -70,9 +70,10 @@ public class Mapa {
         }
    }
 
-    public void casillaConTerrenoMoho(int fila, int columna){
+    public void casillaConTerrenoMoho(Coordenada coordenada){
 
-        (mapa[fila][columna]).setTerreno(new ConMoho());
+       coordenada.setTerreno(mapa,new ConMoho());
+
     }
 
     public void expandirMoho(Coordenada coordenada, int radio){
