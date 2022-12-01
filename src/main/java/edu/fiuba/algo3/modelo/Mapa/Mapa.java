@@ -65,7 +65,7 @@ public class Mapa {
         for(int i=0; i < 5; i++) {
             Area area = new AreaEspacial();
             Casilla casilla = new Casilla();
-            casilla.asignarArea(area);
+            casilla.setArea(area);
             mapa[4][i]= casilla;
         }
    }
@@ -80,7 +80,6 @@ public class Mapa {
         int filaInferior = coordenada.calculoFilaInferior(radio,base);
         int columnaSuperior = coordenada.calculoColumnaSuperior(radio,altura);
         int columnaInferior = coordenada.calculoColumnaInferior(radio,base);
-        System.out.println('f');
         for(int i=filaInferior; i < filaSuperior; i++){
             for(int j=columnaInferior; j < columnaSuperior;j++){
 
@@ -90,17 +89,13 @@ public class Mapa {
         }
     }
 
-    public void destruirConstruccion(int fila, int columna) { //Puede ser que se ocupe Raza de esto...
-
-        if((mapa [fila][columna]).esConstruccion(new Pilon())){
-
-            int radio = (mapa [fila][columna]).obtenerRadio();
-            this.setearRadioTerreno(radio,fila, columna, new SinTerreno());
-            (mapa [fila][columna]).destruirConstruccion();
+    public void destruirConstruccion(Coordenada unaCoordenada) { //Puede ser que se ocupe Raza de esto...
+        Casilla casilla = this.buscar(unaCoordenada);
+        if(casilla.esConstruccion(new Pilon())){
+            casilla.destruirConstruccion();
             this.setearRadio();
-
         }else{
-            (mapa [fila][columna]).destruirConstruccion();
+            casilla.destruirConstruccion();
         }
     }
 
@@ -125,12 +120,12 @@ public class Mapa {
         throw new NoEstaEnElMapa();
     }
 
-    public void setearRadio() { //Puede ser que se ocupe Raza de esto...
+    public void setearRadio() { //Puede ser que se ocupe Raza de esto... y que se ocupe construccionConRadio de esto
         int radio;
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
 
-                if ((mapa[i][j]).esConstruccion(new Criadero())) {
+                if ((mapa[i][j]).esConstruccion(new Criadero())) { //Se tiene que hacer de una mejor manera... Capaz con el nuevo modelo tentativo puedo solucionar esto mas facil
                     radio = (mapa[i][j]).obtenerRadio();
                     this.setearRadioTerreno(radio, i, j, new ConMoho());
 

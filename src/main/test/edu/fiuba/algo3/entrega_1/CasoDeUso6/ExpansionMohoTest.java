@@ -29,17 +29,17 @@ public class ExpansionMohoTest {
     }
 
     @Test
-    public void CompruebaLaAmpliacionDelMohoAPartirDeUnCriaderoLuegoDe2Turnos(){
+    public void CompruebaLaAmpliacionDelMohoAPartirDeUnCriaderoLuegoDeVariosTurnos(){
         Mapa mapa = new Mapa(20,20);
         Criadero criadero = new Criadero();
         Coordenada coordenada = new Coordenada(1,2);
         mapa.agregar(criadero,coordenada);
-        for(int i =0; i<=6; i++) {
+        for(int i =0; i<=8; i++) {
             criadero.avanzarTurno(mapa,coordenada);
         }
         criadero.avanzarTurno(mapa,coordenada);
         assertDoesNotThrow(()->{mapa.agregar(new ReservaProduccion(), new Coordenada(6,5));});
-       // assertDoesNotThrow(()->{mapa.agregar(new ReservaProduccion(), new Coordenada(7,5));});
+        assertDoesNotThrow(()->{mapa.agregar(new ReservaProduccion(), new Coordenada(7,5));});
 
     }
 

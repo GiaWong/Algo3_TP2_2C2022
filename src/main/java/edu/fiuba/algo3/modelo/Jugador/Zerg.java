@@ -10,17 +10,13 @@ public class Zerg extends Raza {
 
 
     public void agregar(ConstruccionZerg construccion, Coordenada coordenada, Mapa mapa) {
-        if (banco.esPosibleComprar(construccion)){
-            this.comprar(construccion);
-            mapa.agregar(construccion, coordenada);
-        }
+        this.comprar(construccion);
+        mapa.agregar(construccion, coordenada);
     }
 
     public void agregar(UnidadZerg unidad, Coordenada coordenada, Mapa mapa) {
-        if (banco.esPosibleComprar(unidad)){
-            this.comprar(unidad);
-            mapa.agregar(unidad, coordenada);
-        }
+        this.comprar(unidad);
+        mapa.agregar(unidad, coordenada);
     }
 
     public void crearUnidad(Coordenada coordenada, Mapa mapa){

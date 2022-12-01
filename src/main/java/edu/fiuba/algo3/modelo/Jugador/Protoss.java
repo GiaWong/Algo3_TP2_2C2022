@@ -13,11 +13,13 @@ import javafx.scene.layout.CornerRadii;
 public class Protoss extends Raza {
 
     public void agregar(ConstruccionProtoss construccion, Coordenada coordenada, Mapa mapa) {
+        this.comprar(construccion);
         mapa.agregar(construccion, coordenada);
 
     }
 
     public void agregar(UnidadProtoss unidad, Coordenada coordenada, Mapa mapa) {
+        this.comprar(unidad);
         mapa.agregar(unidad, coordenada);
 
     }

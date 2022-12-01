@@ -17,11 +17,12 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
+import edu.fiuba.algo3.modelo.Turno.Turno;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pilon extends ConstruccionProtoss {
+public class Pilon extends ConstruccionProtoss implements ConstruccionConRadio{
 
     private int radio = 3; //El radio es mejor que sea un entero o un objeto?
     //private Energia radio;
@@ -91,5 +92,15 @@ public class Pilon extends ConstruccionProtoss {
 
     public void energizar(Mapa mapa, Coordenada coordenada) throws EdificioNoEstaOperativo{
         verificarEdificioOperativo();
+    }
+
+    @Override
+    public void ampliarRadio(Turno turno) {
+
+    }
+
+    @Override
+    public int obtenerRadio() {
+        return radio;
     }
 }

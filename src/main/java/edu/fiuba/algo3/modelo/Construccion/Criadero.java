@@ -117,7 +117,7 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
     }
 
     public void expandirMoho(Mapa mapa, Coordenada coordenada){
-        if((turnos % 2 == 0)&&(turnos/2>0)){
+        if((turnos % 2 == 0) && (estaDisponible())){
             mapa.expandirMoho(coordenada,radio);
             radio++;
         }
@@ -159,5 +159,10 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
     @Override
     public void ampliarRadio(Turno turno) {
 
+    }
+
+    @Override
+    public int obtenerRadio() {
+        return radio;
     }
 }

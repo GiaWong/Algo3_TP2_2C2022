@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Jugador;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Exception.NoHayRecursosSuficientes;
 import edu.fiuba.algo3.modelo.Exception.NoTienesLosMaterialesNecesariosParaCrearEsaUnidad;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
@@ -10,42 +11,27 @@ public class BancoDeRecursos {
     private int bancoMineral = 200;
     private int bancoGasVespeno = 0;
 
-    public void comprar(Construccion construccion) {
-        List<Integer>costos = construccion.costo();
-        if (esPosibleComprar(construccion)){
+    public void comprar(Construccion construccion) throws NoHayRecursosSuficientes {
+        List<Integer>costos = construccion.costo(); //Creo que esto se soluciona delegando a Construccion la compra
+        int minerales = bancoMineral - costos.get(0);
+        int gas = bancoGasVespeno - costos.get(1);
+        if ((minerales >= 0) && (gas >= 0)){
             bancoMineral -= costos.get(0);
             bancoGasVespeno -= costos.get(1);
         } else {
-            //Lanzar un error
+            throw new NoHayRecursosSuficientes();
         }
     }
-    public void comprar(Unidad unidad) throws NoTienesLosMaterialesNecesariosParaCrearEsaUnidad {
-        List<Integer>costos = unidad.costo();
-        if (esPosibleComprar(unidad)){
+    public void comprar(Unidad unidad) throws NoHayRecursosSuficientes {
+        List<Integer>costos = unidad.costo(); //Creo que esto se soluciona delegando a Unidad la compra
+        int minerales = bancoMineral - costos.get(0);
+        int gas = bancoGasVespeno - costos.get(1);
+        if ((minerales >= 0) && (gas >= 0)){
             bancoMineral -= costos.get(0);
             bancoGasVespeno -= costos.get(1);
         } else {
-            throw new NoTienesLosMaterialesNecesariosParaCrearEsaUnidad();
+            throw new NoHayRecursosSuficientes();
         }
-    }
-
-    public boolean esPosibleComprar(Construccion construccion){
-        List<Integer> costos = construccion.costo();
-        int mineral = bancoMineral - costos.get(0);
-        int gas =  bancoGasVespeno - costos.get(1);
-        if((gas < 0) || (mineral < 0)){
-            return false;
-        }
-        return true;
-    }
-    public boolean esPosibleComprar(Unidad unidad){
-        List<Integer> costos = unidad.costo();
-        int mineral = bancoMineral - costos.get(0);
-        int gas =  bancoGasVespeno - costos.get(1);
-        if((gas < 0) || (mineral < 0)){
-            return false;
-        }
-        return true;
     }
 
 

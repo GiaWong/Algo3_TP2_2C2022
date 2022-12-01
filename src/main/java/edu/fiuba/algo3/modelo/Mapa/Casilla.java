@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.Mapa;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Construccion.Criadero;
+import edu.fiuba.algo3.modelo.Construccion.Pilon;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.*;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaTerrestre;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
@@ -34,21 +36,6 @@ public class Casilla {
         coordenada = coord;
     }
 
-    public boolean hayConstruccion() {
-        return (construccion != null);
-    }
-
-    public void asignarArea(Area unArea){
-        area = unArea;
-    }
-    public boolean hayUnidad() {
-        return (unidad != null);
-    }
-
-    public boolean tipoTerreno(Terreno otroTerreno){
-        return (terreno.getClass().equals(otroTerreno.getClass()));
-    }
-
     public void agregar(Unidad unaUnidad){
         area.esPosibleAgregar(unaUnidad);
         unidad = unaUnidad;
@@ -61,14 +48,13 @@ public class Casilla {
 
     }
 
-
-    public void setTerreno(Terreno unTerreno){
-        terreno = unTerreno;
+    public boolean hayConstruccion() {
+        return (construccion != null);
+    }
+    public boolean hayUnidad() {
+        return (unidad != null);
     }
 
-    public void setRecurso(Recurso unRecurso){
-        recurso = unRecurso;
-    }
 
     public void destruirConstruccion() {
         construccion=null;
@@ -79,15 +65,6 @@ public class Casilla {
             return construccionRadio.getClass().equals(construccion.getClass());
         }
         return false;
-    }
-
-    public int obtenerRadio() {
-/*
-       ConstruccionConRadio construccionConRadio = (ConstruccionConRadio) construccion;
-        return (construccionConRadio.obtenerRadio()) ;
-
- */
-        return 0;
     }
 
     public void atacar(Unidad unidadAtacante) {
@@ -107,8 +84,29 @@ public class Casilla {
         return false;
     }
 
+    public int obtenerRadio() {
+        return 0; //Como hago esto??
+
+    }
+
+    public void setArea(Area unArea){
+        area = unArea;
+    }
+
+    public void setTerreno(Terreno unTerreno){
+        terreno = unTerreno;
+    }
+
+    public void setRecurso(Recurso unRecurso){
+        recurso = unRecurso;
+    }
+
     public Coordenada coordenada(){
         return coordenada;
+    }
+
+    public boolean tipoTerreno(Terreno otroTerreno){
+        return (terreno.getClass().equals(otroTerreno.getClass()));
     }
 
 }
