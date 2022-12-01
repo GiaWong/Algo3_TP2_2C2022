@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Jugador;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Exception.HasLlegadAlLimiteDeUnidadesCreadas;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 public class Suministro {
@@ -14,19 +15,24 @@ public class Suministro {
         capacidadSuministro = 0;
     }
 
-    public void agregar(Unidad unidad){
-        if (capacidadSuministro == capacidadTotalSuministro){ // este if es para ver si se puede agregar una Unidad o no por la capacidad de Poblacion
+    public int  capacidadActual(){
+        int k = this.capacidadSuministro;
+        return  k;
+    }
+
+    public void agregar(Unidad unidad)throws HasLlegadAlLimiteDeUnidadesCreadas{
+        if (capacidadSuministro < capacidadTotalSuministro){ // este if es para ver si se puede agregar una Unidad o no por la capacidad de Poblacion
             unidad.modificarSuministro(this);
         } else {
-            //Lanzar error capaz o hacer nada
+            throw new HasLlegadAlLimiteDeUnidadesCreadas();
         }
     }
 
-    public void agregar(Construccion construccion){
+    public void agregar(Construccion construccion)throws HasLlegadAlLimiteDeUnidadesCreadas {
         if (capacidadSuministro == capacidadTotalSuministro){
             construccion.aumentarSuministro(this);
         } else {
-            //Lanzar error capaz o hacer nada
+
         }
     }
 
@@ -35,6 +41,6 @@ public class Suministro {
     }
 
     public void aumentarCapacidad(int unaCantidad){
-        capacidadSuministro += unaCantidad;
+        capacidadSuministro =+ unaCantidad;
     }
 }

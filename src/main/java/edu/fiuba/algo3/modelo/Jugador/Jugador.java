@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.Jugador;
 
 import edu.fiuba.algo3.modelo.Exception.NombreDeberiaTener6caracteresComoMinimo;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
-import edu.fiuba.algo3.modelo.Turno.Turno;
+import edu.fiuba.algo3.modelo.Unidades.Turno.Turno;
 
 public class Jugador {
 

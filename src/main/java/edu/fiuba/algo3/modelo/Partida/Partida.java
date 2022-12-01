@@ -1,12 +1,10 @@
 package edu.fiuba.algo3.modelo.Partida;
 
 import edu.fiuba.algo3.modelo.Exception.JugadorDosNoPuedeTenerLosMismosAtributosQueJugadorUno;
-import edu.fiuba.algo3.modelo.Exception.NombreDeberiaTener6caracteresComoMinimo;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Jugador.Raza;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
-import edu.fiuba.algo3.modelo.Turno.Turno;
-import javafx.scene.paint.Color;
+import edu.fiuba.algo3.modelo.Unidades.Turno.Turno;
 
 public class Partida {
 

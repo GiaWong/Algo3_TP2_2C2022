@@ -4,7 +4,6 @@ package edu.fiuba.algo3.modelo.Construccion;
 import edu.fiuba.algo3.modelo.Acciones.Escudo;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
-import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEnEsteTerreno;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
@@ -16,11 +15,7 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
-import edu.fiuba.algo3.modelo.Turno.Turno;
-
-import java.util.ArrayList;
-import java.util.List;
+import edu.fiuba.algo3.modelo.Unidades.Turno.Turno;
 
 public class Pilon extends ConstruccionProtoss implements ConstruccionConRadio{
 
