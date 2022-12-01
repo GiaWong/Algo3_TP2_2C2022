@@ -10,7 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso17 {
-/*
+
     @Test
     public void SeVerificaPreRequisitoPuertoEstelar(){
         PuertoEstelar puerto = new PuertoEstelar();
@@ -27,16 +27,12 @@ public class CasoDeUso17 {
         lisst.add(guarida);
         assertEquals(true,espiral.preRequisito(lisst));
     }
-    @Test
+    /*@Test
     public void SeVerificaPreRequisitoGuarida(){
-        /*
         Guarida guarida = new Guarida();
         List<Construccion> lisst = new ArrayList<>();
         ReservaProduccion reserva = new ReservaProduccion();
         lisst.add(reserva);
         assertEquals(true,guarida.preRequisito(lisst));
-
-
-    }
-    */
+    }*/
 }

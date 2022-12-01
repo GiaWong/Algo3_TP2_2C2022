@@ -10,7 +10,7 @@ public class AtaqueTierra implements Atacador { //Supuesto: TODAS LAS CONSTRUCCI
 
     private final Danio danio;
 
-    public AtaqueTierra(int ataque){
+    public AtaqueTierra(int ataque) {
         danio = new Danio(ataque);
     }
 
@@ -28,19 +28,19 @@ public class AtaqueTierra implements Atacador { //Supuesto: TODAS LAS CONSTRUCCI
     public boolean esPosibleAtacar(Superficie superficie) {
         return superficie.esPosibleSerAtacadoPorAtaqueTierra();
     }
-
+}
     /*
-    @Override
-    void ultimoGolpe(Construccion construccion){
-        construccion.estaOperativo();
+    //@Override
+    //void ultimoGolpe(Construccion construccion){
+      //  construccion.estaOperativo();
     }
-    @Override
-    void ultimoGolpe(Unidad unidad){
-        unidad.estaOperativo();
-    }
+    //@Override
+    //void ultimoGolpe(Unidad unidad){
+       // unidad.estaOperativo();
+    //}
 
      */
 
 
-}
+
 

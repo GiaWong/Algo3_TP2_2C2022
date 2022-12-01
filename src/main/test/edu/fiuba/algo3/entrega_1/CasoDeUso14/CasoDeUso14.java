@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CasoDeUso14 {
 
     /*
-    @Test
+    /*@Test
     public void SeCreaUnPilonYNoDeberiaEnergizarUnaCasillaConMoho(){
         Mapa mapa = new Mapa();
         Criadero criadero = new Criadero();
@@ -46,7 +46,7 @@ public class CasoDeUso14 {
         mapa.setearRadio();
         assertEquals(true, mapa.tipoTerreno(new ConMoho(),10,15));
 
-    }
+    }*/
 
-     */
+
 }

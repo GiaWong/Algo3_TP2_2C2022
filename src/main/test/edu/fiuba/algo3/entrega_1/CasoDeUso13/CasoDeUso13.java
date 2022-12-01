@@ -8,10 +8,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CasoDeUso13 {
-    /*
-    @Test
+    /*@Test
     public void SeDestruyeUnCriaderoYLaCasillaQuedaSinConstruccionYSeVuelveConstruirSobreElMohoAnterior(){
-
 
         Mapa mapa = new Mapa();
         Criadero criadero = new Criadero();
@@ -26,8 +24,5 @@ public class CasoDeUso13 {
 
 
         assertEquals(true,mapa.hayConstruccion(10,11));
-
-
-    }
-    */
+    }*/
 }

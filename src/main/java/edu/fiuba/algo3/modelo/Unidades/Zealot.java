@@ -18,6 +18,7 @@ public class Zealot extends UnidadProtoss{
 
     public Zealot() {
         vida = new Vida(100);
+        escudo = new Escudo(100);
         tiempoConstruccion = 4;
         rango = 1;
         costos.add(100); //Esto es para Minerales
@@ -31,24 +32,26 @@ public class Zealot extends UnidadProtoss{
         if (unaUnidad.esPosibleSerAtacadoPor(atacador)){
             atacador.atacar(unaUnidad);
         }
-        try {
+       /* try {
             //atacador.ultimoGolpe(unaUnidad);
 
         }catch (Exception UnidadMuerta){
             asesinatos++;
-        }
+        }*/
 
     }
+
+
 
     public void atacar(Construccion unaConstruccion){
 
         atacador.atacar(unaConstruccion);
-        try {
+        /*try {
             //atacador.ultimoGolpe(unaConstruccion);
 
         }catch (Exception ConstruccionDestruida){
             asesinatos++;
-        }
+        }*/
 
     }
 
@@ -81,6 +84,9 @@ public class Zealot extends UnidadProtoss{
             throw new UnidadNoTargeteable();
         }
     }
+    public int obtenerEscudo() {return escudo.escudoActual(); }
+
+    public int obtenerVida() {return vida.vidaActual(); }
 
     @Override
     public void modificarSuministro(Suministro suministro) {

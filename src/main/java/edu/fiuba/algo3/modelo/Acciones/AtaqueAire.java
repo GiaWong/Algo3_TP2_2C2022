@@ -16,7 +16,6 @@ public class AtaqueAire implements Atacador {
     public void atacar(Unidad unidad) {
         unidad.recibirDanio(danio);
     }
-
     @Override
     public void atacar(Construccion construccion) {
         construccion.recibirDanio(danio);
@@ -28,14 +27,14 @@ public class AtaqueAire implements Atacador {
     }
 
     /*
-    @Override
+    /*@Override
     void ultimoGolpe(Construccion construccion){
         construccion.estaOperativo();
     }
     @Override
     void ultimoGolpe(Unidad unidad){
         unidad.estaOperativo();
-    }
+    }*/
 
-     */
+
 }

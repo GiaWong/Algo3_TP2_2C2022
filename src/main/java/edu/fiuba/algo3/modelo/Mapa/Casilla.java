@@ -40,7 +40,6 @@ public class Casilla {
         area.esPosibleAgregar(unaUnidad);
         unidad = unaUnidad;
     }
-
     public void agregar(Construccion unaConstruccion){
         recurso.esPosibleConstruir(unaConstruccion);
         terreno.esPosibleConstruir(unaConstruccion);

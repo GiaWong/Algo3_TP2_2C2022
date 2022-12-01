@@ -15,8 +15,8 @@ public interface Atacador {
     boolean esPosibleAtacar(Superficie superficie);
     /*
 
-    void ultimoGolpe(Construccion construccion);
-    void ultimoGolpe(Unidad unidad);
+    //void ultimoGolpe(Construccion construccion);
+    //void ultimoGolpe(Unidad unidad);
 
      */
 

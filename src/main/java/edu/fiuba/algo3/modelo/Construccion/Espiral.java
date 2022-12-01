@@ -50,7 +50,8 @@ public class Espiral extends ConstruccionZerg {
         return false;
     }
 
-    public int obtenerVida() {return 0; }
+    public int obtenerVida() {return vida.vidaActual(); }
+
 
     public void regenerarVida(){
         vida.regenerarSalud(5);

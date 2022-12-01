@@ -9,13 +9,12 @@ import edu.fiuba.algo3.modelo.Jugador.Zerg;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ComprobarRecursosConstruccionProtoss {
 
 
-    @Test
+    /*@Test
     public void testRazaZergQuiereConstruirseUnCriaderoDeberiaPoderConstruirlo(){
         Zerg zerg = new Zerg();
         Criadero criadero = new Criadero();
@@ -224,7 +223,7 @@ public class ComprobarRecursosConstruccionProtoss {
         //Toda raza comienza con 200 Minerales y 0 GasVespeno.
         BancoDeRecursos banco = new BancoDeRecursos();
         assertThrows(NoHayRecursosSuficientes.class, ()-> banco.comprar(new PuertoEstelar()));
-    }
+    }*/
 
 }
 
