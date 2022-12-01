@@ -108,10 +108,10 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         if(larvas.size() < 3){
             larvas.add(new Larva());
         }
-        turnos++;
         this.construir();
         this.regenerarVida();
         this.expandirMoho(mapa,coordenada);
+        turnos++;
     }
 
     public void expandirMoho(Mapa mapa, Coordenada coordenada){

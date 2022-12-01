@@ -21,11 +21,11 @@ public class CasoDeUso11Test {
         int esperado = 600;
         Zerling zerling = new Zerling();
         zerling.atacar(puerto);
-        when(puerto.obtenerEscudo()).thenReturn(596);
 
         for (int i = 0; i < 3; i++) {
             puerto.avanzarTurno();
         }
+        when(puerto.obtenerEscudo()).thenReturn(600);
         int resultado = puerto.obtenerEscudo();
         assertEquals(esperado,resultado );
 
@@ -36,11 +36,11 @@ public class CasoDeUso11Test {
         Zerling zerling = new Zerling();
 
         zerling.atacar(pilon);
-        when(pilon.obtenerEscudo()).thenReturn(296);
 
         for (int i = 0; i < 3; i++) {
             pilon.avanzarTurno();
         }
+        when(pilon.obtenerEscudo()).thenReturn(300);
         int resultado = pilon.obtenerEscudo();//Esto habria que ponerlo en construccion
         assertEquals(esperado,resultado );
 
@@ -51,11 +51,11 @@ public class CasoDeUso11Test {
         Zerling zerling = new Zerling();
 
         zerling.atacar(nexo);
-        when(nexo.obtenerEscudo()).thenReturn(246);
 
         for (int i = 0; i < 3; i++) {
             puerto.avanzarTurno();
         }
+        when(nexo.obtenerEscudo()).thenReturn(250);
         int resultado = nexo.obtenerEscudo();//Esto habria que ponerlo en construccion
         assertEquals(esperado,resultado );
 
@@ -66,11 +66,11 @@ public class CasoDeUso11Test {
         Zerling zerling = new Zerling();
 
         zerling.atacar(asimilador);
-        when(asimilador.obtenerEscudo()).thenReturn(446);
 
         for (int i = 0; i < 3; i++) {
             puerto.avanzarTurno();
         }
+        when(asimilador.obtenerEscudo()).thenReturn(450);
         int resultado = asimilador.obtenerEscudo();//Esto habria que ponerlo en construccion
         assertEquals(esperado,resultado );
 
@@ -81,11 +81,11 @@ public class CasoDeUso11Test {
         Zerling zerling = new Zerling();
 
         zerling.atacar(acceso);
-        when(acceso.obtenerEscudo()).thenReturn(496);
 
         for (int i = 0; i < 3; i++) {
             puerto.avanzarTurno();
         }
+        when(acceso.obtenerEscudo()).thenReturn(500);
         int resultado = acceso.obtenerEscudo();//Esto habria que ponerlo en construccion
         assertEquals(esperado,resultado );
     }

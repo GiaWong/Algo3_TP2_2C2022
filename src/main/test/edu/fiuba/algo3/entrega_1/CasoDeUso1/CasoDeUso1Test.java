@@ -2,7 +2,6 @@ package edu.fiuba.algo3.entrega_1.CasoDeUso1;
 
 import edu.fiuba.algo3.modelo.Construccion.Criadero;
 import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
-import edu.fiuba.algo3.modelo.Exception.NoHayLarvasDisponiblesParaEvolucionar;
 import edu.fiuba.algo3.modelo.Jugador.BancoDeRecursos;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 import org.junit.jupiter.api.Test;

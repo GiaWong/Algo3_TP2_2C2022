@@ -3,8 +3,6 @@ package edu.fiuba.algo3.entrega_1.CasoDeUso8;
 import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Exception.NoHayRecursosSuficientes;
 import edu.fiuba.algo3.modelo.Jugador.BancoDeRecursos;
-import edu.fiuba.algo3.modelo.Jugador.Raza;
-import edu.fiuba.algo3.modelo.Jugador.Zerg;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

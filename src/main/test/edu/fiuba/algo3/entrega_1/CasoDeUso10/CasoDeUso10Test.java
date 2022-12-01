@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso10;
 
-import edu.fiuba.algo3.modelo.Acciones.Danio;
-import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Unidades.Zealot;
 import org.junit.jupiter.api.Test;

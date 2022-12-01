@@ -2,6 +2,7 @@ package edu.fiuba.algo3.entrega_1.CasoDeUso9;
 
 import edu.fiuba.algo3.modelo.Construccion.Acceso;
 import edu.fiuba.algo3.modelo.Construccion.Pilon;
+import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
@@ -14,7 +15,7 @@ public class CasoDeUso9Test {
 
 
     @Test
-    public void SeTieneDosPilonesSeDestruyeUnoYlaConstruccionDebriaSeguirEstandoActiva() {
+    public void SeTieneDosPilonesSeDestruyeUnoYlaConstruccionDebriaSeguirEstandoActiva() throws EdificioNoEstaOperativo {
 
         Mapa mapa = new Mapa(20,20);
         Acceso acceso = new Acceso();
