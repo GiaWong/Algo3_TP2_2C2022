@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CasoDeUso19 {
+public class CasoDeUso19Test {
 
     @Test
     public void ZerlingAtacaUnScoutYNoDeberiaHacerleDaño(){ //Esto es para checkear lo de los AtaqueAire y AtaqueTierra

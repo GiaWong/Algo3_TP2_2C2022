@@ -16,6 +16,7 @@ public class Jugador {
         this.setRaza(unaRaza);
     }
     public void setNombre(String unNombre) throws NombreDeberiaTener6caracteresComoMinimo {
+
         if (unNombre.length() < 6) {
             throw new NombreDeberiaTener6caracteresComoMinimo();
         }

@@ -91,17 +91,9 @@ public class Pilon extends ConstruccionProtoss implements ConstruccionConRadio{
         suministro.aumentarCapacidadTotal(5);
     }
 
-    public void energizar(Mapa mapa, Coordenada coordenada) throws EdificioNoEstaOperativo{
-        verificarEdificioOperativo();
-    }
-
-    @Override
-    public void ampliarRadio(Turno turno) {
-
-    }
-
-    @Override
-    public int obtenerRadio() {
-        return radio;
+    public void energizar(Mapa mapa, Coordenada coordenada) {
+        if (estaDisponible()){
+            mapa.setearRadio(coordenada, radio, new ConEnergia());
+        }
     }
 }

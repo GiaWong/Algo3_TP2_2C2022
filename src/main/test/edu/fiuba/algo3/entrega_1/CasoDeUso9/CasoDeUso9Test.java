@@ -28,15 +28,19 @@ public class CasoDeUso9Test {
         }
         Coordenada coordPilon1 = new Coordenada(10,9);
         Coordenada coordPilon2 = new Coordenada(10,11);
-        Coordenada coordAcceso = new Coordenada(10,9);
+        Coordenada coordAcceso = new Coordenada(10,10);
 
         mapa.agregar(pilon1, coordPilon1);
         mapa.agregar(pilon2, coordPilon2);
+        pilon1.energizar(mapa, coordPilon1);
+        pilon2.energizar(mapa, coordPilon2);
+
         mapa.agregar(acceso, coordAcceso);
 
-        mapa.setearRadio();
         mapa.destruirConstruccion(coordPilon1);
-        assertTrue(mapa.tipoTerreno(new ConEnergia(), 10, 9));
+        pilon2.energizar(mapa, coordPilon2);
+
+        assertTrue(mapa.tipoTerreno(new ConEnergia(), 10, 10));
 
 
     }

@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class ComprobarRecursosConstruccionZerg {
 
 
-   /* @Test
+    @Test
     public void SeIntentanAdquirir5CriaderosYSeCompranSolo4PorFaltaDeRecursos(){
         //Toda raza comienza con 200 Minerales y 0 GasVespeno.
         BancoDeRecursos banco = new BancoDeRecursos();
@@ -54,5 +54,5 @@ public class ComprobarRecursosConstruccionZerg {
         BancoDeRecursos banco = new BancoDeRecursos();
         assertThrows(NoHayRecursosSuficientes.class, ()-> banco.comprar(new Espiral()));
     }
-*/
+
 }

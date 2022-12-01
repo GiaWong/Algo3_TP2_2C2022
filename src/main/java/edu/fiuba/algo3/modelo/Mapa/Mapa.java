@@ -35,6 +35,7 @@ public class Mapa {
 
     public void agregar(Construccion construccion, Coordenada coord){
         Casilla casilla = this.buscar(coord);
+        construccion.asignarPosicion(coord);
         casilla.agregar(construccion);
     }
 
@@ -58,15 +59,12 @@ public class Mapa {
         this.agregar(pilon,5,5);
         this.agregar(criadero,17,17);
    }
-
-     */
+   */
 
    public void inicializarConUnaFranjaEspacial(){
         for(int i=0; i < 5; i++) {
             Area area = new AreaEspacial();
-            Casilla casilla = new Casilla();
-            casilla.setArea(area);
-            mapa[4][i]= casilla;
+            mapa[4][i].setArea(area);
         }
    }
 
@@ -76,7 +74,7 @@ public class Mapa {
 
     }
 
-    public void expandirMoho(Coordenada coordenada, int radio){
+    public void setearRadio(Coordenada coordenada, int radio, Terreno unTerreno){
         int filaSuperior = coordenada.calculoFilaSuperior(radio,altura);
         int filaInferior = coordenada.calculoFilaInferior(radio,base);
         int columnaSuperior = coordenada.calculoColumnaSuperior(radio,altura);
@@ -84,8 +82,7 @@ public class Mapa {
         for(int i=filaInferior; i < filaSuperior; i++){
             for(int j=columnaInferior; j < columnaSuperior;j++){
 
-
-                mapa[i][j].setTerreno(new ConMoho());
+                mapa[i][j].setTerreno(unTerreno);
             }
         }
     }
@@ -94,7 +91,7 @@ public class Mapa {
         Casilla casilla = this.buscar(unaCoordenada);
         if(casilla.esConstruccion(new Pilon())){
             casilla.destruirConstruccion();
-            this.setearRadio();
+            this.setearRadio(unaCoordenada, 3, new SinTerreno());
         }else{
             casilla.destruirConstruccion();
         }
@@ -120,7 +117,7 @@ public class Mapa {
         }
         throw new NoEstaEnElMapa();
     }
-
+/*
     public void setearRadio() { //Puede ser que se ocupe Raza de esto... y que se ocupe construccionConRadio de esto
         int radio;
         for (int i = 0; i < 20; i++) {
@@ -134,7 +131,6 @@ public class Mapa {
                     radio = (mapa[i][j]).obtenerRadio();
                     this.setearRadioTerreno(radio, i, j, new ConEnergia());
                 }
-
             }
         }
     }
@@ -158,6 +154,8 @@ public class Mapa {
             }
         }
     }
+
+ */
 
     public boolean tipoTerreno (Terreno terreno,int fila, int columna){
         return (mapa[fila][columna]).tipoTerreno(terreno);

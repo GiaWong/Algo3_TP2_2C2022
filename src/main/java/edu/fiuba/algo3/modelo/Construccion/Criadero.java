@@ -3,7 +3,6 @@ package edu.fiuba.algo3.modelo.Construccion;
 
 import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
-import edu.fiuba.algo3.modelo.Exception.NoHayLarvasDisponiblesParaEvolucionar;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Jugador.BancoDeRecursos;
@@ -16,7 +15,6 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
-import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 import edu.fiuba.algo3.modelo.Unidades.Zangano;
 
@@ -118,7 +116,7 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
 
     public void expandirMoho(Mapa mapa, Coordenada coordenada){
         if((turnos % 2 == 0) && (estaDisponible())){
-            mapa.expandirMoho(coordenada,radio);
+            mapa.setearRadio(coordenada,radio, new ConMoho());
             radio++;
         }
     }
@@ -156,13 +154,4 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         suministro.aumentarCapacidadTotal(5);
     }
 
-    @Override
-    public void ampliarRadio(Turno turno) {
-
-    }
-
-    @Override
-    public int obtenerRadio() {
-        return radio;
-    }
 }

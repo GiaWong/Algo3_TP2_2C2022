@@ -6,7 +6,7 @@ public class AreaEspacial implements Area{
 
     @Override
     public void esPosibleAgregar(Unidad unidad) {
-        //unidad.esPosibleMoverseEn(this);
+        unidad.esPosibleMoverseEn(this);
     }
 
 }

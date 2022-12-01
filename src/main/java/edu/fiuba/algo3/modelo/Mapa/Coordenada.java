@@ -30,9 +30,9 @@ public class Coordenada {
         return otraCoordenada.estaDentroDe(filaMasRango, filaMenosRango, columnaMasRango, columnaMenosRango);
 
     }
-
+    //  filaMenosRango <= fila <= filaMasRango,  columnaMenosRango <= columna <= columnaMasRango
     public boolean estaDentroDe(int filaMasRango, int filaMenosRango, int colMasRango, int colMenosRango){
-        return (filaMasRango >= fila || filaMenosRango <= fila || colMasRango >= columna || colMenosRango <= columna);
+        return (filaMasRango >= fila && filaMenosRango <= fila && colMasRango >= columna && colMenosRango <= columna);
     }
 
     public int calculoFilaSuperior(int radio, int altura) {

@@ -39,10 +39,7 @@ public class Partida {
     }
 
     public void agregarJugador(String nombre,String color,Raza raza) {
-        Jugador jugador = new Jugador("","",null  );
-        jugador.setNombre(nombre);
-        jugador.setRaza(raza);
-        jugador.setColor(color);
+        Jugador jugador = new Jugador(nombre, color, raza);
         asignarJugador(jugador);
     }
 

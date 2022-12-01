@@ -2,29 +2,27 @@ package edu.fiuba.algo3.entrega_2.CasoDeUso25;
 
 import edu.fiuba.algo3.modelo.Exception.JugadorDosNoPuedeTenerLosMismosAtributosQueJugadorUno;
 import edu.fiuba.algo3.modelo.Exception.NombreDeberiaTener6caracteresComoMinimo;
-import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Jugador.Protoss;
-import edu.fiuba.algo3.modelo.Jugador.Raza;
 import edu.fiuba.algo3.modelo.Jugador.Zerg;
 import edu.fiuba.algo3.modelo.Partida.Partida;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class CasoDeUso25 {
+public class CasoDeUso25Test {
 
     @Test
     public void ChequearInicializacionDeUnJugador(){
         Partida partida = new Partida();
+        String nombre = "Matias";
+        String color = "Azul";
         Zerg raza = new Zerg();
-        partida.agregarJugador("Matias","Azul",raza);
+        partida.agregarJugador(nombre,color,raza);
 
 
-
-        assertEquals(partida.primerJugador().tieneMismoNombre("Matias"),true);
-        assertEquals(partida.primerJugador().tieneMismoColor("Azul"),true);
-        assertEquals(partida.primerJugador().tieneMismaRaza(raza),true);
+        assertTrue(partida.primerJugador().tieneMismoNombre("Matias"));
+        assertTrue(partida.primerJugador().tieneMismoColor("Azul"));
+        assertTrue(partida.primerJugador().tieneMismaRaza(raza));
 
     }
 

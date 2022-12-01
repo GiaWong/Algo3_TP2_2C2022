@@ -32,6 +32,7 @@ public abstract class Construccion {
         }
     }
 
+    public void asignarPosicion(Coordenada coord) { coordenada = coord; }
 
 
     public List<Integer> costo() {
