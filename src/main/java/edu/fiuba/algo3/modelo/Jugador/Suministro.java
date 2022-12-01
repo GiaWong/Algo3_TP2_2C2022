@@ -42,10 +42,18 @@ public class Suministro {
     }
 
     public void aumentarCapacidadTotal(int unaCantidad){
+
         capacidadTotalSuministro += unaCantidad;
+        if (capacidadTotalSuministro>200){
+            capacidadTotalSuministro =200;
+        }
     }
 
-    public void aumentarCapacidad(int unaCantidad){
+    public void aumentarCapacidad(int unaCantidad) {
+
         capacidadSuministro += unaCantidad;
+        if (capacidadSuministro>200){
+            capacidadSuministro = 200;
+        }
     }
 }
