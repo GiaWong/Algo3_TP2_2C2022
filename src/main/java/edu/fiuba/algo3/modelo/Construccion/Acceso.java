@@ -30,6 +30,10 @@ public  class Acceso extends ConstruccionProtoss{
         tiempoConstruccion = 8;
     }
 
+    public boolean esPrerequisito(Construccion construccion){
+        return false;
+    }
+
     public Acceso(int tiempoDeConstruccion){
         costos.add(150); //esto es para Mineral
         costos.add(0); //esto es para Gas

@@ -130,6 +130,10 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         throw new NoSePuedeConstruirEsteEdificioSobreUnRecurso();
     }
 
+    public boolean esPrerequisito(Construccion construccion){
+        return false;
+    }
+
     @Override
     public void esPosibleConstruirEn(SinRecurso sinRecurso) {
 

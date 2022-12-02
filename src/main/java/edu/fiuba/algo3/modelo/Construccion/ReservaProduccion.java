@@ -46,6 +46,14 @@ public class ReservaProduccion extends ConstruccionZerg {
         return null;
     }
 
+    public boolean esPrerequisito(Construccion construccion){
+        return false;
+    }
+
+    public boolean esPrerequisito(Guarida guarida){
+        return true;
+    }
+
     public int obtenerVida() {return vida.vidaActual(); }
 
 

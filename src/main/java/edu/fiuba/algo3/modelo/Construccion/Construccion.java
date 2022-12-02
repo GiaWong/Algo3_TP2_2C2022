@@ -59,4 +59,6 @@ public abstract class Construccion {
     public abstract void recibirDanio(Danio danio);
 
     public abstract void aumentarSuministro(Suministro suministro);
+
+    public abstract boolean esPrerequisito(Construccion construccion);
 }

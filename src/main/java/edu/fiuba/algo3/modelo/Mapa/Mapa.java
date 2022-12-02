@@ -1,12 +1,12 @@
 package edu.fiuba.algo3.modelo.Mapa;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.Criadero;
+import edu.fiuba.algo3.modelo.Construccion.Guarida;
 import edu.fiuba.algo3.modelo.Construccion.Pilon;
+import edu.fiuba.algo3.modelo.Exception.NoCumplePrerequisito;
 import edu.fiuba.algo3.modelo.Exception.NoEstaEnElMapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.Area;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
@@ -39,10 +39,38 @@ public class Mapa {
         casilla.agregar(construccion);
     }
 
+    public void agregar(Guarida guarida, Coordenada coord) throws NoCumplePrerequisito {
+        if(cumplePrerequisito(guarida)){
+        Casilla casilla = this.buscar(coord);
+        //guarida.asignarPosicion(coord);
+        casilla.agregar(guarida);
+        } else {
+            throw new NoCumplePrerequisito();
+        }
+    }
+
     public void agregar(Unidad unidad, Coordenada coord){
         Casilla casilla = this.buscar(coord);
         unidad.asignarPosicion(coord);
         casilla.agregar(unidad);
+    }
+
+    public boolean cumplePrerequisito(Construccion construccion){
+        return true;
+        /*int i = 0;
+        int j = 0;
+        boolean encontrado = false;
+        while (i < base && !encontrado){
+            while (j < altura && !encontrado){
+                encontrado = mapa[i][j].esPrerequisito(construccion);
+                j++;
+            }
+            i++;
+            j = 0;
+        }
+        return encontrado;
+        */
+
     }
 
     public void atacar (Unidad unidadAtacante, Coordenada coord){ //Puede ser que se ocupe Raza de esto...

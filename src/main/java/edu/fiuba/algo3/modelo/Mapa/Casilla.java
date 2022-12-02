@@ -114,4 +114,11 @@ public class Casilla {
         return (terreno.getClass().equals(otroTerreno.getClass()));
     }
 
+    public boolean esPrerequisito(Construccion construccion1) {
+        if(construccion!=null){
+        return construccion.esPrerequisito(construccion1);
+        } else {
+            return false;
+        }
+    }
 }

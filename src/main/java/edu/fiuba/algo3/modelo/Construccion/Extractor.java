@@ -25,6 +25,9 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
         vida = new Vida(750);
         tiempoConstruccion = 6;
     }
+    public boolean esPrerequisito(Construccion construccion){
+        return false;
+    }
 
     public Extractor(int tiempoDeConstruccion){
         costos.add(100); //esto es para Mineral

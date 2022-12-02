@@ -25,6 +25,10 @@ public class NexoMineral extends ConstruccionProtoss implements RefineriaMineral
         tiempoConstruccion = 4;
     }
 
+    public boolean esPrerequisito(Construccion construccion){
+        return false;
+    }
+
     public NexoMineral(int tiempoDeConstruccion){
         costos.add(50); //esto es para Mineral
         costos.add(0); //esto es para Gas

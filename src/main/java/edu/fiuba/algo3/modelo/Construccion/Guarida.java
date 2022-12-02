@@ -25,6 +25,9 @@ public class Guarida extends ConstruccionZerg {
 
     private ArrayList<Larva> larvas = new ArrayList<>();
 
+    public boolean esPrerequisito(Construccion construccion){
+        return false;
+    }
     public Guarida(){
         costos.add(200); //esto es para Mineral
         costos.add(100); //esto es para Gas

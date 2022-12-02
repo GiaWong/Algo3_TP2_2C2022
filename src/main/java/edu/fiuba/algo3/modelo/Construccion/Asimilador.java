@@ -18,6 +18,10 @@ public class  Asimilador extends ConstruccionProtoss implements RefineriaGas {
         tiempoConstruccion =6;
     }
 
+    public boolean esPrerequisito(Construccion construccion){
+        return false;
+    }
+
     public Asimilador(int tiempoDeConstruccion){
         costos.add(100); //esto es para Mineral
         costos.add(0); //esto es para Gas

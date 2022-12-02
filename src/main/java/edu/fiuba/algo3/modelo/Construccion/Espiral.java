@@ -40,6 +40,10 @@ public class Espiral extends ConstruccionZerg {
         tiempoConstruccion = tiempoDeConstruccion;
     }
 
+    public boolean esPrerequisito(Construccion construccion){
+        return false;
+    }
+
     public boolean preRequisito(List<Construccion> lista){ //Hay que cambiar
         if(lista!=null) {
             for(int i =0; i<lista.size();i++){
