@@ -74,11 +74,11 @@ class Mapa {
 
 class Casilla {
     - coordenada
+    - construccion
     - unidad
     - recurso
     - terreno
     - area
-    - construccion
 
     + agregarUnidad()
     + agregarConstruccion()

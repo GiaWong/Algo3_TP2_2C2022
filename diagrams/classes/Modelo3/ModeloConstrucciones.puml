@@ -27,77 +27,67 @@ abstract class ConstruccionZerg {
 class Criadero {
     - moho : Radio
     - larva : int
-     +crearUnidad()
-     +construir()
+     +crearZangano()
      +ampliarRadio()
      +esPosibleConstruirEn()
 }
 
 class ReservaProduccion {
     -larvas : Collection
-    +crearUnidad()
-    +construir()
+    +crearZerling()
     +esPosibleConstruirEn()
 }
 
 class Extractor {
     +recolectar(volcan)
-    +construir()
     +agregar(Zangano)
     +esPosibleConstruirEn()
 }
 
 class Guarida {
     -larvas : Collection
-    +crearUnidad()
-    +construir()
+    +crearHidralisco()
     +esPosibleConstruirEn()
 
 }
 
 class Espiral {
     -larvas : Collection
-    +crearUnidad()
-    +construir()
+    +crearMutalisco()
     +esPosibleConstruirEn()
 
 }
 
 abstract class ConstruccionProtoss {
     - escudo
-    + construir()
     + recibirDanio(ataque)
     + esPosibleConstruirEn()
 }
 
 class Asimilador {
     +recolectar(volcan)
-    +construir()
     +esPosibleConstruirEn()
 }
 
 class NexoMineral {
     +recolectar(nodoMineral)
-    +construir()
     +esPosibleConstruirEn()
 }
 
 class Pilon {
     - energia : Radio
     +ampliarRadio()
-    +construir()
     +esPosibleConstruirEn()
 }
 
 class PuertoEstelar {
-    +crearUnidad()
-    +construir()
+    +crearScout()
     +esPosibleConstruirEn()
 }
 
 class Acceso {
-     +crearUnidad()
-     +construir()
+     +crearDragon()
+     +crearZealot()
      +esPosibleConstruirEn()
 }
 
@@ -156,8 +146,5 @@ Asimilador ..|> RefineriaGas
 
 Criadero --> Larva
 Larva ..|> MutadorUnidad
-
-Acceso ..|> CreadorPuertoEstelar
-PuertoEstelar ..|> CreadorAcceso
 
 @enduml

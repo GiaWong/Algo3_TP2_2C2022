@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.Jugador;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
-import edu.fiuba.algo3.modelo.Unidades.Turno.Turno;
+import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 public abstract class Raza {
@@ -17,6 +17,18 @@ public abstract class Raza {
     }
 
 
+    public void comprar(Unidad unidad) {
+        banco.comprar(unidad);
+        suministro.agregar(unidad);
+
+    }
+    public void avanzar(Turno turno, Mapa mapa){
+        //turno.avanzar(mapa);
+        //mapa.avanzar(turno);
+    }
+
+    public abstract void recolectar();
+
     public  int capacidadActual(){
         return suministro.capacidadActual();
     }
@@ -24,18 +36,6 @@ public abstract class Raza {
     public  int capacidadTotal(){
         return suministro.capacidadTotal();
     }
-    public void comprar(Unidad unidad) {
-        banco.comprar(unidad);
-        suministro.agregar(unidad);
-
-    }
-
-    public void avanzar(Turno turno, Mapa mapa){
-        //turno.avanzar(mapa);
-        //mapa.avanzar(turno);
-    }
-
-    public abstract void recolectar();
 
 
 

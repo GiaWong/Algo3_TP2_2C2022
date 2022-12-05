@@ -2,13 +2,15 @@ package edu.fiuba.algo3.modelo.Jugador;
 
 import edu.fiuba.algo3.modelo.Exception.NombreDeberiaTener6caracteresComoMinimo;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
-import edu.fiuba.algo3.modelo.Unidades.Turno.Turno;
+import edu.fiuba.algo3.modelo.Turno.Turno;
 
 public class Jugador {
 
     private String nombre;
     private String color;
     private Raza raza;
+
+    private Turno turno;
 
     public Jugador(String unNombre, String unColor, Raza unaRaza){
         this.setNombre(unNombre);
@@ -33,7 +35,7 @@ public class Jugador {
 
     public void jugar(Turno turno, Mapa mapa){
 
-        // while raza.noTengaMasRecursos(){
+        // while raza.noTengaMasRecursos(){   //Puedo hacer que el while corte cuando el jugador indica que pase el turno...
         //      Construccion const = pedirUnaConstruccionAlUsuario();
         //      Coordenada coord = pedirUnaCoordenadaAlUsuario();
         //      raza.agregar(const, coord, mapa);
@@ -42,6 +44,11 @@ public class Jugador {
         //      raza.crearUnidad(otraCoord, mapa);
 
         //      raza.atacar()
+
+        // while turno.sigueJugando(){
+        //      raza.realizarAccion();
+        //      raza.
+
         raza.avanzar(turno, mapa);
     }
 

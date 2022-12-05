@@ -11,7 +11,6 @@ class Partida {
     + asignarColor(Jugador)
     + asignarRaza(Jugador)
     + jugar()
-    + . . .  ()
 }
 
 class Jugador {
@@ -19,6 +18,7 @@ class Jugador {
     - color
     - raza
 
+    + jugar(mapa, turno)
     + contruir()
     + atacar()
     + recolectar()

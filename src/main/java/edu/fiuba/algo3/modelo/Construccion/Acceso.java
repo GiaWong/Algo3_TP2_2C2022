@@ -18,9 +18,6 @@ import edu.fiuba.algo3.modelo.Unidades.Dragon;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 import edu.fiuba.algo3.modelo.Unidades.Zealot;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public  class Acceso extends ConstruccionProtoss{
 
     public Acceso(){
@@ -103,9 +100,7 @@ public  class Acceso extends ConstruccionProtoss{
 
 
     public Unidad crearDragon() throws EdificioNoEstaOperativo{
-        if (!estaDisponible()){
-            throw new EdificioNoEstaOperativo();
-        }
+        verificarEdificioOperativo();
         return new Dragon();
     }
 }

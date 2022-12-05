@@ -113,10 +113,6 @@ interface Detector {
     +detectarUnidad()
 }
 
-interface RecolectadorMineral {
-    +recolectar()
-}
-
 interface MutadorConstruccion {
     +mutarReserva()
     +mutarExtractor()
@@ -148,11 +144,7 @@ AmoSupremo ..|> Detector
 
 Zealot ..|> Invisiblibilidad
 
-
-Zangano ..|> RecolectadorMineral
 Zangano ..|> MutadorConstruccion
-
-
 
 Unidad *- Defensa
 Unidad *-left- Atacador

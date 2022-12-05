@@ -1,0 +1,84 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+abstract class Raza {
+    - bancoDeRecursos
+    - capacidadSuministro
+    - acciones
+
+    + comprar(construccion)
+    + comprar(unidad)
+}
+
+class Zerg {
+    + agregar(construccion)
+    + agregar(unidad)
+    + recolectar()
+    + crearUnidad()
+}
+
+class Protoss {
+    + agregar(construccion)
+    + agregar(unidad)
+    + recolectar()
+    + crearUnidad()
+}
+
+class Acciones {
+    - constuir
+    - evolucionar
+    - atacar
+    - mover
+}
+
+interface Creacion {
+    + crearConstruccion()
+    + crearUnidad()
+}
+
+interface Ataque {
+    + atacar(unidad)
+    + atacar(construccion)
+}
+
+interface Movimiento {
+    + mover()
+}
+
+interface Evolucion {
+    + evolucionarUnidad()
+}
+
+class CreacionZerg {
+    + crearConstruccion()
+    + crearUnidad()
+}
+
+class CreacionProtoss {
+    + crearConstruccion()
+    + crearUnidad()
+}
+
+class Mapa {
+    - mapa[][] : Casillas
+
+    + buscar(Coordenada) : Casilla
+}
+
+Mapa -> Raza
+Zerg ..|> Raza
+Protoss ..|> Raza
+
+Raza --> Acciones
+Acciones -> Creacion
+Acciones -left-> Ataque
+Acciones --> Movimiento
+Acciones --> Evolucion
+
+Creacion <|.. CreacionZerg
+Creacion <|.. CreacionProtoss
+
+
+
+@enduml

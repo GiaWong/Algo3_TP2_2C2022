@@ -5,6 +5,8 @@ import edu.fiuba.algo3.modelo.Acciones.Detectable;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.Exception.NoCumplePrerequisito;
+import edu.fiuba.algo3.modelo.Exception.NoHayRecursosSuficientes;
+import edu.fiuba.algo3.modelo.Jugador.BancoDeRecursos;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
@@ -17,9 +19,9 @@ import java.util.List;
 
 public abstract class Construccion {
 
+    protected int tiempoConstruccion;
     protected Coordenada coordenada;
     protected Vida vida;
-    protected int tiempoConstruccion;
     protected Detectable defensa = new Detectable();
     protected List<Integer> costos = new ArrayList<>();
 
@@ -29,7 +31,7 @@ public abstract class Construccion {
 
 
     public void verificarEdificioOperativo() throws EdificioNoEstaOperativo {
-        if(tiempoConstruccion > 0 ){
+        if(!this.estaDisponible()){
             throw new EdificioNoEstaOperativo();
         }
     }
@@ -39,10 +41,24 @@ public abstract class Construccion {
 
     public List<Integer> costo() {
         return costos;
+    } //Esto podria no estar
+
+    public void verificarCompra(int cantidadMinerales, int cantidadGas) {
+        int minerales = cantidadMinerales - costos.get(0);
+        int gas = cantidadGas - costos.get(1);
+        if ((minerales < 0) || (gas < 0)){
+            throw new NoHayRecursosSuficientes();
+        }
+    }
+
+    public void comprar(BancoDeRecursos banco) {
+        int minerales = costos.get(0);
+        int gas = costos.get(1);
+        banco.realizarCompra(minerales, gas);
     }
 
     public boolean estaDisponible() {
-        return tiempoConstruccion<=0;
+        return tiempoConstruccion <= 0;
     }
 
     public abstract void esPosibleConstruirEn(Volcan volcan);
