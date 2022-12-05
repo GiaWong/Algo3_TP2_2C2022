@@ -1,11 +1,9 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
 import edu.fiuba.algo3.modelo.Acciones.Vida;
-import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
-import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
-import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEnEsteTerreno;
-import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
+import edu.fiuba.algo3.modelo.Exception.*;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
@@ -28,6 +26,18 @@ public class Guarida extends ConstruccionZerg {
     public boolean esPrerequisito(Construccion construccion){
         return false;
     }
+
+    public boolean esPrerequisito(ReservaProduccion reservaProduccion){
+        return true;
+    }
+
+    public void verificarPrerequisito(Mapa mapa) throws NoCumplePrerequisito {
+        if(!mapa.cumplePrerequisito(this)){
+            throw new NoCumplePrerequisito();
+        }
+    }
+
+
     public Guarida(){
         costos.add(200); //esto es para Mineral
         costos.add(100); //esto es para Gas

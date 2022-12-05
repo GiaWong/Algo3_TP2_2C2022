@@ -2,9 +2,11 @@ package edu.fiuba.algo3.modelo.Construccion;
 
 import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.Exception.NoCumplePrerequisito;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
@@ -28,6 +30,9 @@ public class ReservaProduccion extends ConstruccionZerg {
         tiempoConstruccion = 12;
     }
 
+    public void verificarPrerequisito(Mapa mapa) {
+    }
+
     public ReservaProduccion(int tiempoDeConstruccion){
         costos.add(150); //esto es para Mineral
         costos.add(0); //esto es para Gas
@@ -47,12 +52,9 @@ public class ReservaProduccion extends ConstruccionZerg {
     }
 
     public boolean esPrerequisito(Construccion construccion){
-        return false;
+        return construccion.esPrerequisito(this);
     }
 
-    public boolean esPrerequisito(Guarida guarida){
-        return true;
-    }
 
     public int obtenerVida() {return vida.vidaActual(); }
 

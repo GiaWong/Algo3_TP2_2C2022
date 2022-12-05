@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
@@ -31,6 +32,9 @@ public class PuertoEstelar extends ConstruccionProtoss {
 
     public boolean esPrerequisito(Construccion construccion){
         return false;
+    }
+
+    public void verificarPrerequisito(Mapa mapa) {
     }
 
     public PuertoEstelar(int tiempoDeConstruccion){

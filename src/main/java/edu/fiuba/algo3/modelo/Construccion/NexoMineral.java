@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Acciones.Escudo;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Exception.*;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Recurso;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
@@ -27,6 +28,9 @@ public class NexoMineral extends ConstruccionProtoss implements RefineriaMineral
 
     public boolean esPrerequisito(Construccion construccion){
         return false;
+    }
+
+    public void verificarPrerequisito(Mapa mapa) {
     }
 
     public NexoMineral(int tiempoDeConstruccion){

@@ -4,8 +4,10 @@ import edu.fiuba.algo3.modelo.Acciones.Danio;
 import edu.fiuba.algo3.modelo.Acciones.Detectable;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
+import edu.fiuba.algo3.modelo.Exception.NoCumplePrerequisito;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.*;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.*;
@@ -60,5 +62,9 @@ public abstract class Construccion {
 
     public abstract void aumentarSuministro(Suministro suministro);
 
+
+
     public abstract boolean esPrerequisito(Construccion construccion);
+
+    public abstract void verificarPrerequisito(Mapa mapa) throws NoCumplePrerequisito;
 }

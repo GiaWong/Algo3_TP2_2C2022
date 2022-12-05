@@ -134,6 +134,9 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         return false;
     }
 
+    public void verificarPrerequisito(Mapa mapa) {
+    }
+
     @Override
     public void esPosibleConstruirEn(SinRecurso sinRecurso) {
 

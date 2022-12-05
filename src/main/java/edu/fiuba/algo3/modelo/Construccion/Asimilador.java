@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Acciones.Escudo;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Exception.*;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.*;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.*;
 
@@ -20,6 +21,8 @@ public class  Asimilador extends ConstruccionProtoss implements RefineriaGas {
 
     public boolean esPrerequisito(Construccion construccion){
         return false;
+    }
+    public void verificarPrerequisito(Mapa mapa) {
     }
 
     public Asimilador(int tiempoDeConstruccion){

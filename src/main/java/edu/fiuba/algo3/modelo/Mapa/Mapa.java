@@ -33,21 +33,13 @@ public class Mapa {
         return coordenada.buscar(mapa);
     }
 
+
     public void agregar(Construccion construccion, Coordenada coord){
         Casilla casilla = this.buscar(coord);
         construccion.asignarPosicion(coord);
-        casilla.agregar(construccion);
+        casilla.agregar(construccion,this);
     }
 
-    public void agregar(Guarida guarida, Coordenada coord) throws NoCumplePrerequisito {
-        if(cumplePrerequisito(guarida)){
-        Casilla casilla = this.buscar(coord);
-        //guarida.asignarPosicion(coord);
-        casilla.agregar(guarida);
-        } else {
-            throw new NoCumplePrerequisito();
-        }
-    }
 
     public void agregar(Unidad unidad, Coordenada coord){
         Casilla casilla = this.buscar(coord);
@@ -56,8 +48,7 @@ public class Mapa {
     }
 
     public boolean cumplePrerequisito(Construccion construccion){
-        return true;
-        /*int i = 0;
+        int i = 0;
         int j = 0;
         boolean encontrado = false;
         while (i < base && !encontrado){
@@ -69,8 +60,6 @@ public class Mapa {
             j = 0;
         }
         return encontrado;
-        */
-
     }
 
     public void atacar (Unidad unidadAtacante, Coordenada coord){ //Puede ser que se ocupe Raza de esto...
@@ -202,4 +191,5 @@ public class Mapa {
 
     public void energizar(Coordenada coordenada, int radio) {
     }
+
 }

@@ -42,6 +42,9 @@ public class Pilon extends ConstruccionProtoss implements ConstruccionConRadio{
         return false;
     }
 
+    public void verificarPrerequisito(Mapa mapa) {
+    }
+
     public Pilon(int tiempoDeConstruccion){
         costos.add(100); //esto es para Mineral
         costos.add(0); //esto es para Gas
