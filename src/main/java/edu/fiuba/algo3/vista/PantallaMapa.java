@@ -7,6 +7,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -30,6 +31,7 @@ public class PantallaMapa extends StackPane implements EventHandler<ActionEvent>
         //this.mapa = new Mapa(30, 40);
         this.base = 30;
         this.altura = 40;
+        //mostrarMapa();
 
 
 
@@ -45,16 +47,26 @@ public class PantallaMapa extends StackPane implements EventHandler<ActionEvent>
         for(int i=0; i< base; i++){
             for(int j=0; j< altura; j++){
 
-                Rectangle manzana = new Rectangle(30,30, Color.GREY);
-                manzana.setStroke(Color.DARKGRAY);
-                manzana.setStrokeWidth(5);
 
-                this.vista.add(manzana, i, j);
+                //Caso con una figurita
+                //Rectangle manzana = new Rectangle(30,30, Color.GREY);
+                //manzana.setStroke(Color.DARKGRAY);
+                //manzana.setStrokeWidth(5);
+
+                //
+                Button boton = new Button();
+                boton.setPrefSize(30, 35);
+                boton.alignmentProperty();
+
+                this.vista.add(boton, i, j);
             }
         }
-        this.vista.setPadding(new Insets(10, 10, 10, 10));
+        this.vista.setPadding(new Insets(15, 15, 15, 15));
         this.vista.setAlignment(Pos.CENTER);
         figuras = new Canvas(45*base + 5, 45*altura+5);
+
+        establecerRecursosAlTerreno();
+
         this.getChildren().addAll(vista,figuras);
         this.setAlignment(Pos.CENTER);
 
@@ -82,6 +94,11 @@ public class PantallaMapa extends StackPane implements EventHandler<ActionEvent>
 
     }
 
+    /*
+    * De forma aleatoria va a cambiar la apariencia del boton del terreno con las imagenes de los recursos
+    * */
+    private void establecerRecursosAlTerreno() {
+    }
 
 
 }
