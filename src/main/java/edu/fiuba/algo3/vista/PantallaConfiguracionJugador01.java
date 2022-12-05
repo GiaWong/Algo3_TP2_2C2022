@@ -8,12 +8,15 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class PantallaConfiguracionJugador01 extends StackPane {
+import java.io.File;
+
+public class PantallaConfiguracionJugador01 {
 
     private Stage stage;
     Button botonContinuar = new Button("Continuar");
@@ -80,14 +83,26 @@ public class PantallaConfiguracionJugador01 extends StackPane {
         VBox.setVgrow(cajaVertical01, Priority.ALWAYS );
         cajaVertical01.setAlignment(Pos.CENTER);
 
+
+
+        //genero fondo pantalla
+        File fileFondo = new File("imagenes/imagenRegistro1.png");
+
+        BackgroundImage primerBackGro = new BackgroundImage(new Image(fileFondo.toURI().toString(),
+                1920, 1080,true,true),
+                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT);
+
+
         VBox cajaVertical02 = new VBox(cajaVertical01,sep);
+        cajaVertical02.setBackground( new Background(primerBackGro) );
+        cajaVertical02.setAlignment(Pos.CENTER);
+
+
         VBox.setVgrow(cajaVertical02, Priority.ALWAYS );
         cajaVertical02.setSpacing(30.0d);
+        vbox.setBackground(new Background(primerBackGro));
         vbox.getChildren().addAll(cajaVertical02, buttonBar );
-
-        //el codigo de color fue sacado de: https://paletadecolores.online/verde/oliva/
-        vbox.setBackground(new Background(new BackgroundFill(Color.web("#343034"), new CornerRadii(0), new Insets(0))));
-
 
         Scene secundario = new Scene(vbox,1920,1080);//ancho-largo
         this.stage.setScene(secundario);
@@ -97,7 +112,7 @@ public class PantallaConfiguracionJugador01 extends StackPane {
     private void aplicarEstiloDeLetra(Label label) {
 
         label.setFont(Font.font("monserrat", 13));
-        label.setTextFill(Color.BLACK);
+        label.setTextFill(Color.WHITE);
         label.setStyle("-fx-font-weight: bold");
     }
 

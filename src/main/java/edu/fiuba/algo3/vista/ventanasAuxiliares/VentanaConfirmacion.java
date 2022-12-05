@@ -59,7 +59,7 @@ public class VentanaConfirmacion {
         panel.getChildren().add(layout);
         panel.setAlignment(Pos.CENTER);
         //codigo de color: https://paletadecolores.online/colors/5c5e36/
-        panel.setBackground(new Background(new BackgroundFill(Color.web("#5c5e36"), new CornerRadii(0), new Insets(0))));
+        panel.setBackground(new Background(new BackgroundFill(Color.web("1d3d33"), new CornerRadii(0), new Insets(0))));
 
         Scene escena  = new Scene(panel);
         nueva_ventana.setScene( escena );

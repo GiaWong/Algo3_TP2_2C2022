@@ -14,7 +14,7 @@ public class App extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("AlgoStar");
 
-        ReproductorMusica musicaInicial = new ReproductorMusica();
+        //ReproductorMusica musicaInicial = new ReproductorMusica();
         PantallaInicial pantalla = new PantallaInicial(primaryStage);
     }
 
