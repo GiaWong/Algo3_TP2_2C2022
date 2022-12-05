@@ -19,45 +19,37 @@ class Zerg {
 }
 
 class Protoss {
+    - evolucion
     + agregar(construccion)
     + agregar(unidad)
     + recolectar()
     + crearUnidad()
 }
 
-interface AccionesProtoss {
-    +crearUnidad()
-    +crearConstruccion()
-    +atacar(unidad)
-    +atacar(construccion)
-    +mover()
-}
-
-interface AccionesZerg {
-    +crearUnidad()
-    +crearConstruccion()
-    +atacar(unidad)
-    +atacar(construccion)
-    +mover()
-    evolucionarUnidad()
+interface Acciones {
+    +ejecutar()
 }
 
 class Creacion {
     + crearConstruccion()
     + crearUnidad()
+    + ejecutar()
 }
 
 class Ataque {
     + atacar(unidad)
     + atacar(construccion)
+    + ejecutar()
 }
 
 class Movimiento {
     + mover()
+    + ejecutar()
 }
 
-class Evolucion {
+class EvolucionarUnidad {
     + evolucionarUnidad()
+    + ejecutar()
 }
 
 class Mapa {
@@ -66,20 +58,22 @@ class Mapa {
     + buscar(Coordenada) : Casilla
 }
 
+interface Evolucion {
+    + ejecutar()
+}
+
 Mapa <- Raza
 Raza <|.. Zerg
 Raza <|.. Protoss
 
-Zerg --> AccionesZerg
-Protoss --> AccionesProtoss
-AccionesZerg <|.. Creacion
-AccionesZerg <|.. Ataque
-AccionesZerg <|.. Movimiento
-AccionesZerg <|.. Evolucion
+Zerg --> Acciones
+Protoss --> Acciones
+Acciones <|.. Creacion
+Acciones <|.. Ataque
+Acciones <|.. Movimiento
 
-AccionesProtoss <|.. Creacion
-AccionesProtoss <|.. Ataque
-AccionesProtoss <|.. Movimiento
+Zerg --> Evolucion
+Evolucion <|.. EvolucionarUnidad
 
 
 
