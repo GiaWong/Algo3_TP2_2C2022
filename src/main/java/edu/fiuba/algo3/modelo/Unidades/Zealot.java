@@ -32,8 +32,8 @@ public class Zealot extends UnidadProtoss{
         if (unaUnidad.esPosibleSerAtacadoPor(atacador)){
             atacador.atacar(unaUnidad);
         }
-       /* try {
-            //atacador.ultimoGolpe(unaUnidad);
+        /*try {
+            atacador.ultimoGolpe(unaUnidad);
 
         }catch (Exception UnidadMuerta){
             asesinatos++;

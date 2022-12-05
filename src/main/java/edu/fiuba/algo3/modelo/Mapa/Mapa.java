@@ -119,19 +119,13 @@ public class Mapa {
     public boolean hayUnidad(int fila, int columna) {
         return (mapa [fila][columna]).hayUnidad();
     }
-    public int[] buscarUnidad(Unidad unidad) throws NoEstaEnElMapa{ //Puede ser que se ocupe Raza de esto...
-        int [] pos = new int[10];
-        for (int i = 0; i < 20; i++) {
-            for (int j = 0; j < 20; j++) {
-                if ((mapa[i][j]).esUnidad(unidad)) {
-                    pos[0]=i;
-                    pos[1]=j;
-                    return pos;
-                }
-            }
-        }
-        throw new NoEstaEnElMapa();
+
+    public boolean hayConstruccion(Coordenada coordenada) {
+       Casilla cas = this.buscar(coordenada);
+       return cas.hayConstruccion();
     }
+
+
 /*
     public void setearRadio() { //Puede ser que se ocupe Raza de esto... y que se ocupe construccionConRadio de esto
         int radio;
@@ -176,16 +170,7 @@ public class Mapa {
         return (mapa[fila][columna]).tipoTerreno(terreno);
     }
 
-    public void detectar(Unidad unidad){
-        int[]pos = this.buscarUnidad(unidad); //falta terminar de codear esta parte
-        for(int i = 0; i <   4; i++){
-            for(int j = 0; j <  4; j++){
-                if(mapa[pos[0]+i][pos[0]+j].hayUnidad()){
-                    mapa[pos[0]+i][pos[0]+j].unidad.detectado();
-                }
-            }
-        }
-    }
+
 
     public void energizar(Coordenada coordenada, int radio) {
     }

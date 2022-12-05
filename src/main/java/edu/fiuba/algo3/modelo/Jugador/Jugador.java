@@ -1,8 +1,9 @@
 package edu.fiuba.algo3.modelo.Jugador;
 
+import edu.fiuba.algo3.modelo.Comandos.Acciones;
 import edu.fiuba.algo3.modelo.Exception.NombreDeberiaTener6caracteresComoMinimo;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
-import edu.fiuba.algo3.modelo.Turno.Turno;
+//import edu.fiuba.algo3.modelo.Unidades.Turno.Turno;
 
 public class Jugador {
 
@@ -10,7 +11,8 @@ public class Jugador {
     private String color;
     private Raza raza;
 
-    private Turno turno;
+    protected Acciones accion;
+
 
     public Jugador(String unNombre, String unColor, Raza unaRaza){
         this.setNombre(unNombre);
@@ -33,9 +35,20 @@ public class Jugador {
         raza = unaRaza;
     }
 
-    public void jugar(Turno turno, Mapa mapa){
+    public Raza getRaza(){
+        return raza;
+    }
 
-        // while raza.noTengaMasRecursos(){   //Puedo hacer que el while corte cuando el jugador indica que pase el turno...
+    public void asignarComando(Acciones unaAccion){
+        accion = unaAccion;
+    }
+    public void ejecutarComando(){
+        accion.ejecutar();
+    }
+
+    /*public void jugar(Turno turno, Mapa mapa){
+
+        // while raza.noTengaMasRecursos(){
         //      Construccion const = pedirUnaConstruccionAlUsuario();
         //      Coordenada coord = pedirUnaCoordenadaAlUsuario();
         //      raza.agregar(const, coord, mapa);
@@ -44,13 +57,8 @@ public class Jugador {
         //      raza.crearUnidad(otraCoord, mapa);
 
         //      raza.atacar()
-
-        // while turno.sigueJugando(){
-        //      raza.realizarAccion();
-        //      raza.
-
-        raza.avanzar(turno, mapa);
-    }
+        //raza.avanzar(turno, mapa);
+    }*/
 
     public boolean comparar(Jugador otroJugador) {
         return (otroJugador.tieneMismoNombre(nombre) && otroJugador.tieneMismoColor(color) && otroJugador.tieneMismaRaza(raza));

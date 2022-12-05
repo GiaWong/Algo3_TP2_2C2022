@@ -40,6 +40,7 @@ public class Partida {
      //Cartel de se termino el juego.
 
 
+
     }
 
     public void agregarJugador(String nombre,String color,Raza raza) {
