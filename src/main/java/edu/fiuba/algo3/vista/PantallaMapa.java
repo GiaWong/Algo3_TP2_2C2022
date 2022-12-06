@@ -134,7 +134,7 @@ public class PantallaMapa implements EventHandler<ActionEvent> {
     * */
     private void establecerRecursosAlTerreno(Button boton, int base, int altura) {
 
-        //no se me ocurre cómo hacerlo aleatorio T_T
+        //no se me ocurre cómo hacerlo aleatorio T_T CasoVolcan
         if(base==10 || base ==8 || base == 15 || base==25 || base==22){
             if(altura==10 || altura== 8 || altura==13 || altura==15 || altura==18){
 
@@ -143,10 +143,27 @@ public class PantallaMapa implements EventHandler<ActionEvent> {
                         30, 35,true,true),
                         BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
                         BackgroundSize.DEFAULT);
-
                 boton.setBackground( new Background(primerBackGro) );
             }
         }
+
+
+        //Caso Mineral
+        if(base==1 || base ==0 || base == 20 || base==21 || base==22){
+            if(altura==0 || altura== 1 || altura==12 || altura==20 || altura==3){
+
+                File fileFondo2 = new File("imagenes/mineral.png");
+                BackgroundImage primerBackGro = new BackgroundImage(new Image(fileFondo2.toURI().toString(),
+                        30, 35,true,true),
+                        BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
+                        BackgroundSize.DEFAULT);
+                boton.setBackground( new Background(primerBackGro) );
+
+            }
+        }
+
+
+
 
 
 
