@@ -5,13 +5,11 @@ class Partida {
     - jugadorUno
     - jugadorDos
     - mapa
-    - turno
 
     + asignarNombre(Jugador)
     + asignarColor(Jugador)
     + asignarRaza(Jugador)
     + jugar()
-    + . . .  ()
 }
 
 class Jugador {
@@ -19,32 +17,31 @@ class Jugador {
     - color
     - raza
 
-    + contruir()
-    + atacar()
-    + recolectar()
-    + crearUnidad()
+    + elegirAccion(mapa)
+    + ejecutarAccion()
+    + jugar(mapa)
 }
 
 abstract class Raza {
     - bancoDeRecursos
     - capacidadSuministro
+    - accion
 
     + comprar(construccion)
     + comprar(unidad)
+    + elegirAccion(turno, mapa)
+    + ejecutarAccion()
+    + asignarAccion(accion)
 }
 
 class Zerg {
-    + agregar(construccion)
-    + agregar(unidad)
-    + recolectar()
-    + crearUnidad()
+    - acciones
+    + elegirAccion(turno, mapa)
 }
 
 class Protoss {
-    + agregar(construccion)
-    + agregar(unidad)
-    + recolectar()
-    + crearUnidad()
+    - acciones
+    + elegirAccion(turno, mapa)
 }
 
 abstract class Construccion {
@@ -127,26 +124,21 @@ class NodoMineral {
 }
 
 class Turno {
-
-   +avanzarTurno(Jugador)
-   +jugar(Jugador)
+    - estaJugando : bool
+    +sigueJugando()
+    +dejarDeJugar()
+    +jugar()
 
 }
-note right
-Acordarnos de ver como podemos hacer
-para que turno tenga algun tipo de comportamiento
-con las construcciones...
-end note
 
 interface Recurso {
     + esPosibleConstruir(construccion)
 }
 
 
-
 Partida "2" *- Jugador
 Mapa -o Partida
-Partida o-up- Turno
+Jugador o-up- Turno
 
 Jugador *- Raza
 Raza <|-- Zerg

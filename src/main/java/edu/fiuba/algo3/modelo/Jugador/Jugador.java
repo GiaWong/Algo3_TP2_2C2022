@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo.Jugador;
 
-import edu.fiuba.algo3.modelo.Comandos.Acciones;
+import edu.fiuba.algo3.modelo.Comandos.Accion;
 import edu.fiuba.algo3.modelo.Exception.NombreDeberiaTener6caracteresComoMinimo;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
-//import edu.fiuba.algo3.modelo.Unidades.Turno.Turno;
+import edu.fiuba.algo3.modelo.Turno.Turno;
 
 public class Jugador {
 
@@ -11,8 +11,9 @@ public class Jugador {
     private String color;
     private Raza raza;
 
-    protected Acciones accion;
+    //private Accion comando; Puede ser que se encargue Raza
 
+    private Turno turno;
 
     public Jugador(String unNombre, String unColor, Raza unaRaza){
         this.setNombre(unNombre);
@@ -35,31 +36,21 @@ public class Jugador {
         raza = unaRaza;
     }
 
-    public Raza getRaza(){
-        return raza;
+    public void jugar(Mapa mapa){
+        turno.jugar();
+        while (turno.sigueJugando()) {
+            this.elegirAccion(mapa);
+            this.ejecutarAccion();
+        }
     }
 
-    public void asignarComando(Acciones unaAccion){
-        accion = unaAccion;
-    }
-    public void ejecutarComando(){
-        accion.ejecutar();
+    private void elegirAccion(Mapa mapa) {
+        raza.elegirAccion(turno, mapa);
     }
 
-    /*public void jugar(Turno turno, Mapa mapa){
-
-        // while raza.noTengaMasRecursos(){
-        //      Construccion const = pedirUnaConstruccionAlUsuario();
-        //      Coordenada coord = pedirUnaCoordenadaAlUsuario();
-        //      raza.agregar(const, coord, mapa);
-
-        //      Coordenada otraCoord = pedirUnaCoordenadaAlUsuario();
-        //      raza.crearUnidad(otraCoord, mapa);
-
-        //      raza.atacar()
-        //raza.avanzar(turno, mapa);
-    }*/
-
+    private void ejecutarAccion() {
+        raza.ejecutarAccion();
+    }
     public boolean comparar(Jugador otroJugador) {
         return (otroJugador.tieneMismoNombre(nombre) && otroJugador.tieneMismoColor(color) && otroJugador.tieneMismaRaza(raza));
     }
@@ -74,6 +65,10 @@ public class Jugador {
 
     public boolean tieneMismaRaza(Raza otraRaza) {
         return raza.equals(otraRaza); //No se si esto lo toma
+    }
+
+    public boolean tieneConstrucciones(Mapa mapa){
+        return true; //Como hago este metodo
     }
 
 }

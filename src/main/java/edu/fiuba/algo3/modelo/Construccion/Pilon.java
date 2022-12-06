@@ -100,11 +100,9 @@ public class Pilon extends ConstruccionProtoss implements ConstruccionConRadio{
         suministro.aumentarCapacidadTotal(5);
     }
 
-    public void energizar(Mapa mapa, Coordenada coordenada) throws EdificioNoEstaOperativo {
+    public void energizar(Mapa mapa, Coordenada coordenada) { //Cambiar los tests cuando decia que lanzaba un error! Ahora ya no lanza mas un error.
         if (estaDisponible()){
             mapa.setearRadio(coordenada, radio, new ConEnergia());
-        } else {
-            throw new EdificioNoEstaOperativo();
         }
     }
 }

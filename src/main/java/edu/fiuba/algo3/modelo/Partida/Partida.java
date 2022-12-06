@@ -10,9 +10,7 @@ public class Partida {
 
     private Jugador jugadorUno;
     private Jugador jugadorDos;
-    private Mapa mapa;
-
-    private Turno turno;
+    private final Mapa mapa;
 
     public Partida() {
         mapa = new Mapa(20 ,20);
@@ -31,16 +29,12 @@ public class Partida {
     }
 
     public void jugar() {
+        while (jugadorUno.tieneConstrucciones(mapa) && jugadorDos.tieneConstrucciones(mapa)) { //Como verifico si un jugador tiene construcciones o no?
+            jugadorUno.jugar(mapa);
+            jugadorDos.jugar(mapa);
+        }
 
-        //while jugadorUno.tieneConstrucciones() && jugadorDos.tieneConstrucciones(){
-        //      jugadorUno.jugar(mapa);
-        //      jugadorDos.jugar(mapa);
-        //}
-
-     //Cartel de se termino el juego.
-
-
-
+        System.out.println("Juego terminado. Ganador "); //Debería poner que jugador salió ganador.
     }
 
     public void agregarJugador(String nombre,String color,Raza raza) {

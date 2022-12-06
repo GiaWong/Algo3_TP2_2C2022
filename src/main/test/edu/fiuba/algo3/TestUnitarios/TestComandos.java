@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.TestUnitarios;
 
-import edu.fiuba.algo3.modelo.Comandos.Acciones;
+import edu.fiuba.algo3.modelo.Comandos.Accion;
 import edu.fiuba.algo3.modelo.Comandos.CreacionPilon;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Jugador.Protoss;
@@ -19,13 +19,13 @@ public class TestComandos {
     @Test
     public void testDeCreacionPilonAtravesDeComandos(){
         Raza protoss = new Protoss(suministro);
-        Jugador jugador1 = new Jugador("Matias","azul",protoss);
+        //Jugador jugador1 = new Jugador("Matias","azul",protoss);
         Mapa mapa = new Mapa(20,20);
 
-        Coordenada coordenada =new Coordenada(2,2);
-        Acciones accion = new CreacionPilon(protoss,coordenada,mapa);
-        jugador1.asignarComando(accion);
-        jugador1.ejecutarComando();
+        Coordenada coordenada = new Coordenada(2,2);
+        Accion accion = new CreacionPilon(protoss,coordenada,mapa);
+        protoss.asignarAccion(accion);
+        protoss.ejecutarAccion();
         Assertions.assertEquals(true,mapa.hayConstruccion(coordenada));
 
     }

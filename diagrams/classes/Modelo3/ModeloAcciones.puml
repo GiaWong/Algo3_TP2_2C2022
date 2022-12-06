@@ -5,7 +5,6 @@
 abstract class Raza {
     - bancoDeRecursos
     - capacidadSuministro
-    - acciones
 
     + comprar(construccion)
     + comprar(unidad)
@@ -19,36 +18,38 @@ class Zerg {
 }
 
 class Protoss {
-    - evolucion
     + agregar(construccion)
     + agregar(unidad)
     + recolectar()
     + crearUnidad()
 }
 
-interface Acciones {
+interface Accion {
     +ejecutar()
 }
 
-class Creacion {
-    + crearConstruccion()
-    + crearUnidad()
+class CreacionUnidad {
+    + CreacionUnidad(raza, coord, mapa)
+    + ejecutar()
+}
+
+class CreacionConstruccion {
+    + CreacionConstruccion(raza, coord, mapa)
     + ejecutar()
 }
 
 class Ataque {
-    + atacar(unidad)
-    + atacar(construccion)
+    + Ataque(unidad, coord, mapa)
     + ejecutar()
 }
 
 class Movimiento {
-    + mover()
+    + Movimiento(coordSeleccionada, coordAMoverse, mapa)
     + ejecutar()
 }
 
-class EvolucionarUnidad {
-    + evolucionarUnidad()
+class Evolucion {
+    + Evolucion(coord, mapa)
     + ejecutar()
 }
 
@@ -58,22 +59,17 @@ class Mapa {
     + buscar(Coordenada) : Casilla
 }
 
-interface Evolucion {
-    + ejecutar()
-}
+Raza <|.up. Zerg
+Raza <|.up. Protoss
 
 Mapa <- Raza
-Raza <|.. Zerg
-Raza <|.. Protoss
+Raza --> Accion
+Accion <|.. CreacionUnidad
+Accion <|.. CreacionConstruccion
+Accion <|.. Ataque
+Accion <|.. Movimiento
+Accion <|.. Evolucion
 
-Zerg --> Acciones
-Protoss --> Acciones
-Acciones <|.. Creacion
-Acciones <|.. Ataque
-Acciones <|.. Movimiento
-
-Zerg --> Evolucion
-Evolucion <|.. EvolucionarUnidad
 
 
 

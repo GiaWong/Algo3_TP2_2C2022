@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-public class ConstruccionProtosTests {
+public class ConstruccionProtosTests { //Ver como modificar para que no lanze un error cuando el edificio no esta operativo!
 
     @Test
     public void SeArrancaAConstruirNexoMineralYNoPasanTurnosYDeberiaEstarInactivo() {

@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Construccion.Acceso;
 import edu.fiuba.algo3.modelo.Construccion.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
+import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.Unidades.Dragon;
 import edu.fiuba.algo3.modelo.Unidades.Scout;
 import edu.fiuba.algo3.modelo.Unidades.UnidadProtoss;
@@ -22,31 +23,21 @@ public class Protoss extends Raza {
     public void agregar(ConstruccionProtoss construccion, Coordenada coordenada, Mapa mapa) {
         this.comprar(construccion);
         mapa.agregar(construccion, coordenada);
-
     }
-
-
 
     public void agregar(UnidadProtoss unidad, Coordenada coordenada, Mapa mapa) {
         this.comprar(unidad);
         mapa.agregar(unidad, coordenada);
-
     }
-
 
     @Override
-    public void recolectar() {
+    public void elegirAccion(Turno turno, Mapa mapa) {
+        //Pedirle al usuario que ingrese algo por consola
+        String accion = System.in.toString();
+        //Fijarnos si dicha Accion pertenece al rango de las Acciones disponibles en Protoss
+        //Accion accion = listaComandos.getValue(accion);
+        //this.asignarAccion(accion);
     }
-
-    public void crearUnidad(Zealot Zealot, Mapa mapa){
-       // mapa.buscar
-       // mapa.agregar(new Acceso());
-
-    }
-    public void crearUnidad(Scout Scout){
-
-    }
-    public void crearUnidad(Dragon Dragon){}
 
 
 }
