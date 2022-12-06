@@ -8,16 +8,14 @@ public abstract class ConstruccionProtoss extends Construccion {
 
     protected Escudo escudo;
 
-    public abstract void avanzarTurno();
-
     public void recibirDanio(Danio danio){
         defensa.recibirDanio(danio, vida, escudo);
     }
 
-    public void protoss(){
-        return;
+    public void esProtoss(){
+
     }
-    public   void zerg() throws EstaConstruccionEsZerg {
+    public   void esZerg() throws EstaConstruccionEsZerg {
         throw  new EstaConstruccionEsZerg();
     }
 }

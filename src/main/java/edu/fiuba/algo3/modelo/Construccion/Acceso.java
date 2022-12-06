@@ -28,19 +28,19 @@ public  class Acceso extends ConstruccionProtoss{
         tiempoConstruccion = 8;
     }
 
-    public boolean esPrerequisito(Construccion construccion){
-        return false;
-    }
-
-    public void verificarPrerequisito(Mapa mapa) {
-    }
-
     public Acceso(int tiempoDeConstruccion){
         costos.add(150); //esto es para Mineral
         costos.add(0); //esto es para Gas
         vida = new Vida(500);
         escudo = new Escudo(500);
         tiempoConstruccion = tiempoDeConstruccion;
+    }
+
+    public boolean esPrerequisito(Construccion construccion){
+        return false;
+    }
+
+    public void verificarPrerequisito(Mapa mapa) {
     }
 
     public void regenerarEscudo(){
@@ -51,13 +51,22 @@ public  class Acceso extends ConstruccionProtoss{
 
     public int obtenerVida() {return vida.vidaActual(); }
 
+    public Unidad crearZealot() throws EdificioNoEstaOperativo{
+        verificarEdificioOperativo();
+        return new Zealot();
+    }
+
+    public Unidad crearDragon() throws EdificioNoEstaOperativo{
+        verificarEdificioOperativo();
+        return new Dragon();
+    }
 
     @Override
-    public void avanzarTurno() {
+    public void avanzarTurno(Mapa mapa) {
         this.regenerarEscudo();
         this.construir();
-
     }
+
 
     @Override
     public void esPosibleConstruirEn(Volcan volcan) {
@@ -83,24 +92,8 @@ public  class Acceso extends ConstruccionProtoss{
     }
 
     @Override
-    public void esPosibleConstruirEn(SinRecurso sinRecurso) {
-
-    }
+    public void esPosibleConstruirEn(SinRecurso sinRecurso) {}
 
     @Override
-    public void aumentarSuministro(Suministro suministro) {
-
-    }
-
-
-    public Unidad crearZealot() throws EdificioNoEstaOperativo{
-        verificarEdificioOperativo();
-        return new Zealot();
-    }
-
-
-    public Unidad crearDragon() throws EdificioNoEstaOperativo{
-        verificarEdificioOperativo();
-        return new Dragon();
-    }
+    public void aumentarSuministro(Suministro suministro) {}
 }

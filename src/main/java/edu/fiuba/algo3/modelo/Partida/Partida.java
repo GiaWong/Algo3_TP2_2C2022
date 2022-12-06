@@ -29,7 +29,7 @@ public class Partida {
 
     public void jugar() {
         mapa.inicializarMapaCon2Bases();
-        while (mapa.FinJuego()) {
+        while (mapa.finJuego()) {
             jugadorUno.jugar(mapa);
             jugadorDos.jugar(mapa);
         }

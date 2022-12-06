@@ -49,11 +49,17 @@ public class NexoMineral extends ConstruccionProtoss implements RefineriaMineral
 
     public int obtenerVida() {return vida.vidaActual(); }
 
-    @Override
+
     public void avanzarTurno() {
         this.regenerarEscudo();
         this.construir();
 
+    }
+
+    @Override
+    public void avanzarTurno(Mapa mapa) {
+        this.regenerarEscudo();
+        this.construir();
     }
 
     @Override

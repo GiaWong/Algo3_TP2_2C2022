@@ -15,7 +15,7 @@ public class CasoDeUso9Test {
 
 
     @Test
-    public void SeTieneDosPilonesSeDestruyeUnoYlaConstruccionDebriaSeguirEstandoActiva() throws EdificioNoEstaOperativo {
+    public void SeTieneDosPilonesSeDestruyeUnoYlaConstruccionDebriaSeguirEstandoActiva() {
 
         Mapa mapa = new Mapa(20,20);
         Acceso acceso = new Acceso();
@@ -33,13 +33,13 @@ public class CasoDeUso9Test {
 
         mapa.agregar(pilon1, coordPilon1);
         mapa.agregar(pilon2, coordPilon2);
-        pilon1.energizar(mapa, coordPilon1);
-        pilon2.energizar(mapa, coordPilon2);
+        pilon1.energizar(mapa);
+        pilon2.energizar(mapa);
 
         mapa.agregar(acceso, coordAcceso);
 
         mapa.destruirConstruccion(coordPilon1);
-        pilon2.energizar(mapa, coordPilon2);
+        pilon2.energizar(mapa);
 
         assertTrue(mapa.tipoTerreno(new ConEnergia(), 10, 10));
 

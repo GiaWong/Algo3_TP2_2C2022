@@ -18,7 +18,7 @@ import java.util.List;
 
 public class Extractor extends ConstruccionZerg implements RefineriaGas{
 
-    private List<Zangano> zanganos = new ArrayList<>();
+    private final List<Zangano> zanganos = new ArrayList<>();
 
     public Extractor(){
         costos.add(100); //esto es para Mineral
@@ -66,8 +66,13 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
         }
     }
 
-    @Override
     public void avanzarTurno() {
+        this.regenerarVida();
+        this.construir();
+    }
+
+    @Override
+    public void avanzarTurno(Mapa mapa) {
         this.regenerarVida();
         this.construir();
     }

@@ -18,10 +18,24 @@ import java.util.List;
 
 public class Guarida extends ConstruccionZerg {
 
-    private ConstruccionZerg preRequisito = new ReservaProduccion();
-    private Unidad hidralisco = new Hidralisco();
+    private final ConstruccionZerg preRequisito = new ReservaProduccion();
+    private final Unidad hidralisco = new Hidralisco();
 
-    private ArrayList<Larva> larvas = new ArrayList<>();
+    private final ArrayList<Larva> larvas = new ArrayList<>();
+
+    public Guarida(){
+        costos.add(200); //esto es para Mineral
+        costos.add(100); //esto es para Gas
+        vida = new Vida(1250);
+        tiempoConstruccion = 12;
+    }
+
+    public Guarida(int tiempoDeConstruccion){
+        costos.add(200); //esto es para Mineral
+        costos.add(100); //esto es para Gas
+        vida = new Vida(1250);
+        tiempoConstruccion = tiempoDeConstruccion;
+    }
 
     public boolean esPrerequisito(Construccion construccion){
         return false;
@@ -37,24 +51,9 @@ public class Guarida extends ConstruccionZerg {
         }
     }
 
-
-    public Guarida(){
-        costos.add(200); //esto es para Mineral
-        costos.add(100); //esto es para Gas
-        vida = new Vida(1250);
-        tiempoConstruccion = 12;
-    }
-
-    public Guarida(int tiempoDeConstruccion){
-        costos.add(200); //esto es para Mineral
-        costos.add(100); //esto es para Gas
-        vida = new Vida(1250);
-        tiempoConstruccion = tiempoDeConstruccion;
-    }
     public boolean esRequisitoDe(Construccion construccion){
         return false;
     }
-
     public boolean esRequisitoDe(Guarida guarida){
         return true;
     }
@@ -63,12 +62,6 @@ public class Guarida extends ConstruccionZerg {
 
     public void regenerarVida(){
         vida.regenerarSalud(5);
-    }
-
-    @Override
-    public void avanzarTurno() {
-        this.regenerarVida();
-        this.construir();
     }
 
     public void agregarLarva(Larva larva){
@@ -83,6 +76,16 @@ public class Guarida extends ConstruccionZerg {
     public void construirUnidad() { //Esto seria el metodo de crearUnidad()
         this.hidralisco.construir();
 
+    }
+
+    public void avanzarTurno() {
+        this.regenerarVida();
+        this.construir();
+    }
+    @Override
+    public void avanzarTurno(Mapa mapa) {
+        this.regenerarVida();
+        this.construir();
     }
 
     @Override

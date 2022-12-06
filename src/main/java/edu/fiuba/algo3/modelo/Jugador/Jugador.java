@@ -10,13 +10,7 @@ public class Jugador {
     private String nombre;
     private String color;
     private Raza raza;
-
     private  Accion accion;
-
-
-
-    //private Accion comando; //Puede ser que se encargue Raza
-
     private Turno turno;
 
     public Jugador(String unNombre, String unColor, Raza unaRaza){
@@ -48,6 +42,7 @@ public class Jugador {
             this.elegirAccion(mapa,accion);
             this.ejecutarAccion();
         }
+        mapa.avanzarTurno();
     }
 
     private void elegirAccion(Mapa mapa,Accion accion) {

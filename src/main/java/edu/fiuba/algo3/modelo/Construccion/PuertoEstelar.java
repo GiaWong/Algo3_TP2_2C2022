@@ -20,9 +20,17 @@ import java.util.List;
 
 public class PuertoEstelar extends ConstruccionProtoss {
 
-    private ConstruccionProtoss preRequisito = new Acceso();
+    private final ConstruccionProtoss preRequisito = new Acceso();
 
     public PuertoEstelar(){
+        costos.add(150); //esto es para Mineral
+        costos.add(150); //esto es para Gas
+        vida = new Vida(600);
+        escudo = new Escudo(600);
+        tiempoConstruccion = 10;
+    }
+
+    public PuertoEstelar(int tiempoDeConstruccion){
         costos.add(150); //esto es para Mineral
         costos.add(150); //esto es para Gas
         vida = new Vida(600);
@@ -37,19 +45,11 @@ public class PuertoEstelar extends ConstruccionProtoss {
     public void verificarPrerequisito(Mapa mapa) {
     }
 
-    public PuertoEstelar(int tiempoDeConstruccion){
-        costos.add(150); //esto es para Mineral
-        costos.add(150); //esto es para Gas
-        vida = new Vida(600);
-        escudo = new Escudo(600);
-        tiempoConstruccion = 10;
-    }
-
 
     public boolean preRequisito(List<Construccion> lista){
         if(lista!=null) {
-            for(int i =0; i<lista.size();i++){
-                if(lista.get(i).getClass().equals(preRequisito.getClass())){
+            for (Construccion construccion : lista) {
+                if (construccion.getClass().equals(preRequisito.getClass())) {
                     return true;
                 }
             }
@@ -67,15 +67,21 @@ public class PuertoEstelar extends ConstruccionProtoss {
     public int obtenerVida() {return vida.vidaActual(); }
 
 
-    @Override
+    public Unidad crearScout() throws EdificioNoEstaOperativo { //Creo que deberia pasarle la casilla. Y EL BANCO  DE RECURSOS tambien?
+        verificarEdificioOperativo();
+        return new Scout();
+    }
+
+
     public void avanzarTurno() {
         this.regenerarEscudo();
         this.construir();
     }
 
-    public Unidad crearScout() throws EdificioNoEstaOperativo { //Creo que deberia pasarle la casilla. Y EL BANCO  DE RECURSOS tambien?
-        verificarEdificioOperativo();
-        return new Scout();
+    @Override
+    public void avanzarTurno(Mapa mapa) {
+        this.regenerarEscudo();
+        this.construir();
     }
 
     @Override

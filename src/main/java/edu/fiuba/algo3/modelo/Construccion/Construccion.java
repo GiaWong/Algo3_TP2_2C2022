@@ -65,11 +65,11 @@ public abstract class Construccion {
         banco.realizarCompra(minerales, gas);
     }
 
-    public  abstract void protoss();
-    public  abstract void zerg();
     public boolean estaDisponible() {
         return tiempoConstruccion <= 0;
     }
+    public  abstract void esProtoss();
+    public  abstract void esZerg();
 
     public abstract void esPosibleConstruirEn(Volcan volcan);
 
@@ -89,8 +89,9 @@ public abstract class Construccion {
     public abstract void aumentarSuministro(Suministro suministro);
 
 
-
     public abstract boolean esPrerequisito(Construccion construccion);
 
     public abstract void verificarPrerequisito(Mapa mapa) throws NoCumplePrerequisito;
+
+    public abstract void avanzarTurno(Mapa mapa);
 }

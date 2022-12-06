@@ -21,11 +21,11 @@ import java.util.List;
 
 public class Espiral extends ConstruccionZerg {
 
-    private ConstruccionZerg preRequisito = new Guarida();
+    private final ConstruccionZerg preRequisito = new Guarida();
 
     private Mutalisco zerg;
 
-    private ArrayList<Larva> larvas = new ArrayList<>();
+    private final ArrayList<Larva> larvas = new ArrayList<>();
 
     public Espiral(){
         costos.add(150); //esto es para Mineral
@@ -50,8 +50,8 @@ public class Espiral extends ConstruccionZerg {
 
     public boolean preRequisito(List<Construccion> lista){ //Hay que cambiar
         if(lista!=null) {
-            for(int i =0; i<lista.size();i++){
-                if(lista.get(i).getClass().equals(preRequisito.getClass())){
+            for (Construccion construccion : lista) {
+                if (construccion.getClass().equals(preRequisito.getClass())) {
                     return true;
                 }
             }
@@ -66,14 +66,6 @@ public class Espiral extends ConstruccionZerg {
         vida.regenerarSalud(5);
     }
 
-    @Override
-    public void avanzarTurno() {
-
-        this.regenerarVida();
-        this.construir();
-
-    }
-
     public void agregarLarva(Larva larva){
         larvas.add(larva);
     }
@@ -81,6 +73,17 @@ public class Espiral extends ConstruccionZerg {
     public Unidad crearMutalisco() throws EdificioNoEstaOperativo {
         verificarEdificioOperativo();
         return new Mutalisco();
+    }
+
+    public void avanzarTurno() {
+        this.regenerarVida();
+        this.construir();
+    }
+
+    @Override
+    public void avanzarTurno(Mapa mapa) {
+        this.regenerarVida();
+        this.construir();
     }
 
     @Override
@@ -94,9 +97,7 @@ public class Espiral extends ConstruccionZerg {
     }
 
     @Override
-    public void esPosibleConstruirEn(SinRecurso sinRecurso) {
-
-    }
+    public void esPosibleConstruirEn(SinRecurso sinRecurso) {}
 
     @Override
     public void esPosibleConstruirEn(SinTerreno nada) {
@@ -109,14 +110,10 @@ public class Espiral extends ConstruccionZerg {
     }
 
     @Override
-    public void esPosibleConstruirEn(ConMoho moho){
-
-    }
+    public void esPosibleConstruirEn(ConMoho moho){}
 
     @Override
-    public void aumentarSuministro(Suministro suministro) {
-
-    }
+    public void aumentarSuministro(Suministro suministro) {}
 
 
 }

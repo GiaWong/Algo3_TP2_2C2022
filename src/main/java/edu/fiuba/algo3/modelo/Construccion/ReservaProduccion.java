@@ -21,7 +21,7 @@ import java.util.List;
 
 public class ReservaProduccion extends ConstruccionZerg {
 
-    private ArrayList<Larva> larvas = new ArrayList<>();
+    private final ArrayList<Larva> larvas = new ArrayList<>();
 
     public ReservaProduccion(){
         costos.add(150); //esto es para Mineral
@@ -30,14 +30,14 @@ public class ReservaProduccion extends ConstruccionZerg {
         tiempoConstruccion = 12;
     }
 
-    public void verificarPrerequisito(Mapa mapa) {
-    }
-
     public ReservaProduccion(int tiempoDeConstruccion){
         costos.add(150); //esto es para Mineral
         costos.add(0); //esto es para Gas
         vida = new Vida(1000);
         tiempoConstruccion = tiempoDeConstruccion;
+    }
+
+    public void verificarPrerequisito(Mapa mapa) {
     }
 
     public void agregarLarva(Larva larva){
@@ -63,8 +63,14 @@ public class ReservaProduccion extends ConstruccionZerg {
         vida.regenerarSalud(10);
     }
 
-    @Override
+
     public void avanzarTurno() {
+        this.regenerarVida();
+        this.construir();
+    }
+
+    @Override
+    public void avanzarTurno(Mapa mapa) {
         this.regenerarVida();
         this.construir();
     }

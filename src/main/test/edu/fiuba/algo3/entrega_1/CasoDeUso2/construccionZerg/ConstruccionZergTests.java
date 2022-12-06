@@ -7,13 +7,16 @@ import edu.fiuba.algo3.modelo.Construccion.Criadero;
 import edu.fiuba.algo3.modelo.Construccion.Extractor;
 import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.Jugador.BancoDeRecursos;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Unidades.Zangano;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 
 public class ConstruccionZergTests {
 
+    Mapa mapa = mock(Mapa.class);
     @Test
     public void SeArrancaAConstruirCriaderoYNoPasanTurnosYDeberiaEstarInactivo() {
         Criadero criadero = new Criadero();
@@ -22,7 +25,7 @@ public class ConstruccionZergTests {
     @Test
     public void SeArrancaAConstruirCriaderoPasaUnTurnoYDeberiaEstarInactivoPorFaltaDeTurnos() {
         Criadero criadero = new Criadero();
-        criadero.avanzarTurno();
+        criadero.avanzarTurno(mapa);
         assertThrows( EdificioNoEstaOperativo.class, ()->criadero.evolucionarLarva(new BancoDeRecursos()));
     }
 
@@ -30,7 +33,7 @@ public class ConstruccionZergTests {
     public void SeTerminaDeConstruirElCriaderoYDeberiaEstarActivo() {
         Criadero criadero = new Criadero();
         for(int i =0 ; i < 4;i++) {
-            criadero.avanzarTurno();
+            criadero.avanzarTurno(mapa);
         }
         assertDoesNotThrow(()->criadero.evolucionarLarva(new BancoDeRecursos()));
     }
@@ -44,7 +47,7 @@ public class ConstruccionZergTests {
 
     public void SeArrancaAConstruirReservaReproduccionPasaUnTurnoYDeberiaEstarInactivoPorFaltaDeTurnos() {
         ReservaProduccion reserva = new ReservaProduccion();
-        reserva.avanzarTurno();
+        reserva.avanzarTurno(mapa);
         assertThrows( EdificioNoEstaOperativo.class, reserva::crearZerling);
 
     }
@@ -52,10 +55,9 @@ public class ConstruccionZergTests {
     public void SeTerminaDeConstruirReservaReproduccionYDeberiaEstarActivo() {
         ReservaProduccion reserva = new ReservaProduccion();
         for(int i =0 ; i<=12;i++) {
-            reserva.avanzarTurno();
+            reserva.avanzarTurno(mapa);
         }
-        assertDoesNotThrow(()->{
-            reserva.crearZerling();});
+        assertDoesNotThrow(reserva::crearZerling);
     }
 
     @Test
@@ -68,7 +70,7 @@ public class ConstruccionZergTests {
     public void SeArrancaAConstruirExtractorYPasaUnTurnoYDeberiaEstarInactivoPorFaltaDeTurnos() {
         Extractor extractor = new Extractor();
         Zangano zangano = new Zangano();
-        extractor.avanzarTurno();
+        extractor.avanzarTurno(mapa);
         assertThrows( EdificioNoEstaOperativo.class, ()->extractor.agregarZangano(zangano));
     }
     @Test
@@ -76,9 +78,9 @@ public class ConstruccionZergTests {
         Extractor extractor = new Extractor();
         Zangano zangano = new Zangano();
         for(int i =0 ; i<=5;i++) {
-            extractor.avanzarTurno();
+            extractor.avanzarTurno(mapa);
         }
-        assertDoesNotThrow(()->{extractor.agregarZangano(zangano);});
+        assertDoesNotThrow(()-> extractor.agregarZangano(zangano));
 
     }
 
@@ -90,7 +92,7 @@ public class ConstruccionZergTests {
     @Test
     public void SeArrancaAConstruirGuaridaYPasaUnTurnoYDeberiaEstarInactivoPorFaltaDeTurnos() {
         Guarida guarida = new Guarida();
-        guarida.avanzarTurno();
+        guarida.avanzarTurno(mapa);
         assertThrows( EdificioNoEstaOperativo.class, guarida::crearHidralisco);
     }
 
@@ -98,7 +100,7 @@ public class ConstruccionZergTests {
     public void SeTerminaDeConstruirGuaridaYDeberiaEstarActivo() {
         Guarida guarida = new Guarida();
         for(int i =0 ; i<=12;i++) {
-            guarida.avanzarTurno();
+            guarida.avanzarTurno(mapa);
         }
         assertDoesNotThrow(()->{guarida.crearHidralisco();});
     }
@@ -113,7 +115,7 @@ public class ConstruccionZergTests {
     public void SeArrancaAConstruirEspiralYAvanzaUnTurnoYDeberiaEstarInactivoPorFaltaDeTurnos() {
 
         Espiral espiral = new Espiral();
-        espiral.avanzarTurno();
+        espiral.avanzarTurno(mapa);
         assertThrows( EdificioNoEstaOperativo.class, espiral::crearMutalisco);
     }
 
@@ -121,7 +123,7 @@ public class ConstruccionZergTests {
     public void SeConstruyeEspiralYDeberiaEstarActivo() {
         Espiral espiral = new Espiral();
         for(int i =0 ; i<=9;i++) {
-            espiral.avanzarTurno();
+            espiral.avanzarTurno(mapa);
         }
         assertDoesNotThrow(()->{espiral.crearMutalisco();});
     }

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
 
-    private ArrayList<Larva> larvas = new ArrayList<>();
+    private final ArrayList<Larva> larvas = new ArrayList<>();
 
     private int radio;
 
@@ -76,16 +76,6 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         return larvas.size() == cantidadDeLarvas;
     }
 
-    public void ampliarRadio() {
-        /*
-        if (tiempoAmpliacion == 0) {
-            radio++;
-            tiempoAmpliacion = 2;
-        }
-
-         */
-    }
-
     public void regenerarVida(){
         vida.regenerarSalud(5);
     }
@@ -93,33 +83,41 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
     public int obtenerVida() {return vida.vidaActual(); }
 
 
-    @Override
-    public void avanzarTurno(){
+    public void avanzarTurno(Mapa mapa, Coordenada coordenada){ //Este avanzar turno no deberia estar
         if(larvas.size() < 3){
             larvas.add(new Larva());
         }
         this.construir();
         this.regenerarVida();
-        this.ampliarRadio();
+        //this.expandirMoho(mapa,coordenada);
         turnos++;
     }
 
-    public void avanzarTurno(Mapa mapa, Coordenada coordenada){
-        if(larvas.size() < 3){
-            larvas.add(new Larva());
-        }
-        this.construir();
-        this.regenerarVida();
-        this.expandirMoho(mapa,coordenada);
-        turnos++;
-    }
-
-    public void expandirMoho(Mapa mapa, Coordenada coordenada){
+    public void expandirMoho(Mapa mapa){
         if((turnos % 2 == 0) && (estaDisponible())){
             mapa.setearRadio(coordenada,radio, new ConMoho());
             radio++;
         }
     }
+
+    public boolean esPrerequisito(Construccion construccion){
+        return false;
+    }
+
+    public void verificarPrerequisito(Mapa mapa) {
+    }
+
+    @Override
+    public void avanzarTurno(Mapa mapa){
+        if(larvas.size() < 3){
+            larvas.add(new Larva());
+        }
+        this.construir();
+        this.regenerarVida();
+        this.expandirMoho(mapa);
+        turnos++;
+    }
+
     @Override
     public void esPosibleConstruirEn(Volcan volcan) {
         throw new NoSePuedeConstruirEsteEdificioSobreUnRecurso();
@@ -128,13 +126,6 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
     @Override
     public void esPosibleConstruirEn(NodoMineral nodoMineral) {
         throw new NoSePuedeConstruirEsteEdificioSobreUnRecurso();
-    }
-
-    public boolean esPrerequisito(Construccion construccion){
-        return false;
-    }
-
-    public void verificarPrerequisito(Mapa mapa) {
     }
 
     @Override

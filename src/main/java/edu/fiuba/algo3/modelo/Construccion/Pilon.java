@@ -18,14 +18,15 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 
 public class Pilon extends ConstruccionProtoss implements ConstruccionConRadio{
 
-    private int radio = 3; //El radio es mejor que sea un entero o un objeto?
-    //private Energia radio;
+    private final int radio;
+
 
     public Pilon(){
         costos.add(100); //esto es para Mineral
         costos.add(0); //esto es para Gas
         vida = new Vida(300);
         escudo = new Escudo(300);
+        radio = 3;
         tiempoConstruccion = 5;
     }
 
@@ -34,14 +35,8 @@ public class Pilon extends ConstruccionProtoss implements ConstruccionConRadio{
         costos.add(0); //esto es para Gas
         vida = vida1;
         escudo = new Escudo(300);
+        radio = 3;
         tiempoConstruccion = 5;
-    }
-
-    public boolean esPrerequisito(Construccion construccion){
-        return false;
-    }
-
-    public void verificarPrerequisito(Mapa mapa) {
     }
 
     public Pilon(int tiempoDeConstruccion){
@@ -50,6 +45,14 @@ public class Pilon extends ConstruccionProtoss implements ConstruccionConRadio{
         vida = new Vida(300);
         escudo = new Escudo(300);
         tiempoConstruccion = tiempoDeConstruccion;
+        radio = 3;
+    }
+
+    public boolean esPrerequisito(Construccion construccion){
+        return false;
+    }
+
+    public void verificarPrerequisito(Mapa mapa) {
     }
 
     public void regenerarEscudo(){
@@ -60,10 +63,23 @@ public class Pilon extends ConstruccionProtoss implements ConstruccionConRadio{
 
     public int obtenerVida() {return vida.vidaActual(); }
 
-    @Override
+
     public void avanzarTurno() {
         this.regenerarEscudo();
         this.construir();
+    }
+
+    public void energizar(Mapa mapa) { //Cambiar los tests cuando decia que lanzaba un error! Ahora ya no lanza mas un error.
+        if (estaDisponible()){
+            mapa.setearRadio(coordenada, radio, new ConEnergia());
+        }
+    }
+
+    @Override
+    public void avanzarTurno(Mapa mapa) {
+        this.regenerarEscudo();
+        this.construir();
+        this.energizar(mapa);
     }
 
     @Override
@@ -77,32 +93,21 @@ public class Pilon extends ConstruccionProtoss implements ConstruccionConRadio{
     }
 
     @Override
-    public void esPosibleConstruirEn(SinRecurso sinRecurso) {
-
-    }
+    public void esPosibleConstruirEn(SinRecurso sinRecurso) {}
 
     @Override
-    public void esPosibleConstruirEn(ConEnergia energia) {
+    public void esPosibleConstruirEn(ConEnergia energia) {}
 
-    }
-
+    @Override
     public void esPosibleConstruirEn(ConMoho moho){
         throw new NoSePuedeConstruirEnEsteTerreno();
     }
 
     @Override
-    public void esPosibleConstruirEn(SinTerreno nada) {
-
-    }
+    public void esPosibleConstruirEn(SinTerreno nada) {}
 
     @Override
     public void aumentarSuministro(Suministro suministro) {
         suministro.aumentarCapacidadTotal(5);
-    }
-
-    public void energizar(Mapa mapa, Coordenada coordenada) { //Cambiar los tests cuando decia que lanzaba un error! Ahora ya no lanza mas un error.
-        if (estaDisponible()){
-            mapa.setearRadio(coordenada, radio, new ConEnergia());
-        }
     }
 }

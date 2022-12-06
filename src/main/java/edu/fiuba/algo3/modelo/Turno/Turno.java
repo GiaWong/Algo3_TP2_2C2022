@@ -2,12 +2,8 @@ package edu.fiuba.algo3.modelo.Turno;
 
 
 public class Turno {
-    private int turnos = 0;
-    private boolean estaJugando = false;
 
-    public void aumentarTurno(){
-        turnos += 1;
-    }
+    private boolean estaJugando = false;
 
     public void jugar(){
         estaJugando = true;

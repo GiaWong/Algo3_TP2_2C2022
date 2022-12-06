@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.modelo.Mapa;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.Criadero;
-import edu.fiuba.algo3.modelo.Construccion.Guarida;
-import edu.fiuba.algo3.modelo.Construccion.Pilon;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupada;
 import edu.fiuba.algo3.modelo.Exception.NoCumplePrerequisito;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.*;
@@ -19,19 +16,12 @@ public class Casilla {
 
     public Coordenada coordenada;
 
-    protected Unidad unidad;
-    private Recurso recurso;
-    private Area area;
-
-    protected Terreno terreno;
-
     protected Construccion construccion;
 
-    public Casilla(){
-        area = new AreaTerrestre();
-        recurso = new SinRecurso();
-        terreno = new SinTerreno();
-    }
+    protected Unidad unidad;
+    private Recurso recurso;
+    protected Terreno terreno;
+    private Area area;
 
     public Casilla(Coordenada coord){
         area = new AreaTerrestre();
@@ -60,9 +50,20 @@ public class Casilla {
         }
         construccion = unaConstruccion;
     }
-
-    public  void avanzarTurno(){
+    /*
+    public  void avanzarTurno(){ //Uso este avanzar turno en algun lado??
         construccion.estaDisponible();
+    }
+
+     */
+
+    public void avanzarTurno(Mapa mapa){
+        if (this.hayConstruccion()){
+            construccion.avanzarTurno(mapa);
+
+        } else if (this.hayUnidad()) {
+            unidad.construir();
+        }
     }
 
     public void agregar(Construccion unaConstruccion){
@@ -83,11 +84,11 @@ public class Casilla {
         return (unidad != null);
     }
     public void construccionProtoss(){
-        construccion.protoss();
+        construccion.esProtoss();
     }
 
     public void construccionZerg(){
-        construccion.zerg();
+        construccion.esZerg();
     }
 
     public void destruirConstruccion() {
@@ -95,7 +96,7 @@ public class Casilla {
     }
     public boolean esConstruccion(Construccion construccionRadio) {
         if(this.hayConstruccion()){
-            return construccionRadio.getClass().equals(construccion.getClass());
+            return construccionRadio.getClass().equals(construccion.getClass()); //Arreglar este getClass()
         }
         return false;
     }
@@ -103,6 +104,7 @@ public class Casilla {
     public void atacar(Unidad unidadAtacante) {
         if(this.hayConstruccion()){
             unidadAtacante.atacar(construccion);
+
         }else if(this.hayUnidad()){
             unidadAtacante.atacar(unidad);
         }
@@ -118,20 +120,6 @@ public class Casilla {
         catch (Exception ConstruccionDestruida){
             construccion = null;
         }
-    }
-
-    public boolean esUnidad(Unidad otraUnidad) {
-
-        if(this.hayUnidad()){
-            return unidad.getClass().equals(otraUnidad.getClass());
-        }
-
-        return false;
-    }
-
-    public int obtenerRadio() {
-        return 0; //Como hago esto??
-
     }
 
     public void setArea(Area unArea){
@@ -155,8 +143,8 @@ public class Casilla {
     }
 
     public boolean esPrerequisito(Construccion construccion1) {
-        if(construccion!=null){
-        return construccion.esPrerequisito(construccion1);
+        if(construccion != null){
+            return construccion.esPrerequisito(construccion1);
         } else {
             return false;
         }

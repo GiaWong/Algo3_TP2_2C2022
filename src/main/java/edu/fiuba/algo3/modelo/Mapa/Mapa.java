@@ -5,18 +5,17 @@ import edu.fiuba.algo3.modelo.Construccion.Criadero;
 import edu.fiuba.algo3.modelo.Construccion.Pilon;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.Area;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 public class Mapa {
 
-    private int base;
-    private int altura;
-    private Casilla [][] mapa;
+    private final int base;
+    private final int altura;
+    private final Casilla [][] mapa;
 
-    private int edificiosProtoss = 0,edificiosZerg=0;
+    private int edificiosProtoss = 0, edificiosZerg = 0;
 
     public Mapa(int unaBase, int unaAltura){
         base = unaBase;
@@ -78,17 +77,11 @@ public class Mapa {
     }
 
 
-   public void inicializarConUnaFranjaEspacial(){
+    public void inicializarConUnaFranjaEspacial(){
         for(int i=0; i < 5; i++) {
             Area area = new AreaEspacial();
             mapa[4][i].setArea(area);
         }
-   }
-
-    public void casillaConTerrenoMoho(Coordenada coordenada){
-
-       coordenada.setTerreno(mapa,new ConMoho());
-
     }
 
     public void setearRadio(Coordenada coordenada, int radio, Terreno unTerreno){
@@ -96,15 +89,16 @@ public class Mapa {
         int filaInferior = coordenada.calculoFilaInferior(radio,base);
         int columnaSuperior = coordenada.calculoColumnaSuperior(radio,altura);
         int columnaInferior = coordenada.calculoColumnaInferior(radio,base);
-        for(int i=filaInferior; i < filaSuperior; i++){
-            for(int j=columnaInferior; j < columnaSuperior;j++){
+
+        for(int i = filaInferior; i < filaSuperior; i++){
+            for(int j = columnaInferior; j < columnaSuperior; j++){
 
                 mapa[i][j].setTerreno(unTerreno);
             }
         }
     }
 
-    public void destruirConstruccion(Coordenada unaCoordenada) { //Puede ser que se ocupe Raza de esto...
+    public void destruirConstruccion(Coordenada unaCoordenada) {
         Casilla casilla = this.buscar(unaCoordenada);
         if(casilla.esConstruccion(new Pilon())){
             casilla.destruirConstruccion();
@@ -114,23 +108,18 @@ public class Mapa {
         }
     }
 
-    public boolean hayConstruccion(int fila, int columna) {
-        return (mapa [fila][columna]).hayConstruccion();
-    }
-
     public boolean hayUnidad(int fila, int columna) {
         return (mapa [fila][columna]).hayUnidad();
     }
 
     public boolean hayConstruccion(Coordenada coordenada) {
-       Casilla cas = this.buscar(coordenada);
-       return cas.hayConstruccion();
+       Casilla casilla = this.buscar(coordenada);
+       return casilla.hayConstruccion();
     }
 
     public Unidad devolverUnidad(Coordenada coord){
         Casilla casilla = this.buscar(coord);
-        Unidad unidad = casilla.devolverUnidad();
-        return unidad;
+        return casilla.devolverUnidad();
     }
 
     public void cantidadEdificios(){
@@ -138,25 +127,25 @@ public class Mapa {
         edificiosZerg=0;
         for(int i=0; i < base; i++){
             for(int j=0; j < altura;j++){
-                if(mapa[i][j].hayConstruccion()){
-                try {
-                    mapa[i][j].construccionProtoss();
-                }catch (Exception EstaConstruccionEsProtoss){
-                    edificiosProtoss +=1;
+                if(mapa[i][j].hayConstruccion()) {
+                    try {
+                        mapa[i][j].construccionProtoss();
+                    } catch (Exception EstaConstruccionEsProtoss) {
+                        edificiosProtoss += 1;
+                    }
+                    try {
+                        mapa[i][j].construccionZerg();
+                    } catch (Exception EstaConstruccionEsZerg) {
+                        edificiosZerg += 1;
+                    }
                 }
-                try {
-                    mapa[i][j].construccionZerg();
-                }catch (Exception EstaConstruccionEsZerg){
-                    edificiosZerg +=1;
-                }
-
-            }}
+            }
         }
     }
 
-    public boolean FinJuego(){
+    public boolean finJuego(){
         cantidadEdificios();
-        return (edificiosProtoss==0||edificiosZerg==0);
+        return (edificiosProtoss == 0 || edificiosZerg == 0);
     }
 
 
@@ -164,9 +153,12 @@ public class Mapa {
         return (mapa[fila][columna]).tipoTerreno(terreno);
     }
 
-
-
-    public void energizar(Coordenada coordenada, int radio) {
+    public void avanzarTurno(){
+        for(int i=0; i < base; i++) {
+            for (int j = 0; j < altura; j++) {
+                    mapa[i][j].avanzarTurno(this);
+            }
+        }
     }
 
 }

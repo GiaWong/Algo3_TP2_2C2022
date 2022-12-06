@@ -19,18 +19,19 @@ public class  Asimilador extends ConstruccionProtoss implements RefineriaGas {
         tiempoConstruccion =6;
     }
 
-    public boolean esPrerequisito(Construccion construccion){
-        return false;
-    }
-    public void verificarPrerequisito(Mapa mapa) {
-    }
-
     public Asimilador(int tiempoDeConstruccion){
         costos.add(100); //esto es para Mineral
         costos.add(0); //esto es para Gas
         vida = new Vida(450);
         escudo = new Escudo(450);
         tiempoConstruccion = tiempoDeConstruccion;
+    }
+
+    public boolean esPrerequisito(Construccion construccion){
+        return false;
+    }
+
+    public void verificarPrerequisito(Mapa mapa) {
     }
 
     public void regenerarEscudo(){
@@ -42,7 +43,7 @@ public class  Asimilador extends ConstruccionProtoss implements RefineriaGas {
     public int obtenerVida() { return vida.vidaActual(); }
 
     @Override
-    public void avanzarTurno() {
+    public void avanzarTurno(Mapa mapa) {
         this.regenerarEscudo();
         this.construir();
     }

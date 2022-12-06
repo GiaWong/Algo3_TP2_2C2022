@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.Exception.FaltaUnZanganoParaRecolectar;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeAgregarOtroZangano;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
+import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
@@ -15,9 +16,11 @@ import edu.fiuba.algo3.modelo.Unidades.Zangano;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
 
 public class CasoDeUso15Test {
 
+    Coordenada coord = mock(Coordenada.class);
 
     // Caso mineral para Protoss
 
@@ -25,7 +28,7 @@ public class CasoDeUso15Test {
     public void NexoMineralNoDeberiaRecolectarDeUnMineralCuandoElRecursoSeAgoto() throws EdificioNoEstaOperativo {//falta hacer el resot de las clases
 
         int esperado = 0;
-        Casilla casilla = new Casilla();
+        Casilla casilla = new Casilla(coord);
         NodoMineral nodo = new NodoMineral();
         casilla.setTerreno(new ConEnergia());
         casilla.setRecurso(nodo);
@@ -45,7 +48,7 @@ public class CasoDeUso15Test {
     @Test
     public void ZanganoNoDeberiaRecolectarDeUnMineralCuandoElRecursoSeAgoto(){
         int esperado = 0 ;
-        Casilla casilla = new Casilla();
+        Casilla casilla = new Casilla(coord);
         NodoMineral nodo = new NodoMineral();
         casilla.setTerreno(new ConMoho());
         casilla.setRecurso(nodo);
@@ -64,7 +67,7 @@ public class CasoDeUso15Test {
     @Test
     public void AsimiladorNoDeberiaRecolectarDeUnGasVespenoCuandoElRecursoSeAgoto() throws EdificioNoEstaOperativo {
         int esperado = 0 ;
-        Casilla casilla = new Casilla();
+        Casilla casilla = new Casilla(coord);
         Volcan volcan = new Volcan();
         casilla.setTerreno(new ConEnergia());
         casilla.setRecurso(volcan);
@@ -85,7 +88,7 @@ public class CasoDeUso15Test {
     public void ExtractorNoDeberiaRecolectarDeUnGasVespenoCuandoElRecursoSeAgoto() throws NoSePuedeAgregarOtroZangano, EdificioNoEstaOperativo, FaltaUnZanganoParaRecolectar {
 
         int esperado = 0 ;
-        Casilla casilla = new Casilla();
+        Casilla casilla = new Casilla(coord);
         Volcan volcan = new Volcan();
         casilla.setTerreno(new ConMoho());
         casilla.setRecurso(volcan);

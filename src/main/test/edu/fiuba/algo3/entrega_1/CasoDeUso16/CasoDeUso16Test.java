@@ -4,16 +4,20 @@ import edu.fiuba.algo3.modelo.Construccion.Asimilador;
 import edu.fiuba.algo3.modelo.Construccion.Extractor;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupada;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
+import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.mock;
 
 public class CasoDeUso16Test {
+
+    Coordenada coord = mock(Coordenada.class);
     @Test
     public void NoSeDeberiaPoderConstruirUnExtractorSobreUnAsimilador() {
-        Casilla casilla = new Casilla();
+        Casilla casilla = new Casilla(coord);
         casilla.setRecurso(new Volcan());
         casilla.setTerreno(new ConEnergia());
         Asimilador asimilador = new Asimilador();
