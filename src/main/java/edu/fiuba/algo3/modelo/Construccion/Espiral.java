@@ -68,6 +68,7 @@ public class Espiral extends ConstruccionZerg {
 
     @Override
     public void avanzarTurno() {
+
         this.regenerarVida();
         this.construir();
 

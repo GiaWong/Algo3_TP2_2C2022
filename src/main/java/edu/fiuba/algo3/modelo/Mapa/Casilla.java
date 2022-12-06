@@ -60,6 +60,10 @@ public class Casilla {
         construccion = unaConstruccion;
     }
 
+    public  void avanzarTurno(){
+        construccion.estaDisponible();
+    }
+
     public void agregar(Construccion unaConstruccion){
         if (hayConstruccion()){
             throw new CasillaOcupada();
@@ -70,17 +74,24 @@ public class Casilla {
     }
 
     public boolean hayConstruccion() {
-        return (construccion != null);
+        DestruirConstruccionMuerta();
+        return (construccion != null );
     }
+
     public boolean hayUnidad() {
         return (unidad != null);
     }
+    public void construccionProtoss(){
+        construccion.protoss();
+    }
 
+    public void construccionZerg(){
+        construccion.zerg();
+    }
 
     public void destruirConstruccion() {
         construccion=null;
     }
-
     public boolean esConstruccion(Construccion construccionRadio) {
         if(this.hayConstruccion()){
             return construccionRadio.getClass().equals(construccion.getClass());
@@ -98,6 +109,14 @@ public class Casilla {
 
     public Unidad devolverUnidad(){
         return unidad;
+    }
+
+    public void DestruirConstruccionMuerta(){
+        try{
+            construccion.estaVivo();}
+        catch (Exception ConstruccionDestruida){
+            construccion = null;
+        }
     }
 
     public boolean esUnidad(Unidad otraUnidad) {

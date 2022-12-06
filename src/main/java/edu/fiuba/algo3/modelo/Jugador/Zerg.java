@@ -15,8 +15,8 @@ public class Zerg extends Raza {
     private Dictionary comandos;
 
     public Zerg() {
-        Accion crearCriadero = new CreacionCriadero(this, new Coordenada(1,1), new Mapa(20,20)); //Como hago para tener todos los comandos??
-        comandos.put("crear criadero",crearCriadero);                                                                                      //Hace falta que le pase toodo por parametro?
+        //Accion crearCriadero = new CreacionCriadero(this, new Coordenada(1,1), new Mapa(20,20)); //Como hago para tener todos los comandos??
+        //comandos.put("crear criadero",crearCriadero);                                                                                      //Hace falta que le pase toodo por parametro?
     }
 
     public Zerg(BancoDeRecursos bancoDeRecurso){

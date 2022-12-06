@@ -2,10 +2,13 @@ package edu.fiuba.algo3.modelo.Jugador;
 
 import edu.fiuba.algo3.modelo.Comandos.Accion;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Hashtable;
 
 public abstract class Raza {
@@ -44,5 +47,6 @@ public abstract class Raza {
     }
     
     public abstract void elegirAccion(Turno turno, Mapa mapa);
+
 
 }

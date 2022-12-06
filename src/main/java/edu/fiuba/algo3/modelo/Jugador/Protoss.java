@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.modelo.Jugador;
 
-import edu.fiuba.algo3.modelo.Comandos.Ataque;
-import edu.fiuba.algo3.modelo.Comandos.CreacionNexoMineral;
-import edu.fiuba.algo3.modelo.Comandos.CreacionPilon;
-import edu.fiuba.algo3.modelo.Comandos.CreacionPuertoEstelar;
+import edu.fiuba.algo3.modelo.Comandos.*;
 import edu.fiuba.algo3.modelo.Construccion.Acceso;
 import edu.fiuba.algo3.modelo.Construccion.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
@@ -15,14 +12,17 @@ import edu.fiuba.algo3.modelo.Unidades.UnidadProtoss;
 import edu.fiuba.algo3.modelo.Unidades.Zealot;
 import javafx.scene.layout.CornerRadii;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Protoss extends Raza {
 
     public Protoss(){
 
-        acciones.put("CrearPilon",new CreacionPilon());
+        /*acciones.put("CrearPilon",new CreacionPilon());
         acciones.put("CrearPuerto",new CreacionPuertoEstelar());
         acciones.put("CrearNexo",new CreacionNexoMineral());
-        acciones.put("Ataque", new Ataque());
+        acciones.put("Ataque", new Ataque());*/
 
     }
     public Protoss(Suministro suministro){
@@ -45,10 +45,14 @@ public class Protoss extends Raza {
     @Override
     public void elegirAccion(Turno turno, Mapa mapa) {
         //Pedirle al usuario que ingrese algo por consola
-        String accion = System.in.toString();
-        //Fijarnos si dicha Accion pertenece al rango de las Acciones disponibles en Protoss
-        //Accion accion = listaComandos.getValue(accion);
-        //this.asignarAccion(accion);
+       // Scanner sc = new Scanner(System.in);
+        //System.out.println("Ingrese La accion que desea Ejecutar");
+        //String comando = sc.nextLine();
+        //var miComando = comando.split(" ");
+        //String accion = System.in.toString();
+        //Fijarnos si dicha Accion pertenece al rango de las Acciones disponibles en Zerg (Con una lista, diccionario o algo):
+        //Accion unaAccion = this.asignarAccion();
+        //this.asignarAccion(unaAccion); //seleccionar dicho comando de Accion
     }
 
 

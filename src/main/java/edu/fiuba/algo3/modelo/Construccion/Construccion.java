@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Construccion;
 import edu.fiuba.algo3.modelo.Acciones.Danio;
 import edu.fiuba.algo3.modelo.Acciones.Detectable;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
+import edu.fiuba.algo3.modelo.Exception.ConstruccionDestruida;
 import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
 import edu.fiuba.algo3.modelo.Exception.NoCumplePrerequisito;
 import edu.fiuba.algo3.modelo.Exception.NoHayRecursosSuficientes;
@@ -27,6 +28,13 @@ public abstract class Construccion {
 
     public void construir() {
         tiempoConstruccion--;
+    }
+
+    public void estaVivo() throws ConstruccionDestruida {
+        if(!(vida.estaVivo())){
+            throw new   ConstruccionDestruida();
+        }
+
     }
 
 
@@ -57,6 +65,8 @@ public abstract class Construccion {
         banco.realizarCompra(minerales, gas);
     }
 
+    public  abstract void protoss();
+    public  abstract void zerg();
     public boolean estaDisponible() {
         return tiempoConstruccion <= 0;
     }

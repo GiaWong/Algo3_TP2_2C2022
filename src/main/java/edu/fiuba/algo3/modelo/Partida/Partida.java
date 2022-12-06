@@ -4,7 +4,6 @@ import edu.fiuba.algo3.modelo.Exception.JugadorDosNoPuedeTenerLosMismosAtributos
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Jugador.Raza;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
-import edu.fiuba.algo3.modelo.Turno.Turno;
 
 public class Partida {
 
@@ -29,7 +28,8 @@ public class Partida {
     }
 
     public void jugar() {
-        while (jugadorUno.tieneConstrucciones(mapa) && jugadorDos.tieneConstrucciones(mapa)) { //Como verifico si un jugador tiene construcciones o no?
+        mapa.inicializarMapaCon2Bases();
+        while (mapa.FinJuego()) {
             jugadorUno.jugar(mapa);
             jugadorDos.jugar(mapa);
         }

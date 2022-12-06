@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo.Mapa;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Construccion.Criadero;
 import edu.fiuba.algo3.modelo.Construccion.Pilon;
-import edu.fiuba.algo3.modelo.Exception.NoEstaEnElMapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.Area;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
@@ -15,6 +15,8 @@ public class Mapa {
     private int base;
     private int altura;
     private Casilla [][] mapa;
+
+    private int edificiosProtoss = 0,edificiosZerg=0;
 
     public Mapa(int unaBase, int unaAltura){
         base = unaBase;
@@ -31,7 +33,15 @@ public class Mapa {
         return coordenada.buscar(mapa);
     }
 
+    public void inicializarMapaCon2Bases(){
+        Pilon pilon = new Pilon();
+        Criadero criadero =new Criadero();
+        Coordenada coordenadaP = new Coordenada(6,6);
+        Coordenada coordenadaC = new Coordenada(14,14);
+        agregar(pilon,coordenadaP);
+        agregar(criadero,coordenadaC);
 
+    }
     public void agregar(Construccion construccion, Coordenada coord){
         Casilla casilla = this.buscar(coord);
         construccion.asignarPosicion(coord);
@@ -67,14 +77,6 @@ public class Mapa {
         }
     }
 
-    /*
-   public void inicializarMapa2ConBases(){
-        Criadero criadero = new Criadero();
-        Pilon pilon = new Pilon();
-        this.agregar(pilon,5,5);
-        this.agregar(criadero,17,17);
-   }
-   */
 
    public void inicializarConUnaFranjaEspacial(){
         for(int i=0; i < 5; i++) {
@@ -130,45 +132,33 @@ public class Mapa {
         Unidad unidad = casilla.devolverUnidad();
         return unidad;
     }
-/*
-    public void setearRadio() { //Puede ser que se ocupe Raza de esto... y que se ocupe construccionConRadio de esto
-        int radio;
-        for (int i = 0; i < 20; i++) {
-            for (int j = 0; j < 20; j++) {
 
-                if ((mapa[i][j]).esConstruccion(new Criadero())) { //Se tiene que hacer de una mejor manera... Capaz con el nuevo modelo tentativo puedo solucionar esto mas facil
-                    radio = (mapa[i][j]).obtenerRadio();
-                    this.setearRadioTerreno(radio, i, j, new ConMoho());
-
-                } else if ((mapa[i][j]).esConstruccion(new Pilon())) {
-                    radio = (mapa[i][j]).obtenerRadio();
-                    this.setearRadioTerreno(radio, i, j, new ConEnergia());
+    public void cantidadEdificios(){
+        edificiosProtoss =0;
+        edificiosZerg=0;
+        for(int i=0; i < base; i++){
+            for(int j=0; j < altura;j++){
+                if(mapa[i][j].hayConstruccion()){
+                try {
+                    mapa[i][j].construccionProtoss();
+                }catch (Exception EstaConstruccionEsProtoss){
+                    edificiosProtoss +=1;
                 }
-            }
+                try {
+                    mapa[i][j].construccionZerg();
+                }catch (Exception EstaConstruccionEsZerg){
+                    edificiosZerg +=1;
+                }
+
+            }}
         }
     }
 
-    private void setearRadioTerreno ( int radio, int fila, int columna, Terreno terreno){
-
-        for (int i = 0; i < radio; i++) {
-            for (int j = 0; j < radio; j++) {
-
-                if (!(mapa[fila + i][columna + j].tipoTerreno(new ConMoho()))) {//si en esa posicion tiene moho
-
-                    mapa[fila + i][columna + j].setTerreno(terreno);
-
-                }
-
-                if (!(mapa[fila - i][columna - j].tipoTerreno(new ConMoho()))) {
-
-                    mapa[fila - i][columna - j].setTerreno(terreno);
-
-                }
-            }
-        }
+    public boolean FinJuego(){
+        cantidadEdificios();
+        return (edificiosProtoss==0||edificiosZerg==0);
     }
 
- */
 
     public boolean tipoTerreno (Terreno terreno,int fila, int columna){
         return (mapa[fila][columna]).tipoTerreno(terreno);

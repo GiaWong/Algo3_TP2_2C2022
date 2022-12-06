@@ -6,9 +6,9 @@ import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 
 public class CreacionPilon implements Accion {
-    private final Coordenada coordenada ;
-    private final Mapa mapa ;
-    private final Raza raza;
+    private  Coordenada coordenada ;
+    private  Mapa mapa ;
+    private  Raza raza;
 
 
     public  CreacionPilon(){

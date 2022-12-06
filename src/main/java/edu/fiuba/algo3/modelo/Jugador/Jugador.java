@@ -11,6 +11,8 @@ public class Jugador {
     private String color;
     private Raza raza;
 
+    private  Accion accion;
+
 
 
     //private Accion comando; Puede ser que se encargue Raza
@@ -22,6 +24,8 @@ public class Jugador {
         this.setColor(unColor);
         this.setRaza(unaRaza);
     }
+
+
     public void setNombre(String unNombre) throws NombreDeberiaTener6caracteresComoMinimo {
 
         if (unNombre.length() < 6) {
@@ -41,21 +45,29 @@ public class Jugador {
     public void jugar(Mapa mapa){
         turno.jugar();
         while (turno.sigueJugando()) {
-            this.elegirAccion(mapa);
+            this.elegirAccion(mapa,accion);
             this.ejecutarAccion();
         }
     }
 
     private void elegirAccion(Mapa mapa,Accion accion) {
-        raza.asignarAccion(accion);
         raza.elegirAccion(turno, mapa);
     }
+
+    public  void asignarAccion(Accion acc){
+        accion = acc;
+    }
+
 
     private void ejecutarAccion() {
         raza.ejecutarAccion();
     }
     public boolean comparar(Jugador otroJugador) {
         return (otroJugador.tieneMismoNombre(nombre) && otroJugador.tieneMismoColor(color) && otroJugador.tieneMismaRaza(raza));
+    }
+
+    public void finalizarTurno(){
+        turno.dejarDeJugar();
     }
 
     public boolean tieneMismoNombre(String otroNombre){
