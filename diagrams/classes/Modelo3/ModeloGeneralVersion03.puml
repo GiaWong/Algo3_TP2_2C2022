@@ -16,6 +16,7 @@ class Jugador {
     - nombre
     - color
     - raza
+    - turno
 
     + elegirAccion(mapa)
     + ejecutarAccion()

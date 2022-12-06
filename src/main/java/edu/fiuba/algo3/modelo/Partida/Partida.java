@@ -33,8 +33,15 @@ public class Partida {
             jugadorUno.jugar(mapa);
             jugadorDos.jugar(mapa);
         }
-
+        Jugador jugadorGanador = this.seleccionarJugadorQueGano(jugadorUno, jugadorDos);
         System.out.println("Juego terminado. Ganador "); //Debería poner que jugador salió ganador.
+    }
+
+    private Jugador seleccionarJugadorQueGano(Jugador jugadorUno, Jugador jugadorDos) {
+        if (jugadorUno.tieneConstrucciones(mapa)){
+            return jugadorUno;
+        }
+        return jugadorDos;
     }
 
     public void agregarJugador(String nombre,String color,Raza raza) {
@@ -42,6 +49,5 @@ public class Partida {
         asignarJugador(jugador);
     }
 
-    public Jugador primerJugador() {return jugadorUno;
-    }
+    public Jugador primerJugador() { return jugadorUno; }
 }

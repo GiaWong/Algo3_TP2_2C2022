@@ -13,7 +13,6 @@ public class CasoDeUso31Test {
     @Test
     public void SeDestruyeUnPilonYSeDisminuyeLaCapacidadDeSuministro(){
 
-
     }
 
     @Test

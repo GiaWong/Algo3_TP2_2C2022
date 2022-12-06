@@ -15,7 +15,7 @@ public class Jugador {
 
 
 
-    //private Accion comando; Puede ser que se encargue Raza
+    //private Accion comando; //Puede ser que se encargue Raza
 
     private Turno turno;
 

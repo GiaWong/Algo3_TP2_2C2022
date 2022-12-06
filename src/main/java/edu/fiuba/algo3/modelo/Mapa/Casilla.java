@@ -22,6 +22,7 @@ public class Casilla {
     protected Unidad unidad;
     private Recurso recurso;
     private Area area;
+
     protected Terreno terreno;
 
     protected Construccion construccion;
