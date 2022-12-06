@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.ventanas.CerrarJuegoBoton;
 import edu.fiuba.algo3.controlador.ventanas.CerrarJuegoVentana;
+import edu.fiuba.algo3.modelo.Partida.Partida;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -16,9 +17,11 @@ import java.io.File;
 
 public class PantallaInicial {
     private Stage stage;
+    private Partida partida = new Partida();
     Button botonEmpezar = new Button("Empezar a jugar");
     Button botonInstrucciones = new Button("Instrucciones");
     Button botonSalir = new Button("Salir");
+
 
     public PantallaInicial(Stage stage) {
         this.stage = stage;
@@ -30,7 +33,7 @@ public class PantallaInicial {
     public void generarVista() {
         //para cuando se haga click en los botones
         botonEmpezar.setOnAction(e -> {
-            new PantallaConfiguracionJugador01(this.stage);
+            new PantallaConfiguracionJugador01(this.stage,this.partida);
         });
         botonInstrucciones.setOnAction(e -> PantallaInstrucciones.mostrar());
 
