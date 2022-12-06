@@ -12,6 +12,9 @@ public class CreacionNexoMineral implements Accion {
     private final Raza raza;
 
 
+    public  CreacionNexoMineral(){
+
+    }
     public  CreacionNexoMineral(Raza unaRaza,Coordenada unaCoordenada, Mapa unMapa){
         coordenada = unaCoordenada;
         mapa = unMapa;

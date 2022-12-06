@@ -6,6 +6,8 @@ import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
+import java.util.Hashtable;
+
 public abstract class Raza {
 
     protected Suministro suministro = new Suministro(200);
@@ -13,6 +15,7 @@ public abstract class Raza {
     protected BancoDeRecursos banco = new BancoDeRecursos();
     protected Accion comando;
 
+    protected Hashtable<String, Accion> acciones = new Hashtable<String, Accion>();
 
     public void comprar(Construccion construccion) {
         banco.comprar(construccion);

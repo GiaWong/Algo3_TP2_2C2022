@@ -125,7 +125,11 @@ public class Mapa {
        return cas.hayConstruccion();
     }
 
-
+    public Unidad devolverUnidad(Coordenada coord){
+        Casilla casilla = this.buscar(coord);
+        Unidad unidad = casilla.devolverUnidad();
+        return unidad;
+    }
 /*
     public void setearRadio() { //Puede ser que se ocupe Raza de esto... y que se ocupe construccionConRadio de esto
         int radio;

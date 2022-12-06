@@ -11,7 +11,16 @@ public class CreacionPilon implements Accion {
     private final Raza raza;
 
 
+    public  CreacionPilon(){
+
+    }
+
     public  CreacionPilon(Raza unaRaza,Coordenada unaCoordenada, Mapa unMapa){
+        coordenada = unaCoordenada;
+        mapa = unMapa;
+        raza = unaRaza;
+    }
+    public void cambiarParametros(Raza unaRaza,Coordenada unaCoordenada, Mapa unMapa){
         coordenada = unaCoordenada;
         mapa = unMapa;
         raza = unaRaza;

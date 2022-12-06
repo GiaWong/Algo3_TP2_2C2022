@@ -11,6 +11,8 @@ public class Jugador {
     private String color;
     private Raza raza;
 
+
+
     //private Accion comando; Puede ser que se encargue Raza
 
     private Turno turno;
@@ -44,7 +46,8 @@ public class Jugador {
         }
     }
 
-    private void elegirAccion(Mapa mapa) {
+    private void elegirAccion(Mapa mapa,Accion accion) {
+        raza.asignarAccion(accion);
         raza.elegirAccion(turno, mapa);
     }
 

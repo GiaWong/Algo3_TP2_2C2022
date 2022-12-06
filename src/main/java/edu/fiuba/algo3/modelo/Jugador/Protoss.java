@@ -1,5 +1,9 @@
 package edu.fiuba.algo3.modelo.Jugador;
 
+import edu.fiuba.algo3.modelo.Comandos.Ataque;
+import edu.fiuba.algo3.modelo.Comandos.CreacionNexoMineral;
+import edu.fiuba.algo3.modelo.Comandos.CreacionPilon;
+import edu.fiuba.algo3.modelo.Comandos.CreacionPuertoEstelar;
 import edu.fiuba.algo3.modelo.Construccion.Acceso;
 import edu.fiuba.algo3.modelo.Construccion.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
@@ -13,7 +17,14 @@ import javafx.scene.layout.CornerRadii;
 
 public class Protoss extends Raza {
 
-    public Protoss(){}
+    public Protoss(){
+
+        acciones.put("CrearPilon",new CreacionPilon());
+        acciones.put("CrearPuerto",new CreacionPuertoEstelar());
+        acciones.put("CrearNexo",new CreacionNexoMineral());
+        acciones.put("Ataque", new Ataque());
+
+    }
     public Protoss(Suministro suministro){
         this.suministro = suministro;
     }
@@ -24,6 +35,7 @@ public class Protoss extends Raza {
         this.comprar(construccion);
         mapa.agregar(construccion, coordenada);
     }
+
 
     public void agregar(UnidadProtoss unidad, Coordenada coordenada, Mapa mapa) {
         this.comprar(unidad);

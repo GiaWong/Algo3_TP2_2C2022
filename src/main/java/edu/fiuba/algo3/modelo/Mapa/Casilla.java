@@ -96,6 +96,10 @@ public class Casilla {
         }
     }
 
+    public Unidad devolverUnidad(){
+        return unidad;
+    }
+
     public boolean esUnidad(Unidad otraUnidad) {
 
         if(this.hayUnidad()){
