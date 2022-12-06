@@ -111,6 +111,7 @@ public class PantallaMapa implements EventHandler<ActionEvent> {
         botonVolverMenu.setOnAction(pantallaAnterior);
     }
 
+
     private void realizarAccion(Button boton) {
         //mensaje en la consola
         System.out.print("\nclikeando a la casilla columna: " + GridPane.getColumnIndex(boton) + "  y fila: " + GridPane.getRowIndex(boton));
@@ -118,23 +119,16 @@ public class PantallaMapa implements EventHandler<ActionEvent> {
         //boton.setStyle("-fx-background-color: MediumSeaGreen");
 
 
-
-
-
-
-
-
-
-
     }
 
 
     /*
-    * De forma aleatoria va a cambiar la apariencia del boton del terreno con las imagenes de los recursos
+    * La idea es que se pueda colocar los iconos de forma aleatoria
+    * pero no se me ocurre cómo T_T
     * */
     private void establecerRecursosAlTerreno(Button boton, int base, int altura) {
 
-        //no se me ocurre cómo hacerlo aleatorio T_T CasoVolcan
+        // Caso Volcan
         if(base==10 || base ==8 || base == 15 || base==25 || base==22){
             if(altura==10 || altura== 8 || altura==13 || altura==15 || altura==18){
 
