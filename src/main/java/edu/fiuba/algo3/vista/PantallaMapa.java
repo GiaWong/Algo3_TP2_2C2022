@@ -8,10 +8,8 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -30,7 +28,7 @@ public class PantallaMapa implements EventHandler<ActionEvent> {
         //this.mapa = new Mapa(30, 20);
         this.base = 30;
         this.altura = 20;
-        mostrarMapa();
+        //mostrarMapa();
 
 
 
@@ -61,6 +59,9 @@ public class PantallaMapa implements EventHandler<ActionEvent> {
                 Button boton = new Button();
                 boton.setPrefSize(30, 35);
                 boton.alignmentProperty();
+
+                establecerRecursosAlTerreno(boton, i, j);
+
                 boton.setOnAction(e -> realizarAccion(boton)); //para cuando se haga click en los botones
                 this.panel.add(boton, i, j);
             }
@@ -114,7 +115,16 @@ public class PantallaMapa implements EventHandler<ActionEvent> {
         //mensaje en la consola
         System.out.print("\nclikeando a la casilla columna: " + GridPane.getColumnIndex(boton) + "  y fila: " + GridPane.getRowIndex(boton));
         //Al hacer click cambiar color del boton
-        boton.setStyle("-fx-background-color: MediumSeaGreen");
+        //boton.setStyle("-fx-background-color: MediumSeaGreen");
+
+
+
+
+
+
+
+
+
 
     }
 
@@ -122,17 +132,21 @@ public class PantallaMapa implements EventHandler<ActionEvent> {
     /*
     * De forma aleatoria va a cambiar la apariencia del boton del terreno con las imagenes de los recursos
     * */
-    private void establecerRecursosAlTerreno() {
+    private void establecerRecursosAlTerreno(Button boton, int base, int altura) {
 
-        //File ->Image -> ImageView -> button.setGraphic
-       /* File fileFondo = new File("imagenes/tierra.png");
-        Image imagen = new Image(fileFondo.toURI().toString(),50,50, false,false);
-        ImageView imageView = new ImageView(imagen);
+        //no se me ocurre cómo hacerlo aleatorio T_T
+        if(base==10 || base ==8 || base == 15 || base==25 || base==22){
+            if(altura==10 || altura== 8 || altura==13 || altura==15 || altura==18){
 
-        Button boton1 = new Button();
-        boton1.setGraphic(imageView);
+                File fileFondo = new File("imagenes/volcan.png");
+                BackgroundImage primerBackGro = new BackgroundImage(new Image(fileFondo.toURI().toString(),
+                        30, 35,true,true),
+                        BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
+                        BackgroundSize.DEFAULT);
 
-        this.panel.add(boton1, 5, 5);*/
+                boton.setBackground( new Background(primerBackGro) );
+            }
+        }
 
 
 
