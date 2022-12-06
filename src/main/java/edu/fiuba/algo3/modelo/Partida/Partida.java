@@ -13,7 +13,7 @@ public class Partida {
     private final Mapa mapa;
 
     public Partida() {
-        mapa = new Mapa(20 ,20);
+        mapa = new Mapa(30 ,20);
     }
 
     public void asignarJugador(Jugador jugador)throws JugadorDosNoPuedeTenerLosMismosAtributosQueJugadorUno {

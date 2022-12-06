@@ -17,7 +17,7 @@ public class App extends Application {
 
         //ReproductorMusica musicaInicial = new ReproductorMusica();
         PantallaInicial pantalla = new PantallaInicial(primaryStage);
-       //PantallaMapa mapa = new PantallaMapa(primaryStage);
+        //PantallaMapa mapa = new PantallaMapa(primaryStage);
 
     }
 

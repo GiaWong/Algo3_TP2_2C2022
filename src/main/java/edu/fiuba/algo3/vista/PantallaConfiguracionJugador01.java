@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.ventanas.SiguientePantalla;
 import edu.fiuba.algo3.controlador.ventanas.VolverPantallaAnterior;
+import edu.fiuba.algo3.modelo.Partida.Partida;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -21,9 +22,11 @@ public class PantallaConfiguracionJugador01 {
     private Stage stage;
     Button botonContinuar = new Button("Continuar");
     Button botonCancelar = new Button("Cancelar");
+    private Partida partida;
 
-    public PantallaConfiguracionJugador01(Stage stage) {
+    public PantallaConfiguracionJugador01(Stage stage, Partida unaPartida) {
         this.stage = stage;
+        this.partida=unaPartida;
         this.generarVista();
 
     }
