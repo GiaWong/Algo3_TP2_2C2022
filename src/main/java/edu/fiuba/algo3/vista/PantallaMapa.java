@@ -9,6 +9,8 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -25,10 +27,9 @@ public class PantallaMapa implements EventHandler<ActionEvent> {
     public PantallaMapa(Stage stage) {
         this.stage=stage;
         this.panel = new GridPane();
-        //this.mapa = new Mapa(30, 20);
-        this.base = 30;
-        this.altura = 20;
-        //mostrarMapa();
+        this.base = 20;
+        this.altura = 10;
+        mostrarMapa();
 
 
 
@@ -46,21 +47,18 @@ public class PantallaMapa implements EventHandler<ActionEvent> {
         for(int i=0; i< base; i++){
             for(int j=0; j< altura; j++){
 
-
-                /*
-                ****BORRADOR****
-                Casilla con una figurita
-                Rectangle manzana = new Rectangle(30,30, Color.GREY);
-                manzana.setStroke(Color.DARKGRAY);
-                manzana.setStrokeWidth(5);
-                * */
-
                 //casillas con botones
-                Button boton = new Button();
-                boton.setPrefSize(30, 35);
+                MenuButton boton = new MenuButton();
+                boton.setPrefSize(90, 95);
                 boton.alignmentProperty();
 
-                establecerRecursosAlTerreno(boton, i, j);
+                MenuItem m1 = new MenuItem("atacar");
+                MenuItem m2 = new MenuItem("crear");
+                boton.getItems().add(m1);
+                boton.getItems().add(m2);
+
+
+                establecerRecursosAlTerreno(boton, i, j, m1,m2);
 
                 boton.setOnAction(e -> realizarAccion(boton)); //para cuando se haga click en los botones
                 this.panel.add(boton, i, j);
@@ -112,54 +110,63 @@ public class PantallaMapa implements EventHandler<ActionEvent> {
     }
 
 
-    private void realizarAccion(Button boton) {
+    private void realizarAccion(MenuButton boton) {
         //mensaje en la consola
         System.out.print("\nclikeando a la casilla columna: " + GridPane.getColumnIndex(boton) + "  y fila: " + GridPane.getRowIndex(boton));
         //Al hacer click cambiar color del boton
         //boton.setStyle("-fx-background-color: MediumSeaGreen");
 
-
     }
 
 
     /*
-    * La idea es que se pueda colocar los iconos de forma aleatoria
-    * pero no se me ocurre cómo T_T
+    * La idea era poner los iconos de recursos de forma aleatoria
+    * pero sería un quilombo saber su posicion, mejor opté por
+    * ubicaciones fijas .
     * */
-    private void establecerRecursosAlTerreno(Button boton, int base, int altura) {
+    private void establecerRecursosAlTerreno(MenuButton boton, int base, int altura, MenuItem m1, MenuItem m2) {
 
         // Caso Volcan
-        if(base==10 || base ==8 || base == 15 || base==25 || base==22){
-            if(altura==10 || altura== 8 || altura==13 || altura==15 || altura==18){
+        if((base == 0 && altura==0) || (base==7 && altura==7) || (base==7 && altura==6) || (base==8 && altura==0) || (base==10 && altura==0) || (base==0 && altura==1)){
 
-                File fileFondo = new File("imagenes/volcan.png");
-                BackgroundImage primerBackGro = new BackgroundImage(new Image(fileFondo.toURI().toString(),
-                        30, 35,true,true),
-                        BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
-                        BackgroundSize.DEFAULT);
-                boton.setBackground( new Background(primerBackGro) );
-            }
+            File fileFondo = new File("imagenes/volcan.png");
+            BackgroundImage primerBackGro = new BackgroundImage(new Image(fileFondo.toURI().toString(),
+                    30, 35,true,true),
+                    BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
+                    BackgroundSize.DEFAULT);
+            boton.setBackground( new Background(primerBackGro) );
+
+            configurarOpcionesCasillaConRecurso(boton, m1, m2);
+
         }
+
 
 
         //Caso Mineral
-        if(base==1 || base ==0 || base == 20 || base==21 || base==22){
-            if(altura==0 || altura== 1 || altura==12 || altura==20 || altura==3){
+        if((base == 10 && altura==3) || (base==8 && altura==1) || (base==9 && altura==0)|| (base==14 && altura==9) || (base==15 && altura==9) ||(base==16 && altura==9) ){
 
-                File fileFondo2 = new File("imagenes/mineral.png");
-                BackgroundImage primerBackGro = new BackgroundImage(new Image(fileFondo2.toURI().toString(),
-                        30, 35,true,true),
-                        BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
-                        BackgroundSize.DEFAULT);
-                boton.setBackground( new Background(primerBackGro) );
+            File fileFondo2 = new File("imagenes/mineral.png");
+            BackgroundImage primerBackGro = new BackgroundImage(new Image(fileFondo2.toURI().toString(),
+                    30, 35,true,true),
+                    BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
+                    BackgroundSize.DEFAULT);
+            boton.setBackground( new Background(primerBackGro) );
 
-            }
+            configurarOpcionesCasillaConRecurso(boton, m1, m2);
+
         }
+    }
+
+    private void configurarOpcionesCasillaConRecurso(MenuButton boton, MenuItem m1, MenuItem m2) {
+
+        MenuItem m3 = new MenuItem("extraer");
+        MenuItem m4 = new MenuItem("construir");
+        boton.getItems().remove(m1);
+        boton.getItems().remove(m2);
 
 
-
-
-
+        boton.getItems().add(m3);
+        boton.getItems().add(m4);
 
     }
 
