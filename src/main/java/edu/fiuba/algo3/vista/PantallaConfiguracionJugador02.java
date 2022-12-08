@@ -1,7 +1,12 @@
 package edu.fiuba.algo3.vista;
 
 
+import edu.fiuba.algo3.controlador.selectores.CampoTextoEnter;
 import edu.fiuba.algo3.controlador.ventanas.VolverPantallaAnterior;
+import edu.fiuba.algo3.modelo.Jugador.Protoss;
+import edu.fiuba.algo3.modelo.Jugador.Raza;
+import edu.fiuba.algo3.modelo.Jugador.Zerg;
+import edu.fiuba.algo3.modelo.Partida.Partida;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -15,15 +20,27 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.Objects;
 
 public class PantallaConfiguracionJugador02 {
 
     private Stage stage;
-    Button botonJugar = new Button("Jugar");
-    Button botonCancelar = new Button("Cancelar");
+    Button botonJugar ;
+    Button botonCancelar;
+    TextField nombreObtenido;
+    private Partida partida;
+    private Label validacionNombre;
+    String razaSeleccionada;
+    Raza raza;
+    String colorSeleccionado;
 
-    public PantallaConfiguracionJugador02(Stage stage) {
+    public PantallaConfiguracionJugador02(Stage stage , Partida unaPartida) {
         this.stage = stage;
+        this.partida=unaPartida;
+        this.botonJugar = new Button("Jugar");
+        this.botonCancelar = new Button("Cancelar");
+        this.nombreObtenido = new TextField();
+        this.validacionNombre = new Label("Debe ser solo 6 caracteres");
         this.generarVista();
     }
 
@@ -37,20 +54,34 @@ public class PantallaConfiguracionJugador02 {
 
 
         Label labelNombreJugador = new Label("Nombre jugador 2:");
-        this.aplicarEstiloDeLetra(labelNombreJugador);
-        TextField nombrePrimerJugador = new TextField();
+        aplicarEstiloDeLetra(labelNombreJugador);
+
+        //TODO: CampoTextoEnter detecta el ENTER y "valida" si es valido el nombre
+        CampoTextoEnter enterNombre = new CampoTextoEnter(this.nombreObtenido, validacionNombre);
+        this.nombreObtenido.setOnKeyPressed( enterNombre );
+        this.nombreObtenido.setMinWidth(200);
+        this.nombreObtenido.setPromptText("Ingrese un nombre");
+
 
 
         Label labelRaza = new Label("Elegir Raza:");
-        this.aplicarEstiloDeLetra(labelRaza);
+        aplicarEstiloDeLetra(labelRaza);
         ObservableList<String> listaRaza = FXCollections.observableArrayList("Zergs", "Protoss");
         ComboBox<String> comboRaza = new ComboBox<>(listaRaza);
 
+        //TODO: capturar la opcion elejida y guardarlo en un atributo
+        capturarSeleccionRaza(comboRaza);
 
         Label labelColor = new Label("Elegir Color:");
-        this.aplicarEstiloDeLetra(labelColor);
+        aplicarEstiloDeLetra(labelColor);
         ObservableList<String> listaColores = FXCollections.observableArrayList("Rojo", "Azul", "Amarillo", "Verde");
         ComboBox<String> comboColores = new ComboBox<>(listaColores);
+
+        //TODO: capturar la opcion elejida y guardarlo en un atributo
+        capturarSeleccionColores(comboColores);
+
+        //Todo: no me está tomando la partida
+        //this.partida.agregarJugador(nombreObtenido.getText(), this.colorSeleccionado, this.raza);
 
 
         HBox horizontalRaza = new HBox(labelRaza, comboRaza);
@@ -63,7 +94,7 @@ public class PantallaConfiguracionJugador02 {
         horizontalColor.setAlignment(Pos.CENTER);
         horizontalColor.setPadding(new Insets(20));
 
-        HBox horizontalJugador = new HBox(labelNombreJugador, nombrePrimerJugador);
+        HBox horizontalJugador = new HBox(labelNombreJugador, nombreObtenido);
         horizontalJugador.setSpacing(10.0d);
         horizontalJugador.setAlignment(Pos.CENTER);
         horizontalJugador.setPadding(new Insets(20));
@@ -106,6 +137,30 @@ public class PantallaConfiguracionJugador02 {
         Scene secundario = new Scene(vbox,1920,1080);//ancho-largo
         this.stage.setScene(secundario);
         this.stage.show();
+    }
+
+    private void capturarSeleccionColores(ComboBox<String> comboColores) {
+
+        comboColores.setOnAction(e -> {
+            this.colorSeleccionado = comboColores.getValue();
+            System.out.print("\nSe seleccionó el color: " + this.colorSeleccionado);
+        });
+    }
+    private void capturarSeleccionRaza(ComboBox<String> comboRaza) {
+
+        comboRaza.setOnAction(e -> {
+            this.razaSeleccionada = comboRaza.getValue();
+            System.out.print("\nSe seleccionó la raza: " + this.razaSeleccionada);
+        });
+
+        //ver el tema para que no se repita la raza con el jugador 2
+        if(Objects.equals(this.razaSeleccionada, "Zergs")){
+            this.raza = new Zerg();
+
+        }else{
+            this.raza = new Protoss();
+        }
+
     }
 
     private void aplicarEstiloDeLetra(Label label) {
