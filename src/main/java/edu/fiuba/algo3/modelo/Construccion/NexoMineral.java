@@ -63,6 +63,26 @@ public class NexoMineral extends ConstruccionProtoss implements RefineriaMineral
     }
 
     @Override
+    public boolean permiteConstruir(Construccion construccion){
+        return false;
+    }
+
+    @Override
+    public boolean permiteConstruir(ReservaProduccion reservaProduccion){
+        return false;
+    }
+
+    @Override
+    public boolean permiteConstruir(Guarida guarida){
+        return false;
+    }
+
+    @Override
+    public boolean permiteConstruir(Acceso acceso){
+        return false;
+    }
+
+    @Override
     public int recolectar(NodoMineral nodo) throws EdificioNoEstaOperativo {
         verificarEdificioOperativo();
         if (this.estaDisponible()) {

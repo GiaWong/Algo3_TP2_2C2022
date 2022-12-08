@@ -50,13 +50,13 @@ public class Mapa {
 
     public void agregar(Unidad unidad, Coordenada coord){
         Casilla casilla = this.buscar(coord);
-        unidad.asignarPosicion(coord); //esto se usa?
+        unidad.asignarPosicion(coord);
         casilla.agregar(unidad);
     }
 
     public boolean cumplePrerequisito(Construccion construccion){
-        int i = 0;
-        int j = 0;
+        int i = 10;
+        int j = 10;
         boolean encontrado = false;
         while (i < base && !encontrado){
             while (j < altura && !encontrado){

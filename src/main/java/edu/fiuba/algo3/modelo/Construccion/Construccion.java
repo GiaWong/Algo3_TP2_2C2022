@@ -94,4 +94,14 @@ public abstract class Construccion {
     public abstract void verificarPrerequisito(Mapa mapa) throws NoCumplePrerequisito;
 
     public abstract void avanzarTurno(Mapa mapa);
+
+    public abstract boolean permiteConstruir(Construccion construccion);
+
+    public abstract boolean permiteConstruir(ReservaProduccion reservaProduccion);
+
+    public abstract boolean permiteConstruir(Guarida guarida);
+
+    public abstract boolean permiteConstruir(Acceso acceso);
+
+
 }

@@ -47,6 +47,27 @@ public class  Asimilador extends ConstruccionProtoss implements RefineriaGas {
         this.regenerarEscudo();
         this.construir();
     }
+
+    @Override
+    public boolean permiteConstruir(Construccion construccion){
+        return false;
+    }
+
+    @Override
+    public boolean permiteConstruir(ReservaProduccion reservaProduccion){
+        return false;
+    }
+
+    @Override
+    public boolean permiteConstruir(Guarida guarida){
+        return false;
+    }
+
+    @Override
+    public boolean permiteConstruir(Acceso acceso){
+        return false;
+    }
+
     @Override
     public int recolectar(Volcan volcan) throws EdificioNoEstaOperativo{
         verificarEdificioOperativo();

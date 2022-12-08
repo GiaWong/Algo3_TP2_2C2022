@@ -50,12 +50,6 @@ public class Casilla {
         }
         construccion = unaConstruccion;
     }
-    /*
-    public  void avanzarTurno(){ //Uso este avanzar turno en algun lado??
-        construccion.estaDisponible();
-    }
-
-     */
 
     public void avanzarTurno(Mapa mapa){
         if (this.hayConstruccion()){

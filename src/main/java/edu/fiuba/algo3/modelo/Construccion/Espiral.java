@@ -87,6 +87,26 @@ public class Espiral extends ConstruccionZerg {
     }
 
     @Override
+    public boolean permiteConstruir(Construccion construccion){
+        return false;
+    }
+
+    @Override
+    public boolean permiteConstruir(ReservaProduccion reservaProduccion){
+        return false;
+    }
+
+    @Override
+    public boolean permiteConstruir(Guarida guarida){
+        return true;
+    }
+
+    @Override
+    public boolean permiteConstruir(Acceso acceso){
+        return false;
+    }
+
+    @Override
     public void esPosibleConstruirEn(Volcan volcan) {
         throw new NoSePuedeConstruirEsteEdificioSobreUnRecurso();
     }

@@ -38,12 +38,34 @@ public class Guarida extends ConstruccionZerg {
     }
 
     public boolean esPrerequisito(Construccion construccion){
+        return construccion.permiteConstruir(this);
+    }
+
+
+
+    @Override
+    public boolean permiteConstruir(Construccion construccion){
         return false;
     }
 
-    public boolean esPrerequisito(ReservaProduccion reservaProduccion){
+    @Override
+    public boolean permiteConstruir(ReservaProduccion reservaProduccion){
         return true;
     }
+
+    @Override
+    public boolean permiteConstruir(Guarida guarida){
+        return false;
+    }
+
+    @Override
+    public boolean permiteConstruir(Acceso acceso){
+        return false;
+    }
+
+
+
+
 
     public void verificarPrerequisito(Mapa mapa) throws NoCumplePrerequisito {
         if(!mapa.cumplePrerequisito(this)){
@@ -51,12 +73,6 @@ public class Guarida extends ConstruccionZerg {
         }
     }
 
-    public boolean esRequisitoDe(Construccion construccion){
-        return false;
-    }
-    public boolean esRequisitoDe(Guarida guarida){
-        return true;
-    }
 
     public int obtenerVida() { return vida.vidaActual(); }
 

@@ -78,6 +78,26 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
     }
 
     @Override
+    public boolean permiteConstruir(Construccion construccion){
+        return false;
+    }
+
+    @Override
+    public boolean permiteConstruir(ReservaProduccion reservaProduccion){
+        return false;
+    }
+
+    @Override
+    public boolean permiteConstruir(Guarida guarida){
+        return false;
+    }
+
+    @Override
+    public boolean permiteConstruir(Acceso acceso){
+        return false;
+    }
+
+    @Override
     public void esPosibleConstruirEn(Volcan volcan) {
 
     }

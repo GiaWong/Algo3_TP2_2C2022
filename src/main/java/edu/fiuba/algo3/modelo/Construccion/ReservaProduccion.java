@@ -52,7 +52,7 @@ public class ReservaProduccion extends ConstruccionZerg {
     }
 
     public boolean esPrerequisito(Construccion construccion){
-        return construccion.esPrerequisito(this);
+        return construccion.permiteConstruir(this);
     }
 
 
@@ -73,6 +73,26 @@ public class ReservaProduccion extends ConstruccionZerg {
     public void avanzarTurno(Mapa mapa) {
         this.regenerarVida();
         this.construir();
+    }
+
+    @Override
+    public boolean permiteConstruir(Construccion construccion){
+        return false;
+    }
+
+    @Override
+    public boolean permiteConstruir(ReservaProduccion reservaProduccion){
+        return false;
+    }
+
+    @Override
+    public boolean permiteConstruir(Guarida guarida){
+        return false;
+    }
+
+    @Override
+    public boolean permiteConstruir(Acceso acceso){
+        return false;
     }
 
     @Override

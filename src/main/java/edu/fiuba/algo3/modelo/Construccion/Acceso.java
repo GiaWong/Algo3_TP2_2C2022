@@ -67,6 +67,26 @@ public  class Acceso extends ConstruccionProtoss{
         this.construir();
     }
 
+    @Override
+    public boolean permiteConstruir(Construccion construccion){
+        return false;
+    }
+
+    @Override
+    public boolean permiteConstruir(ReservaProduccion reservaProduccion){
+        return false;
+    }
+
+    @Override
+    public boolean permiteConstruir(Guarida guarida){
+        return false;
+    }
+
+    @Override
+    public boolean permiteConstruir(Acceso acceso){
+        return false;
+    }
+
 
     @Override
     public void esPosibleConstruirEn(Volcan volcan) {
