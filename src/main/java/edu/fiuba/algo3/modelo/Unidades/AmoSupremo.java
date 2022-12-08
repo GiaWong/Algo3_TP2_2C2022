@@ -30,7 +30,7 @@ public class AmoSupremo extends UnidadZerg{
     @Override
     public void modificarSuministro(Suministro suministro) {
         int aumentoDeSuministro = 5;
-        suministro.aumentarCapacidadTotal(aumentoDeSuministro);
+        suministro.aumentarCapacidad(aumentoDeSuministro);
     }
 
     public void esPosibleMoverseEn(AreaEspacial areaEspacial) {

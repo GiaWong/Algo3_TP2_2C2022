@@ -33,7 +33,7 @@ public class Suministro {
     }
 
     public void agregar(Construccion construccion)throws HasLlegadAlLimiteDeUnidadesCreadas {
-        if (capacidadSuministro == capacidadTotalSuministro){
+        if (capacidadSuministro < capacidadTotalSuministro){
             construccion.aumentarSuministro(this);
         } else {
             throw new HasLlegadAlLimiteDeUnidadesCreadas();

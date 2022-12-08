@@ -56,4 +56,6 @@ public class Protoss extends Raza {
     }
 
 
+    public void pilonDestruido() { suministro.disminuirCapacidad(5);
+    }
 }

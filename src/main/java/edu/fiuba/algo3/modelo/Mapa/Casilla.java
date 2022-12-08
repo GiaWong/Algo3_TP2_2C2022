@@ -149,4 +149,7 @@ public class Casilla {
             return false;
         }
     }
+
+    public void destruirUnidad() { unidad = null;
+    }
 }

@@ -46,4 +46,7 @@ public class Zerg extends Raza {
         this.asignarAccion(unaAccion); //seleccionar dicho comando de Accion
     }
 
+    public void amoDestruido() {
+        suministro.disminuirCapacidad(5);
+    }
 }

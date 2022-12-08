@@ -50,7 +50,7 @@ public class Mapa {
 
     public void agregar(Unidad unidad, Coordenada coord){
         Casilla casilla = this.buscar(coord);
-        unidad.asignarPosicion(coord);
+        unidad.asignarPosicion(coord); //esto se usa?
         casilla.agregar(unidad);
     }
 
@@ -106,6 +106,11 @@ public class Mapa {
         }else{
             casilla.destruirConstruccion();
         }
+    }
+
+    public void destruirUnidad(Coordenada unaCoordenada) {
+        Casilla casilla = this.buscar(unaCoordenada);
+        casilla.destruirUnidad();
     }
 
     public boolean hayUnidad(int fila, int columna) {
