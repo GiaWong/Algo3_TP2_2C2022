@@ -134,4 +134,7 @@ public class NexoMineral extends ConstruccionProtoss implements RefineriaMineral
     public void aumentarSuministro(Suministro suministro) {
 
     }
+
+    public void destruir(Mapa mapa){
+    }
 }

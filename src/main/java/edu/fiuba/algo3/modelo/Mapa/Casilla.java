@@ -43,17 +43,10 @@ public class Casilla {
         if (hayConstruccion()){
             throw new CasillaOcupada();
         }
-        /*
-        if (unidad != null){
-            try {
-                unidad.esPosibleConstruir(unaConstruccion);
-            } catch (CasillaOcupadaPorZangano e) {
-                System.out.println("Casilla ocupada por Zángano.");
-            }
-        }
 
-         */
-        unidad.esPosibleConstruir(unaConstruccion);
+        if (unidad != null){
+            unidad.esPosibleConstruir(unaConstruccion);
+        }
         recurso.esPosibleConstruir(unaConstruccion);
         terreno.esPosibleConstruir(unaConstruccion);
         try {
@@ -100,7 +93,10 @@ public class Casilla {
         construccion.esZerg();
     }
 
-    public void destruirConstruccion() {
+    public void destruirConstruccion(Mapa mapa) {
+        if(construccion!=null){
+            construccion.destruir(mapa);
+        }
         construccion=null;
     }
     public boolean esConstruccion(Construccion construccionRadio) {

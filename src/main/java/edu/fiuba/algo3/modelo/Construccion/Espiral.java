@@ -143,5 +143,8 @@ public class Espiral extends ConstruccionZerg {
     @Override
     public void aumentarSuministro(Suministro suministro) {}
 
+    public void destruir(Mapa mapa){
+    }
+
 
 }

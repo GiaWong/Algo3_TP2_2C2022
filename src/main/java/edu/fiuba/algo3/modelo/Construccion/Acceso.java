@@ -125,4 +125,7 @@ public  class Acceso extends ConstruccionProtoss{
 
     @Override
     public void aumentarSuministro(Suministro suministro) {}
+
+    public void destruir(Mapa mapa){
+    }
 }

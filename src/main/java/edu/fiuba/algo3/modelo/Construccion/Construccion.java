@@ -110,4 +110,6 @@ public abstract class Construccion {
     public abstract void permiteConstruirConUnidad(Unidad unidad);
 
     public abstract void permiteConstruirConUnidad(Zangano zangano);
+
+    public abstract void destruir(Mapa mapa);
 }

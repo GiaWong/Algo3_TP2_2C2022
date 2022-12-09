@@ -50,6 +50,9 @@ public class  Asimilador extends ConstruccionProtoss implements RefineriaGas {
         this.construir();
     }
 
+    public void destruir(Mapa mapa){
+    }
+
     public void permiteConstruirConUnidad(Unidad unidad){
 
     }

@@ -180,4 +180,6 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         suministro.aumentarCapacidad(5);
     }
 
+    public void destruir(Mapa mapa){
+    }
 }

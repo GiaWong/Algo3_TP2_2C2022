@@ -141,4 +141,7 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
 
     }
 
+    public void destruir(Mapa mapa){
+    }
+
 }

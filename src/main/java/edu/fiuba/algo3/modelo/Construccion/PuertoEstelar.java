@@ -147,4 +147,7 @@ public class PuertoEstelar extends ConstruccionProtoss {
     public void aumentarSuministro(Suministro suministro) {
 
     }
+
+    public void destruir(Mapa mapa){
+    }
 }

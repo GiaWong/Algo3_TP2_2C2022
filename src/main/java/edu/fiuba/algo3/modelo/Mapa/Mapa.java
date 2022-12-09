@@ -100,12 +100,7 @@ public class Mapa {
 
     public void destruirConstruccion(Coordenada unaCoordenada) {
         Casilla casilla = this.buscar(unaCoordenada);
-        if(casilla.esConstruccion(new Pilon())){
-            casilla.destruirConstruccion();
-            this.setearRadio(unaCoordenada, 3, new SinTerreno());
-        }else{
-            casilla.destruirConstruccion();
-        }
+        casilla.destruirConstruccion(this);
     }
 
     public void destruirUnidad(Coordenada unaCoordenada) {
