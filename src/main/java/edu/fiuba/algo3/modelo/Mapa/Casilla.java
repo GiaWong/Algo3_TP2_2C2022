@@ -37,6 +37,9 @@ public class Casilla {
             throw new CasillaOcupada();
         }
         area.esPosibleAgregar(unaUnidad);
+        if (construccion != null){
+            construccion.esPosibleAgregarUnidad(unaUnidad);
+        }
         unidad = unaUnidad;
     }
     public void agregar(Construccion unaConstruccion, Mapa mapa){

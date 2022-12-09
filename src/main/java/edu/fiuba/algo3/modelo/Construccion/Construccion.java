@@ -112,4 +112,7 @@ public abstract class Construccion {
     public abstract void permiteConstruirConUnidad(Zangano zangano);
 
     public abstract void destruir(Mapa mapa);
+
+    public abstract void esPosibleAgregarUnidad(Unidad unaUnidad);
+
 }

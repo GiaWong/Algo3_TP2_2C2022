@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Construccion.Asimilador;
 import edu.fiuba.algo3.modelo.Construccion.Extractor;
 import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupada;
+import edu.fiuba.algo3.modelo.Exception.CasillaOcupadaPorNexoMineral;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupadaPorZangano;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
@@ -48,5 +49,17 @@ public class CasoDeUso16Test {
         assertThrows(CasillaOcupadaPorZangano.class,()->casilla.agregar(nexo,mapa));
 
 
+    }
+
+    @Test
+    public void NoSeDeberiaPoderPonerUnZanganoSobreUnNexoMineral() {
+        Mapa mapa = new Mapa(20,20);
+        Casilla casilla = new Casilla(new Coordenada(5,5));
+        casilla.setRecurso(new NodoMineral());
+        casilla.setTerreno(new ConEnergia());
+        Zangano zangano = new Zangano();
+        NexoMineral nexo = new NexoMineral();
+        casilla.agregar(nexo,mapa);
+        assertThrows(CasillaOcupadaPorNexoMineral.class,()->casilla.agregar(zangano));
     }
 }

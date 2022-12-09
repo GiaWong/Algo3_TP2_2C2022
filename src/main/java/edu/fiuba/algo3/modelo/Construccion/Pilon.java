@@ -81,6 +81,9 @@ public class Pilon extends ConstruccionProtoss implements ConstruccionConRadio{
         mapa.setearRadio(coordenada, 3, new SinTerreno());
     }
 
+    public void esPosibleAgregarUnidad(Unidad unaUnidad){
+
+    }
 
     @Override
     public void avanzarTurno(Mapa mapa) {

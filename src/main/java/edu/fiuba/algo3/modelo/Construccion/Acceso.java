@@ -128,4 +128,9 @@ public  class Acceso extends ConstruccionProtoss{
 
     public void destruir(Mapa mapa){
     }
+
+    public void esPosibleAgregarUnidad(Unidad unaUnidad){
+
+    }
+
 }

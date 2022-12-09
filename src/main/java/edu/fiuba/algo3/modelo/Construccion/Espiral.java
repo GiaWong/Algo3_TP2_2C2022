@@ -146,5 +146,10 @@ public class Espiral extends ConstruccionZerg {
     public void destruir(Mapa mapa){
     }
 
+    public void esPosibleAgregarUnidad(Unidad unaUnidad){
+
+    }
+
+
 
 }

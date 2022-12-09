@@ -93,6 +93,10 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         }
     }
 
+    public void esPosibleAgregarUnidad(Unidad unaUnidad){
+
+    }
+
     public boolean esPrerequisito(Construccion construccion){
         return false;
     }

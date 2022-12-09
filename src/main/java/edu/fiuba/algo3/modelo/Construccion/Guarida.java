@@ -75,6 +75,11 @@ public class Guarida extends ConstruccionZerg {
     public void destruir(Mapa mapa){
     }
 
+    public void esPosibleAgregarUnidad(Unidad unaUnidad){
+
+    }
+
+
 
 
 

@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Unidades;
 import edu.fiuba.algo3.modelo.Acciones.*;
 import edu.fiuba.algo3.modelo.Construccion.Acceso;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
 import edu.fiuba.algo3.modelo.Exception.EstaUnidadNoSeMuevePorAreaEspacial;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
@@ -29,6 +30,10 @@ public class Dragon extends UnidadProtoss{
 
     public void esPosibleConstruir(Construccion construccion){
         construccion.permiteConstruirConUnidad(this);
+
+    }
+
+    public void permiteAgregarConstruccion(NexoMineral nexoMineral){
 
     }
 

@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Acciones.*;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
@@ -72,4 +73,9 @@ public abstract class Unidad {
     public abstract void modificarSuministro(Suministro suministro);
 
     public abstract  void esPosibleConstruir(Construccion construccion);
+
+    public abstract void permiteAgregarConstruccion(NexoMineral nexoMineral);
+
+
+
 }

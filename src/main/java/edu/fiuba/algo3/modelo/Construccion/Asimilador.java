@@ -61,6 +61,11 @@ public class  Asimilador extends ConstruccionProtoss implements RefineriaGas {
 
     }
 
+    public void esPosibleAgregarUnidad(Unidad unaUnidad){
+
+    }
+
+
     @Override
     public boolean permiteConstruir(Construccion construccion){
         return false;
