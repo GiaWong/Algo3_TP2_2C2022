@@ -19,7 +19,7 @@ public class CasoDeUso13Test {
 
         Coordenada coordenada = new Coordenada(10,10);
         mapa.agregar(criadero,coordenada);
-        criadero.avanzarTurno(mapa, coordenada);
+        criadero.avanzarTurno(mapa);
 
         mapa.destruirConstruccion(coordenada);
         assertDoesNotThrow( ()-> { mapa.agregar(reserva, coordenada);});

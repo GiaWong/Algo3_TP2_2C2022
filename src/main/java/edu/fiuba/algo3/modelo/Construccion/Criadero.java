@@ -26,7 +26,7 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
 
     private int radio;
 
-    private int turnos = -4;
+    private int turnos = 0;
 
     public Criadero(){
         costos.add(50); //esto es para Mineral
@@ -83,18 +83,11 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
     public int obtenerVida() {return vida.vidaActual(); }
 
 
-    public void avanzarTurno(Mapa mapa, Coordenada coordenada){ //Este avanzar turno no deberia estar
-        if(larvas.size() < 3){
-            larvas.add(new Larva());
-        }
-        this.construir();
-        this.regenerarVida();
-        //this.expandirMoho(mapa,coordenada);
-        turnos++;
-    }
 
     public void expandirMoho(Mapa mapa){
-        if((turnos % 2 == 0) && (estaDisponible())){
+        if(turnos == 0 && (estaDisponible())){
+            mapa.setearRadio(coordenada,radio, new ConMoho());
+        } else if((turnos % 2 == 0) && (estaDisponible())){
             mapa.setearRadio(coordenada,radio, new ConMoho());
             radio++;
         }
@@ -109,6 +102,7 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
 
     @Override
     public void avanzarTurno(Mapa mapa){
+        setearMohoInicial();
         if(larvas.size() < 3){
             larvas.add(new Larva());
         }
@@ -116,6 +110,10 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         this.regenerarVida();
         this.expandirMoho(mapa);
         turnos++;
+    }
+
+    public void setearMohoInicial(){
+
     }
 
     public void permiteConstruirConUnidad(Unidad unidad){

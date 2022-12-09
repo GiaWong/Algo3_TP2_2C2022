@@ -20,7 +20,7 @@ public class CasoDeUso14Test {
         mapa.agregar(criadero,coordenada);
         mapa.agregar(pilon,new Coordenada(10,13));
         for(int i = 0; i<4; i++){
-            criadero.avanzarTurno(mapa,coordenada);
+            criadero.avanzarTurno(mapa);
             pilon.avanzarTurno();
         }
         assertThrows( NoEstaEnergizado.class, ()-> {
@@ -40,7 +40,7 @@ public class CasoDeUso14Test {
         Coordenada coordenadaPilon = new Coordenada(10,16);
         mapa.agregar(pilon,coordenadaPilon);
         for(int i = 0; i<5; i++){
-            criadero.avanzarTurno(mapa,coordenada);
+            criadero.avanzarTurno(mapa);
             pilon.avanzarTurno();
         }
         mapa.destruirConstruccion(coordenadaPilon);

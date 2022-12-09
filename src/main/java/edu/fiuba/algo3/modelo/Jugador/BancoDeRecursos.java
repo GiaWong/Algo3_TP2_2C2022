@@ -12,12 +12,7 @@ public class BancoDeRecursos {
     private int bancoGasVespeno = 0;
 
     public void comprar(Construccion construccion) {
-        try{
-            construccion.verificarCompra(bancoMineral, bancoGasVespeno);
-
-        } catch (NoHayRecursosSuficientes e) {
-            System.out.println("No hay recursos suficientes para comprar esta construcción.");
-        }
+        construccion.verificarCompra(bancoMineral, bancoGasVespeno);
         construccion.comprar(this);
     }
     public void comprar(Unidad unidad) { // Tiene que ser parecido al metodo de arriba
