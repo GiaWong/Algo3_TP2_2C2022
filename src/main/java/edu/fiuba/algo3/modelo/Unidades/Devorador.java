@@ -24,6 +24,11 @@ public class Devorador extends UnidadZerg{
         }
     }
 
+    public void esPosibleConstruir(Construccion construccion){
+        construccion.permiteConstruirConUnidad(this);
+
+    }
+
     public void atacar(Construccion unaConstruccion){
 
     }

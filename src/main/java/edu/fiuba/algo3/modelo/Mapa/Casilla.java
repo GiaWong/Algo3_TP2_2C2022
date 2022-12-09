@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.modelo.Mapa;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupada;
+import edu.fiuba.algo3.modelo.Exception.CasillaOcupadaPorZangano;
 import edu.fiuba.algo3.modelo.Exception.NoCumplePrerequisito;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.*;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaTerrestre;
@@ -41,6 +43,17 @@ public class Casilla {
         if (hayConstruccion()){
             throw new CasillaOcupada();
         }
+        /*
+        if (unidad != null){
+            try {
+                unidad.esPosibleConstruir(unaConstruccion);
+            } catch (CasillaOcupadaPorZangano e) {
+                System.out.println("Casilla ocupada por Zángano.");
+            }
+        }
+
+         */
+        unidad.esPosibleConstruir(unaConstruccion);
         recurso.esPosibleConstruir(unaConstruccion);
         terreno.esPosibleConstruir(unaConstruccion);
         try {
@@ -68,6 +81,8 @@ public class Casilla {
         terreno.esPosibleConstruir(unaConstruccion);
         construccion = unaConstruccion;
     }
+
+
 
     public boolean hayConstruccion() {
         DestruirConstruccionMuerta();

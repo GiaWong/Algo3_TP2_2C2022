@@ -8,6 +8,8 @@ import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.*;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.*;
+import edu.fiuba.algo3.modelo.Unidades.Unidad;
+import edu.fiuba.algo3.modelo.Unidades.Zangano;
 
 public class  Asimilador extends ConstruccionProtoss implements RefineriaGas {
 
@@ -46,6 +48,14 @@ public class  Asimilador extends ConstruccionProtoss implements RefineriaGas {
     public void avanzarTurno(Mapa mapa) {
         this.regenerarEscudo();
         this.construir();
+    }
+
+    public void permiteConstruirConUnidad(Unidad unidad){
+
+    }
+
+    public void permiteConstruirConUnidad(Zangano zangano){
+
     }
 
     @Override

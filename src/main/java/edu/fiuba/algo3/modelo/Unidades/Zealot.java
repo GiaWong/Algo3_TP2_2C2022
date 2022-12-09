@@ -28,6 +28,11 @@ public class Zealot extends UnidadProtoss{
         defensa = new Detectable();
     }
 
+    public void esPosibleConstruir(Construccion construccion){
+        construccion.permiteConstruirConUnidad(this);
+
+    }
+
     public void atacar(Unidad unaUnidad){
         if (unaUnidad.esPosibleSerAtacadoPor(atacador)){
             atacador.atacar(unaUnidad);

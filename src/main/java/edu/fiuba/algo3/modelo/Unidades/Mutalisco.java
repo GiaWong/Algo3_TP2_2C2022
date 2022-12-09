@@ -2,13 +2,9 @@ package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Acciones.*;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.Espiral;
-import edu.fiuba.algo3.modelo.Construccion.Guarida;
 import edu.fiuba.algo3.modelo.Jugador.BancoDeRecursos;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
-
-import java.util.List;
 
 public class Mutalisco extends UnidadZerg implements Evolucionador{
 
@@ -25,6 +21,11 @@ public class Mutalisco extends UnidadZerg implements Evolucionador{
         superficie = new Aire();
         atacador = new AtaqueAire(9);
         ataqueTierra = new AtaqueTierra(9);
+    }
+
+    public void esPosibleConstruir(Construccion construccion){
+        construccion.permiteConstruirConUnidad(this);
+
     }
 
     public void atacar(Unidad unaUnidad){

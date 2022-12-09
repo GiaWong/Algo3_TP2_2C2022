@@ -2,11 +2,9 @@ package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Acciones.*;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Exception.UnidadMuerta;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaTerrestre;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,4 +70,6 @@ public abstract class Unidad {
     public abstract void esPosibleMoverseEn(AreaEspacial areaEspacial);
 
     public abstract void modificarSuministro(Suministro suministro);
+
+    public abstract  void esPosibleConstruir(Construccion construccion);
 }

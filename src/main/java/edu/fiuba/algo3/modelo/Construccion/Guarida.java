@@ -12,6 +12,7 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Unidades.Hidralisco;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
+import edu.fiuba.algo3.modelo.Unidades.Zangano;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +62,14 @@ public class Guarida extends ConstruccionZerg {
     @Override
     public boolean permiteConstruir(Acceso acceso){
         return false;
+    }
+
+    public void permiteConstruirConUnidad(Unidad unidad){
+
+    }
+
+    public void permiteConstruirConUnidad(Zangano zangano){
+
     }
 
 

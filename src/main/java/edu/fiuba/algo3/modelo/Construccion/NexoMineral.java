@@ -12,6 +12,8 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
+import edu.fiuba.algo3.modelo.Unidades.Unidad;
+import edu.fiuba.algo3.modelo.Unidades.Zangano;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,6 +82,14 @@ public class NexoMineral extends ConstruccionProtoss implements RefineriaMineral
     @Override
     public boolean permiteConstruir(Acceso acceso){
         return false;
+    }
+
+    public void permiteConstruirConUnidad(Unidad unidad){
+
+    }
+
+    public void permiteConstruirConUnidad(Zangano zangano){
+        throw new CasillaOcupadaPorZangano();
     }
 
     @Override

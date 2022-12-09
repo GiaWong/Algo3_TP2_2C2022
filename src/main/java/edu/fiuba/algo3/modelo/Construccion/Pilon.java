@@ -15,6 +15,8 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.Volcan;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
+import edu.fiuba.algo3.modelo.Unidades.Unidad;
+import edu.fiuba.algo3.modelo.Unidades.Zangano;
 
 public class Pilon extends ConstruccionProtoss implements ConstruccionConRadio{
 
@@ -100,6 +102,14 @@ public class Pilon extends ConstruccionProtoss implements ConstruccionConRadio{
     @Override
     public boolean permiteConstruir(Acceso acceso){
         return false;
+    }
+
+    public void permiteConstruirConUnidad(Unidad unidad){
+
+    }
+
+    public void permiteConstruirConUnidad(Zangano zangano){
+
     }
 
     @Override

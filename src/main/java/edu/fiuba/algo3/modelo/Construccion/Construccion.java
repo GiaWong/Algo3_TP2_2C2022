@@ -14,6 +14,9 @@ import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.*;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.*;
+import edu.fiuba.algo3.modelo.Unidades.Unidad;
+import edu.fiuba.algo3.modelo.Unidades.Zangano;
+import edu.fiuba.algo3.modelo.Unidades.Zerling;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -104,4 +107,7 @@ public abstract class Construccion {
     public abstract boolean permiteConstruir(Acceso acceso);
 
 
+    public abstract void permiteConstruirConUnidad(Unidad unidad);
+
+    public abstract void permiteConstruirConUnidad(Zangano zangano);
 }

@@ -106,6 +106,14 @@ public class Espiral extends ConstruccionZerg {
         return false;
     }
 
+    public void permiteConstruirConUnidad(Unidad unidad){
+
+    }
+
+    public void permiteConstruirConUnidad(Zangano zangano){
+
+    }
+
     @Override
     public void esPosibleConstruirEn(Volcan volcan) {
         throw new NoSePuedeConstruirEsteEdificioSobreUnRecurso();

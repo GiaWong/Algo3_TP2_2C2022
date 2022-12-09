@@ -1,15 +1,10 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-import edu.fiuba.algo3.modelo.Acciones.Atacador;
 import edu.fiuba.algo3.modelo.Acciones.AtaqueTierra;
-import edu.fiuba.algo3.modelo.Acciones.Detectable;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Guardian extends UnidadProtoss{
 
@@ -28,6 +23,11 @@ public class Guardian extends UnidadProtoss{
         if (unaUnidad.esPosibleSerAtacadoPor(atacador)){
             atacador.atacar(unaUnidad);
         }
+    }
+
+    public void esPosibleConstruir(Construccion construccion){
+        construccion.permiteConstruirConUnidad(this);
+
     }
 
     public void atacar(Construccion unaConstruccion){

@@ -118,6 +118,14 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
         turnos++;
     }
 
+    public void permiteConstruirConUnidad(Unidad unidad){
+
+    }
+
+    public void permiteConstruirConUnidad(Zangano zangano){
+
+    }
+
     @Override
     public boolean permiteConstruir(Construccion construccion){
         return false;

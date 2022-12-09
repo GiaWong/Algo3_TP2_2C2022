@@ -6,7 +6,6 @@ import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Exception.EstaUnidadNoSeMuevePorAreaEspacial;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
-import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaTerrestre;
 
 import java.util.List;
 
@@ -26,6 +25,11 @@ public class Dragon extends UnidadProtoss{
         superficie = new Tierra();
         atacador = new AtaqueAire(20);
         ataqueTierra = new AtaqueTierra(20);
+    }
+
+    public void esPosibleConstruir(Construccion construccion){
+        construccion.permiteConstruirConUnidad(this);
+
     }
 
     public boolean preRequisito(List<Construccion> lista) {

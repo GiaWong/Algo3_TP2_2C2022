@@ -1,15 +1,11 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
-import edu.fiuba.algo3.modelo.Acciones.Atacador;
 import edu.fiuba.algo3.modelo.Acciones.AtaqueTierra;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.ReservaProduccion;
 import edu.fiuba.algo3.modelo.Exception.EstaUnidadNoSeMuevePorAreaEspacial;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
-
-import java.util.List;
 
 public class Zerling extends UnidadZerg{
 
@@ -25,6 +21,10 @@ public class Zerling extends UnidadZerg{
         superficie = new Tierra();
         atacador =new AtaqueTierra(4);
 
+    }
+
+    public  void esPosibleConstruir(Construccion construccion){
+        construccion.permiteConstruirConUnidad(this);
     }
 
     public void atacar(Unidad unaUnidad){

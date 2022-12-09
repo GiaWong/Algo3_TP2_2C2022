@@ -44,6 +44,11 @@ public class Scout extends UnidadProtoss{
 
     }
 
+    public void esPosibleConstruir(Construccion construccion){
+        construccion.permiteConstruirConUnidad(this);
+
+    }
+
     public boolean preRequisito(List<Construccion> lista) {
         if(lista!=null) {
             for(int i =0; i<lista.size();i++){
