@@ -3,6 +3,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.selectores.CampoTextoEnter;
 import edu.fiuba.algo3.controlador.ventanas.VolverPantallaAnterior;
+import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Jugador.Protoss;
 import edu.fiuba.algo3.modelo.Jugador.Raza;
 import edu.fiuba.algo3.modelo.Jugador.Zerg;
@@ -30,30 +31,35 @@ public class PantallaConfiguracionJugador02 {
     TextField nombreObtenido;
     private Partida partida;
     private Label validacionNombre;
+    private Boolean estadoValido;
     String razaSeleccionada;
     Raza raza;
     String colorSeleccionado;
+    String mensaje;
 
     public PantallaConfiguracionJugador02(Stage stage , Partida unaPartida) {
         this.stage = stage;
-        this.partida=unaPartida;
+        this.partida = unaPartida;
         this.botonJugar = new Button("Jugar");
         this.botonCancelar = new Button("Cancelar");
         this.nombreObtenido = new TextField();
+        this.colorSeleccionado = null;
+        this.razaSeleccionada = null;
+        this.raza = null;
+        this.mensaje = null;
+        this.estadoValido = false;
         this.validacionNombre = new Label("Debe ser solo 6 caracteres");
         this.generarVista();
     }
 
     public void generarVista() {
 
-        this.generarControladores();
+        generarControladores();
 
         VBox vbox = new VBox();
-
         VBox.setVgrow(vbox, Priority.ALWAYS );
-
-
         Label labelNombreJugador = new Label("Nombre jugador 2:");
+
         aplicarEstiloDeLetra(labelNombreJugador);
 
         //TODO: CampoTextoEnter detecta el ENTER y "valida" si es valido el nombre
@@ -80,8 +86,12 @@ public class PantallaConfiguracionJugador02 {
         //TODO: capturar la opcion elejida y guardarlo en un atributo
         capturarSeleccionColores(comboColores);
 
-        //Todo: no me está tomando la partida
-        //this.partida.agregarJugador(nombreObtenido.getText(), this.colorSeleccionado, this.raza);
+
+        if(nombreObtenido.getText().length() > 6){ //para que  no le tome como longitud cero
+            this.partida.agregarJugador(nombreObtenido.getText(), this.colorSeleccionado, this.raza);
+
+        }
+
 
 
         HBox horizontalRaza = new HBox(labelRaza, comboRaza);
@@ -153,7 +163,7 @@ public class PantallaConfiguracionJugador02 {
             System.out.print("\nSe seleccionó la raza: " + this.razaSeleccionada);
         });
 
-        //ver el tema para que no se repita la raza con el jugador 2
+        //ver el tema para que no se repita la raza con el jugador 1
         if(Objects.equals(this.razaSeleccionada, "Zergs")){
             this.raza = new Zerg();
 
@@ -174,7 +184,78 @@ public class PantallaConfiguracionJugador02 {
 
         VolverPantallaAnterior pantallaAnterior = new VolverPantallaAnterior(this.stage);
         botonCancelar.setOnAction(pantallaAnterior);
-        PantallaMapa pantalla = new PantallaMapa(this.stage);
-        botonJugar.setOnAction(pantalla);
+
+        botonJugar.setOnAction(e -> {
+            confirmacionDeDatos();
+            if(estadoValido){
+                new PantallaMapa(this.stage).mostrarMapa();
+            }
+        });
+    }
+
+    private void confirmacionDeDatos() {
+
+        if(nombreObtenido.getText().length() == 0){
+            mensaje = "Falta escribir el nombre del Jugador";
+        }
+        if(nombreObtenido.getText().length() < 6){
+            mensaje = "El nombre debe ser mayor de 6 caracteres";
+        }
+
+        if(colorSeleccionado == null){
+            mensaje = "Falta escoger el color";
+        }
+
+        if(razaSeleccionada == null){
+            mensaje = "Falta escoger la raza";
+        }
+
+        //que salga una ventana de emergencia
+        if((nombreObtenido.getText().length() == 0) || (nombreObtenido.getText().length() < 6) || (colorSeleccionado == null) || (razaSeleccionada == null)){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
+            alert.setTitle("UPSS");
+            alert.setContentText(mensaje);
+            alert.showAndWait();
+        }
+
+
+
+
+        //debe estar en estado valido
+        if((nombreObtenido.getText().length() > 6)  & (colorSeleccionado != null) & (razaSeleccionada != null)){
+
+            //validarDatosRepetidos();
+            this.estadoValido = true;
+        }
+
+    }
+
+    /**
+     * Falta ver el tema de qu no se rpitan los datos con el jugador1
+     */
+
+    private void validarDatosRepetidos() {
+
+        Jugador primerJugador = this.partida.primerJugador();
+
+        if (primerJugador.tieneMismoNombre(nombreObtenido.getText())) {
+            mensaje = "Ya existe el mismo nombre, elije otro nombre para el jugador";
+        }
+        if (primerJugador.tieneMismaRaza(this.raza)) {
+            mensaje = "Ya existe esa Raza, elije otra";
+        }
+        if (primerJugador.tieneMismoColor(colorSeleccionado)) {
+            mensaje = "Ya existe el mismo color, elije otro color distinto a lo actual";
+        }
+
+        //que salga una ventana de emergencia
+        if ((primerJugador.tieneMismoNombre(nombreObtenido.getText()))  || (primerJugador.tieneMismaRaza(this.raza)) || (primerJugador.tieneMismoColor(colorSeleccionado))) {
+           confirmacionDeDatos();
+        }
+
+        if ((!primerJugador.tieneMismoNombre(nombreObtenido.getText())) & (!primerJugador.tieneMismaRaza(this.raza)) & (!primerJugador.tieneMismoColor(colorSeleccionado))) {
+            this.estadoValido = true;
+        }
     }
 }

@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 import java.io.File;
 
 
-public class PantallaMapa implements EventHandler<ActionEvent> {
+public class PantallaMapa {
     private Stage stage;
     private int base ;
     private int altura;
@@ -33,12 +33,7 @@ public class PantallaMapa implements EventHandler<ActionEvent> {
 
     }
 
-    @Override
-    public void handle(ActionEvent actionEvent) {
-        mostrarMapa();
-    }
-
-    private void mostrarMapa() {
+    public void mostrarMapa() {
 
 
         for(int i=0; i< base; i++){

@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.Jugador.Protoss;
 import edu.fiuba.algo3.modelo.Jugador.Raza;
 import edu.fiuba.algo3.modelo.Jugador.Zerg;
 import edu.fiuba.algo3.modelo.Partida.Partida;
+import edu.fiuba.algo3.vista.ventanasAuxiliares.VentanaPopUp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -35,17 +36,22 @@ public class PantallaConfiguracionJugador01 {
 
     String razaSeleccionada;
     Raza raza;
+    private  boolean estadoValido;
     String colorSeleccionado;
 
 
 
     public PantallaConfiguracionJugador01(Stage stage, Partida unaPartida) {
         this.stage = stage;
-        this.partida=unaPartida;
+        this.partida = unaPartida;
         this.botonCancelar = new Button("Cancelar");
         this.botonContinuar = new Button("Continuar");
         this.nombreObtenido = new TextField();
+        this.colorSeleccionado = null;
+        this.razaSeleccionada = null;
+        this.raza = null;
         this.validacionNombre = new Label("Debe ser solo 6 caracteres");
+        this.estadoValido = false;
         this.generarVista();
 
     }
@@ -87,8 +93,11 @@ public class PantallaConfiguracionJugador01 {
         //TODO: capturar la opcion elejida y guardarlo en un atributo
         capturarSeleccionColores(comboColores);
 
-        //Todo: no me está tomando la partida
-        //this.partida.agregarJugador(nombreObtenido.getText(), this.colorSeleccionado, this.raza);
+
+        if(nombreObtenido.getText().length() > 6){//para que  no le tome como longitud cero
+            this.partida.agregarJugador(nombreObtenido.getText(), this.colorSeleccionado, this.raza);
+
+        }
 
 
         HBox horizontalRaza = new HBox(labelRaza, comboRaza);
@@ -184,7 +193,48 @@ public class PantallaConfiguracionJugador01 {
 
         VolverPantallaAnterior pantallaAnterior = new VolverPantallaAnterior(this.stage);
         botonCancelar.setOnAction(pantallaAnterior);
-        SiguientePantalla pantallaSiguiente = new SiguientePantalla(this.stage, this.partida);
-        botonContinuar.setOnAction(pantallaSiguiente);
+
+        botonContinuar.setOnAction(e ->{
+            confirmacionDeDatos();
+            if(estadoValido){
+                new PantallaConfiguracionJugador02(this.stage, this.partida);
+            }
+
+        });
+    }
+
+    private  void confirmacionDeDatos(){
+        String mensaje = null;
+
+        if(nombreObtenido.getText().length() == 0){//si no hay nombre
+            mensaje = "Falta escribir el nombre del Jugador";
+        }
+        if(nombreObtenido.getText().length() < 6){
+            mensaje = "El nombre debe ser mayor de 6 caracteres";
+        }
+
+        if(colorSeleccionado == null){
+            mensaje = "Falta escoger el color";
+        }
+
+        if(razaSeleccionada == null){
+            mensaje = "Falta escoger la raza";
+        }
+
+        //que salga una ventana de emergencia
+        if((nombreObtenido.getText().length() == 0) || (nombreObtenido.getText().length() < 6) || (colorSeleccionado == null) || (razaSeleccionada == null)){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
+            alert.setTitle("UPSS");
+            alert.setContentText(mensaje);
+            alert.showAndWait();
+        }
+
+        //debe estar en estado valido
+        if((nombreObtenido.getText().length() > 6)  & (colorSeleccionado != null) & (razaSeleccionada != null)){
+            this.estadoValido = true;
+        }
+
+
     }
 }
