@@ -1,9 +1,7 @@
 package edu.fiuba.algo3.modelo.Mapa;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupada;
-import edu.fiuba.algo3.modelo.Exception.CasillaOcupadaPorZangano;
 import edu.fiuba.algo3.modelo.Exception.NoCumplePrerequisito;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.*;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaTerrestre;
@@ -60,15 +58,6 @@ public class Casilla {
         construccion = unaConstruccion;
     }
 
-    public void avanzarTurno(Mapa mapa){
-        if (this.hayConstruccion()){
-            construccion.avanzarTurno(mapa);
-
-        } else if (this.hayUnidad()) {
-            unidad.construir();
-        }
-    }
-
     public void agregar(Construccion unaConstruccion){
         if (hayConstruccion()){
             throw new CasillaOcupada();
@@ -76,6 +65,15 @@ public class Casilla {
         recurso.esPosibleConstruir(unaConstruccion);
         terreno.esPosibleConstruir(unaConstruccion);
         construccion = unaConstruccion;
+    }
+
+    public void avanzarTurno(Mapa mapa){
+        if (this.hayConstruccion()){
+            construccion.avanzarTurno(mapa);
+
+        } else if (this.hayUnidad()) {
+            unidad.construir();
+        }
     }
 
 
@@ -101,12 +99,6 @@ public class Casilla {
             construccion.destruir(mapa);
         }
         construccion=null;
-    }
-    public boolean esConstruccion(Construccion construccionRadio) {
-        if(this.hayConstruccion()){
-            return construccionRadio.getClass().equals(construccion.getClass()); //Arreglar este getClass()
-        }
-        return false;
     }
 
     public void atacar(Unidad unidadAtacante) {

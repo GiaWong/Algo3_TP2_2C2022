@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.modelo.Construccion;
 
 import edu.fiuba.algo3.modelo.Acciones.Vida;
-import edu.fiuba.algo3.modelo.Exception.EdificioNoEstaOperativo;
-import edu.fiuba.algo3.modelo.Exception.NoCumplePrerequisito;
 import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
@@ -15,14 +13,7 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 import edu.fiuba.algo3.modelo.Unidades.Zangano;
-import edu.fiuba.algo3.modelo.Unidades.Zerling;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class ReservaProduccion extends ConstruccionZerg {
-
-    private final ArrayList<Larva> larvas = new ArrayList<>();
 
     public ReservaProduccion(){
         costos.add(150); //esto es para Mineral
@@ -39,17 +30,6 @@ public class ReservaProduccion extends ConstruccionZerg {
     }
 
     public void verificarPrerequisito(Mapa mapa) {
-    }
-
-    public void agregarLarva(Larva larva){
-        larvas.add(larva);
-    }
-
-    public Unidad crearZerling() throws EdificioNoEstaOperativo {
-
-        verificarEdificioOperativo();
-        //return creacion.crearZerling();
-        return null;
     }
 
     public boolean esPrerequisito(Construccion construccion){

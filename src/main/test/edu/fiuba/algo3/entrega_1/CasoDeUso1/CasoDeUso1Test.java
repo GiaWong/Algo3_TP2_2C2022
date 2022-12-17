@@ -19,7 +19,7 @@ public class CasoDeUso1Test {
         BancoDeRecursos bancoDeRecursos = new BancoDeRecursos();
         Criadero criadero = new Criadero(0); //se crea con 3 larvas
 
-        Unidad zangano = criadero.evolucionarLarva(bancoDeRecursos);
+        Unidad zangano = criadero.crearZangano(bancoDeRecursos);
 
         assertNotEquals(null, zangano);
 
@@ -30,7 +30,7 @@ public class CasoDeUso1Test {
         BancoDeRecursos bancoDeRecursos = new BancoDeRecursos();
         Criadero criadero = new Criadero(0); //se crea con 3 larvas
 
-        Unidad zangano1 = criadero.evolucionarLarva(bancoDeRecursos);
+        Unidad zangano1 = criadero.crearZangano(bancoDeRecursos);
         criadero.avanzarTurno(mapa);
 
         assertNotEquals(null, zangano1);
@@ -43,8 +43,8 @@ public class CasoDeUso1Test {
         BancoDeRecursos bancoDeRecursos = new BancoDeRecursos();
         Criadero criadero = new Criadero(0); //se crea con 3 larvas
 
-        Unidad zangano1 = criadero.evolucionarLarva(bancoDeRecursos);
-        Unidad zangano2 = criadero.evolucionarLarva(bancoDeRecursos);
+        Unidad zangano1 = criadero.crearZangano(bancoDeRecursos);
+        Unidad zangano2 = criadero.crearZangano(bancoDeRecursos);
         criadero.avanzarTurno(mapa);
 
         assertNotEquals(null, zangano1);

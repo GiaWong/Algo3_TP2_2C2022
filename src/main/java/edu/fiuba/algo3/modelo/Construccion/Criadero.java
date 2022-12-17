@@ -7,7 +7,6 @@ import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Exception.NoSePuedeConstruirEsteEdificioSobreUnRecurso;
 import edu.fiuba.algo3.modelo.Jugador.BancoDeRecursos;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
-import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.SinRecurso;
@@ -20,7 +19,7 @@ import edu.fiuba.algo3.modelo.Unidades.Zangano;
 
 import java.util.ArrayList;
 
-public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
+public class Criadero extends ConstruccionZerg{
 
     private final ArrayList<Larva> larvas = new ArrayList<>();
 
@@ -64,12 +63,29 @@ public class Criadero extends ConstruccionZerg implements ConstruccionConRadio{
 
     }
 
-    public Unidad evolucionarLarva(BancoDeRecursos bancoDeRecursos) throws EdificioNoEstaOperativo {
+    public Unidad crearZangano(BancoDeRecursos bancoDeRecursos) throws EdificioNoEstaOperativo {
         verificarEdificioOperativo();
         Larva larva = larvas.get(0);
         larvas.remove(0);
-        bancoDeRecursos.comprar(new Zangano()); //Esto puede ir en un futuro de distinta manera
-        return larva.crearZangano();
+        Unidad zangano = larva.crearZangano();
+        bancoDeRecursos.comprar(zangano); //Esto puede ir en un futuro de distinta manera
+        return zangano;
+    }
+    public Unidad crearZerling(BancoDeRecursos bancoDeRecursos) throws EdificioNoEstaOperativo{
+        verificarEdificioOperativo();
+        Larva larva = larvas.get(0);
+        larvas.remove(0);
+        Unidad zerling = larva.crearZerling();
+        bancoDeRecursos.comprar(zerling); //Esto puede ir en un futuro de distinta manera
+        return zerling;
+    }
+    
+    public Unidad crearHidralisco() {
+        return null;
+    }
+    
+    public Unidad crearMutalisco() {
+        return null;
     }
 
     public boolean tieneMismaCantidadDeLarvas(int cantidadDeLarvas) {

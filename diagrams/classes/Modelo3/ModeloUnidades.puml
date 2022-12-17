@@ -16,8 +16,6 @@ abstract class Unidad {
     - vida
     - tiempoConstruccion
     - costos
-    - defendible
-    - atacador
     + construir()
     + atacar()
     + recibirDanio(danio)

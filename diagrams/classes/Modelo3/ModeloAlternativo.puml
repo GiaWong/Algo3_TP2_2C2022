@@ -16,7 +16,6 @@ class Partida {
 class Jugador {
     - nombre
     - color
-    - raza
 
     + jugar(mapa, turno)
     + contruir()
@@ -38,15 +37,11 @@ abstract class Raza {
 class Zerg {
     + agregar(construccion)
     + agregar(unidad)
-    + recolectar()
-    + crearUnidad()
 }
 
 class Protoss {
     + agregar(construccion)
     + agregar(unidad)
-    + recolectar()
-    + crearUnidad()
 }
 
 abstract class Construccion {
@@ -77,9 +72,6 @@ class Mapa {
 
 class Casilla {
     - coordenada
-    - recurso
-    - terreno
-    - area
 
     + agregarUnidad()
     + agregarConstruccion()

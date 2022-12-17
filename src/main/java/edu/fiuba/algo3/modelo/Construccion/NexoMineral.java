@@ -28,19 +28,19 @@ public class NexoMineral extends ConstruccionProtoss implements RefineriaMineral
         tiempoConstruccion = 4;
     }
 
-    public boolean esPrerequisito(Construccion construccion){
-        return false;
-    }
-
-    public void verificarPrerequisito(Mapa mapa) {
-    }
-
     public NexoMineral(int tiempoDeConstruccion){
         costos.add(50); //esto es para Mineral
         costos.add(0); //esto es para Gas
         vida = new Vida(250);
         escudo = new Escudo(250);
         tiempoConstruccion = tiempoDeConstruccion;
+    }
+
+    public boolean esPrerequisito(Construccion construccion){
+        return false;
+    }
+
+    public void verificarPrerequisito(Mapa mapa) {
     }
 
     public void regenerarEscudo(){
@@ -55,7 +55,6 @@ public class NexoMineral extends ConstruccionProtoss implements RefineriaMineral
     public void avanzarTurno() {
         this.regenerarEscudo();
         this.construir();
-
     }
 
     @Override

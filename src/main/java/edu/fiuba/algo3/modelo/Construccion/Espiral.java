@@ -21,12 +21,6 @@ import java.util.List;
 
 public class Espiral extends ConstruccionZerg {
 
-    private final ConstruccionZerg preRequisito = new Guarida();
-
-    private Mutalisco zerg;
-
-    private final ArrayList<Larva> larvas = new ArrayList<>();
-
     public Espiral(){
         costos.add(150); //esto es para Mineral
         costos.add(100); //esto es para Gas
@@ -48,31 +42,11 @@ public class Espiral extends ConstruccionZerg {
     public void verificarPrerequisito(Mapa mapa) {
     }
 
-    public boolean preRequisito(List<Construccion> lista){ //Hay que cambiar
-        if(lista!=null) {
-            for (Construccion construccion : lista) {
-                if (construccion.getClass().equals(preRequisito.getClass())) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
     public int obtenerVida() {return vida.vidaActual(); }
 
 
     public void regenerarVida(){
         vida.regenerarSalud(5);
-    }
-
-    public void agregarLarva(Larva larva){
-        larvas.add(larva);
-    }
-
-    public Unidad crearMutalisco() throws EdificioNoEstaOperativo {
-        verificarEdificioOperativo();
-        return new Mutalisco();
     }
 
     public void avanzarTurno() {

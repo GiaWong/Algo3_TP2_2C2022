@@ -91,10 +91,6 @@ class Acceso {
      +esPosibleConstruirEn()
 }
 
-interface ConstruccionConRadio {
-    +ampliarRadio()
-}
-
 interface RefineriaGas {
     +recolectar(Volcan)
 }
@@ -118,7 +114,7 @@ interface MutadorUnidad {
 }
 
 Detectable ..|> Defendible
-Defendible --* Construccion
+Defendible --o Construccion
 
 Zerg --> ConstruccionZerg
 Protoss --> ConstruccionProtoss
@@ -136,9 +132,6 @@ ConstruccionProtoss <|---- Pilon
 ConstruccionProtoss <|---- Asimilador
 ConstruccionProtoss <|---- Acceso
 ConstruccionProtoss <|---- PuertoEstelar
-
-Criadero ..|> ConstruccionConRadio
-Pilon ..|> ConstruccionConRadio
 
 NexoMineral ..|> RefineriaMineral
 Extractor ..|> RefineriaGas

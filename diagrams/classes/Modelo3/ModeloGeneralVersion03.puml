@@ -15,8 +15,6 @@ class Partida {
 class Jugador {
     - nombre
     - color
-    - raza
-    - turno
 
     + elegirAccion(mapa)
     + ejecutarAccion()
@@ -71,12 +69,9 @@ class Mapa {
 }
 
 class Casilla {
-    - coordenada
+
     - construccion
     - unidad
-    - recurso
-    - terreno
-    - area
 
     + agregarUnidad()
     + agregarConstruccion()

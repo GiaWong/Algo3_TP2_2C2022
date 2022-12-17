@@ -19,7 +19,6 @@ public class Jugador {
         this.setRaza(unaRaza);
     }
 
-
     public void setNombre(String unNombre) throws NombreDeberiaTener6caracteresComoMinimo {
 
         if (unNombre.length() < 6) {
@@ -49,8 +48,8 @@ public class Jugador {
         raza.elegirAccion(turno, mapa);
     }
 
-    public  void asignarAccion(Accion acc){
-        accion = acc;
+    public  void asignarAccion(Accion unaAccion){
+        accion = unaAccion;
     }
 
 

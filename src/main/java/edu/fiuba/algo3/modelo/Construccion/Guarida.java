@@ -19,11 +19,6 @@ import java.util.List;
 
 public class Guarida extends ConstruccionZerg {
 
-    private final ConstruccionZerg preRequisito = new ReservaProduccion();
-    private final Unidad hidralisco = new Hidralisco();
-
-    private final ArrayList<Larva> larvas = new ArrayList<>();
-
     public Guarida(){
         costos.add(200); //esto es para Mineral
         costos.add(100); //esto es para Gas
@@ -80,10 +75,6 @@ public class Guarida extends ConstruccionZerg {
     }
 
 
-
-
-
-
     public void verificarPrerequisito(Mapa mapa) throws NoCumplePrerequisito {
         if(!mapa.cumplePrerequisito(this)){
             throw new NoCumplePrerequisito();
@@ -95,20 +86,6 @@ public class Guarida extends ConstruccionZerg {
 
     public void regenerarVida(){
         vida.regenerarSalud(5);
-    }
-
-    public void agregarLarva(Larva larva){
-        larvas.add(larva);
-    }
-
-    public Unidad crearHidralisco() throws EdificioNoEstaOperativo { //Deberia pasarle la casilla y asignarle la unidad a casilla
-        verificarEdificioOperativo();
-        return new Hidralisco();
-    }
-
-    public void construirUnidad() { //Esto seria el metodo de crearUnidad()
-        this.hidralisco.construir();
-
     }
 
     public void avanzarTurno() {
