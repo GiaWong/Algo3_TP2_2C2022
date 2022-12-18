@@ -1,7 +1,6 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.vista.PantallaInicial;
-import edu.fiuba.algo3.vista.PantallaMapa;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -15,7 +14,7 @@ public class App extends Application {
         primaryStage.setTitle("AlgoStar");
 
         //ReproductorMusica musicaInicial = new ReproductorMusica();
-        PantallaInicial pantalla = new PantallaInicial(primaryStage);
+        new PantallaInicial(primaryStage);
         //PantallaMapa mapa = new PantallaMapa(primaryStage);
 
 

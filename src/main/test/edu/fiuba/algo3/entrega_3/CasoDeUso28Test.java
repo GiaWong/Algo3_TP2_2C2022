@@ -19,7 +19,7 @@ public class CasoDeUso28Test {
     @Test
     public void  NoSepuedeAtacarAlZelotCuandoEstaInvisible(){
         Zealot zealot = new Zealot();
-        Mapa mapa = new Mapa(20,20);
+        Mapa mapa = new Mapa(20,10);
         Zerling zerling = new Zerling();
         Zerling zerling1 = new Zerling();
         Zerling zerling2 = new Zerling();
@@ -47,7 +47,7 @@ public class CasoDeUso28Test {
 
     public void  SepuedeAtacarAlZelotCuandoEstaInvisiblePeroHayUnAmoSupremoEnRango(){
         Zealot zealot = new Zealot();
-        Mapa mapa = new Mapa(20,20);
+        Mapa mapa = new Mapa(20,10);
         Zerling zerling = new Zerling();
         Zerling zerling1 = new Zerling();
         Zerling zerling2 = new Zerling();

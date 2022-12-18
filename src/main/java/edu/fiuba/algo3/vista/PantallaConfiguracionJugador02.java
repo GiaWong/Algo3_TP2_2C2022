@@ -153,14 +153,15 @@ public class PantallaConfiguracionJugador02 {
 
         comboColores.setOnAction(e -> {
             this.colorSeleccionado = comboColores.getValue();
-            System.out.print("\nSe seleccionó el color: " + this.colorSeleccionado);
+            System.out.print("\n\nSe seleccionó el color: " + this.colorSeleccionado);
+            System.out.print("\n\n====================COMANDOS_DEL_MAPA===================\n\n");
         });
     }
     private void capturarSeleccionRaza(ComboBox<String> comboRaza) {
 
         comboRaza.setOnAction(e -> {
             this.razaSeleccionada = comboRaza.getValue();
-            System.out.print("\nSe seleccionó la raza: " + this.razaSeleccionada);
+            System.out.print("\n\nSe seleccionó la raza: " + this.razaSeleccionada);
         });
 
         //ver el tema para que no se repita la raza con el jugador 1

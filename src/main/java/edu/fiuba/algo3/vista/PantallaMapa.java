@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.controlador.mapa.ControladorMapa;
 import edu.fiuba.algo3.controlador.ventanas.CerrarJuegoBoton;
 import edu.fiuba.algo3.controlador.ventanas.CerrarJuegoVentana;
 import edu.fiuba.algo3.controlador.ventanas.VolverPantallaAnterior;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -23,13 +22,14 @@ public class PantallaMapa {
     private int base ;
     private int altura;
     private GridPane panelDelMapaVisual;
+    private ControladorMapa controlMapa;
 
     public PantallaMapa(Stage stage) {
         this.stage=stage;
         this.panelDelMapaVisual = new GridPane();
         this.base = 20;
         this.altura = 10;
-        //mostrarMapa();
+        this.controlMapa = new ControladorMapa(base, altura);
 
     }
 
@@ -49,10 +49,14 @@ public class PantallaMapa {
                 boton.getItems().add(m1);
                 boton.getItems().add(m2);
 
+                int finalJ = j;
+                int finalI = i;
+                m1.setOnAction(e -> controlMapa.ejecutarAtaque(finalJ, finalI));
+                int finalJ1 = j;
+                int finalI1 = i;
+                m2.setOnAction(e -> controlMapa.ejecutarCreacion(finalJ1, finalI1));
 
                 establecerRecursosAlTerreno(boton, i, j, m1,m2);
-
-                boton.setOnAction(e -> realizarAccion(boton)); //para cuando se haga click
                 this.panelDelMapaVisual.add(boton, i, j);
             }
         }
@@ -101,14 +105,6 @@ public class PantallaMapa {
         botonVolverMenu.setOnAction(pantallaAnterior);
     }
 
-    //ver why no aparece por consola!!??
-    private void realizarAccion(MenuButton boton) {
-        //mensaje en la consola
-        System.out.print("\nclikeando a la casilla columna: " + GridPane.getColumnIndex(boton) + "  y fila: " + GridPane.getRowIndex(boton));
-        //Al hacer click cambiar color del boton
-        //boton.setStyle("-fx-background-color: MediumSeaGreen");
-
-    }
 
 
     /*
@@ -123,7 +119,7 @@ public class PantallaMapa {
 
             File fileFondo = new File("imagenes/volcan.png");
             colocarIconoALaCasilla(fileFondo.toURI().toString(),boton);
-            configurarOpcionesCasillaConRecurso(boton, m1, m2);
+            configurarOpcionesCasillaConRecurso(boton, m1, m2, base, altura);
         }
 
 
@@ -133,7 +129,7 @@ public class PantallaMapa {
 
             File fileFondo2 = new File("imagenes/mineral.png");
             colocarIconoALaCasilla(fileFondo2.toURI().toString(),boton);
-            configurarOpcionesCasillaConRecurso(boton, m1, m2);
+            configurarOpcionesCasillaConRecurso(boton, m1, m2, base, altura);
         }
     }
 
@@ -147,17 +143,18 @@ public class PantallaMapa {
 
     }
 
-    private void configurarOpcionesCasillaConRecurso(MenuButton boton, MenuItem m1, MenuItem m2) {
+    private void configurarOpcionesCasillaConRecurso(MenuButton boton, MenuItem m1, MenuItem m2, int base, int altura) {
 
         MenuItem m3 = new MenuItem("extraer");
         MenuItem m4 = new MenuItem("construir");
+
         boton.getItems().remove(m1);
         boton.getItems().remove(m2);
-
-
         boton.getItems().add(m3);
         boton.getItems().add(m4);
 
+        m3.setOnAction(e -> controlMapa.ejecutarExtraer(altura, base));
+        m4.setOnAction(e -> controlMapa.ejecutarConstruir(altura, base));
     }
 
 

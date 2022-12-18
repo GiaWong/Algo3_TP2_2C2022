@@ -23,13 +23,14 @@ public class CampoTextoBoton implements EventHandler<ActionEvent> {
             labeel.setText(this.mensajeIncorrecto);
             labeel.setStyle("-fx-text-inner-color: #EF3030");
             campoTexto.setStyle("-fx-background-color: rgba(255,0,0,0.6);");
-            System.out.print("\nNombre ingresado NO VALIDO");
+            System.out.print("\n\nNombre ingresado NO VALIDO");
         }else{
             //aca deberia setearse el jugador.setNombre(campoTexto.getText())
             labeel.setText("ok");
             labeel.setStyle("-fx-text-inner-color: #7d9707;");
             campoTexto.setStyle("-fx-text-inner-color: #7d9707");
-            System.out.print("\nNombre ingresado: " + campoTexto.getText());
+            System.out.print("\n\n*******************************************************");
+            System.out.print("\n\nNombre ingresado: " + campoTexto.getText());
 
 
         }

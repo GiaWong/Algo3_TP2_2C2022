@@ -1,17 +1,13 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.selectores.CampoTextoEnter;
-import edu.fiuba.algo3.controlador.ventanas.SiguientePantalla;
 import edu.fiuba.algo3.controlador.ventanas.VolverPantallaAnterior;
 import edu.fiuba.algo3.modelo.Jugador.Protoss;
 import edu.fiuba.algo3.modelo.Jugador.Raza;
 import edu.fiuba.algo3.modelo.Jugador.Zerg;
 import edu.fiuba.algo3.modelo.Partida.Partida;
-import edu.fiuba.algo3.vista.ventanasAuxiliares.VentanaPopUp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -159,7 +155,7 @@ public class PantallaConfiguracionJugador01 {
 
         comboColores.setOnAction(e -> {
             this.colorSeleccionado = comboColores.getValue();
-            System.out.print("\nSe seleccionó el color: " + this.colorSeleccionado);
+            System.out.print("\n\nSe seleccionó el color: " + this.colorSeleccionado);
         });
     }
 
@@ -168,7 +164,7 @@ public class PantallaConfiguracionJugador01 {
 
         comboRaza.setOnAction(e -> {
             this.razaSeleccionada = comboRaza.getValue();
-            System.out.print("\nSe seleccionó la raza: " + this.razaSeleccionada);
+            System.out.print("\n\nSe seleccionó la raza: " + this.razaSeleccionada);
         });
 
         //ver el tema para que no se repita la raza con el jugador 2
