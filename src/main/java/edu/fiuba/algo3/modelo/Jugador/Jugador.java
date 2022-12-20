@@ -73,7 +73,8 @@ public class Jugador {
     }
 
     public boolean tieneMismaRaza(Raza otraRaza) {
-        return raza.equals(otraRaza); //No se si esto lo toma
+        return raza.getClass().equals(otraRaza.getClass());
+        //return raza.equals(otraRaza); //No se si esto lo toma
     }
 
     public boolean tieneConstrucciones(Mapa mapa){

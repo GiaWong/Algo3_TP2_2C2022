@@ -19,6 +19,7 @@ public abstract class Raza {
     protected Accion comando;
 
     protected Hashtable<String, Accion> acciones = new Hashtable<String, Accion>();
+    public abstract String nombre();
 
     public void comprar(Construccion construccion) {
         banco.comprar(construccion);

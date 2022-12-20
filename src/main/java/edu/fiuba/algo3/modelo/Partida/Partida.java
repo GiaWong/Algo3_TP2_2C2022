@@ -19,7 +19,7 @@ public class Partida {
         if(jugadorUno==null) {
             jugadorUno = jugador;
         }
-        else if(jugadorUno.comparar(jugador)){
+        else if(!jugadorUno.comparar(jugador)){
             jugadorDos = jugador;
         }
         else{
@@ -50,4 +50,5 @@ public class Partida {
     }
 
     public Jugador primerJugador() { return jugadorUno; }
+    public Jugador segundoJugador() { return jugadorDos; }
 }

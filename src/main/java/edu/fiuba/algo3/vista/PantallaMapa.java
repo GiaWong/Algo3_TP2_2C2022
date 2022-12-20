@@ -1,9 +1,11 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.mapa.ControladorMapa;
+import edu.fiuba.algo3.controlador.turnos.ControladorTurnos;
 import edu.fiuba.algo3.controlador.ventanas.CerrarJuegoBoton;
 import edu.fiuba.algo3.controlador.ventanas.CerrarJuegoVentana;
 import edu.fiuba.algo3.controlador.ventanas.VolverPantallaAnterior;
+import edu.fiuba.algo3.modelo.Jugador.Zerg;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -15,6 +17,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.Objects;
 
 
 public class PantallaMapa {
@@ -23,6 +26,7 @@ public class PantallaMapa {
     private int altura;
     private GridPane panelDelMapaVisual;
     private ControladorMapa controlMapa;
+    private ControladorTurnos controlTurnos;
 
     public PantallaMapa(Stage stage) {
         this.stage=stage;
@@ -30,6 +34,7 @@ public class PantallaMapa {
         this.base = 20;
         this.altura = 10;
         this.controlMapa = new ControladorMapa(base, altura);
+        System.out.print("\n\n====================COMANDOS_DEL_MAPA===================\n\n");
 
     }
 
@@ -60,6 +65,13 @@ public class PantallaMapa {
                 this.panelDelMapaVisual.add(boton, i, j);
             }
         }
+
+        establecerConfiguracionesPanelMapa();
+
+
+    }
+
+    private void establecerConfiguracionesPanelMapa() {
 
         //configurando panel del mapa
         this.panelDelMapaVisual.setPadding(new Insets(15, 15, 15, 15));
@@ -158,4 +170,19 @@ public class PantallaMapa {
     }
 
 
+    public void setTurnos(ControladorTurnos controlTurnos) {
+        this.controlTurnos = controlTurnos;
+
+        if(this.controlTurnos.esDeRaza(new Zerg()) ){
+
+
+            //hará cosas de los zergs opciones de las casillas
+        }else{
+
+
+            //hará cosas de los protoss opciones de las casillas
+
+        }
+
+    }
 }

@@ -17,9 +17,8 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
 import java.io.File;
-import java.util.Objects;
+
 
 public class PantallaConfiguracionJugador01 {
 
@@ -34,11 +33,12 @@ public class PantallaConfiguracionJugador01 {
     Raza raza;
     private  boolean estadoValido;
     String colorSeleccionado;
-
+    private boolean indicador;
 
 
     public PantallaConfiguracionJugador01(Stage stage, Partida unaPartida) {
         this.stage = stage;
+        this.indicador = false;
         this.partida = unaPartida;
         this.botonCancelar = new Button("Cancelar");
         this.botonContinuar = new Button("Continuar");
@@ -58,8 +58,6 @@ public class PantallaConfiguracionJugador01 {
 
         VBox vbox = new VBox();
         VBox.setVgrow(vbox, Priority.ALWAYS );
-
-
         Label labelNombreJugador = new Label("Nombre jugador 1:");
         aplicarEstiloDeLetra(labelNombreJugador);
 
@@ -68,7 +66,6 @@ public class PantallaConfiguracionJugador01 {
         this.nombreObtenido.setOnKeyPressed( enterNombre );
         this.nombreObtenido.setMinWidth(200);
         this.nombreObtenido.setPromptText("Ingrese un nombre");
-
 
 
 
@@ -89,11 +86,6 @@ public class PantallaConfiguracionJugador01 {
         //TODO: capturar la opcion elejida y guardarlo en un atributo
         capturarSeleccionColores(comboColores);
 
-
-        if(nombreObtenido.getText().length() > 6){//para que  no le tome como longitud cero
-            this.partida.agregarJugador(nombreObtenido.getText(), this.colorSeleccionado, this.raza);
-
-        }
 
 
         HBox horizontalRaza = new HBox(labelRaza, comboRaza);
@@ -151,6 +143,8 @@ public class PantallaConfiguracionJugador01 {
         this.stage.show();
     }
 
+
+
     private void capturarSeleccionColores(ComboBox<String> comboColores) {
 
         comboColores.setOnAction(e -> {
@@ -163,17 +157,19 @@ public class PantallaConfiguracionJugador01 {
 
 
         comboRaza.setOnAction(e -> {
+
             this.razaSeleccionada = comboRaza.getValue();
             System.out.print("\n\nSe seleccionó la raza: " + this.razaSeleccionada);
+
+            //ver el tema para que no se repita la raza con el jugador 2
+            if(this.razaSeleccionada == "Zergs"){
+                this.raza = new Zerg();
+            }else{
+                this.raza = new Protoss();
+            }
         });
 
-        //ver el tema para que no se repita la raza con el jugador 2
-        if(Objects.equals(this.razaSeleccionada, "Zergs")){
-            this.raza = new Zerg();
 
-        }else{
-            this.raza = new Protoss();
-        }
 
 
     }
@@ -193,10 +189,25 @@ public class PantallaConfiguracionJugador01 {
         botonContinuar.setOnAction(e ->{
             confirmacionDeDatos();
             if(estadoValido){
+                setearDatosALaPartida();
                 new PantallaConfiguracionJugador02(this.stage, this.partida);
             }
 
         });
+    }
+    private void setearDatosALaPartida(){
+
+        if(nombreObtenido.getText().length() > 6){//para que  no le tome como longitud cero en estado inicial
+            this.partida.agregarJugador(nombreObtenido.getText(), this.colorSeleccionado, this.raza);
+            this.indicador = true;
+
+        }
+
+        if(this.indicador){
+            System.out.print("\n\nGuardando datos...\n");
+        }else {
+            System.out.print("\n\nNo se guardó los datos!!!\n");
+        }
     }
 
     private  void confirmacionDeDatos(){

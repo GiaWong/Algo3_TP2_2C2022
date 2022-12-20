@@ -2,8 +2,8 @@ package edu.fiuba.algo3.vista;
 
 
 import edu.fiuba.algo3.controlador.selectores.CampoTextoEnter;
+import edu.fiuba.algo3.controlador.turnos.ControladorTurnos;
 import edu.fiuba.algo3.controlador.ventanas.VolverPantallaAnterior;
-import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Jugador.Protoss;
 import edu.fiuba.algo3.modelo.Jugador.Raza;
 import edu.fiuba.algo3.modelo.Jugador.Zerg;
@@ -30,12 +30,14 @@ public class PantallaConfiguracionJugador02 {
     Button botonCancelar;
     TextField nombreObtenido;
     private Partida partida;
+    private ControladorTurnos controlTurnos;
     private Label validacionNombre;
     private Boolean estadoValido;
     String razaSeleccionada;
     Raza raza;
     String colorSeleccionado;
     String mensaje;
+    private boolean indicador;
 
     public PantallaConfiguracionJugador02(Stage stage , Partida unaPartida) {
         this.stage = stage;
@@ -46,6 +48,7 @@ public class PantallaConfiguracionJugador02 {
         this.colorSeleccionado = null;
         this.razaSeleccionada = null;
         this.raza = null;
+        this.indicador = false;
         this.mensaje = null;
         this.estadoValido = false;
         this.validacionNombre = new Label("Debe ser solo 6 caracteres");
@@ -85,12 +88,6 @@ public class PantallaConfiguracionJugador02 {
 
         //TODO: capturar la opcion elejida y guardarlo en un atributo
         capturarSeleccionColores(comboColores);
-
-
-        if(nombreObtenido.getText().length() > 6){ //para que  no le tome como longitud cero
-            this.partida.agregarJugador(nombreObtenido.getText(), this.colorSeleccionado, this.raza);
-
-        }
 
 
 
@@ -154,7 +151,7 @@ public class PantallaConfiguracionJugador02 {
         comboColores.setOnAction(e -> {
             this.colorSeleccionado = comboColores.getValue();
             System.out.print("\n\nSe seleccionó el color: " + this.colorSeleccionado);
-            System.out.print("\n\n====================COMANDOS_DEL_MAPA===================\n\n");
+
         });
     }
     private void capturarSeleccionRaza(ComboBox<String> comboRaza) {
@@ -188,10 +185,29 @@ public class PantallaConfiguracionJugador02 {
 
         botonJugar.setOnAction(e -> {
             confirmacionDeDatos();
+
             if(estadoValido){
-                new PantallaMapa(this.stage).mostrarMapa();
+                setearDatosDePartida();
+
+                this.controlTurnos = new ControladorTurnos(this.partida);//para saber con qué jugador iniciar
+                PantallaMapa pantallaMapa = new PantallaMapa(this.stage);
+                pantallaMapa.setTurnos(this.controlTurnos);//para saber qué mostrar en pantalla segun turnos
+                pantallaMapa.mostrarMapa();
+
             }
         });
+    }
+
+    private void setearDatosDePartida() {
+        if(nombreObtenido.getText().length() > 6){ //para que  no le tome como longitud cero
+            this.partida.agregarJugador(nombreObtenido.getText(), this.colorSeleccionado, this.raza);
+            this.indicador = true;
+        }
+        if(this.indicador){
+            System.out.print("\n\nGuardando datos...\n");
+        }else {
+            System.out.print("\n\nNo se guardó los datos!!!\n");
+        }
     }
 
     private void confirmacionDeDatos() {
@@ -236,7 +252,7 @@ public class PantallaConfiguracionJugador02 {
      * Falta ver el tema de qu no se rpitan los datos con el jugador1
      */
 
-    private void validarDatosRepetidos() {
+    /*private void validarDatosRepetidos() {
 
         Jugador primerJugador = this.partida.primerJugador();
 
@@ -258,5 +274,5 @@ public class PantallaConfiguracionJugador02 {
         if ((!primerJugador.tieneMismoNombre(nombreObtenido.getText())) & (!primerJugador.tieneMismaRaza(this.raza)) & (!primerJugador.tieneMismoColor(colorSeleccionado))) {
             this.estadoValido = true;
         }
-    }
+    }*/
 }

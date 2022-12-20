@@ -38,6 +38,11 @@ public class Zerg extends Raza {
     }
 
     @Override
+    public String nombre() {
+        return "Zergs";
+    }
+
+    @Override
     public void elegirAccion(Turno turno, Mapa mapa) {
         //Pedirle al usuario que ingrese algo por consola
         String accion = System.in.toString();

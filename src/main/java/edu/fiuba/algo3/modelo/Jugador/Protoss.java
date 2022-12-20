@@ -1,19 +1,12 @@
 package edu.fiuba.algo3.modelo.Jugador;
 
-import edu.fiuba.algo3.modelo.Comandos.*;
-import edu.fiuba.algo3.modelo.Construccion.Acceso;
+
 import edu.fiuba.algo3.modelo.Construccion.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Turno.Turno;
-import edu.fiuba.algo3.modelo.Unidades.Dragon;
-import edu.fiuba.algo3.modelo.Unidades.Scout;
 import edu.fiuba.algo3.modelo.Unidades.UnidadProtoss;
-import edu.fiuba.algo3.modelo.Unidades.Zealot;
-import javafx.scene.layout.CornerRadii;
 
-import java.util.Arrays;
-import java.util.Scanner;
 
 public class Protoss extends Raza {
 
@@ -40,6 +33,11 @@ public class Protoss extends Raza {
     public void agregar(UnidadProtoss unidad, Coordenada coordenada, Mapa mapa) {
         this.comprar(unidad);
         mapa.agregar(unidad, coordenada);
+    }
+
+    @Override
+    public String nombre() {
+        return "Protoss";
     }
 
     @Override
