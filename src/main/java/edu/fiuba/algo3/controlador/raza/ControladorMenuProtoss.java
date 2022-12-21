@@ -5,8 +5,8 @@ import edu.fiuba.algo3.modelo.Construccion.*;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 
-public class ControladorBotonesProtoss {
-    public Menu establecerBotones(Menu m2, int i, int j, ControladorMapa controlMapa) {
+public class ControladorMenuProtoss {
+    public Menu establecerMenus(Menu m2, int i, int j, ControladorMapa controlMapa) {
 
         MenuItem m3 = new MenuItem("Pilon");
         MenuItem m4 = new MenuItem("Nexo");

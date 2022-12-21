@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.Exception.JugadorDosNoPuedeTenerLosMismosAtributosQueJugadorUno;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Jugador.Raza;
+import edu.fiuba.algo3.modelo.Jugador.Zerg;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 
@@ -25,7 +26,7 @@ public class Partida {
         }
     }
 
-    public void elejirAlJugadorQueComienzaPrimero(){
+    private void elejirAlJugadorQueComienzaPrimero(){
 
         double numeroRandom = Math.random();
         if(numeroRandom<0.5){
@@ -49,8 +50,8 @@ public class Partida {
             turno.jugar();
             turno.cambiarTurno(jugadorUno, jugadorDos);
         }
-        Jugador jugadorGanador = this.seleccionarJugadorQueGano(jugadorUno, jugadorDos);
-        System.out.println("Juego terminado. Ganador "); //Debería poner que jugador salió ganador.
+        //Jugador jugadorGanador = this.seleccionarJugadorQueGano(jugadorUno, jugadorDos);
+        //System.out.println("Juego terminado. Ganador "); //Debería poner que jugador salió ganador.
     }
 
     private Jugador seleccionarJugadorQueGano(Jugador jugadorUno, Jugador jugadorDos) {
@@ -70,4 +71,8 @@ public class Partida {
 
     public Jugador primerJugador() { return jugadorUno; }
     public Jugador segundoJugador() { return jugadorDos; }
+
+    public boolean tieneMismaRaza(Zerg zerg) {
+        return turno.tieneMismaRaza(zerg);
+    }
 }

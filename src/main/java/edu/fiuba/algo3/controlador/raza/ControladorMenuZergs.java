@@ -5,14 +5,14 @@ import edu.fiuba.algo3.modelo.Construccion.*;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 
-public class ControladorBotonesZergs {
+public class ControladorMenuZergs {
 
     private Menu m2;
-    public ControladorBotonesZergs() {
+    public ControladorMenuZergs() {
 
     }
 
-    public Menu establecerBotones(Menu m2, int i, int j, ControladorMapa controlMapa) {
+    public Menu establecerMenus(Menu m2, int i, int j, ControladorMapa controlMapa) {
 
         MenuItem m3 = new MenuItem("Criadero");
         MenuItem m4 = new MenuItem("Espiral");

@@ -2,7 +2,7 @@ package edu.fiuba.algo3.vista;
 
 
 import edu.fiuba.algo3.controlador.selectores.CampoTextoEnter;
-import edu.fiuba.algo3.controlador.turnos.ControladorTurnos;
+import edu.fiuba.algo3.controlador.partida.ControladorPartida;
 import edu.fiuba.algo3.controlador.ventanas.VolverPantallaAnterior;
 import edu.fiuba.algo3.modelo.Jugador.Protoss;
 import edu.fiuba.algo3.modelo.Jugador.Raza;
@@ -30,7 +30,7 @@ public class PantallaConfiguracionJugador02 {
     Button botonCancelar;
     TextField nombreObtenido;
     private Partida partida;
-    private ControladorTurnos controlTurnos;
+    private ControladorPartida controladorPartida;
     private Label validacionNombre;
     private Boolean estadoValido;
     String razaSeleccionada;
@@ -189,10 +189,10 @@ public class PantallaConfiguracionJugador02 {
             if(estadoValido){
                 setearDatosDePartida();
 
-                this.controlTurnos = new ControladorTurnos(this.partida);//para saber con qué jugador iniciar
+                this.controladorPartida = new ControladorPartida(this.partida);//para saber con qué jugador iniciar
                 PantallaMapa pantallaMapa = new PantallaMapa(this.stage);
                 //pantallaMapa.setTurnos(this.controlTurnos);
-                pantallaMapa.mostrarMapa(this.controlTurnos);//para saber qué mostrar en pantalla segun turnos
+                pantallaMapa.mostrarMapa(this.controladorPartida);//para saber qué mostrar en pantalla segun jugadores
 
             }
         });

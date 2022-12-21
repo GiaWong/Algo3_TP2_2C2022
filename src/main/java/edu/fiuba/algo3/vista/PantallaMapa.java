@@ -1,13 +1,12 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.mapa.ControladorMapa;
-import edu.fiuba.algo3.controlador.raza.ControladorBotonesProtoss;
-import edu.fiuba.algo3.controlador.raza.ControladorBotonesZergs;
-import edu.fiuba.algo3.controlador.turnos.ControladorTurnos;
+import edu.fiuba.algo3.controlador.raza.ControladorMenuProtoss;
+import edu.fiuba.algo3.controlador.raza.ControladorMenuZergs;
+import edu.fiuba.algo3.controlador.partida.ControladorPartida;
 import edu.fiuba.algo3.controlador.ventanas.CerrarJuegoBoton;
 import edu.fiuba.algo3.controlador.ventanas.CerrarJuegoVentana;
 import edu.fiuba.algo3.controlador.ventanas.VolverPantallaAnterior;
-import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Jugador.Zerg;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -29,15 +28,15 @@ public class PantallaMapa {
     private int altura;
     private GridPane panelDelMapaVisual;
     private ControladorMapa controlMapa;
-    private ControladorTurnos controlTurnos;
-    private ControladorBotonesZergs botonesZergs;
-    private ControladorBotonesProtoss botonesProtoss;
+    private ControladorPartida controladorPartida;
+    private ControladorMenuZergs botonesZergs;
+    private ControladorMenuProtoss botonesProtoss;
 
     public PantallaMapa(Stage stage) {
         this.stage=stage;
         this.panelDelMapaVisual = new GridPane();
-        this.botonesProtoss = new ControladorBotonesProtoss();
-        this.botonesZergs = new ControladorBotonesZergs();
+        this.botonesProtoss = new ControladorMenuProtoss();
+        this.botonesZergs = new ControladorMenuZergs();
         this.base = 20;
         this.altura = 10;
         this.controlMapa = new ControladorMapa(base, altura);
@@ -46,9 +45,10 @@ public class PantallaMapa {
 
     }
 
-    public void mostrarMapa(ControladorTurnos controlTurnos) {
+    public void mostrarMapa(ControladorPartida control) {
 
-        this.controlTurnos = controlTurnos;
+        this.controladorPartida = control;
+        this.controladorPartida.empezarAJugar();
 
         for(int i=0; i< base; i++){
             for(int j=0; j< altura; j++){
@@ -60,14 +60,16 @@ public class PantallaMapa {
                 MenuItem m1 = new MenuItem("atacar");
                 Menu  m2 = new Menu ("crear");
 
-                if(this.controlTurnos.esDeRaza(new Zerg()) ){
-                    // opciones de las casillas para Zergs
-                    m2 = this.botonesZergs.establecerBotones(m2, i, j, controlMapa);
 
+                /**
+                 * Para saber con qué raza empezar a establecer los menus
+                 * */
+                if(this.controladorPartida.tieneMismaRaza(new Zerg()) ){
+                    // opciones de las casillas para Zergs
+                    m2 = this.botonesZergs.establecerMenus(m2, i, j, controlMapa);
                 }else{
                     // opciones de las casillas para Protoss
-                    m2 = this.botonesProtoss.establecerBotones(m2,i,j,controlMapa);
-
+                    m2 = this.botonesProtoss.establecerMenus(m2,i,j,controlMapa);
                 }
 
                 boton.getItems().add(m1);
@@ -99,6 +101,7 @@ public class PantallaMapa {
         HBox contenedorHorizontal = new HBox();
         Button botonSalir = new Button("Salir del juego");
         Button botonVolverAlMenu = new Button("Volver al menu");
+        Button botonCambiarTurno = new Button("Cambiar Turno");
         contenedorHorizontal.setAlignment(Pos.TOP_CENTER);
         contenedorHorizontal.getChildren().addAll(botonVolverAlMenu, botonSalir);
         contenedorHorizontal.setSpacing(40);

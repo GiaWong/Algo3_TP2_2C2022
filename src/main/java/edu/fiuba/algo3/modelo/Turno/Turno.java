@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Turno;
 
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
+import edu.fiuba.algo3.modelo.Jugador.Zerg;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 
 public class Turno {
@@ -34,4 +35,7 @@ public class Turno {
         return jugador.tieneConstrucciones(mapa);
     }
 
+    public boolean tieneMismaRaza(Zerg zerg) {
+        return jugador.tieneMismaRaza(zerg);
+    }
 }

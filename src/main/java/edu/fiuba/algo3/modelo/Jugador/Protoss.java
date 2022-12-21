@@ -43,7 +43,7 @@ public class Protoss extends Raza {
     @Override
     public void elegirAccion(Turno turno, Mapa mapa) {
         //Pedirle al usuario que ingrese algo por consola
-       // Scanner sc = new Scanner(System.in);
+        // Scanner sc = new Scanner(System.in);
         //System.out.println("Ingrese La accion que desea Ejecutar");
         //String comando = sc.nextLine();
         //var miComando = comando.split(" ");

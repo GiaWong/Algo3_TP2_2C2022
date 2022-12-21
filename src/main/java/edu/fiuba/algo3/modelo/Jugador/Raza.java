@@ -42,11 +42,11 @@ public abstract class Raza {
     public void ejecutarAccion() {
         comando.ejecutar();
     }
-    
+
     public void asignarAccion(Accion unaAccion) {
         comando = unaAccion;
     }
-    
+
     public abstract void elegirAccion(Turno turno, Mapa mapa);
 
     public abstract boolean tieneConstrucciones(Mapa mapa);

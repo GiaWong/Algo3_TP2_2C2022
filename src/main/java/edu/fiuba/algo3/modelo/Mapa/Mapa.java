@@ -114,8 +114,8 @@ public class Mapa {
     }
 
     public boolean hayConstruccion(Coordenada coordenada) {
-       Casilla casilla = this.buscar(coordenada);
-       return casilla.hayConstruccion();
+        Casilla casilla = this.buscar(coordenada);
+        return casilla.hayConstruccion();
     }
 
     public Unidad devolverUnidad(Coordenada coord){
@@ -157,7 +157,7 @@ public class Mapa {
     public void avanzarTurno(){
         for(int i=0; i < base; i++) {
             for (int j = 0; j < altura; j++) {
-                    mapa[i][j].avanzarTurno(this);
+                mapa[i][j].avanzarTurno(this);
             }
         }
     }
