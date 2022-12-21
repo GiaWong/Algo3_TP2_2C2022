@@ -118,6 +118,7 @@ public class Espiral extends ConstruccionZerg {
     public void aumentarSuministro(Suministro suministro) {}
 
     public void destruir(Mapa mapa){
+        mapa.disminuirEdificioZerg();
     }
 
     public void esPosibleAgregarUnidad(Unidad unaUnidad){

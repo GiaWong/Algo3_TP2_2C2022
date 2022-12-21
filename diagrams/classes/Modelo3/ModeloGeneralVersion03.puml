@@ -4,17 +4,14 @@
 class Partida {
     - jugadorUno
     - jugadorDos
-    - mapa
 
-    + asignarNombre(Jugador)
-    + asignarColor(Jugador)
-    + asignarRaza(Jugador)
     + jugar()
 }
 
 class Jugador {
     - nombre
     - color
+    - accion
 
     + elegirAccion(mapa)
     + ejecutarAccion()
@@ -24,23 +21,24 @@ class Jugador {
 abstract class Raza {
     - bancoDeRecursos
     - capacidadSuministro
-    - accion
 
     + comprar(construccion)
     + comprar(unidad)
-    + elegirAccion(turno, mapa)
-    + ejecutarAccion()
-    + asignarAccion(accion)
+    + tieneConstrucciones()
 }
 
 class Zerg {
     - acciones
-    + elegirAccion(turno, mapa)
+    + agregar(construccion)
+    + agregar(unidad)
+    + tieneConstrucciones()
 }
 
 class Protoss {
     - acciones
-    + elegirAccion(turno, mapa)
+    + agregar(construccion)
+    + agregar(unidad)
+    + tieneConstrucciones()
 }
 
 abstract class Construccion {
@@ -120,11 +118,10 @@ class NodoMineral {
 }
 
 class Turno {
-    - estaJugando : bool
-    +sigueJugando()
-    +dejarDeJugar()
-    +jugar()
 
+    +jugar()
+    +cambiarTurno()
+    +sigueJugando()
 }
 
 interface Recurso {
@@ -132,31 +129,31 @@ interface Recurso {
 }
 
 
-Partida "2" *- Jugador
-Mapa -o Partida
-Jugador o-up- Turno
+Partida "2" o-- Jugador
+Partida o-- Turno
+Turno -> Jugador
 
 Jugador *- Raza
 Raza <|-- Zerg
 Raza <|-- Protoss
-
 Zerg --> ConstruccionZerg
 Protoss --> ConstruccionProtoss
-ConstruccionProtoss --|> Construccion
-ConstruccionZerg --|> Construccion
+ConstruccionZerg ..|> Construccion
+ConstruccionProtoss ..|> Construccion
 
-Casilla "*" -* Mapa
-Terreno -* Casilla
+Mapa o- Turno
+Casilla -* "*" Mapa
 Coordenada --o Casilla
-Casilla *-- Recurso
 
+Casilla *-left- Terreno
+Terreno <|.. ConEnergia
+Terreno <|.. ConMoho
+Terreno <|.. SinTerreno
+
+Casilla *-- Recurso
 Recurso <|.. Volcan
 Recurso <|.. NodoMineral
 Recurso <|.. SinRecurso
-
-ConMoho ..|> Terreno
-Terreno <|.. ConEnergia
-SinTerreno .|> Terreno
 
 interface Area{
  +esPosibleAgregar(unidad)
@@ -169,8 +166,10 @@ class AreaEspacial{
 }
 
 Casilla *-- Area
-Area <|.. AreaTerrestre
 Area <|.. AreaEspacial
+Area <|.. AreaTerrestre
+
+
 
 
 

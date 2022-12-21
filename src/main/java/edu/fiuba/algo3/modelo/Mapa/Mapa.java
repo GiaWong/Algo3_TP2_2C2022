@@ -123,6 +123,7 @@ public class Mapa {
         return casilla.devolverUnidad();
     }
 
+    /*
     public void cantidadEdificios(){
         edificiosProtoss =0;
         edificiosZerg=0;
@@ -149,8 +150,10 @@ public class Mapa {
         return (edificiosProtoss == 0 || edificiosZerg == 0);
     }
 
+     */
 
-    public boolean tipoTerreno (Terreno terreno,int fila, int columna){
+
+    public boolean tipoTerreno (Terreno terreno,int fila, int columna){ //Se usa solo para el CasoDeUso9
         return (mapa[fila][columna]).tipoTerreno(terreno);
     }
 
@@ -177,5 +180,9 @@ public class Mapa {
     public void aumentarEdificioZerg(){
         edificiosZerg += 1;
     }
+
+    public void disminuirEdificioProtoss() { edificiosProtoss -= 1; }
+
+    public void disminuirEdificioZerg() { edificiosZerg -= 1; }
 
 }

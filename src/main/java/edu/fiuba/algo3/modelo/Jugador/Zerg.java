@@ -25,6 +25,7 @@ public class Zerg extends Raza {
     public void agregar(ConstruccionZerg construccion, Coordenada coordenada, Mapa mapa) { //Teniendo ahora comandos, nose si va a hacer falta usar este metodo
         this.comprar(construccion);
         mapa.agregar(construccion, coordenada);
+        mapa.aumentarEdificioZerg();
     }
 
     public void agregar(UnidadZerg unidad, Coordenada coordenada, Mapa mapa) {
@@ -40,15 +41,17 @@ public class Zerg extends Raza {
     public String nombre() {
         return "Zergs";
     }
+    /*
 
     @Override
     public void elegirAccion(Turno turno, Mapa mapa) {
         //Pedirle al usuario que ingrese algo por consola
-        String accion = System.in.toString();
         //Fijarnos si dicha Accion pertenece al rango de las Acciones disponibles en Zerg (Con una lista, diccionario o algo):
-        Accion unaAccion = (Accion) comandos.get(accion);
-        this.asignarAccion(unaAccion); //seleccionar dicho comando de Accion
+        //Accion unaAccion = (Accion) comandos.get(accion);
+        //this.asignarAccion(unaAccion);
     }
+
+     */
 
     public void amoDestruido() {
         suministro.disminuirCapacidad(5);
@@ -57,5 +60,7 @@ public class Zerg extends Raza {
     @Override
     public boolean tieneConstrucciones(Mapa mapa) {
         return mapa.tieneConstruccionesZerg();
-    }
+    } //Capaz que se tiene que encargar el suministro
+    // Si no se encarga suministro, cuando el jugador alcanze su maximo de suministro
+    // y si se mueren construcciones, no va a poder seguir construyendo.
 }

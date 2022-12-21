@@ -52,5 +52,9 @@ public class Suministro {
         capacidadSuministro -= unaCantidad;
     }
 
+    public boolean haySuministro(){
+        return capacidadSuministro > 0;
+    }
+
 
 }

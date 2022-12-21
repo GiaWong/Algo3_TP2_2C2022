@@ -6,9 +6,9 @@ import edu.fiuba.algo3.modelo.Unidades.Unidad;
 
 public class Ataque implements Accion{
 
-    private  Unidad unidadAtacante;
+    private Unidad unidadAtacante;
 
-    private  Unidad unidadDefensiva;
+    private Unidad unidadDefensiva;
 
 
     public Ataque(){

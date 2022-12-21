@@ -58,7 +58,7 @@ public class Casilla {
         construccion = unaConstruccion;
     }
 
-    public void agregar(Construccion unaConstruccion){
+    public void agregar(Construccion unaConstruccion){ //Creo que este metodo ya no lo usamos
         if (hayConstruccion()){
             throw new CasillaOcupada();
         }
@@ -76,8 +76,6 @@ public class Casilla {
         }
     }
 
-
-
     public boolean hayConstruccion() {
         DestruirConstruccionMuerta();
         return (construccion != null );
@@ -86,19 +84,12 @@ public class Casilla {
     public boolean hayUnidad() {
         return (unidad != null);
     }
-    public void construccionProtoss(){
-        construccion.esProtoss();
-    }
-
-    public void construccionZerg(){
-        construccion.esZerg();
-    }
 
     public void destruirConstruccion(Mapa mapa) {
-        if(construccion!=null){
+        if(construccion != null){
             construccion.destruir(mapa);
         }
-        construccion=null;
+        construccion = null;
     }
 
     public void atacar(Unidad unidadAtacante) {
@@ -142,14 +133,13 @@ public class Casilla {
         return (terreno.getClass().equals(otroTerreno.getClass()));
     }
 
-    public boolean esPrerequisito(Construccion construccion1) {
+    public boolean esPrerequisito(Construccion unaConstruccion) {
         if(construccion != null){
-            return construccion.esPrerequisito(construccion1);
+            return construccion.esPrerequisito(unaConstruccion);
         } else {
             return false;
         }
     }
 
-    public void destruirUnidad() { unidad = null;
-    }
+    public void destruirUnidad() { unidad = null; }
 }

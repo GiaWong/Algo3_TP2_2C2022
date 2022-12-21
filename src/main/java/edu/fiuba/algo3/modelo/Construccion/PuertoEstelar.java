@@ -149,6 +149,7 @@ public class PuertoEstelar extends ConstruccionProtoss {
     }
 
     public void destruir(Mapa mapa){
+        mapa.disminuirEdificioProtoss();
     }
 
     public void esPosibleAgregarUnidad(Unidad unaUnidad){

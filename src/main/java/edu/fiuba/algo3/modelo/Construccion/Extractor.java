@@ -142,6 +142,7 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
     }
 
     public void destruir(Mapa mapa){
+        mapa.disminuirEdificioZerg();
     }
 
     public void esPosibleAgregarUnidad(Unidad unaUnidad){

@@ -127,6 +127,7 @@ public  class Acceso extends ConstruccionProtoss{
     public void aumentarSuministro(Suministro suministro) {}
 
     public void destruir(Mapa mapa){
+        mapa.disminuirEdificioProtoss();
     }
 
     public void esPosibleAgregarUnidad(Unidad unaUnidad){

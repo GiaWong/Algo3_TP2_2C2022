@@ -27,6 +27,7 @@ public class Protoss extends Raza {
     public void agregar(ConstruccionProtoss construccion, Coordenada coordenada, Mapa mapa) {
         this.comprar(construccion);
         mapa.agregar(construccion, coordenada);
+        mapa.aumentarEdificioProtoss();
     }
 
 
@@ -40,19 +41,6 @@ public class Protoss extends Raza {
         return "Protoss";
     }
 
-    @Override
-    public void elegirAccion(Turno turno, Mapa mapa) {
-        //Pedirle al usuario que ingrese algo por consola
-        // Scanner sc = new Scanner(System.in);
-        //System.out.println("Ingrese La accion que desea Ejecutar");
-        //String comando = sc.nextLine();
-        //var miComando = comando.split(" ");
-        //String accion = System.in.toString();
-        //Fijarnos si dicha Accion pertenece al rango de las Acciones disponibles en Zerg (Con una lista, diccionario o algo):
-        //Accion unaAccion = this.asignarAccion();
-        //this.asignarAccion(unaAccion); //seleccionar dicho comando de Accion
-    }
-
 
     public void pilonDestruido() { suministro.disminuirCapacidad(5);
     }
@@ -60,5 +48,7 @@ public class Protoss extends Raza {
     @Override
     public boolean tieneConstrucciones(Mapa mapa){
         return mapa.tieneConstruccionesProtoss();
-    }
+    } //Capaz que se tiene que encargar el suministro
+    // Si no se encarga suministro, cuando el jugador alcanze su maximo de suministro
+    // y si se mueren construcciones, no va a poder seguir construyendo.
 }

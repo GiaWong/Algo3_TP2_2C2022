@@ -199,5 +199,6 @@ public class Criadero extends ConstruccionZerg{
     }
 
     public void destruir(Mapa mapa){
+        mapa.aumentarEdificioZerg();
     }
 }

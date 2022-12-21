@@ -4,21 +4,19 @@ import edu.fiuba.algo3.modelo.Exception.JugadorDosNoPuedeTenerLosMismosAtributos
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Jugador.Raza;
 import edu.fiuba.algo3.modelo.Jugador.Zerg;
-import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 
 public class Partida {
 
     private Jugador jugadorUno;
     private Jugador jugadorDos;
-
     private Turno turno;
 
     public void asignarJugador(Jugador jugador)throws JugadorDosNoPuedeTenerLosMismosAtributosQueJugadorUno {
         if(jugadorUno==null) {
             jugadorUno = jugador;
         }
-        else if(!jugadorUno.comparar(jugador)){
+        else if(!jugadorUno.esIgualA(jugador)){
             jugadorDos = jugador;
         }
         else{
@@ -50,18 +48,8 @@ public class Partida {
             turno.jugar();
             turno.cambiarTurno(jugadorUno, jugadorDos);
         }
-        //Jugador jugadorGanador = this.seleccionarJugadorQueGano(jugadorUno, jugadorDos);
-        //System.out.println("Juego terminado. Ganador "); //Debería poner que jugador salió ganador.
-    }
-
-    private Jugador seleccionarJugadorQueGano(Jugador jugadorUno, Jugador jugadorDos) {
-        /*
-        if (jugadorUno.tieneConstrucciones(mapa)){
-            return jugadorUno;
-        }
-
-         */
-        return jugadorDos;
+        Jugador jugadorGanador = turno.seleccionarJugadorQueGano(jugadorUno, jugadorDos);
+        System.out.println("Juego terminado. Ganador "); //Debería poner que jugador salió ganador.
     }
 
     public void agregarJugador(String nombre,String color,Raza raza) {

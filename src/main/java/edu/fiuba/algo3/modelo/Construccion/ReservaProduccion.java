@@ -120,6 +120,7 @@ public class ReservaProduccion extends ConstruccionZerg {
     }
 
     public void destruir(Mapa mapa){
+        mapa.disminuirEdificioZerg();
     }
 
     public void esPosibleAgregarUnidad(Unidad unaUnidad){

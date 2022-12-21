@@ -50,9 +50,6 @@ public class  Asimilador extends ConstruccionProtoss implements RefineriaGas {
         this.construir();
     }
 
-    public void destruir(Mapa mapa){
-    }
-
     public void permiteConstruirConUnidad(Unidad unidad){
 
     }
@@ -114,6 +111,10 @@ public class  Asimilador extends ConstruccionProtoss implements RefineriaGas {
     @Override
     public void esPosibleConstruirEn(SinRecurso sinRecurso) {
         throw new ErrorEsteEdificioSoloSeConstruyeEnUnRecurso();
+    }
+
+    public void destruir(Mapa mapa){
+        mapa.disminuirEdificioProtoss();
     }
 
     @Override

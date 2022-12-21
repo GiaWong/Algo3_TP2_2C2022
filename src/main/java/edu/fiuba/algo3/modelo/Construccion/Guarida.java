@@ -67,13 +67,6 @@ public class Guarida extends ConstruccionZerg {
 
     }
 
-    public void destruir(Mapa mapa){
-    }
-
-    public void esPosibleAgregarUnidad(Unidad unaUnidad){
-
-    }
-
 
     public void verificarPrerequisito(Mapa mapa) throws NoCumplePrerequisito {
         if(!mapa.cumplePrerequisito(this)){
@@ -92,22 +85,22 @@ public class Guarida extends ConstruccionZerg {
         this.regenerarVida();
         this.construir();
     }
+
     @Override
     public void avanzarTurno(Mapa mapa) {
         this.regenerarVida();
         this.construir();
     }
-
     @Override
     public void esPosibleConstruirEn(ConEnergia energia){
         throw new NoHayMoho();
 
     }
+
     @Override
     public void esPosibleConstruirEn(ConMoho moho){
 
     }
-
     @Override
     public void esPosibleConstruirEn(SinTerreno nada) {
         throw new NoSePuedeConstruirEnEsteTerreno();
@@ -130,6 +123,14 @@ public class Guarida extends ConstruccionZerg {
 
     @Override
     public void aumentarSuministro(Suministro suministro) {
+
+    }
+
+    public void destruir(Mapa mapa){
+        mapa.disminuirEdificioZerg();
+    }
+
+    public void esPosibleAgregarUnidad(Unidad unaUnidad){
 
     }
 }
