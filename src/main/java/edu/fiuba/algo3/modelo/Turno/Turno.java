@@ -8,59 +8,45 @@ import edu.fiuba.algo3.modelo.Partida.Partida;
 
 public class Turno {
 
-    private Partida partida;
+    //private Partida partida;
 
     private Mapa mapa;
     private Jugador jugador;
-    private boolean estaJugando = false;
+    //private boolean estaJugando = false;
 
-    public Turno(Jugador unJugador) { this.jugador = unJugador; }
+    public Turno(Jugador unJugador) {
+        this.jugador = unJugador;
+        this.mapa = new Mapa(20,20);
+    }
 
+    /*
     public Turno(Partida partida) {
         this.partida = partida;
     }
 
-    /**
-     * Se elije al azar el que comienza primero (jugador 1 o jugador 2) y
-     * luego siga, ej: Si selecciono aleatoriamente que comienza el jugador numero 2,
-     * luego dice que continué el jugador numero 1,luego el 2 y así hasta acabar el juego.
-     * */
-    public void elejirAlJugadorQueComienzaPrimero(){
+     */
 
-        double numeroRandom = Math.random();
-        if(numeroRandom<0.5){
 
-            //asignar turno del jugador 1*
-            this.jugador = this.partida.primerJugador();
-            System.out.print("\n-Turno del jugador 1\n");
+    public void cambiarTurno(Jugador unJugador, Jugador otroJugador){
 
-        }else{
-
-            //asignar turno del jugador 2*
-            this.jugador = this.partida.segundoJugador();
-            System.out.print("\n-Turno del jugador 2\n");
-        }
-
-    }
-
-    /**
-     * Usar este método cada vez que termina un turno de un jugador
-     * */
-    public void cambiarTurno(){
-
-        if(this.jugador==this.partida.primerJugador()){
-            this.jugador= this.partida.segundoJugador();
+        if(jugador.comparar(unJugador)){
+            this.jugador = unJugador;
             System.out.print("\n=>Turno del jugador 2");
         }
 
-        if(this.jugador==this.partida.segundoJugador()){
-            this.jugador= this.partida.primerJugador();
+        if(jugador.comparar(otroJugador)){
+            this.jugador = otroJugador;
             System.out.print("\n=>Turno del jugador 1");
         }
     }
 
+    public void jugar(){
+        jugador.jugar(mapa);
+    }
+
     public boolean esDeRaza(Zerg zerg) {
-        return this.jugador.tieneMismaRaza(zerg);
+        //return this.jugador.tieneMismaRaza(zerg);
+        return false;
     }
 
     /*
@@ -69,14 +55,9 @@ public class Turno {
     }
      */
 
-    public void jugar(){
-        jugador.jugar(mapa);
-        this.cambiarTurno();
-    }
-
     public void dejarDeJugar() {
 
-        estaJugando = false;
+        //estaJugando = false;
     }
 
     //public boolean sigueJugando(){ return estaJugando; }

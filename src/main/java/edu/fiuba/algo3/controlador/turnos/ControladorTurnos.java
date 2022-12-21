@@ -9,7 +9,7 @@ public class ControladorTurnos {
     private Turno turno;
     public ControladorTurnos(Partida partida) {
 
-        this.turno = new Turno(partida);
+        //this.turno = new Turno(partida);
     }
 
     /**
@@ -17,7 +17,7 @@ public class ControladorTurnos {
      * */
     public boolean esDeRaza(Zerg zerg) {
 
-        turno.elejirAlJugadorQueComienzaPrimero();
+        //turno.elejirAlJugadorQueComienzaPrimero();
         return this.turno.esDeRaza(zerg);
 
     }
