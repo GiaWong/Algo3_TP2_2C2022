@@ -56,4 +56,9 @@ public class Protoss extends Raza {
 
     public void pilonDestruido() { suministro.disminuirCapacidad(5);
     }
+
+    @Override
+    public boolean tieneConstrucciones(Mapa mapa){
+        return mapa.tieneConstruccionesProtoss();
+    }
 }

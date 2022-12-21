@@ -18,8 +18,8 @@ public class ControladorTurnos {
     public boolean esDeRaza(Zerg zerg) {
 
         //turno.elejirAlJugadorQueComienzaPrimero();
-        return this.turno.esDeRaza(zerg);
-
+        //return this.turno.esDeRaza(zerg);
+        return false;
     }
     
 }

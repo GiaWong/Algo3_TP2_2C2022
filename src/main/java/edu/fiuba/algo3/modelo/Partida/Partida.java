@@ -12,11 +12,6 @@ public class Partida {
     private Jugador jugadorDos;
 
     private Turno turno;
-    //private final Mapa mapa;
-
-    public Partida() {
-        //mapa = new Mapa(20 ,10);
-    }
 
     public void asignarJugador(Jugador jugador)throws JugadorDosNoPuedeTenerLosMismosAtributosQueJugadorUno {
         if(jugadorUno==null) {
@@ -36,7 +31,6 @@ public class Partida {
         if(numeroRandom<0.5){
 
             //asignar turno del jugador 1*
-            //this.jugador = this.partida.primerJugador();
             turno = new Turno(jugadorUno);
             System.out.print("\n-Turno del jugador 1\n");
 
@@ -51,22 +45,21 @@ public class Partida {
 
     public void jugar() {
         elejirAlJugadorQueComienzaPrimero();
-        //mapa.inicializarMapaCon2Bases();
-        //while (mapa.finJuego()) {
         while (turno.sigueJugando()) {
             turno.jugar();
             turno.cambiarTurno(jugadorUno, jugadorDos);
-            //jugadorUno.jugar(mapa);
-            //jugadorDos.jugar(mapa);
         }
         Jugador jugadorGanador = this.seleccionarJugadorQueGano(jugadorUno, jugadorDos);
         System.out.println("Juego terminado. Ganador "); //Debería poner que jugador salió ganador.
     }
 
     private Jugador seleccionarJugadorQueGano(Jugador jugadorUno, Jugador jugadorDos) {
+        /*
         if (jugadorUno.tieneConstrucciones(mapa)){
             return jugadorUno;
         }
+
+         */
         return jugadorDos;
     }
 

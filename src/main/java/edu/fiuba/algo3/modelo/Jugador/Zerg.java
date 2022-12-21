@@ -54,4 +54,9 @@ public class Zerg extends Raza {
     public void amoDestruido() {
         suministro.disminuirCapacidad(5);
     }
+
+    @Override
+    public boolean tieneConstrucciones(Mapa mapa) {
+        return mapa.tieneConstruccionesZerg();
+    }
 }

@@ -49,5 +49,7 @@ public abstract class Raza {
     
     public abstract void elegirAccion(Turno turno, Mapa mapa);
 
+    public abstract boolean tieneConstrucciones(Mapa mapa);
+
 
 }

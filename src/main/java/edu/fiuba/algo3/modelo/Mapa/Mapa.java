@@ -45,6 +45,7 @@ public class Mapa {
         Casilla casilla = this.buscar(coord);
         construccion.asignarPosicion(coord);
         casilla.agregar(construccion,this);
+
     }
 
 
@@ -159,6 +160,22 @@ public class Mapa {
                     mapa[i][j].avanzarTurno(this);
             }
         }
+    }
+
+    public boolean tieneConstruccionesProtoss(){
+        return (edificiosProtoss > 0);
+    }
+
+    public boolean tieneConstruccionesZerg(){
+        return (edificiosZerg > 0);
+    }
+
+    public void aumentarEdificioProtoss(){
+        edificiosProtoss += 1;
+    }
+
+    public void aumentarEdificioZerg(){
+        edificiosZerg += 1;
     }
 
 }

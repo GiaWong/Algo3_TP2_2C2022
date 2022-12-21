@@ -78,7 +78,7 @@ public class Jugador {
     }
 
     public boolean tieneConstrucciones(Mapa mapa){
-        return true; //Como hago este metodo
+        return raza.tieneConstrucciones(mapa);
     }
 
 }
