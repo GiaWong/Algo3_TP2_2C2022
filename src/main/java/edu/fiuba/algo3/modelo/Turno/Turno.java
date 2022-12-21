@@ -58,8 +58,15 @@ public class Turno {
         return this.jugador.tieneMismaRaza(zerg);
     }
 
+    /*
     public void jugar(){
         estaJugando = true;
+    }
+     */
+
+    public void jugar(){
+        //jugador.jugar();
+        this.cambiarTurno();
     }
 
     public void dejarDeJugar() {

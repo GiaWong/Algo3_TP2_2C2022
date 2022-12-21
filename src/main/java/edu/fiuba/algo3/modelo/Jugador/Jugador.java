@@ -44,7 +44,7 @@ public class Jugador {
         mapa.avanzarTurno();
     }
 
-    private void elegirAccion(Mapa mapa,Accion accion) {
+    private void elegirAccion(Mapa mapa, Accion accion) {
         raza.elegirAccion(turno, mapa);
     }
 

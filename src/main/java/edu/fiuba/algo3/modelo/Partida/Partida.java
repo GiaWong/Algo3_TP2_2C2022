@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Exception.JugadorDosNoPuedeTenerLosMismosAtributos
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Jugador.Raza;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
+import edu.fiuba.algo3.modelo.Turno.Turno;
 
 public class Partida {
 
@@ -28,10 +29,13 @@ public class Partida {
     }
 
     public void jugar() {
+        Turno turno = new Turno(this);
+        turno.elejirAlJugadorQueComienzaPrimero();
         mapa.inicializarMapaCon2Bases();
         while (mapa.finJuego()) {
-            jugadorUno.jugar(mapa);
-            jugadorDos.jugar(mapa);
+            turno.jugar();
+            //jugadorUno.jugar(mapa);
+            //jugadorDos.jugar(mapa);
         }
         Jugador jugadorGanador = this.seleccionarJugadorQueGano(jugadorUno, jugadorDos);
         System.out.println("Juego terminado. Ganador "); //Debería poner que jugador salió ganador.
