@@ -10,6 +10,8 @@ public class Partida {
 
     private Jugador jugadorUno;
     private Jugador jugadorDos;
+
+    private Turno turno;
     private final Mapa mapa;
 
     public Partida() {
@@ -29,10 +31,10 @@ public class Partida {
     }
 
     public void jugar() {
-        Turno turno = new Turno(this);
         turno.elejirAlJugadorQueComienzaPrimero();
-        mapa.inicializarMapaCon2Bases();
-        while (mapa.finJuego()) {
+        //mapa.inicializarMapaCon2Bases();
+        //while (mapa.finJuego()) {
+        while (turno.sigueJugando()) {
             turno.jugar();
             //jugadorUno.jugar(mapa);
             //jugadorDos.jugar(mapa);

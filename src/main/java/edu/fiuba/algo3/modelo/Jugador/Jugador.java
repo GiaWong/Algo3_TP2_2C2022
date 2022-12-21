@@ -3,7 +3,6 @@ package edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Comandos.Accion;
 import edu.fiuba.algo3.modelo.Exception.NombreDeberiaTener6caracteresComoMinimo;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
-import edu.fiuba.algo3.modelo.Turno.Turno;
 
 public class Jugador {
 
@@ -11,7 +10,6 @@ public class Jugador {
     private String color;
     private Raza raza;
     private  Accion accion;
-    private Turno turno;
 
     public Jugador(String unNombre, String unColor, Raza unaRaza){
         this.setNombre(unNombre);
@@ -36,16 +34,18 @@ public class Jugador {
     }
 
     public void jugar(Mapa mapa){
-        turno.jugar();
+        /*
         while (turno.sigueJugando()) {
             this.elegirAccion(mapa,accion);
             this.ejecutarAccion();
         }
         mapa.avanzarTurno();
+
+         */
     }
 
     private void elegirAccion(Mapa mapa, Accion accion) {
-        raza.elegirAccion(turno, mapa);
+        //raza.elegirAccion(turno, mapa);
     }
 
     public  void asignarAccion(Accion unaAccion){
@@ -61,7 +61,7 @@ public class Jugador {
     }
 
     public void finalizarTurno(){
-        turno.dejarDeJugar();
+        //turno.dejarDeJugar();
     }
 
     public boolean tieneMismoNombre(String otroNombre){

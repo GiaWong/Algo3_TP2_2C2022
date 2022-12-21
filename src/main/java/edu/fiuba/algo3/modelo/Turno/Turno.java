@@ -3,13 +3,18 @@ package edu.fiuba.algo3.modelo.Turno;
 
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Jugador.Zerg;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Partida.Partida;
 
 public class Turno {
 
     private Partida partida;
+
+    private Mapa mapa;
     private Jugador jugador;
     private boolean estaJugando = false;
+
+    public Turno(Jugador unJugador) { this.jugador = unJugador; }
 
     public Turno(Partida partida) {
         this.partida = partida;
@@ -65,7 +70,7 @@ public class Turno {
      */
 
     public void jugar(){
-        //jugador.jugar();
+        jugador.jugar(mapa);
         this.cambiarTurno();
     }
 
@@ -74,7 +79,10 @@ public class Turno {
         estaJugando = false;
     }
 
-    public boolean sigueJugando(){ return estaJugando; }
+    //public boolean sigueJugando(){ return estaJugando; }
 
+    public boolean sigueJugando(){
+        return false;
+    }
 
 }
