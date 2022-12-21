@@ -1,6 +1,7 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.vista.PantallaInicial;
+import edu.fiuba.algo3.vista.PantallaMapa;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

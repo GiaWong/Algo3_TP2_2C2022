@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.controlador.mapa;
 
+import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 
@@ -23,7 +24,7 @@ public class ControladorMapa {
         System.out.print("\tSe ejecuta un Ataque en Altura: " + unaAltura +" y Base: " + unaBase +"\n");
     }
 
-    public void ejecutarCreacion(int unaAltura, int unaBase) {
+    public void ejecutarCreacion(int unaAltura, int unaBase, Construccion tipoConstruccion) {
         System.out.print("\tSe ejecuta una Creacion en Altura: " + unaAltura +" y Base: " + unaBase +"\n");
     }
 

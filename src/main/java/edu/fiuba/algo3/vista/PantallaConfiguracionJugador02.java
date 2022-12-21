@@ -191,8 +191,8 @@ public class PantallaConfiguracionJugador02 {
 
                 this.controlTurnos = new ControladorTurnos(this.partida);//para saber con qué jugador iniciar
                 PantallaMapa pantallaMapa = new PantallaMapa(this.stage);
-                pantallaMapa.setTurnos(this.controlTurnos);//para saber qué mostrar en pantalla segun turnos
-                pantallaMapa.mostrarMapa();
+                //pantallaMapa.setTurnos(this.controlTurnos);
+                pantallaMapa.mostrarMapa(this.controlTurnos);//para saber qué mostrar en pantalla segun turnos
 
             }
         });

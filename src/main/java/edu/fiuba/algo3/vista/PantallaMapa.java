@@ -1,15 +1,19 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.mapa.ControladorMapa;
+import edu.fiuba.algo3.controlador.raza.ControladorBotonesProtoss;
+import edu.fiuba.algo3.controlador.raza.ControladorBotonesZergs;
 import edu.fiuba.algo3.controlador.turnos.ControladorTurnos;
 import edu.fiuba.algo3.controlador.ventanas.CerrarJuegoBoton;
 import edu.fiuba.algo3.controlador.ventanas.CerrarJuegoVentana;
 import edu.fiuba.algo3.controlador.ventanas.VolverPantallaAnterior;
+import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Jugador.Zerg;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
@@ -17,7 +21,6 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.util.Objects;
 
 
 public class PantallaMapa {
@@ -27,40 +30,51 @@ public class PantallaMapa {
     private GridPane panelDelMapaVisual;
     private ControladorMapa controlMapa;
     private ControladorTurnos controlTurnos;
+    private ControladorBotonesZergs botonesZergs;
+    private ControladorBotonesProtoss botonesProtoss;
 
     public PantallaMapa(Stage stage) {
         this.stage=stage;
         this.panelDelMapaVisual = new GridPane();
+        this.botonesProtoss = new ControladorBotonesProtoss();
+        this.botonesZergs = new ControladorBotonesZergs();
         this.base = 20;
         this.altura = 10;
         this.controlMapa = new ControladorMapa(base, altura);
         System.out.print("\n\n====================COMANDOS_DEL_MAPA===================\n\n");
+        //mostrarMapa(controlTurnos);
 
     }
 
-    public void mostrarMapa() {
+    public void mostrarMapa(ControladorTurnos controlTurnos) {
 
+        this.controlTurnos = controlTurnos;
 
         for(int i=0; i< base; i++){
             for(int j=0; j< altura; j++){
 
-                //cada casilla será un menú
-                MenuButton boton = new MenuButton();
-                boton.setPrefSize(90, 95);//dimensiones de la casilla
-                boton.alignmentProperty();
 
+                MenuButton boton = new MenuButton();//cada casilla será un menú
+                boton.setPrefSize(90, 95); //dimensiones de la casilla
+                boton.alignmentProperty();
                 MenuItem m1 = new MenuItem("atacar");
-                MenuItem m2 = new MenuItem("crear");
+                Menu  m2 = new Menu ("crear");
+
+                if(this.controlTurnos.esDeRaza(new Zerg()) ){
+                    // opciones de las casillas para Zergs
+                    m2 = this.botonesZergs.establecerBotones(m2, i, j, controlMapa);
+
+                }else{
+                    // opciones de las casillas para Protoss
+                    m2 = this.botonesProtoss.establecerBotones(m2,i,j,controlMapa);
+
+                }
+
                 boton.getItems().add(m1);
                 boton.getItems().add(m2);
-
                 int finalJ = j;
                 int finalI = i;
                 m1.setOnAction(e -> controlMapa.ejecutarAtaque(finalJ, finalI));
-                int finalJ1 = j;
-                int finalI1 = i;
-                m2.setOnAction(e -> controlMapa.ejecutarCreacion(finalJ1, finalI1));
-
                 establecerRecursosAlTerreno(boton, i, j, m1,m2);
                 this.panelDelMapaVisual.add(boton, i, j);
             }
@@ -68,8 +82,8 @@ public class PantallaMapa {
 
         establecerConfiguracionesPanelMapa();
 
-
     }
+
 
     private void establecerConfiguracionesPanelMapa() {
 
@@ -129,7 +143,7 @@ public class PantallaMapa {
         // Caso Volcan
         if((base == 0 && altura==0) || (base==7 && altura==7) || (base==7 && altura==6) || (base==8 && altura==0) || (base==10 && altura==0) || (base==0 && altura==1)){
 
-            File fileFondo = new File("imagenes/volcan.png");
+            File fileFondo = new File("imagenes/RecursoVolcan.png");
             colocarIconoALaCasilla(fileFondo.toURI().toString(),boton);
             configurarOpcionesCasillaConRecurso(boton, m1, m2, base, altura);
         }
@@ -139,7 +153,7 @@ public class PantallaMapa {
         //Caso Mineral
         if((base == 10 && altura==3) || (base==8 && altura==1) || (base==9 && altura==0)|| (base==14 && altura==9) || (base==15 && altura==9) ||(base==16 && altura==9) ){
 
-            File fileFondo2 = new File("imagenes/mineral.png");
+            File fileFondo2 = new File("imagenes/RecursoMineral.png");
             colocarIconoALaCasilla(fileFondo2.toURI().toString(),boton);
             configurarOpcionesCasillaConRecurso(boton, m1, m2, base, altura);
         }
@@ -170,19 +184,5 @@ public class PantallaMapa {
     }
 
 
-    public void setTurnos(ControladorTurnos controlTurnos) {
-        this.controlTurnos = controlTurnos;
 
-        if(this.controlTurnos.esDeRaza(new Zerg()) ){
-
-
-            //hará cosas de los zergs opciones de las casillas
-        }else{
-
-
-            //hará cosas de los protoss opciones de las casillas
-
-        }
-
-    }
 }
