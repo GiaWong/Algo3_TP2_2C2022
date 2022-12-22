@@ -128,10 +128,9 @@ interface Recurso {
     + esPosibleConstruir(construccion)
 }
 
-
 Partida "2" o-- Jugador
 Partida o-- Turno
-Turno -> Jugador
+Turno "1" -> Jugador
 
 Jugador *- Raza
 Raza <|-- Zerg
@@ -141,7 +140,7 @@ Protoss --> ConstruccionProtoss
 ConstruccionZerg ..|> Construccion
 ConstruccionProtoss ..|> Construccion
 
-Mapa o- Turno
+Mapa <- Turno
 Casilla -* "*" Mapa
 Coordenada --o Casilla
 

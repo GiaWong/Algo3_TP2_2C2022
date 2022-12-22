@@ -24,19 +24,18 @@ import java.io.File;
 import java.util.Objects;
 
 public class PantallaConfiguracionJugador02 {
-
-    private Stage stage;
-    Button botonJugar ;
-    Button botonCancelar;
-    TextField nombreObtenido;
-    private Partida partida;
+    private final Stage stage;
+    private final Button botonJugar ;
+    private final Button botonCancelar;
+    private final TextField nombreObtenido;
+    private final Partida partida;
+    private final Label validacionNombre;
     private ControladorPartida controladorPartida;
-    private Label validacionNombre;
     private Boolean estadoValido;
-    String razaSeleccionada;
-    Raza raza;
-    String colorSeleccionado;
-    String mensaje;
+    private String razaSeleccionada;
+    private Raza raza;
+    private String colorSeleccionado;
+    private String mensaje;
     private boolean indicador;
 
     public PantallaConfiguracionJugador02(Stage stage , Partida unaPartida) {
@@ -249,7 +248,7 @@ public class PantallaConfiguracionJugador02 {
     }
 
     /**
-     * Falta ver el tema de qu no se rpitan los datos con el jugador1
+     * Falta ver el tema de que no se rpitan los datos con el jugador1
      */
 
     /*private void validarDatosRepetidos() {

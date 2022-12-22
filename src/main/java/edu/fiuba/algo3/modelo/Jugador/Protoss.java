@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Jugador;
 
 
+import edu.fiuba.algo3.modelo.Comandos.Accion;
 import edu.fiuba.algo3.modelo.Construccion.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
@@ -21,9 +22,11 @@ public class Protoss extends Raza {
     public Protoss(Suministro suministro){
         this.suministro = suministro;
     }
+
     public Protoss(BancoDeRecursos bancoDeRecursos){
         this.banco = bancoDeRecursos;
     }
+
     public void agregar(ConstruccionProtoss construccion, Coordenada coordenada, Mapa mapa) {
         this.comprar(construccion);
         mapa.agregar(construccion, coordenada);
@@ -36,13 +39,13 @@ public class Protoss extends Raza {
         mapa.agregar(unidad, coordenada);
     }
 
+
+    public void pilonDestruido() { suministro.disminuirCapacidad(5);
+    }
+
     @Override
     public String nombre() {
         return "Protoss";
-    }
-
-
-    public void pilonDestruido() { suministro.disminuirCapacidad(5);
     }
 
     @Override

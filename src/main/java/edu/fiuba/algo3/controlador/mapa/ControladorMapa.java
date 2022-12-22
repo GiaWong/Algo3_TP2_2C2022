@@ -8,6 +8,7 @@ public class ControladorMapa {
     private int base;
     private int altura;
     private Mapa mapa;
+
     private Coordenada coordenada;
     public ControladorMapa(int base, int altura) {
         this.base = base;

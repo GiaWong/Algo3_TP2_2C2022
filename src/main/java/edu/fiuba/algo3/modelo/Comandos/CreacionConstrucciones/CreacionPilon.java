@@ -1,5 +1,6 @@
-package edu.fiuba.algo3.modelo.Comandos;
+package edu.fiuba.algo3.modelo.Comandos.CreacionConstrucciones;
 
+import edu.fiuba.algo3.modelo.Comandos.Accion;
 import edu.fiuba.algo3.modelo.Construccion.Pilon;
 import edu.fiuba.algo3.modelo.Jugador.Raza;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;

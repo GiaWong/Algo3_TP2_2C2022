@@ -21,18 +21,16 @@ import java.io.File;
 
 
 public class PantallaConfiguracionJugador01 {
-
-    private Stage stage;
-    Button botonContinuar;
-    Button botonCancelar ;
-    TextField nombreObtenido;
-    private Partida partida;
-    private Label validacionNombre;
-
-    String razaSeleccionada;
-    Raza raza;
+    private final Stage stage;
+    private final Button botonContinuar;
+    private final Button botonCancelar ;
+    private final TextField nombreObtenido;
+    private final Partida partida;
+    private final Label validacionNombre;
+    private String razaSeleccionada;
+    private Raza raza;
     private  boolean estadoValido;
-    String colorSeleccionado;
+    private String colorSeleccionado;
     private boolean indicador;
 
 
@@ -200,7 +198,6 @@ public class PantallaConfiguracionJugador01 {
         if(nombreObtenido.getText().length() > 6){//para que  no le tome como longitud cero en estado inicial
             this.partida.agregarJugador(nombreObtenido.getText(), this.colorSeleccionado, this.raza);
             this.indicador = true;
-
         }
 
         if(this.indicador){

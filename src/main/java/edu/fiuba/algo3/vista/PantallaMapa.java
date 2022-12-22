@@ -2,7 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.mapa.ControladorMapa;
 import edu.fiuba.algo3.controlador.raza.ControladorMenuProtoss;
-import edu.fiuba.algo3.controlador.raza.ControladorMenuZergs;
+import edu.fiuba.algo3.controlador.raza.ControladorMenuZerg;
 import edu.fiuba.algo3.controlador.partida.ControladorPartida;
 import edu.fiuba.algo3.controlador.ventanas.CerrarJuegoBoton;
 import edu.fiuba.algo3.controlador.ventanas.CerrarJuegoVentana;
@@ -23,20 +23,19 @@ import java.io.File;
 
 
 public class PantallaMapa {
-    private Stage stage;
-    private int base ;
-    private int altura;
-    private GridPane panelDelMapaVisual;
-    private ControladorMapa controlMapa;
-    private ControladorPartida controladorPartida;
-    private ControladorMenuZergs botonesZergs;
-    private ControladorMenuProtoss botonesProtoss;
+    private final Stage stage;
+    private final int base ;
+    private final int altura;
+    private final GridPane panelDelMapaVisual;
+    private final ControladorMapa controlMapa;
+    private final ControladorMenuZerg botonesZerg;
+    private final ControladorMenuProtoss botonesProtoss;
 
     public PantallaMapa(Stage stage) {
         this.stage=stage;
         this.panelDelMapaVisual = new GridPane();
         this.botonesProtoss = new ControladorMenuProtoss();
-        this.botonesZergs = new ControladorMenuZergs();
+        this.botonesZerg = new ControladorMenuZerg();
         this.base = 20;
         this.altura = 10;
         this.controlMapa = new ControladorMapa(base, altura);
@@ -47,8 +46,14 @@ public class PantallaMapa {
 
     public void mostrarMapa(ControladorPartida control) {
 
-        this.controladorPartida = control;
-        this.controladorPartida.empezarAJugar();
+        control.empezarAJugar();
+        /*
+         * El control de la partida ahora se hace más sencillo.
+         * Cada acción que un jugador haga, la Partida se encargará de recibir esa acción
+         * y llevarsela al Jugador.
+         *
+         * Pero... cómo funciona este método de mostrarMapa()?
+         */
 
         for(int i=0; i< base; i++){
             for(int j=0; j< altura; j++){
@@ -61,12 +66,12 @@ public class PantallaMapa {
                 Menu  m2 = new Menu ("crear");
 
 
-                /**
+                /*
                  * Para saber con qué raza empezar a establecer los menus
                  * */
-                if(this.controladorPartida.tieneMismaRaza(new Zerg()) ){
-                    // opciones de las casillas para Zergs
-                    m2 = this.botonesZergs.establecerMenus(m2, i, j, controlMapa);
+                if(control.tieneMismaRaza(new Zerg()) ){
+                    // opciones de las casillas para Zerg
+                    m2 = this.botonesZerg.establecerMenus(m2, i, j, controlMapa);
                 }else{
                     // opciones de las casillas para Protoss
                     m2 = this.botonesProtoss.establecerMenus(m2,i,j,controlMapa);
@@ -136,10 +141,10 @@ public class PantallaMapa {
 
 
 
-    /*
+    /**
     * La idea era poner los iconos de recursos de forma aleatoria
     * pero sería un quilombo saber su posicion, mejor opté por
-    * ubicaciones fijas .
+    * ubicaciones fijas.
     * */
     private void establecerRecursosAlTerreno(MenuButton boton, int base, int altura, MenuItem m1, MenuItem m2) {
 

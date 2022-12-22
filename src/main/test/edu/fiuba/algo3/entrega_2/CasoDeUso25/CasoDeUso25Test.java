@@ -4,16 +4,19 @@ import edu.fiuba.algo3.modelo.Exception.JugadorDosNoPuedeTenerLosMismosAtributos
 import edu.fiuba.algo3.modelo.Exception.NombreDeberiaTener6caracteresComoMinimo;
 import edu.fiuba.algo3.modelo.Jugador.Protoss;
 import edu.fiuba.algo3.modelo.Jugador.Zerg;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Partida.Partida;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 
 public class CasoDeUso25Test {
 
+    Mapa mapa = mock(Mapa.class);
     @Test
     public void ChequearInicializacionDeUnJugador(){
-        Partida partida = new Partida();
+        Partida partida = new Partida(mapa);
         String nombre = "Matias";
         String color = "Azul";
         Zerg raza = new Zerg();
@@ -28,7 +31,7 @@ public class CasoDeUso25Test {
 
     @Test
     public void NoSePuedeCargarUnJugadorConUnNombreMenorA6Caracteres(){
-        Partida partida = new Partida();
+        Partida partida = new Partida(mapa);
         Zerg raza = new Zerg();
         assertThrows(NombreDeberiaTener6caracteresComoMinimo.class,()->partida.agregarJugador("Mat","Azul",raza));
 
@@ -36,7 +39,7 @@ public class CasoDeUso25Test {
 
     @Test
     public void NoSePuedeCrearUnSegundoJugadorConElMismoNombre(){
-        Partida partida = new Partida();
+        Partida partida = new Partida(mapa);
         Zerg raza = new Zerg();
         partida.agregarJugador("Matias","Azul",raza);
         assertThrows(JugadorDosNoPuedeTenerLosMismosAtributosQueJugadorUno.class,()->partida.agregarJugador("Matias","Rosa",raza));
@@ -46,7 +49,7 @@ public class CasoDeUso25Test {
 
     @Test
     public void NoSePuedeCrearUnSegundoJugadorConElMismoColor(){
-        Partida partida = new Partida();
+        Partida partida = new Partida(mapa);
         Zerg raza = new Zerg();
         partida.agregarJugador("Matias","Azul",raza);
         Protoss raza1 = new Protoss();
@@ -57,7 +60,7 @@ public class CasoDeUso25Test {
 
     @Test
     public void NoSePuedeCrearUnSegundoJugadorConLaMismaRaza(){
-        Partida partida = new Partida();
+        Partida partida = new Partida(mapa);
         Zerg raza = new Zerg();
         partida.agregarJugador("Matias","Azul",raza);
         assertThrows(JugadorDosNoPuedeTenerLosMismosAtributosQueJugadorUno.class,()->partida.agregarJugador("Eduardo","Roza",raza));

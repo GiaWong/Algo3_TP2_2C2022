@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.ventanas.CerrarJuegoBoton;
 import edu.fiuba.algo3.controlador.ventanas.CerrarJuegoVentana;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Partida.Partida;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -15,8 +16,8 @@ import javafx.stage.Stage;
 import java.io.File;
 
 public class PantallaInicial {
-    private Stage stage;
-    private Partida partida;
+    private final Stage stage;
+    private final Partida partida;
     Button botonEmpezar ;
     Button botonInstrucciones ;
     Button botonSalir ;
@@ -27,14 +28,14 @@ public class PantallaInicial {
         this.botonEmpezar= new Button("Empezar a jugar");
         this.botonInstrucciones = new Button("Instrucciones");
         this.botonSalir = new Button("Salir");
-        this.partida = new Partida();
+        this.partida = new Partida(new Mapa(20,20));
         this.generarVista();
     }
 
     public void generarVista() {
 
         //para cuando se haga click en los botones
-        botonEmpezar.setOnAction(e -> {new PantallaConfiguracionJugador01(this.stage,this.partida);});
+        botonEmpezar.setOnAction(e -> new PantallaConfiguracionJugador01(this.stage,this.partida));
         botonInstrucciones.setOnAction(e -> PantallaInstrucciones.mostrar());
 
         //Creo los Controladores

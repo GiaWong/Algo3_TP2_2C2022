@@ -11,8 +11,6 @@ import java.util.Dictionary;
 
 public class Zerg extends Raza {
 
-    private Dictionary comandos;
-
     public Zerg() {
         //Accion crearCriadero = new CreacionCriadero(this, new Coordenada(1,1), new Mapa(20,20)); //Como hago para tener todos los comandos??
         //comandos.put("crear criadero",crearCriadero);                                                                                      //Hace falta que le pase toodo por parametro?
@@ -37,24 +35,13 @@ public class Zerg extends Raza {
         suministro.disminuirCapacidad(5);
     }
 
+    public void amoDestruido() {
+        suministro.disminuirCapacidad(5);
+    }
+
     @Override
     public String nombre() {
         return "Zergs";
-    }
-    /*
-
-    @Override
-    public void elegirAccion(Turno turno, Mapa mapa) {
-        //Pedirle al usuario que ingrese algo por consola
-        //Fijarnos si dicha Accion pertenece al rango de las Acciones disponibles en Zerg (Con una lista, diccionario o algo):
-        //Accion unaAccion = (Accion) comandos.get(accion);
-        //this.asignarAccion(unaAccion);
-    }
-
-     */
-
-    public void amoDestruido() {
-        suministro.disminuirCapacidad(5);
     }
 
     @Override

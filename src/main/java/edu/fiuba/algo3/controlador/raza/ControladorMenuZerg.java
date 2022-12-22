@@ -5,10 +5,10 @@ import edu.fiuba.algo3.modelo.Construccion.*;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 
-public class ControladorMenuZergs {
+public class ControladorMenuZerg {
 
     private Menu m2;
-    public ControladorMenuZergs() {
+    public ControladorMenuZerg() {
 
     }
 

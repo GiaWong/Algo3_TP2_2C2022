@@ -33,22 +33,22 @@ public class Jugador {
         raza = unaRaza;
     }
 
-    public void elegirAccion(Mapa mapa, Accion accion) {
-        //raza.elegirAccion(turno, mapa);
+    /*
+    public void elegirAccion(Mapa mapa) {
+        estaJugando = true;
+        accion = raza.elegirAccion(this, mapa);
     }
 
-    public void elegirAccion() {
-        //Como elijo la accion del jugador?
+     */
 
-    }
     public void asignarAccion(Accion unaAccion){
         accion = unaAccion;
     }
 
-
     public void ejecutarAccion() {
-        raza.ejecutarAccion();
+        accion.ejecutar();
     }
+
     public boolean esIgualA(Jugador otroJugador) {
         return (otroJugador.tieneMismoNombre(nombre) && otroJugador.tieneMismoColor(color) && otroJugador.tieneMismaRaza(raza));
     }
@@ -68,11 +68,6 @@ public class Jugador {
 
     public boolean tieneConstrucciones(Mapa mapa){
         return raza.tieneConstrucciones(mapa);
-    }
-
-    public boolean sigueJugando(){
-        //return accion.sigueJugando();
-        return false;
     }
 
 }

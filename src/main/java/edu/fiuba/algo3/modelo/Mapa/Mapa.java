@@ -32,7 +32,7 @@ public class Mapa {
         return coordenada.buscar(mapa);
     }
 
-    public void inicializarMapaCon2Bases(){
+    public void inicializarMapaConDosBases(){
         Pilon pilon = new Pilon();
         Criadero criadero =new Criadero();
         Coordenada coordenadaP = new Coordenada(6,6);
