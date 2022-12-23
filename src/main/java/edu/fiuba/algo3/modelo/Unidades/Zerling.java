@@ -2,8 +2,7 @@ package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Acciones.AtaqueTierra;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
-import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
+import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupadaPorNexoMineral;
 import edu.fiuba.algo3.modelo.Exception.EstaUnidadNoSeMuevePorAreaEspacial;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
@@ -36,6 +35,30 @@ public class Zerling extends UnidadZerg{
     }
 
     public void permiteAgregarConstruccion(NexoMineral nexoMineral){
+    }
+
+    public boolean permiteCrear(Acceso acceso){
+        return false;
+    }
+
+    public boolean permiteCrear(PuertoEstelar puertoEstelar){
+        return false;
+    }
+
+    public boolean permiteCrear(ReservaProduccion reservaProduccion){
+        return true;
+    }
+
+    public boolean permiteCrear(Guarida guarida){
+        return false;
+    }
+
+    public boolean permiteCrear(Espiral espiral){
+        return false;
+    }
+
+    public boolean permiteCrear(Criadero criadero){
+        return false;
     }
 
     public void atacar(Construccion unaConstruccion){

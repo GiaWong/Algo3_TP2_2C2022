@@ -155,4 +155,8 @@ public class PuertoEstelar extends ConstruccionProtoss {
     public void esPosibleAgregarUnidad(Unidad unaUnidad){
 
     }
+
+    public boolean esPrerequisito(Unidad unidad){
+        return unidad.permiteCrear(this);
+    }
 }

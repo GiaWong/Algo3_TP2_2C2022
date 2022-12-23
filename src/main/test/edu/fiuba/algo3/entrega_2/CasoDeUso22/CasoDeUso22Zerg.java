@@ -2,32 +2,43 @@ package edu.fiuba.algo3.entrega_2.CasoDeUso22;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.*;
-import edu.fiuba.algo3.modelo.Unidades.Guardian;
-import edu.fiuba.algo3.modelo.Unidades.Hidralisco;
-import edu.fiuba.algo3.modelo.Unidades.Mutalisco;
-import edu.fiuba.algo3.modelo.Unidades.Zerling;
+import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
+import edu.fiuba.algo3.modelo.Exception.UnidadNoOperativa;
+import edu.fiuba.algo3.modelo.Mapa.Coordenada;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
+import edu.fiuba.algo3.modelo.Unidades.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CasoDeUso22Zerg {
 
-    /*
-    @Test
-    public void SeVerificaPreRequisitoZerling() {
-        Zerling zerling = new Zerling();
-        List<Construccion> lisst = new ArrayList<>();
-        ReservaProduccion reserva = new ReservaProduccion();
-        lisst.add(reserva);
-        for(int i=0;i<2;i++ ){
-            zerling.construir();
-        }
-        assertEquals(true,zerling.estaDisponible());
+    /*Verificar los tiempos de construccion de unidades y que tengan el edificio que permite
+construirlas. */
 
-        assertEquals(true, zerling.preRequisito(lisst));
+    //Supuesto: ya existe la construccion que permite crear una unidad porque el jugador no podría seleccionar el mensaje
+    //para crearla sino
+
+
+    @Test
+    public void testUnZanganoNoOperativoNoDeberiaPoderAtacar(){
+
+        Zangano zangano = new Zangano();
+
+        assertThrows(UnidadNoOperativa.class, ()-> {
+            zangano.atacar(new Zealot());
+        });
+    }
+    @Test
+    public void unZerlingNoSePuedeAgregarAlMapaSiNoExisteReserva() {
+        Zerling zerling = new Zerling();
+        Mapa mapa = new Mapa(20,20);
+        Criadero criadero = new Criadero();
+        mapa.agregar(criadero,new Coordenada(10,10));
+        assertDoesNotThrow(() -> mapa.agregar(zerling,new Coordenada(10,15)));
     }
 
     @Test
@@ -66,5 +77,5 @@ public class CasoDeUso22Zerg {
         assertEquals(true,guardian.estaDisponible());
     }
 
-     */
+
 }

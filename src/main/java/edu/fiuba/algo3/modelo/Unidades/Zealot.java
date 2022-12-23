@@ -1,9 +1,7 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Acciones.*;
-import edu.fiuba.algo3.modelo.Construccion.Acceso;
-import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
+import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupadaPorNexoMineral;
 import edu.fiuba.algo3.modelo.Exception.EstaUnidadNoSeMuevePorAreaEspacial;
 import edu.fiuba.algo3.modelo.Exception.UnidadNoTargeteable;
@@ -49,6 +47,30 @@ public class Zealot extends UnidadProtoss{
     }
 
     public void permiteAgregarConstruccion(NexoMineral nexoMineral){
+    }
+
+    public boolean permiteCrear(Acceso acceso){
+        return true;
+    }
+
+    public boolean permiteCrear(PuertoEstelar puertoEstelar){
+        return false;
+    }
+
+    public boolean permiteCrear(ReservaProduccion reservaProduccion){
+        return false;
+    }
+
+    public boolean permiteCrear(Guarida guarida){
+        return false;
+    }
+
+    public boolean permiteCrear(Espiral espiral){
+        return false;
+    }
+
+    public boolean permiteCrear(Criadero criadero){
+        return false;
     }
 
 

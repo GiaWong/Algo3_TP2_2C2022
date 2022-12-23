@@ -84,6 +84,10 @@ public class Pilon extends ConstruccionProtoss{
 
     }
 
+    public boolean esPrerequisito(Unidad unidad){
+        return false;
+    }
+
     @Override
     public void avanzarTurno(Mapa mapa) {
         this.regenerarEscudo();

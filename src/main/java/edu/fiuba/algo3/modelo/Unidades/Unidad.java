@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Acciones.*;
-import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
+import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
@@ -52,8 +51,8 @@ public abstract class Unidad {
 
     }
 
-    public boolean estaEnRango(Coordenada otrCoord){
-        return coordenada.estaEnRango(otrCoord, rango);
+    public boolean estaEnRango(Coordenada otraCoord){
+        return coordenada.estaEnRango(otraCoord, rango);
     }
 
     public boolean estaVivo() {
@@ -77,5 +76,15 @@ public abstract class Unidad {
     public abstract void permiteAgregarConstruccion(NexoMineral nexoMineral);
 
 
+    public abstract boolean permiteCrear(Acceso acceso);
 
+    public abstract boolean permiteCrear(PuertoEstelar puertoEstelar);
+
+    public abstract boolean permiteCrear(ReservaProduccion reservaProduccion);
+
+    public abstract boolean permiteCrear(Guarida guarida);
+
+    public abstract boolean permiteCrear(Espiral espiral);
+
+    public abstract boolean permiteCrear(Criadero criadero);
 }

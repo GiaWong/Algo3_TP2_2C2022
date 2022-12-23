@@ -138,6 +138,10 @@ public class NexoMineral extends ConstruccionProtoss implements RefineriaMineral
         mapa.disminuirEdificioProtoss();
     }
 
+    public boolean esPrerequisito(Unidad unidad){
+        return false;
+    }
+
     public void esPosibleAgregarUnidad(Unidad unaUnidad){
         unaUnidad.permiteAgregarConstruccion(this);
     }

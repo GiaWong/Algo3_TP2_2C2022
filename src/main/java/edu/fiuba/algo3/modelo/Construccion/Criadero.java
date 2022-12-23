@@ -98,6 +98,18 @@ public class Criadero extends ConstruccionZerg{
 
     public int obtenerVida() {return vida.vidaActual(); }
 
+    public boolean esPrerequisito(Unidad unidad){
+        return unidad.permiteCrear(this);
+    }
+
+    public boolean hayLarvaParaEvolucionar(){
+        if(larvas.size() > 0 ){
+            larvas.remove(0);
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
     public void expandirMoho(Mapa mapa){

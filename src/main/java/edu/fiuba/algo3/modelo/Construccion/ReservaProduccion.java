@@ -32,6 +32,10 @@ public class ReservaProduccion extends ConstruccionZerg {
     public void verificarPrerequisito(Mapa mapa) {
     }
 
+    public boolean esPrerequisito(Unidad unidad){
+        return unidad.permiteCrear(this);
+    }
+
     public boolean esPrerequisito(Construccion construccion){
         return construccion.permiteConstruir(this);
     }

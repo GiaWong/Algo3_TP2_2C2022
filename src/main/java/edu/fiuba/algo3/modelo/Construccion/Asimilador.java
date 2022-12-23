@@ -68,6 +68,14 @@ public class  Asimilador extends ConstruccionProtoss implements RefineriaGas {
         return false;
     }
 
+    public boolean esPrerequisito(Unidad unidad){
+        return false;
+    }
+
+    public boolean hayLarvaParaEvolucionar(){
+        return false;
+    }
+
     @Override
     public boolean permiteConstruir(ReservaProduccion reservaProduccion){
         return false;

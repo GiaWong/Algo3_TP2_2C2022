@@ -59,6 +59,10 @@ public class Guarida extends ConstruccionZerg {
         return false;
     }
 
+    public boolean esPrerequisito(Unidad unidad){
+        return unidad.permiteCrear(this);
+    }
+
     public void permiteConstruirConUnidad(Unidad unidad){
 
     }

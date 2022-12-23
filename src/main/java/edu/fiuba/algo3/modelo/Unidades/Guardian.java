@@ -2,8 +2,7 @@ package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Acciones.AtaqueTierra;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
-import edu.fiuba.algo3.modelo.Construccion.Construccion;
-import edu.fiuba.algo3.modelo.Construccion.NexoMineral;
+import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 
@@ -33,6 +32,30 @@ public class Guardian extends UnidadProtoss{
 
     public void permiteAgregarConstruccion(NexoMineral nexoMineral){
 
+    }
+
+    public boolean permiteCrear(Acceso acceso){
+        return false;
+    }
+
+    public boolean permiteCrear(PuertoEstelar puertoEstelar){
+        return false;
+    }
+
+    public boolean permiteCrear(ReservaProduccion reservaProduccion){
+        return false;
+    }
+
+    public boolean permiteCrear(Guarida guarida){
+        return false;
+    }
+
+    public boolean permiteCrear(Espiral espiral){
+        return false;
+    }
+
+    public boolean permiteCrear(Criadero criadero){
+        return false;
     }
 
     public void atacar(Construccion unaConstruccion){

@@ -141,5 +141,21 @@ public class Casilla {
         }
     }
 
+    public boolean esPrerequisito(Unidad unidad) {
+        if(construccion != null){
+            return construccion.esPrerequisito(unidad);
+        } else {
+            return false;
+        }
+    }
+
     public void destruirUnidad() { unidad = null; }
+
+    public boolean hayCriaderoConLarvas() {
+        if(construccion != null){
+            return construccion.hayLarvaParaEvolucionar();
+        } else {
+            return false;
+        }
+    }
 }

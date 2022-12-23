@@ -52,12 +52,46 @@ public class Mapa {
     public void agregar(Unidad unidad, Coordenada coord){
         Casilla casilla = this.buscar(coord);
         unidad.asignarPosicion(coord);
-        casilla.agregar(unidad);
+        if(cumplePrerequisito(unidad)){
+            if(hayCriaderosDisponibles()){
+                casilla.agregar(unidad);
+            }
+        }
+    }
+
+    private boolean hayCriaderosDisponibles() {
+        int i = 0;
+        int j = 0;
+        boolean encontrado = false;
+        while (i < base && !encontrado){
+            while (j < altura && !encontrado){
+                encontrado = mapa[i][j].hayCriaderoConLarvas();
+                j++;
+            }
+            i++;
+            j = 0;
+        }
+        return encontrado;
+    }
+
+    public boolean cumplePrerequisito(Unidad unidad){
+        int i = 10;
+        int j = 10;
+        boolean encontrado = false;
+        while (i < base && !encontrado){
+            while (j < altura && !encontrado){
+                encontrado = mapa[i][j].esPrerequisito(unidad);
+                j++;
+            }
+            i++;
+            j = 0;
+        }
+        return encontrado;
     }
 
     public boolean cumplePrerequisito(Construccion construccion){
-        int i = 10;
-        int j = 10;
+        int i = 0;
+        int j = 0;
         boolean encontrado = false;
         while (i < base && !encontrado){
             while (j < altura && !encontrado){
@@ -70,7 +104,7 @@ public class Mapa {
         return encontrado;
     }
 
-    public void atacar (Unidad unidadAtacante, Coordenada coord){ //Puede ser que se ocupe Raza de esto...
+    public void atacar (Unidad unidadAtacante, Coordenada coord){
         Casilla casillaAtacada = this.buscar(coord);
         if (unidadAtacante.estaEnRango(coord)){
             casillaAtacada.atacar(unidadAtacante);

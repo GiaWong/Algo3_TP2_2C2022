@@ -39,6 +39,10 @@ public class Espiral extends ConstruccionZerg {
         return false;
     }
 
+    public boolean esPrerequisito(Unidad unidad){
+        return unidad.permiteCrear(this);
+    }
+
     public void verificarPrerequisito(Mapa mapa) {
     }
 

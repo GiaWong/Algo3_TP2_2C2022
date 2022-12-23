@@ -36,6 +36,30 @@ public class Zangano extends UnidadZerg implements MutadorConstruccion {
         throw new CasillaOcupadaPorNexoMineral();
     }
 
+    public boolean permiteCrear(Acceso acceso){
+        return false;
+    }
+
+    public boolean permiteCrear(PuertoEstelar puertoEstelar){
+        return false;
+    }
+
+    public boolean permiteCrear(ReservaProduccion reservaProduccion){
+        return false;
+    }
+
+    public boolean permiteCrear(Guarida guarida){
+        return false;
+    }
+
+    public boolean permiteCrear(Espiral espiral){
+        return false;
+    }
+
+    public boolean permiteCrear(Criadero criadero){
+        return true;
+    }
+
     public int recolectar(NodoMineral nodo) {
         return nodo.recolectar(10);
     }

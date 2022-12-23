@@ -149,5 +149,9 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
 
     }
 
+    public boolean esPrerequisito(Unidad unidad){
+        return false;
+    }
+
 
 }

@@ -94,6 +94,8 @@ public abstract class Construccion {
 
     public abstract boolean esPrerequisito(Construccion construccion);
 
+    public abstract boolean esPrerequisito(Unidad unidad);
+
     public abstract void verificarPrerequisito(Mapa mapa) throws NoCumplePrerequisito;
 
     public abstract void avanzarTurno(Mapa mapa);
@@ -115,4 +117,5 @@ public abstract class Construccion {
 
     public abstract void esPosibleAgregarUnidad(Unidad unaUnidad);
 
+    public abstract boolean hayLarvaParaEvolucionar();
 }

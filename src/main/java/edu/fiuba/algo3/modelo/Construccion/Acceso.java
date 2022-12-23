@@ -41,6 +41,13 @@ public  class Acceso extends ConstruccionProtoss{
         return false;
     }
 
+    public boolean esPrerequisito(Unidad unidad){
+        return unidad.permiteCrear(this);
+    }
+
+    public boolean hayLarvaParaEvolucionar(){
+        return false;
+    }
     public void verificarPrerequisito(Mapa mapa) {
     }
 
