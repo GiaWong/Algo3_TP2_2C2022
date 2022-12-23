@@ -11,7 +11,7 @@ public class ControladorPartida {
     }
 
     public boolean tieneMismaRaza(Zerg zerg) {
-        return this.partida.tieneMismaRaza(zerg);
+        return partida.tieneMismaRaza(zerg);
     }
 
     public void empezarAJugar() {

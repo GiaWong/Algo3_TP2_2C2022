@@ -7,8 +7,8 @@ import javafx.event.EventHandler;
 import javafx.stage.Stage;
 
 public class SiguientePantalla implements EventHandler<ActionEvent> {
-    private Stage stage;
-    private Partida partida;
+    private final Stage stage;
+    private final Partida partida;
     public SiguientePantalla(Stage stage, Partida partida) {
 
         this.stage=stage;

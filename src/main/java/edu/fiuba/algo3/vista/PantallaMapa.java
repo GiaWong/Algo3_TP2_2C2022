@@ -38,13 +38,14 @@ public class PantallaMapa {
         this.botonesZerg = new ControladorMenuZerg();
         this.base = 20;
         this.altura = 10;
-        this.controlMapa = new ControladorMapa(base, altura);
+        this.controlMapa = new ControladorMapa(base, altura); //Está bien que haya un controlador de mapa?
+
         System.out.print("\n\n====================COMANDOS_DEL_MAPA===================\n\n");
         //mostrarMapa(controlTurnos);
 
     }
 
-    public void mostrarMapa(ControladorPartida control) {
+    public void mostrarMapa(ControladorPartida control) { //Creo que mostrarMapa solo deberia mostrar el mapa y no realizar el juego completo
 
         control.empezarAJugar();
         /*
@@ -71,10 +72,10 @@ public class PantallaMapa {
                  * */
                 if(control.tieneMismaRaza(new Zerg()) ){
                     // opciones de las casillas para Zerg
-                    m2 = this.botonesZerg.establecerMenus(m2, i, j, controlMapa);
+                    m2 = botonesZerg.establecerMenus(m2, i, j, controlMapa);
                 }else{
                     // opciones de las casillas para Protoss
-                    m2 = this.botonesProtoss.establecerMenus(m2,i,j,controlMapa);
+                    m2 = botonesProtoss.establecerMenus(m2,i,j,controlMapa);
                 }
 
                 boton.getItems().add(m1);
@@ -83,10 +84,9 @@ public class PantallaMapa {
                 int finalI = i;
                 m1.setOnAction(e -> controlMapa.ejecutarAtaque(finalJ, finalI));
                 establecerRecursosAlTerreno(boton, i, j, m1,m2);
-                this.panelDelMapaVisual.add(boton, i, j);
+                panelDelMapaVisual.add(boton, i, j);
             }
         }
-
         establecerConfiguracionesPanelMapa();
 
     }
@@ -131,11 +131,11 @@ public class PantallaMapa {
     private void configurarBotonesSuperiores(Button botonSalir, Button botonVolverMenu) {
 
         CerrarJuegoVentana cerrarVentana = new CerrarJuegoVentana(botonSalir);
-        CerrarJuegoBoton cerrarBoton = new CerrarJuegoBoton(this.stage);
+        CerrarJuegoBoton cerrarBoton = new CerrarJuegoBoton(stage);
         stage.setOnCloseRequest(cerrarVentana);
         botonSalir.setOnAction(cerrarBoton);
 
-        VolverPantallaAnterior pantallaAnterior = new VolverPantallaAnterior(this.stage);
+        VolverPantallaAnterior pantallaAnterior = new VolverPantallaAnterior(stage);
         botonVolverMenu.setOnAction(pantallaAnterior);
     }
 

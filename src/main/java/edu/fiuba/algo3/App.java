@@ -1,5 +1,7 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
+import edu.fiuba.algo3.modelo.Partida.Partida;
 import edu.fiuba.algo3.vista.PantallaInicial;
 import edu.fiuba.algo3.vista.PantallaMapa;
 import javafx.application.Application;

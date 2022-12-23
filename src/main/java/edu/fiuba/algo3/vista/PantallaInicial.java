@@ -35,12 +35,12 @@ public class PantallaInicial {
     public void generarVista() {
 
         //para cuando se haga click en los botones
-        botonEmpezar.setOnAction(e -> new PantallaConfiguracionJugador01(this.stage,this.partida));
+        botonEmpezar.setOnAction(e -> new PantallaConfiguracionJugador01(stage, partida));
         botonInstrucciones.setOnAction(e -> PantallaInstrucciones.mostrar());
 
         //Creo los Controladores
         CerrarJuegoVentana cerrarVentana = new CerrarJuegoVentana(botonSalir);
-        CerrarJuegoBoton cerrarBoton = new CerrarJuegoBoton(this.stage);
+        CerrarJuegoBoton cerrarBoton = new CerrarJuegoBoton(stage);
 
         //Accion al cerrar la ventana con la x
         stage.setOnCloseRequest(cerrarVentana);

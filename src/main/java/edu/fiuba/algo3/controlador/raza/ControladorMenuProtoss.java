@@ -15,13 +15,21 @@ public class ControladorMenuProtoss {
         MenuItem m7 = new MenuItem("PuertoEstelar");
         m2.getItems().addAll(m3,m4,m5,m6,m7);
 
-        int finalJ1 = j;
-        int finalI1 = i;
-        m3.setOnAction(e -> controlMapa.ejecutarCreacion(finalJ1, finalI1, new Pilon()));
-        m4.setOnAction(e -> controlMapa.ejecutarCreacion(finalJ1, finalI1, new NexoMineral()));
-        m5.setOnAction(e -> controlMapa.ejecutarCreacion(finalJ1, finalI1, new Asimilador()));
-        m6.setOnAction(e -> controlMapa.ejecutarCreacion(finalJ1, finalI1, new Acceso()));
-        m7.setOnAction(e -> controlMapa.ejecutarCreacion(finalJ1, finalI1, new PuertoEstelar()));
+        m3.setOnAction(e -> controlMapa.ejecutarCreacion(j, i, new Pilon()));
+        m4.setOnAction(e -> controlMapa.ejecutarCreacion(j, i, new NexoMineral()));
+        m5.setOnAction(e -> controlMapa.ejecutarCreacion(j, i, new Asimilador()));
+        m6.setOnAction(e -> controlMapa.ejecutarCreacion(j, i, new Acceso()));
+        m7.setOnAction(e -> controlMapa.ejecutarCreacion(j, i, new PuertoEstelar()));
+
+        /*
+        Asigno la accion? o la ejecuto de una?
+
+        m3.setOnAction(e -> controlPartida.asignarAccion(new CreacionPilon(raza, new Coordenada(i,j), mapa));
+        m4.setOnAction(e -> controlPartida.asignarAccion(new CreacionNexoMineral(raza, new Coordenada(i,j), mapa));
+        m5.setOnAction(e -> controlPartida.asignarAccion(new CreacionAsimilador(raza, new Coordenada(i,j), mapa));
+        m6.setOnAction(e -> controlPartida.asignarAccion(new CreacionAcceso(raza, new Coordenada(i,j), mapa));
+        m7.setOnAction(e -> controlPartida.asignarAccion(new CreacionPuertoEstelar(raza, new Coordenada(i,j), mapa));
+         */
 
         return m2;
     }

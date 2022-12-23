@@ -21,13 +21,11 @@ public class ControladorMenuZerg {
         MenuItem m7 = new MenuItem("ReservaProduccion");
         m2.getItems().addAll(m3,m4,m5,m6,m7);
 
-        int finalJ1 = j;
-        int finalI1 = i;
-        m3.setOnAction(e -> controlMapa.ejecutarCreacion(finalJ1, finalI1, new Criadero()));
-        m4.setOnAction(e -> controlMapa.ejecutarCreacion(finalJ1, finalI1, new Espiral()));
-        m5.setOnAction(e -> controlMapa.ejecutarCreacion(finalJ1, finalI1, new Extractor()));
-        m6.setOnAction(e -> controlMapa.ejecutarCreacion(finalJ1, finalI1, new Guarida()));
-        m7.setOnAction(e -> controlMapa.ejecutarCreacion(finalJ1, finalI1, new ReservaProduccion()));
+        m3.setOnAction(e -> controlMapa.ejecutarCreacion(j, i, new Criadero()));
+        m4.setOnAction(e -> controlMapa.ejecutarCreacion(j, i, new Espiral()));
+        m5.setOnAction(e -> controlMapa.ejecutarCreacion(j, i, new Extractor()));
+        m6.setOnAction(e -> controlMapa.ejecutarCreacion(j, i, new Guarida()));
+        m7.setOnAction(e -> controlMapa.ejecutarCreacion(j, i, new ReservaProduccion()));
 
         return m2;
     }

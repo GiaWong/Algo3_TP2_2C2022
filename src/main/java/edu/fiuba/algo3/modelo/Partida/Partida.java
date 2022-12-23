@@ -16,7 +16,14 @@ public class Partida {
     private Turno turno;
 
     public Partida(Mapa mapa){
-        elejirAlJugadorQueComienzaPrimero(mapa);
+        //elejirAlJugadorQueComienzaPrimero(mapa);
+    }
+
+    public Partida(Mapa mapa, Jugador unJugador, Jugador otroJugador){
+        //elejirAlJugadorQueComienzaPrimero(mapa);
+        asignarJugador(unJugador);
+        asignarJugador(otroJugador);
+        this.turno = new Turno(jugadorUno, mapa);
     }
 
     private void elejirAlJugadorQueComienzaPrimero(Mapa mapa){
@@ -34,6 +41,7 @@ public class Partida {
             turno = new Turno(jugadorDos, mapa);
             System.out.print("\n-Turno del jugador 2\n");
         }
+
     }
 
     public void asignarJugador(Jugador jugador) throws JugadorDosNoPuedeTenerLosMismosAtributosQueJugadorUno {
@@ -48,7 +56,7 @@ public class Partida {
         }
     }
 
-    public void ejecutarAccionDeJugador(){
+    public void ejecutarAccionDeJugador() {
         turno.ejecutarAccion();
     }
 
@@ -80,6 +88,7 @@ public class Partida {
     public Jugador obtenerJugadorGanador(){
         try{
             verificarFinDelJuego();
+
         } catch (FinDelJuego e){
             return turno.seleccionarJugadorQueGano(jugadorUno, jugadorDos);
         }

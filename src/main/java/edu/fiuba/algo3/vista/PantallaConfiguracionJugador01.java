@@ -52,6 +52,7 @@ public class PantallaConfiguracionJugador01 {
 
     public void generarVista() {
 
+
         generarControladoresPantallas();
 
         VBox vbox = new VBox();
@@ -146,8 +147,8 @@ public class PantallaConfiguracionJugador01 {
     private void capturarSeleccionColores(ComboBox<String> comboColores) {
 
         comboColores.setOnAction(e -> {
-            this.colorSeleccionado = comboColores.getValue();
-            System.out.print("\n\nSe seleccionó el color: " + this.colorSeleccionado);
+            colorSeleccionado = comboColores.getValue();
+            System.out.print("\n\nSe seleccionó el color: " + colorSeleccionado);
         });
     }
 
@@ -157,7 +158,7 @@ public class PantallaConfiguracionJugador01 {
         comboRaza.setOnAction(e -> {
 
             this.razaSeleccionada = comboRaza.getValue();
-            System.out.print("\n\nSe seleccionó la raza: " + this.razaSeleccionada);
+            System.out.print("\n\nSe seleccionó la raza: " + razaSeleccionada);
 
             //ver el tema para que no se repita la raza con el jugador 2
             if(this.razaSeleccionada == "Zergs"){

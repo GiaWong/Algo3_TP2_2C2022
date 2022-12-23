@@ -7,21 +7,17 @@ import edu.fiuba.algo3.modelo.Unidades.Unidad;
 public class Ataque implements Accion{
 
     private Unidad unidadAtacante;
+    private Coordenada coordenada;
+    private Mapa mapa;
 
-    private Unidad unidadDefensiva;
-
-
-    public Ataque(){
-
-    }
-
-    public Ataque(Coordenada coordenadaAtacante, Coordenada coordenadaDefensiva, Mapa unMapa){
-        unidadAtacante = unMapa.devolverUnidad(coordenadaAtacante); //en que momento busco la unidad con la que quiero atacar????
-        unidadDefensiva = unMapa.devolverUnidad(coordenadaDefensiva); //asi!
+    public Ataque(Unidad unaUnidad, Coordenada unaCoordenada, Mapa unMapa){
+        this.unidadAtacante = unaUnidad;
+        this.coordenada = unaCoordenada;
+        this.mapa = unMapa;
     }
 
     @Override
     public void ejecutar() {
-        unidadAtacante.atacar(unidadDefensiva);
+        mapa.atacar(unidadAtacante, coordenada);
     }
 }

@@ -23,7 +23,7 @@ public class CasoDeUso27Test {
     public void SeEvolucionaUnMutaliscoYNoDeberiaPoderEvolucionarADevorador(){
         BancoDeRecursos bancoDeRecursos = new BancoDeRecursos();
         Mutalisco mutalisco = new Mutalisco();
-        assertThrows(NoHayRecursosSuficientes.class,()->{mutalisco.evolucionarDevorador(bancoDeRecursos);});
+        assertThrows(NoHayRecursosSuficientes.class,()-> mutalisco.evolucionarDevorador(bancoDeRecursos));
 
     }
     @Test
