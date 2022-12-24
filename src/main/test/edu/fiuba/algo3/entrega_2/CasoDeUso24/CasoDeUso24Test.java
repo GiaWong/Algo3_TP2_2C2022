@@ -9,7 +9,7 @@ import static org.mockito.Mockito.mock;
 
 public class CasoDeUso24Test {
 
-    Mapa mapa = mock(Mapa.class);
+    Mapa mapa = new Mapa(20,20);
     Coordenada coordenadaBaseJugadorUno = new Coordenada(5,5);
     Coordenada coordenadaBaseJugadorDos = new Coordenada(17,17);
 

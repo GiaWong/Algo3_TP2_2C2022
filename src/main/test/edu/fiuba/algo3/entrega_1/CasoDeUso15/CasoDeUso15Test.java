@@ -53,7 +53,11 @@ public class CasoDeUso15Test {
         casilla.setTerreno(new ConMoho());
         casilla.setRecurso(nodo);
         Zangano zangano = new Zangano();
+        for(int j = 0; j < 2; j++){
+            zangano.construir();
+        }
         casilla.agregar(zangano);
+
 
         for(int j = 0; j < 200; j++){
             zangano.recolectar(nodo);
@@ -66,7 +70,7 @@ public class CasoDeUso15Test {
     // Caso de gas para los Protoss
     @Test
     public void AsimiladorNoDeberiaRecolectarDeUnGasVespenoCuandoElRecursoSeAgoto() throws EdificioNoEstaOperativo {
-        int esperado = 0 ;
+        int esperado = 0;
         Casilla casilla = new Casilla(coord);
         Volcan volcan = new Volcan();
         casilla.setTerreno(new ConEnergia());

@@ -16,7 +16,6 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.*;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.*;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
 import edu.fiuba.algo3.modelo.Unidades.Zangano;
-import edu.fiuba.algo3.modelo.Unidades.Zerling;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,8 +70,6 @@ public abstract class Construccion {
     public boolean estaDisponible() {
         return tiempoConstruccion <= 0;
     }
-    public  abstract void esProtoss();
-    public  abstract void esZerg();
 
     public abstract void esPosibleConstruirEn(Volcan volcan);
 
@@ -118,4 +115,8 @@ public abstract class Construccion {
     public abstract void esPosibleAgregarUnidad(Unidad unaUnidad);
 
     public abstract boolean hayLarvaParaEvolucionar();
+
+    public abstract int obtenerVida();
+
+
 }

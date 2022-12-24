@@ -20,6 +20,9 @@ public class CasoDeUso11Test {
     public void SeDañaAUnPuertoEstelarYDeberiaRecuperarElEscudoPorCadaTurno(){
         int esperado = 600;
         Zerling zerling = new Zerling();
+        for (int i = 0; i < 3; i++) {
+            zerling.construir();
+        }
         zerling.atacar(puerto);
 
         for (int i = 0; i < 3; i++) {
@@ -34,7 +37,9 @@ public class CasoDeUso11Test {
     public void SeDañaAUnPilonYDeberiaRecuperarElEscudoPorCadaTurno(){
         int esperado = 300;
         Zerling zerling = new Zerling();
-
+        for (int i = 0; i < 3; i++) {
+            zerling.construir();
+        }
         zerling.atacar(pilon);
 
         for (int i = 0; i < 3; i++) {
@@ -49,7 +54,9 @@ public class CasoDeUso11Test {
     public void SeDañaAUnNexoMineralYDeberiaRecuperarElEscudoPorCadaTurno(){
         int esperado = 250;
         Zerling zerling = new Zerling();
-
+        for (int i = 0; i < 3; i++) {
+            zerling.construir();
+        }
         zerling.atacar(nexo);
 
         for (int i = 0; i < 3; i++) {
@@ -64,7 +71,9 @@ public class CasoDeUso11Test {
     public void SeDañaAUnAsimiladorYDeberiaRecuperarElEscudoPorCadaTurno(){
         int esperado = 450;
         Zerling zerling = new Zerling();
-
+        for (int i = 0; i < 3; i++) {
+            zerling.construir();
+        }
         zerling.atacar(asimilador);
 
         for (int i = 0; i < 3; i++) {
@@ -79,7 +88,9 @@ public class CasoDeUso11Test {
     public void SeDañaAUnAccesoYDeberiaRecuperarElEscudoPorCadaTurno(){
         int esperado = 500;
         Zerling zerling = new Zerling();
-
+        for (int i = 0; i < 3; i++) {
+            zerling.construir();
+        }
         zerling.atacar(acceso);
 
         for (int i = 0; i < 3; i++) {

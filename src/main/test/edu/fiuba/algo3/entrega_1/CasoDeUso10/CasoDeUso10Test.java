@@ -2,10 +2,12 @@ package edu.fiuba.algo3.entrega_1.CasoDeUso10;
 
 import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
+import edu.fiuba.algo3.modelo.Unidades.Unidad;
 import edu.fiuba.algo3.modelo.Unidades.Zealot;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 
 public class CasoDeUso10Test {
@@ -15,8 +17,12 @@ public class CasoDeUso10Test {
     @Test
     public void SeDaniaAUnCriaderoYDeberiaRecuperarLaVidaPorCadaTurno(){
         int esperado = 500;
-        Criadero criadero = new Criadero(0);
-        Zealot zealot = new Zealot();
+        Construccion criadero = new Criadero(0);
+        Unidad zealot = new Zealot();
+        for (int i = 0; i < 10; i++) {
+            zealot.construir();
+        }
+        assertTrue(zealot.estaDisponible());
 
         zealot.atacar(criadero);
         for (int i = 0; i < 3; i++) {
@@ -28,8 +34,12 @@ public class CasoDeUso10Test {
     @Test
     public void SeDaniaAUnReservaReproduccionYDeberiaRecuperarLaVidaPorCadaTurno(){
         int esperado = 1000;
-        ReservaProduccion reserva = new ReservaProduccion(0);
-        Zealot zealot = new Zealot();
+        Construccion reserva = new ReservaProduccion(0);
+        Unidad zealot = new Zealot();
+        for (int i = 0; i < 10; i++) {
+            zealot.construir();
+        }
+        assertTrue(zealot.estaDisponible());
 
         zealot.atacar(reserva);
         for (int i = 0; i < 3; i++) {
@@ -41,8 +51,12 @@ public class CasoDeUso10Test {
     @Test
     public void SeDaniaAUnExtractorYDeberiaRecuperarLaVidaPorCadaTurno(){
         int esperado = 750;
-        Extractor extractor = new Extractor();
-        Zealot zealot = new Zealot();
+        Construccion extractor = new Extractor();
+        Unidad zealot = new Zealot();
+        for (int i = 0; i < 10; i++) {
+            zealot.construir();
+        }
+        assertTrue(zealot.estaDisponible());
 
         zealot.atacar(extractor);
         for (int i = 0; i < 3; i++) {
@@ -54,8 +68,12 @@ public class CasoDeUso10Test {
     @Test
     public void SeDaniaAUnGuaridaYDeberiaRecuperarLaVidaPorCadaTurno(){
         int esperado = 1250;
-        Guarida guarida = new Guarida();
-        Zealot zealot = new Zealot();
+        Construccion guarida = new Guarida();
+        Unidad zealot = new Zealot();
+        for (int i = 0; i < 10; i++) {
+            zealot.construir();
+        }
+        assertTrue(zealot.estaDisponible());
 
         zealot.atacar(guarida);
         for (int i = 0; i < 3; i++) {
@@ -67,8 +85,12 @@ public class CasoDeUso10Test {
     @Test
     public void SeDaniaAUnEspiralYDeberiaRecuperarLaVidaPorCadaTurno(){
         int esperado = 1300;
-        Espiral espiral = new Espiral();
-        Zealot zealot = new Zealot();
+        Construccion espiral = new Espiral();
+        Unidad zealot = new Zealot();
+        for (int i = 0; i < 10; i++) {
+            zealot.construir();
+        }
+        assertTrue(zealot.estaDisponible());
 
         zealot.atacar(espiral);
         for (int i = 0; i < 3; i++) {

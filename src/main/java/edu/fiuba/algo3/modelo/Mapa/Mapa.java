@@ -38,8 +38,8 @@ public class Mapa {
     public void inicializarMapaConDosBases(){
         Pilon pilon = new Pilon();
         Criadero criadero =new Criadero();
-        Coordenada coordenadaP = new Coordenada(6,6);
-        Coordenada coordenadaC = new Coordenada(14,14);
+        Coordenada coordenadaP = new Coordenada(5,5);
+        Coordenada coordenadaC = new Coordenada(17,17);
         agregar(pilon,coordenadaP);
         agregar(criadero,coordenadaC);
 
@@ -97,8 +97,8 @@ public class Mapa {
     }
 
     public boolean cumplePrerequisito(Unidad unidad){
-        int i = 10;
-        int j = 10;
+        int i = 0;
+        int j = 0;
         boolean encontrado = false;
         while (i < base && !encontrado){
             while (j < altura && !encontrado){

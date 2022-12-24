@@ -12,10 +12,4 @@ public abstract class ConstruccionProtoss extends Construccion {
         defensa.recibirDanio(danio, vida, escudo);
     }
 
-    public void esProtoss(){
-
-    }
-    public   void esZerg() throws EstaConstruccionEsZerg {
-        throw  new EstaConstruccionEsZerg();
-    }
 }

@@ -15,6 +15,7 @@ public class RecoleccionMineralesZergTest {
     public void ExtraccionMineralesZerg(){
         int esperado = 10 ;
         Zangano zangano = new Zangano();
+        zangano.construir();
         Casilla casilla = new Casilla(new Coordenada(5,5));
         casilla.setTerreno(new ConMoho());
         NodoMineral nodo = new NodoMineral();
