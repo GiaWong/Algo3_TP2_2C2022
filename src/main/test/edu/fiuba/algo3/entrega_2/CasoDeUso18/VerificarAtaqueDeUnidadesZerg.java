@@ -27,7 +27,11 @@ public class VerificarAtaqueDeUnidadesZerg {
         Coordenada coordPilon = new Coordenada(10,9);
         mapa.agregar(pilon, coordPilon);
 
-        Unidad zerling = new Zerling();
+        UnidadZerg zerling = new Zerling();
+        Criadero criadero = new Criadero(0);
+        mapa.agregar(criadero,new Coordenada(10,13));
+        ReservaProduccion reservaProduccion = new ReservaProduccion();
+        mapa.agregar(reservaProduccion,new Coordenada(10,15));
 
         Coordenada coordZerling = new Coordenada(10,10);
 
@@ -47,8 +51,12 @@ public class VerificarAtaqueDeUnidadesZerg {
         Coordenada coordPilon = new Coordenada(10,9);
         mapa.agregar(pilon, coordPilon);
 
-        Unidad hidralisco = new Hidralisco();
+        UnidadZerg hidralisco = new Hidralisco();
         Coordenada coordHidra = new Coordenada(10,10);
+        Criadero criadero = new Criadero(0);
+        mapa.agregar(criadero,new Coordenada(10,13));
+        Guarida guarida = new Guarida();
+        mapa.agregar(guarida,new Coordenada(10,15));
 
         mapa.agregar(hidralisco, coordHidra);
         hidralisco.atacar(pilon);
@@ -66,9 +74,14 @@ public class VerificarAtaqueDeUnidadesZerg {
         Coordenada coordPilon = new Coordenada(10,9);
         mapa.agregar(pilon, coordPilon);
 
-        Unidad mutalisco = new Mutalisco();
+        UnidadZerg mutalisco = new Mutalisco();
 
         Coordenada coordMuta = new Coordenada(10,10);
+
+        Criadero criadero = new Criadero(0);
+        mapa.agregar(criadero,new Coordenada(10,13));
+        Espiral espiral = new Espiral();
+        mapa.agregar(espiral,new Coordenada(10,15));
 
         mapa.agregar(mutalisco, coordMuta);
         mapa.atacar(mutalisco, coordPilon);
@@ -87,7 +100,7 @@ public class VerificarAtaqueDeUnidadesZerg {
         Coordenada coordPilon = new Coordenada(10,9);
         mapa.agregar(pilon, coordPilon);
 
-        Unidad guardian = new Guardian();
+        UnidadProtoss guardian = new Guardian();
         Coordenada coordGuardian = new Coordenada(10,10);
 
         mapa.agregar(guardian, coordGuardian);

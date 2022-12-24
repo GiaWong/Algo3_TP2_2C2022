@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupadaPorNexoMineral;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupadaPorZangano;
 import edu.fiuba.algo3.modelo.Exception.EstaUnidadNoSeMuevePorAreaEspacial;
+import edu.fiuba.algo3.modelo.Exception.UnidadNoOperativa;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
@@ -61,6 +62,10 @@ public class Zangano extends UnidadZerg implements MutadorConstruccion {
     }
 
     public int recolectar(NodoMineral nodo) {
+
+        if(!estaDisponible()){
+            throw new UnidadNoOperativa();
+        }
         return nodo.recolectar(10);
     }
 

@@ -149,6 +149,10 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
 
     }
 
+    public boolean hayLarvaParaEvolucionar(){
+        return false;
+    }
+
     public boolean esPrerequisito(Unidad unidad){
         return false;
     }

@@ -29,6 +29,10 @@ public class ReservaProduccion extends ConstruccionZerg {
         tiempoConstruccion = tiempoDeConstruccion;
     }
 
+    public boolean hayLarvaParaEvolucionar(){
+        return false;
+    }
+
     public void verificarPrerequisito(Mapa mapa) {
     }
 

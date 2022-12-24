@@ -88,6 +88,10 @@ public class Pilon extends ConstruccionProtoss{
         return false;
     }
 
+    public boolean hayLarvaParaEvolucionar(){
+        return false;
+    }
+
     @Override
     public void avanzarTurno(Mapa mapa) {
         this.regenerarEscudo();

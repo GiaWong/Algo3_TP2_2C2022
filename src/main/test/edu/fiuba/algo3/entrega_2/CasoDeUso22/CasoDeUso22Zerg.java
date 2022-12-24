@@ -2,10 +2,12 @@ package edu.fiuba.algo3.entrega_2.CasoDeUso22;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.*;
-import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
+import edu.fiuba.algo3.modelo.Exception.FaltaEdificioParaCrearUnidad;
 import edu.fiuba.algo3.modelo.Exception.UnidadNoOperativa;
+import edu.fiuba.algo3.modelo.Jugador.BancoDeRecursos;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 import edu.fiuba.algo3.modelo.Unidades.*;
 import org.junit.jupiter.api.Test;
 
@@ -19,63 +21,130 @@ public class CasoDeUso22Zerg {
     /*Verificar los tiempos de construccion de unidades y que tengan el edificio que permite
 construirlas. */
 
-    //Supuesto: ya existe la construccion que permite crear una unidad porque el jugador no podría seleccionar el mensaje
-    //para crearla sino
 
 
     @Test
-    public void testUnZanganoNoOperativoNoDeberiaPoderAtacar(){
+    public void unZánganoNoOperativoNoDeberiaPoderRecolectar(){
 
         Zangano zangano = new Zangano();
+        NodoMineral nodo = new NodoMineral();
 
         assertThrows(UnidadNoOperativa.class, ()-> {
-            zangano.atacar(new Zealot());
+            zangano.recolectar(nodo);
         });
     }
+
+    @Test
+    public void unZerlingNoOperativoNoDeberiaPoderAtacar(){
+
+        Zerling zerling = new Zerling();
+
+        assertThrows(UnidadNoOperativa.class, ()-> {
+            zerling.atacar(new Dragon());
+        });
+    }
+
+    @Test
+    public void unHidraliscoNoOperativoNoDeberiaPoderAtacar(){
+
+        Hidralisco hidralisco = new Hidralisco();
+
+        assertThrows(UnidadNoOperativa.class, ()-> {
+            hidralisco.atacar(new Dragon());
+        });
+    }
+
+    @Test
+    public void unMutaliscoNoOperativoNoDeberiaPoderAtacar(){
+
+        Mutalisco mutalisco = new Mutalisco();
+
+        assertThrows(UnidadNoOperativa.class, ()-> {
+            mutalisco.atacar(new Dragon());
+        });
+    }
+
+    @Test
+    public void unZanganoOperativoDeberiaPoderRecolectar(){
+
+        Zangano zangano = new Zangano();
+        zangano.avanzarTurno();
+        NodoMineral nodo = new NodoMineral();
+        assertDoesNotThrow(()->zangano.recolectar(nodo));
+    }
+
+    @Test
+    public void unZerlingOperativoDeberiaPoderAtacar(){
+
+        Zerling zerling = new Zerling();
+        for(int i=0; i < 2; i++){
+            zerling.avanzarTurno();
+        }
+
+        assertDoesNotThrow(()->zerling.atacar(new Dragon()));
+    }
+
+    @Test
+    public void unHidraliscoOperativoDeberiaPoderAtacar(){
+
+        Hidralisco hidralisco = new Hidralisco();
+        for(int i=0; i < 4; i++){
+            hidralisco.avanzarTurno();
+        }
+
+        assertDoesNotThrow(()->hidralisco.atacar(new Dragon()));
+
+    }
+
+    @Test
+    public void unMutaliscoOperativoDeberiaPoderAtacar(){
+
+        Mutalisco mutalisco = new Mutalisco();
+        for(int i=0; i < 7; i++){
+            mutalisco.avanzarTurno();
+        }
+
+        assertDoesNotThrow(()->mutalisco.atacar(new Dragon()));
+    }
+
+
     @Test
     public void unZerlingNoSePuedeAgregarAlMapaSiNoExisteReserva() {
         Zerling zerling = new Zerling();
         Mapa mapa = new Mapa(20,20);
         Criadero criadero = new Criadero();
         mapa.agregar(criadero,new Coordenada(10,10));
-        assertDoesNotThrow(() -> mapa.agregar(zerling,new Coordenada(10,15)));
+
+        assertThrows( FaltaEdificioParaCrearUnidad.class, ()->mapa.agregar(zerling,new Coordenada(10,13)));
     }
 
     @Test
-    public void SeVerificaPreRequisitoHidralisco() {
+    public void unHidraliscoNoSePuedeAgregarAlMapaSiNoExisteGuarida() {
         Hidralisco hidralisco = new Hidralisco();
-        List<Construccion> lisst = new ArrayList<>();
-        Guarida guarida = new Guarida();
-        lisst.add(guarida);
-        for(int i=0;i<4;i++ ){
-            hidralisco.construir();
-        }
-        assertEquals(true,hidralisco.estaDisponible());
+        Mapa mapa = new Mapa(20,20);
+        Criadero criadero = new Criadero();
+        mapa.agregar(criadero,new Coordenada(10,10));
 
-        assertEquals(true, hidralisco.preRequisito(lisst));
+        assertThrows( FaltaEdificioParaCrearUnidad.class, ()->mapa.agregar(hidralisco,new Coordenada(10,13)));
     }
 
     @Test
-    public void SeVerificaPreRequisitoMutalisco() {
+    public void unMutaliscoNoSePuedeAgregarAlMapaSiNoExisteEspiral() {
         Mutalisco mutalisco = new Mutalisco();
-        List<Construccion> lisst = new ArrayList<>();
-        Espiral espiral = new Espiral();
-        lisst.add(espiral);
-        for(int i=0;i<7;i++ ){
-            mutalisco.construir();
-        }
-        assertEquals(true,mutalisco.estaDisponible());
+        Mapa mapa = new Mapa(20,20);
+        Criadero criadero = new Criadero();
+        mapa.agregar(criadero,new Coordenada(10,10));
 
-        assertEquals(true, mutalisco.preRequisito(lisst));
+        assertThrows( FaltaEdificioParaCrearUnidad.class, ()->mapa.agregar(mutalisco,new Coordenada(10,13)));
     }
+
     @Test
-    public void SeverificaElTiempoConstuccionGuardian() {
-        Guardian guardian = new Guardian();
-        for(int i=0;i<4;i++ ){
-            guardian.construir();
-        }
-        assertEquals(true,guardian.estaDisponible());
-    }
+    public void unZanganoNoSePuedeAgregarAlMapaSiNoExisteCriadero() {
+        Zangano zangano = new Zangano();
+        Mapa mapa = new Mapa(20,20);
 
+
+        assertThrows( FaltaEdificioParaCrearUnidad.class, ()->mapa.agregar(zangano,new Coordenada(10,13)));
+    }
 
 }

@@ -156,6 +156,10 @@ public class PuertoEstelar extends ConstruccionProtoss {
 
     }
 
+    public boolean hayLarvaParaEvolucionar(){
+        return false;
+    }
+
     public boolean esPrerequisito(Unidad unidad){
         return unidad.permiteCrear(this);
     }

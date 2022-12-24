@@ -67,6 +67,10 @@ public class Guarida extends ConstruccionZerg {
 
     }
 
+    public boolean hayLarvaParaEvolucionar(){
+        return false;
+    }
+
     public void permiteConstruirConUnidad(Zangano zangano){
 
     }

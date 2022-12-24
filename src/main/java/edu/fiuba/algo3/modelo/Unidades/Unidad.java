@@ -35,6 +35,10 @@ public abstract class Unidad {
 
     public int vida() {return vida.vidaActual();}
 
+    public void avanzarTurno(){
+        tiempoConstruccion--;
+    }
+
     public List<Integer> costo() {
         return costos;
     }

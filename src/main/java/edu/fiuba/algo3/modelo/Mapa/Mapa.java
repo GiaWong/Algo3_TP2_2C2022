@@ -3,11 +3,14 @@ package edu.fiuba.algo3.modelo.Mapa;
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
 import edu.fiuba.algo3.modelo.Construccion.Criadero;
 import edu.fiuba.algo3.modelo.Construccion.Pilon;
+import edu.fiuba.algo3.modelo.Exception.FaltaEdificioParaCrearUnidad;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.Area;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
+import edu.fiuba.algo3.modelo.Unidades.UnidadProtoss;
+import edu.fiuba.algo3.modelo.Unidades.UnidadZerg;
 
 public class Mapa {
 
@@ -49,14 +52,33 @@ public class Mapa {
     }
 
 
-    public void agregar(Unidad unidad, Coordenada coord){
+    public void agregar(UnidadProtoss unidad, Coordenada coord){
+        Casilla casilla = this.buscar(coord);
+        unidad.asignarPosicion(coord);
+        if(cumplePrerequisito(unidad)){
+            casilla.agregar(unidad);
+        } else {
+            throw new FaltaEdificioParaCrearUnidad();
+        }
+    }
+
+    public void agregar(UnidadZerg unidad, Coordenada coord){
         Casilla casilla = this.buscar(coord);
         unidad.asignarPosicion(coord);
         if(cumplePrerequisito(unidad)){
             if(hayCriaderosDisponibles()){
                 casilla.agregar(unidad);
             }
+        } else {
+            throw new FaltaEdificioParaCrearUnidad();
         }
+    }
+
+    public void agregar(Unidad unidad, Coordenada coord){
+        Casilla casilla = this.buscar(coord);
+        unidad.asignarPosicion(coord);
+        casilla.agregar(unidad);
+
     }
 
     private boolean hayCriaderosDisponibles() {

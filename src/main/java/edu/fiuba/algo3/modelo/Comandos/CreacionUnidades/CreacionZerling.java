@@ -23,6 +23,6 @@ public class CreacionZerling implements Accion {
     @Override
     public void ejecutar() {
         raza.comprar(zerling);
-        mapa.agregar(zerling, coordenada);
+        //mapa.agregar(zerling, coordenada);
     }
 }

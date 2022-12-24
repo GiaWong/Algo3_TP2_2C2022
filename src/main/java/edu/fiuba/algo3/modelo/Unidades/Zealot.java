@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Acciones.*;
 import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupadaPorNexoMineral;
 import edu.fiuba.algo3.modelo.Exception.EstaUnidadNoSeMuevePorAreaEspacial;
+import edu.fiuba.algo3.modelo.Exception.UnidadNoOperativa;
 import edu.fiuba.algo3.modelo.Exception.UnidadNoTargeteable;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
@@ -34,6 +35,9 @@ public class Zealot extends UnidadProtoss{
     }
 
     public void atacar(Unidad unaUnidad){
+        if (!estaDisponible()){
+            throw  new UnidadNoOperativa();
+        }
         if (unaUnidad.esPosibleSerAtacadoPor(atacador)){
             atacador.atacar(unaUnidad);
         }
@@ -76,6 +80,9 @@ public class Zealot extends UnidadProtoss{
 
 
     public void atacar(Construccion unaConstruccion){
+        if (!estaDisponible()){
+            throw  new UnidadNoOperativa();
+        }
 
         atacador.atacar(unaConstruccion);
         /*try {

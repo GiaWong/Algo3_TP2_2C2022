@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Acciones.*;
 import edu.fiuba.algo3.modelo.Construccion.*;
+import edu.fiuba.algo3.modelo.Exception.UnidadNoOperativa;
 import edu.fiuba.algo3.modelo.Jugador.BancoDeRecursos;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
@@ -57,6 +58,11 @@ public class Mutalisco extends UnidadZerg implements Evolucionador{
     }
 
     public void atacar(Unidad unaUnidad){
+
+        if (!estaDisponible()){
+            throw  new UnidadNoOperativa();
+        }
+
         if (unaUnidad.esPosibleSerAtacadoPor(ataqueTierra)){
             ataqueTierra.atacar(unaUnidad);
 
@@ -66,6 +72,10 @@ public class Mutalisco extends UnidadZerg implements Evolucionador{
     }
 
     public void atacar(Construccion unaConstruccion){
+
+        if (!estaDisponible()){
+            throw  new UnidadNoOperativa();
+        }
         ataqueTierra.atacar(unaConstruccion);
     }
 
