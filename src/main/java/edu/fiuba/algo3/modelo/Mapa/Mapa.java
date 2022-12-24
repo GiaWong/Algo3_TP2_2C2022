@@ -179,35 +179,6 @@ public class Mapa {
         return casilla.devolverUnidad();
     }
 
-    /*
-    public void cantidadEdificios(){
-        edificiosProtoss =0;
-        edificiosZerg=0;
-        for(int i=0; i < base; i++){
-            for(int j=0; j < altura;j++){
-                if(mapa[i][j].hayConstruccion()) {
-                    try {
-                        mapa[i][j].construccionProtoss();
-                    } catch (Exception EstaConstruccionEsProtoss) {
-                        edificiosProtoss += 1;
-                    }
-                    try {
-                        mapa[i][j].construccionZerg();
-                    } catch (Exception EstaConstruccionEsZerg) {
-                        edificiosZerg += 1;
-                    }
-                }
-            }
-        }
-    }
-
-    public boolean finJuego(){
-        cantidadEdificios();
-        return (edificiosProtoss == 0 || edificiosZerg == 0);
-    }
-
-     */
-
 
     public boolean tipoTerreno (Terreno terreno,int fila, int columna){ //Se usa solo para el CasoDeUso9
         return (mapa[fila][columna]).tipoTerreno(terreno);

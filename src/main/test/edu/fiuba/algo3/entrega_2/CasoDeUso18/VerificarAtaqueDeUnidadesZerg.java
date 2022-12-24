@@ -7,10 +7,18 @@ import edu.fiuba.algo3.modelo.Unidades.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.mock;
 
 public class VerificarAtaqueDeUnidadesZerg {
 
     //Verificar que todas las unidades cuasen el daño que dicen que causan en sus ataques
+    Mapa mapa = new Mapa(20,20);
+
+    ConstruccionProtoss pilon = mock(Pilon.class);
+    ConstruccionZerg criadero = mock(Criadero.class);
+    ConstruccionZerg reserva = mock(ReservaProduccion.class);
+
+
 
     // Unidad Zerg ataca a Construccion Protoss
 
@@ -18,21 +26,16 @@ public class VerificarAtaqueDeUnidadesZerg {
     @Test
     public void UnZerlingAtacaAUnaConstruccionProtossYDeberiaHacerleDanio() {
 
-
-        Mapa mapa = new Mapa(20,20);
-        Pilon pilon = new Pilon();
-        for(int i =0 ; i<=4;i++) {
-            pilon.construir();
-        }
         Coordenada coordPilon = new Coordenada(10,9);
         mapa.agregar(pilon, coordPilon);
+        mapa.agregar(criadero,new Coordenada(10,13));
+        mapa.avanzarTurno();
+        mapa.agregar(reserva,new Coordenada(10,15));
+        for(int i = 0; i < 15; i++){
+            mapa.avanzarTurno();
+        }
 
         UnidadZerg zerling = new Zerling();
-        Criadero criadero = new Criadero(0);
-        mapa.agregar(criadero,new Coordenada(10,13));
-        ReservaProduccion reservaProduccion = new ReservaProduccion();
-        mapa.agregar(reservaProduccion,new Coordenada(10,15));
-
         Coordenada coordZerling = new Coordenada(10,10);
 
         mapa.agregar(zerling, coordZerling);
@@ -43,7 +46,7 @@ public class VerificarAtaqueDeUnidadesZerg {
 
     @Test
     public void UnHidraliscoAtacaAUnaConstruccionProtossYDeberiaHacerleDanio() {
-        Mapa mapa = new Mapa(20,20);
+
         Pilon pilon = new Pilon();
         for(int i =0 ; i<=4;i++) {
             pilon.construir();
@@ -66,7 +69,7 @@ public class VerificarAtaqueDeUnidadesZerg {
 
     @Test
     public void UnMutaliscoAtacaAUnaConstruccionProtossYDeberiaHacerleDanio() {
-        Mapa mapa = new Mapa(20,20);
+
         Pilon pilon = new Pilon();
         for(int i =0 ; i<=4;i++) {
             pilon.construir();
@@ -92,7 +95,7 @@ public class VerificarAtaqueDeUnidadesZerg {
     @Test
     public void UnGuardianAtacaAUnaConstruccionProtossYDeberiaHacerleDanio() {
 
-        Mapa mapa = new Mapa(20,20);
+
         Pilon pilon = new Pilon();
         for(int i =0 ; i<=4;i++) {
             pilon.construir();

@@ -58,7 +58,7 @@ public class Casilla {
         construccion = unaConstruccion;
     }
 
-    public void agregar(Construccion unaConstruccion){ //Creo que este metodo ya no lo usamos
+    public void agregar(Construccion unaConstruccion){ //Con este metodo no verifica los prerequisitos
         if (hayConstruccion()){
             throw new CasillaOcupada();
         }
@@ -117,7 +117,15 @@ public class Casilla {
         area = unArea;
     }
 
-    public void setTerreno(Terreno unTerreno){
+    public void setTerreno(Terreno unTerreno){// SinTerreno no puede pisar ConMoho ni ConEnergia (aunque nunca va a hacerlo)
+        if(terreno == null){ //Solo la primera vez entra aca
+            asignarTerreno(unTerreno);
+        } else {
+            terreno.verificarSiPuedeSetear(unTerreno, this);
+        }
+    }
+
+    public void asignarTerreno(Terreno unTerreno){
         terreno = unTerreno;
     }
 

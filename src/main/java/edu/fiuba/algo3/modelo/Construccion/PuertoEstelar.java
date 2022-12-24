@@ -46,8 +46,6 @@ public class PuertoEstelar extends ConstruccionProtoss {
     public void verificarPrerequisito(Mapa mapa) {
     }
 
-    public int obtenerEscudo() {return escudo.escudoActual(); }
-
     public int obtenerVida() {return vida.vidaActual(); }
 
     @Override

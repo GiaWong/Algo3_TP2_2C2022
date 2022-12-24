@@ -55,8 +55,6 @@ public class Pilon extends ConstruccionProtoss{
     public void verificarPrerequisito(Mapa mapa) {
     }
 
-    public int obtenerEscudo() {return escudo.escudoActual(); }
-
     public int obtenerVida() {return vida.vidaActual(); }
 
     public void energizar(Mapa mapa) { //Supuesto: se energiza siempre (excepto cuando el pilon ya no esta vivo)

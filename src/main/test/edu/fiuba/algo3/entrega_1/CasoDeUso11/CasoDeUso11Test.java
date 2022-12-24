@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.entrega_1.CasoDeUso11;
 
 import edu.fiuba.algo3.modelo.Construccion.*;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Unidades.Zerling;
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +11,8 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class CasoDeUso11Test {
+
+    Mapa mapa = mock(Mapa.class);
 
     PuertoEstelar puerto = mock(PuertoEstelar.class);
     Pilon pilon = mock(Pilon.class);
@@ -26,7 +29,7 @@ public class CasoDeUso11Test {
         zerling.atacar(puerto);
 
         for (int i = 0; i < 3; i++) {
-            puerto.avanzarTurno();
+            puerto.avanzarTurno(mapa);
         }
         when(puerto.obtenerEscudo()).thenReturn(600);
         int resultado = puerto.obtenerEscudo();
@@ -43,7 +46,7 @@ public class CasoDeUso11Test {
         zerling.atacar(pilon);
 
         for (int i = 0; i < 3; i++) {
-            pilon.avanzarTurno();
+            pilon.avanzarTurno(mapa);
         }
         when(pilon.obtenerEscudo()).thenReturn(300);
         int resultado = pilon.obtenerEscudo();//Esto habria que ponerlo en construccion
@@ -60,7 +63,7 @@ public class CasoDeUso11Test {
         zerling.atacar(nexo);
 
         for (int i = 0; i < 3; i++) {
-            puerto.avanzarTurno();
+            puerto.avanzarTurno(mapa);
         }
         when(nexo.obtenerEscudo()).thenReturn(250);
         int resultado = nexo.obtenerEscudo();//Esto habria que ponerlo en construccion
@@ -77,7 +80,7 @@ public class CasoDeUso11Test {
         zerling.atacar(asimilador);
 
         for (int i = 0; i < 3; i++) {
-            puerto.avanzarTurno();
+            puerto.avanzarTurno(mapa);
         }
         when(asimilador.obtenerEscudo()).thenReturn(450);
         int resultado = asimilador.obtenerEscudo();//Esto habria que ponerlo en construccion
@@ -94,7 +97,7 @@ public class CasoDeUso11Test {
         zerling.atacar(acceso);
 
         for (int i = 0; i < 3; i++) {
-            puerto.avanzarTurno();
+            puerto.avanzarTurno(mapa);
         }
         when(acceso.obtenerEscudo()).thenReturn(500);
         int resultado = acceso.obtenerEscudo();//Esto habria que ponerlo en construccion

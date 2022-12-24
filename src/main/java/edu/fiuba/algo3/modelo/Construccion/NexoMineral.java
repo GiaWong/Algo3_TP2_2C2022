@@ -43,14 +43,14 @@ public class NexoMineral extends ConstruccionProtoss implements RefineriaMineral
     public void verificarPrerequisito(Mapa mapa) {
     }
 
-    public int obtenerEscudo() {return escudo.escudoActual(); }
-
     public int obtenerVida() {return vida.vidaActual(); }
 
     @Override
     public void avanzarTurno(Mapa mapa) {
         construir();
         regenerarEscudo();
+        //Podria recolectar por cada turno, sin tener una opcion que recolecte directamente...
+        //haciendo: mapa.recolectar(coordenada, this) o algo asi
     }
 
     @Override

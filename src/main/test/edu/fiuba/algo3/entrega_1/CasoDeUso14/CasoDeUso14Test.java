@@ -6,47 +6,52 @@ import edu.fiuba.algo3.modelo.Construccion.Pilon;
 import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CasoDeUso14Test {
+
+    Mapa mapa = new Mapa(20,20);
+    Coordenada coordCriadero = new Coordenada(0,0);
+    Coordenada coordPilon = new Coordenada(2,2);
+
     @Test
     public void SeCreaUnPilonYNoDeberiaEnergizarUnaCasillaConMoho(){
-        Mapa mapa = new Mapa(20,20);
-        Coordenada coordenada = new Coordenada(10,10);
+
         Criadero criadero = new Criadero();
         Pilon pilon = new Pilon();
-        mapa.agregar(criadero,coordenada);
-        mapa.agregar(pilon,new Coordenada(10,13));
+        mapa.agregar(criadero,coordCriadero);
+        mapa.agregar(pilon,coordPilon);
         for(int i = 0; i<4; i++){
-            criadero.avanzarTurno(mapa);
-            pilon.avanzarTurno();
+            mapa.avanzarTurno();
         }
         assertThrows( NoEstaEnergizado.class, ()-> {
-            mapa.agregar(new Acceso(),new Coordenada(10,12));
+            mapa.agregar(new Acceso(),new Coordenada(1,1));
         });
 
     }
 
     @Test
     public void MohoNoSeExpandeACasillasConConstrucciones(){
-        Mapa mapa = new Mapa(20,20);
 
-        Coordenada coordenada = new Coordenada(10,10);
         Criadero criadero = new Criadero();
         Pilon pilon = new Pilon();
-        mapa.agregar(criadero,new Coordenada(10,10));
-        Coordenada coordenadaPilon = new Coordenada(10,16);
-        mapa.agregar(pilon,coordenadaPilon);
+        mapa.agregar(criadero,coordCriadero);
+        mapa.agregar(pilon,coordPilon);
         for(int i = 0; i<5; i++){
-            criadero.avanzarTurno(mapa);
-            pilon.avanzarTurno();
+            mapa.avanzarTurno();
         }
-        mapa.destruirConstruccion(coordenadaPilon);
+        mapa.destruirConstruccion(coordPilon); //??
+        /*
         assertDoesNotThrow( ()-> {
             mapa.agregar(new Pilon(), coordenadaPilon);
         });
+
+        Porque este assert?
+         */
     }
 
 

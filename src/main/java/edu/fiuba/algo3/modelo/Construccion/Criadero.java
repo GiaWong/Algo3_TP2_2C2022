@@ -107,16 +107,6 @@ public class Criadero extends ConstruccionZerg{
         }
     }
 
-    private void infectarConMoho(Mapa mapa){
-        mapa.setearRadio(coordenada,radio, new ConMoho());
-    }
-
-
-    private void expandirMoho(){ //Supuesto: se setea el moho siempre, mas alla de si esta construido o no.
-        if(turnos % 2 == 0){
-            radio++;
-        }
-    }
 
     public void esPosibleAgregarUnidad(Unidad unaUnidad){
 
@@ -127,6 +117,16 @@ public class Criadero extends ConstruccionZerg{
     }
 
     public void verificarPrerequisito(Mapa mapa) {
+    }
+
+    private void infectarConMoho(Mapa mapa){
+        mapa.setearRadio(coordenada,radio, new ConMoho());
+    }
+
+    private void expandirMoho(){ //Supuesto: se setea el moho siempre, mas alla de si esta construido o no.
+        if(turnos % 2 == 0){
+            radio++;
+        }
     }
 
     private void agregarLarva(){

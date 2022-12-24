@@ -16,4 +16,8 @@ public abstract class ConstruccionProtoss extends Construccion {
         escudo.regenerarEscudo(10);
     }
 
+    public int obtenerEscudo(){
+        return escudo.escudoActual();
+    }
+
 }
