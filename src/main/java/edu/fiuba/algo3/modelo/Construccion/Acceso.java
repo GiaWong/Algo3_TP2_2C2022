@@ -51,28 +51,14 @@ public  class Acceso extends ConstruccionProtoss{
     public void verificarPrerequisito(Mapa mapa) {
     }
 
-    public void regenerarEscudo(){
-        escudo.regenerarEscudo(10);
-    }
-
     public int obtenerEscudo() {return escudo.escudoActual(); }
 
     public int obtenerVida() {return vida.vidaActual(); }
 
-    public Unidad crearZealot() throws EdificioNoEstaOperativo{
-        verificarEdificioOperativo();
-        return new Zealot();
-    }
-
-    public Unidad crearDragon() throws EdificioNoEstaOperativo{
-        verificarEdificioOperativo();
-        return new Dragon();
-    }
-
     @Override
     public void avanzarTurno(Mapa mapa) {
-        this.regenerarEscudo();
-        this.construir();
+        construir();
+        regenerarEscudo();
     }
 
     @Override

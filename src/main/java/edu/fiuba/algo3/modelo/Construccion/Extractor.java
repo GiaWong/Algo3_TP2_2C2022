@@ -53,10 +53,6 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
 
     public int obtenerVida() {return vida.vidaActual(); }
 
-    public void regenerarVida(){
-        vida.regenerarSalud(5);
-    }
-
     @Override
     public int recolectar(Volcan volcan) throws EdificioNoEstaOperativo, FaltaUnZanganoParaRecolectar{
         verificarEdificioOperativo();
@@ -67,15 +63,10 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
         }
     }
 
-    public void avanzarTurno() {
-        this.regenerarVida();
-        this.construir();
-    }
-
     @Override
     public void avanzarTurno(Mapa mapa) {
-        this.regenerarVida();
-        this.construir();
+        construir();
+        regenerarVida();
     }
 
     public void permiteConstruirConUnidad(Unidad unidad){

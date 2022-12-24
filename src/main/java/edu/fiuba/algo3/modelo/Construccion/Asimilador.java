@@ -36,18 +36,14 @@ public class  Asimilador extends ConstruccionProtoss implements RefineriaGas {
     public void verificarPrerequisito(Mapa mapa) {
     }
 
-    public void regenerarEscudo(){
-        escudo.regenerarEscudo(10);
-    }
-
     public int obtenerEscudo() {return escudo.escudoActual(); }
 
     public int obtenerVida() { return vida.vidaActual(); }
 
     @Override
     public void avanzarTurno(Mapa mapa) {
-        this.regenerarEscudo();
-        this.construir();
+        construir();
+        regenerarEscudo();
     }
 
     public void permiteConstruirConUnidad(Unidad unidad){

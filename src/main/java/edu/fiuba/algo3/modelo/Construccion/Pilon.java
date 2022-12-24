@@ -55,24 +55,12 @@ public class Pilon extends ConstruccionProtoss{
     public void verificarPrerequisito(Mapa mapa) {
     }
 
-    public void regenerarEscudo(){
-        escudo.regenerarEscudo(10);
-    }
-
     public int obtenerEscudo() {return escudo.escudoActual(); }
 
     public int obtenerVida() {return vida.vidaActual(); }
 
-
-    public void avanzarTurno() {
-        this.regenerarEscudo();
-        this.construir();
-    }
-
-    public void energizar(Mapa mapa) { //Cambiar los tests cuando decia que lanzaba un error! Ahora ya no lanza mas un error.
-        if (estaDisponible()){
-            mapa.setearRadio(coordenada, radio, new ConEnergia());
-        }
+    public void energizar(Mapa mapa) { //Supuesto: se energiza siempre (excepto cuando el pilon ya no esta vivo)
+        mapa.setearRadio(coordenada, radio, new ConEnergia());
     }
 
     public void destruir(Mapa mapa){
@@ -94,9 +82,11 @@ public class Pilon extends ConstruccionProtoss{
 
     @Override
     public void avanzarTurno(Mapa mapa) {
-        this.regenerarEscudo();
-        this.construir();
-        this.energizar(mapa);
+        construir();
+        regenerarEscudo();
+        if (vida.tieneVida()){ //Si no tiene vida, no energiza mas.
+            energizar(mapa);
+        }
     }
 
     @Override

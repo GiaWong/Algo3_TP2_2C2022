@@ -52,20 +52,10 @@ public class Espiral extends ConstruccionZerg {
 
     public int obtenerVida() {return vida.vidaActual(); }
 
-
-    public void regenerarVida(){
-        vida.regenerarSalud(5);
-    }
-
-    public void avanzarTurno() {
-        this.regenerarVida();
-        this.construir();
-    }
-
     @Override
     public void avanzarTurno(Mapa mapa) {
-        this.regenerarVida();
-        this.construir();
+        construir();
+        regenerarVida();
     }
 
     @Override

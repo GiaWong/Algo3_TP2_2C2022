@@ -12,4 +12,8 @@ public abstract class ConstruccionProtoss extends Construccion {
         defensa.recibirDanio(danio, vida, escudo);
     }
 
+    public void regenerarEscudo() {
+        escudo.regenerarEscudo(10);
+    }
+
 }

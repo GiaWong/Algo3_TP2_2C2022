@@ -46,43 +46,14 @@ public class PuertoEstelar extends ConstruccionProtoss {
     public void verificarPrerequisito(Mapa mapa) {
     }
 
-
-    public boolean preRequisito(List<Construccion> lista){
-        if(lista!=null) {
-            for (Construccion construccion : lista) {
-                if (construccion.getClass().equals(preRequisito.getClass())) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-
-    public void regenerarEscudo(){
-        escudo.regenerarEscudo(10);
-    }
-
     public int obtenerEscudo() {return escudo.escudoActual(); }
 
     public int obtenerVida() {return vida.vidaActual(); }
 
-
-    public Unidad crearScout() throws EdificioNoEstaOperativo { //Creo que deberia pasarle la casilla. Y EL BANCO  DE RECURSOS tambien?
-        verificarEdificioOperativo();
-        return new Scout();
-    }
-
-
-    public void avanzarTurno() {
-        this.regenerarEscudo();
-        this.construir();
-    }
-
     @Override
     public void avanzarTurno(Mapa mapa) {
-        this.regenerarEscudo();
-        this.construir();
+        construir();
+        regenerarEscudo();
     }
 
     public void permiteConstruirConUnidad(Unidad unidad){

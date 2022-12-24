@@ -9,11 +9,9 @@ public abstract class ConstruccionZerg  extends Construccion {
         defensa.recibirDanio(danio, vida);
     }
 
-
-    public   void esProtoss()throws EstaConstruccionEsProtoss {
-        throw new EstaConstruccionEsProtoss();
-    }
-    public   void esZerg(){
-
+    public void regenerarVida() {
+        if(vida.tieneVida()){
+            vida.regenerarSalud(5);
+        }
     }
 }

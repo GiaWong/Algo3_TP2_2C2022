@@ -92,10 +92,6 @@ public class Criadero extends ConstruccionZerg{
         return larvas.size() == cantidadDeLarvas;
     }
 
-    public void regenerarVida(){
-        vida.regenerarSalud(5);
-    }
-
     public int obtenerVida() {return vida.vidaActual(); }
 
     public boolean esPrerequisito(Unidad unidad){
@@ -111,12 +107,13 @@ public class Criadero extends ConstruccionZerg{
         }
     }
 
+    private void infectarConMoho(Mapa mapa){
+        mapa.setearRadio(coordenada,radio, new ConMoho());
+    }
 
-    public void expandirMoho(Mapa mapa){
-        if(turnos == 0 && (estaDisponible())){
-            mapa.setearRadio(coordenada,radio, new ConMoho());
-        } else if((turnos % 2 == 0) && (estaDisponible())){
-            mapa.setearRadio(coordenada,radio, new ConMoho());
+
+    private void expandirMoho(){ //Supuesto: se setea el moho siempre, mas alla de si esta construido o no.
+        if(turnos % 2 == 0){
             radio++;
         }
     }
@@ -132,20 +129,22 @@ public class Criadero extends ConstruccionZerg{
     public void verificarPrerequisito(Mapa mapa) {
     }
 
-    @Override
-    public void avanzarTurno(Mapa mapa){
-        setearMohoInicial();
+    private void agregarLarva(){
         if(larvas.size() < 3){
             larvas.add(new Larva());
         }
-        this.construir();
-        this.regenerarVida();
-        this.expandirMoho(mapa);
-        turnos++;
     }
 
-    public void setearMohoInicial(){
-
+    @Override
+    public void avanzarTurno(Mapa mapa){
+        if (vida.tieneVida()){
+            expandirMoho();
+        }
+        construir();
+        agregarLarva();
+        regenerarVida();
+        infectarConMoho(mapa);
+        turnos++;
     }
 
     public void permiteConstruirConUnidad(Unidad unidad){

@@ -50,7 +50,7 @@ public class Jugador {
     }
 
     public boolean esIgualA(Jugador otroJugador) {
-        return (otroJugador.tieneMismoNombre(nombre) && otroJugador.tieneMismoColor(color) && otroJugador.tieneMismaRaza(raza));
+        return (otroJugador.tieneMismoNombre(nombre) || otroJugador.tieneMismoColor(color) || otroJugador.tieneMismaRaza(raza));
     }
 
     public boolean tieneMismoNombre(String otroNombre){

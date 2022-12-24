@@ -89,16 +89,12 @@ public class Guarida extends ConstruccionZerg {
         vida.regenerarSalud(5);
     }
 
-    public void avanzarTurno() {
-        this.regenerarVida();
-        this.construir();
-    }
-
     @Override
     public void avanzarTurno(Mapa mapa) {
-        this.regenerarVida();
-        this.construir();
+        construir();
+        regenerarVida();
     }
+
     @Override
     public void esPosibleConstruirEn(ConEnergia energia){
         throw new NoHayMoho();
