@@ -22,7 +22,7 @@ public class CasoDeUso22Zerg {
 construirlas. */
 
 
-/*
+
     @Test
     public void unZánganoNoOperativoNoDeberiaPoderRecolectar(){
 
@@ -147,6 +147,6 @@ construirlas. */
         assertThrows( FaltaEdificioParaCrearUnidad.class, ()->mapa.agregar(zangano,new Coordenada(10,13)));
     }
 
- */
+
 
 }

@@ -151,7 +151,8 @@ public class Casilla {
 
     public boolean esPrerequisito(Unidad unidad) {
         if(construccion != null){
-            return construccion.esPrerequisito(unidad);
+            boolean var = construccion.esPrerequisito(unidad);
+            return var;
         } else {
             return false;
         }
