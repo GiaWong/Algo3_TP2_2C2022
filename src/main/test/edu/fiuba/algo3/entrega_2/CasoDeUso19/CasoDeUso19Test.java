@@ -13,180 +13,276 @@ public class CasoDeUso19Test {
 
     //Mapa y coordenadas
     Mapa mapa = new Mapa(20,20);
-    Coordenada coordCriadero = new Coordenada(2,2);
-    Coordenada coordReserva = new Coordenada(3,2);
-    Coordenada coordGuarida = new Coordenada(2,3);
-    Coordenada coordEspiral = new Coordenada(3,3);
-
-    Coordenada coordPilon = new Coordenada(18,18);
-    Coordenada coordAcceso = new Coordenada(19,18);
-    Coordenada coordPuerto = new Coordenada(18,19);
-
-    //Construcciones usadas
-    Construccion criadero = mock(Criadero.class);
-    Construccion reserva = mock(ReservaProduccion.class);
-    Construccion guarida = mock(Guarida.class);
-    Construccion espiral = mock(Espiral.class);
-
-    Construccion pilon = mock(Pilon.class);
-    Construccion acceso = mock(Acceso.class);
-    Construccion puerto = mock(PuertoEstelar.class);
-
-    //Unidades usadas
-    UnidadZerg zerling = mock(Zerling.class);
-    UnidadZerg muta = mock(Mutalisco.class);
-    UnidadZerg hidralisco = mock(Hidralisco.class);
-    UnidadProtoss scout = mock(Scout.class);
 
     @Test
-    public void zerlingAtacaUnScoutYNoDeberiaHacerleDanio(){ //Esto es para checkear lo de los AtaqueAire y AtaqueTierra
-        Coordenada coordAtacada = new Coordenada(11,10);
+    public void ZerlingNoDeberiaPoderAtacarAUnScout(){
+        Construccion criadero = new Criadero(0);
+        Construccion reservaProduccion = new ReservaProduccion(0);
+        Construccion pilon = new Pilon(0);
+        Unidad atacante = new Zerling();
+        UnidadProtoss defensora = new Scout();
+        mapa.agregar(pilon,new Coordenada(10,10));
+        mapa.agregar(criadero,new Coordenada(10,11));
 
-        //Creo primero un criadero y un pilon
-        mapa.agregar(new Criadero(), coordCriadero);
-        mapa.agregar(new Pilon(), coordPilon);
-        for(int i = 0; i < 8; i++){
-            mapa.avanzarTurno();
-        }
-
-        //Luego creo las demas construcciones para poder hacer las unidades que quiero
-        mapa.agregar(new ReservaProduccion(), new Coordenada(3,2));
-        mapa.agregar(new Acceso(), coordAcceso);
-        mapa.agregar(new PuertoEstelar(), coordPuerto);
-        for(int i = 0; i < 15; i++){
-            mapa.avanzarTurno();
-        }
-
-        Zerling zerling1 = new Zerling();
-
-        //Cuando se agrega un zerling le saca una larva al criadero
-        mapa.agregar(zerling1,new Coordenada(10,10)); //Me tira error, me dice que no se cumple el prerequisito de la Reserva...??
-        mapa.agregar(new Scout(),coordAtacada);
-        //Se avanzan los turnos para que las unidades puedan estar disponibles
-        for(int i = 0; i < 15; i++){
-            mapa.avanzarTurno();
-        }
-        mapa.atacar(zerling1,coordAtacada);
-
-        assertEquals(100,scout.escudo());
-    }
-
-    /*
-
-
-    @Test
-    public void zerlingAtacaUnScoutYNoDeberiaHacerleDanio(){ //Esto es para checkear lo de los AtaqueAire y AtaqueTierra
-        Coordenada coordAtacada = new Coordenada(11,10);
-
-        //Creo primero un criadero y un pilon
-        mapa.agregar(criadero, coordCriadero);
-        mapa.agregar(pilon, coordPilon);
-        for(int i = 0; i < 8; i++){
-            mapa.avanzarTurno();
-        }
-
-        //Luego creo las demas construcciones para poder hacer las unidades que quiero
-        mapa.agregar(new ReservaProduccion(), new Coordenada(3,2));
-        mapa.agregar(acceso, coordAcceso);
-        mapa.agregar(puerto, coordPuerto);
-        for(int i = 0; i < 15; i++){
-            mapa.avanzarTurno();
-        }
-
-        //Cuando se agrega un zerling le saca una larva al criadero
-        mapa.agregar(new Zerling(),new Coordenada(10,10)); //Me tira error, me dice que no se cumple el prerequisito de la Reserva...??
-        mapa.agregar(scout,coordAtacada);
-        //Se avanzan los turnos para que las unidades puedan estar disponibles
-        for(int i = 0; i < 15; i++){
-            mapa.avanzarTurno();
-        }
-        mapa.atacar(zerling,coordAtacada);
-
-        assertEquals(100,scout.escudo());
-    }
-
-    /*
-
-    @Test
-    public void mutaAtacaUnZerlingYDeberiaHacerleDanio(){ //Supuesto: Se puede hacer daño amigo, es decir a la propia raza
-        Coordenada coordAtacada = new Coordenada(10,10);
-
-        //Creo primero un criadero, luego una reserva, porque es el prerequisito de la Guarida
-        //Luego creo la Guarida, que es el prerequisito del Espiral
-        //Y finalmente creo el Espiral, que es prerequisito del Mutalisco
-        while(criadero.estaDisponible() && reserva.estaDisponible() && guarida.estaDisponible() && espiral.estaDisponible()){
+        for (int i = 0; i < 2; i++){
             criadero.avanzarTurno(mapa);
-            reserva.avanzarTurno(mapa);
-            guarida.avanzarTurno(mapa);
-            espiral.avanzarTurno(mapa);
-        }
-        mapa.agregar(criadero, coordCriadero);
-        mapa.agregar(reserva, coordReserva);
-        mapa.agregar(guarida, coordGuarida);
-        mapa.agregar(espiral, coordEspiral);
-
-        //Creo el zerling y el mutalisco
-        while(zerling.estaDisponible() && muta.estaDisponible()){
-            zerling.construir();
-            muta.construir();
+            pilon.avanzarTurno(mapa);
         }
 
-        mapa.agregar(muta,new Coordenada(11,10));
-        mapa.agregar(zerling,coordAtacada);
-        mapa.atacar(muta,coordAtacada);
+        mapa.agregar(reservaProduccion,new Coordenada(10,12));
+        mapa.agregar(atacante,new Coordenada(10,15));
+        mapa.agregar(defensora,new Coordenada(10,16));
 
-        assertEquals(26,zerling.vida());
+
+        for(int i = 0; i < 15; i++){
+            mapa.avanzarTurno();
+        }
+        mapa.atacar(atacante,new Coordenada(10,16));
+
+        assertEquals(100,defensora.escudo());
     }
 
-    @Test
-    public void mutaliscoAtacaUnScoutYNoDeberiaHacerleDanio(){
-        Coordenada coordAtacada = new Coordenada(10,10);
 
-        //Creo primero un criadero, luego una reserva, porque es el prerequisito de la Guarida
-        //Luego creo la Guarida, que es el prerequisito del Espiral
-        //Y finalmente creo el Espiral, que es prerequisito del Mutalisco
-        while(criadero.estaDisponible() && reserva.estaDisponible() && guarida.estaDisponible() && espiral.estaDisponible()){
+
+    @Test
+    public void ZerlingNoDeberiaPoderAtacarAUnMutalisco(){ //
+
+        Construccion criadero = new Criadero(0);
+        Construccion reservaProduccion = new ReservaProduccion(0);
+        Construccion espiral = new Espiral(0);
+        Unidad atacante = new Zerling();
+        Unidad defensora = new Mutalisco();
+        mapa.agregar(criadero,new Coordenada(10,11));
+
+        for (int i = 0; i < 2; i++){
             criadero.avanzarTurno(mapa);
-            reserva.avanzarTurno(mapa);
-            guarida.avanzarTurno(mapa);
-            espiral.avanzarTurno(mapa);
-        }
-        mapa.agregar(criadero, coordCriadero);
-        mapa.agregar(reserva, coordReserva);
-        mapa.agregar(guarida, coordGuarida);
-        mapa.agregar(espiral, coordEspiral);
-
-
-        while(muta.estaDisponible() && scout.estaDisponible()){
-            muta.construir();
-            scout.estaDisponible();
         }
 
-        mapa.agregar(scout, coordAtacada);
-        mapa.agregar(muta, new Coordenada(11,10));
-        mapa.atacar(muta, coordAtacada);
+        mapa.agregar(reservaProduccion,new Coordenada(10,12));
+        mapa.agregar(espiral,new Coordenada(10,13));
+        mapa.agregar(atacante,new Coordenada(10,15));
+        mapa.agregar(defensora,new Coordenada(10,16));
 
-        assertEquals(150,scout.vida());
+
+        for(int i = 0; i < 15; i++){
+            mapa.avanzarTurno();
+        }
+        mapa.atacar(atacante,new Coordenada(10,16));
+
+        assertEquals(120,defensora.vida());
+
     }
-
 
 
     @Test
-    public void zerlingAtacaUnHidraliscoYDeberiaHacerleDanio(){
-        Coordenada coordAtacada = new Coordenada(10,10);
+    public void ZerlingNoDeberiaPoderAtacarAUnGuardian(){ //
+        Construccion criadero = new Criadero(0);
+        Construccion reservaProduccion = new ReservaProduccion(0);
+        Construccion espiral = new Espiral(0);
+        Unidad atacante = new Zerling();
+        Unidad defensora = new Guardian();
+        mapa.agregar(criadero,new Coordenada(10,11));
 
-        while(zerling.estaDisponible() && hidralisco.estaDisponible()){
-            zerling.construir();
-            hidralisco.estaDisponible();
+        for (int i = 0; i < 2; i++){
+            criadero.avanzarTurno(mapa);
         }
 
-        mapa.agregar(hidralisco, coordAtacada);
-        mapa.agregar(zerling, new Coordenada(11,10));
-        mapa.atacar(zerling, coordAtacada);
+        mapa.agregar(reservaProduccion,new Coordenada(10,12));
+        mapa.agregar(espiral,new Coordenada(10,13));
+        mapa.agregar(atacante,new Coordenada(10,15));
+        mapa.agregar(defensora,new Coordenada(10,16));
 
-        assertEquals(76,hidralisco.vida());
+
+        for(int i = 0; i < 15; i++){
+            mapa.avanzarTurno();
+        }
+        mapa.atacar(atacante,new Coordenada(10,16));
+
+        assertEquals(100,defensora.vida());
     }
 
-     */
+    @Test
+    public void GuardianNoDeberiaPoderAtacarAUnMutalisco(){ //
+        Construccion criadero = new Criadero(0);
+        Construccion espiral = new Espiral(0);
+        Unidad atacante = new Guardian();
+        Unidad defensora = new Mutalisco();
+        mapa.agregar(criadero,new Coordenada(10,11));
+
+        for (int i = 0; i < 2; i++){
+            criadero.avanzarTurno(mapa);
+        }
+
+        mapa.agregar(espiral,new Coordenada(10,13));
+        mapa.agregar(atacante,new Coordenada(10,15));
+        mapa.agregar(defensora,new Coordenada(10,16));
+
+
+        for(int i = 0; i < 15; i++){
+            mapa.avanzarTurno();
+        }
+        mapa.atacar(atacante,new Coordenada(10,16));
+
+        assertEquals(120,defensora.vida());
+    }
+
+    @Test
+    public void GuardianNoDeberiaPoderAtacarAOtroGuardian(){ //
+        Construccion criadero = new Criadero(0);
+        Construccion espiral = new Espiral(0);
+        Unidad atacante = new Guardian();
+        Unidad defensora = new Guardian();
+        mapa.agregar(criadero,new Coordenada(10,11));
+
+        for (int i = 0; i < 2; i++){
+            criadero.avanzarTurno(mapa);
+        }
+
+        mapa.agregar(espiral,new Coordenada(10,13));
+        mapa.agregar(atacante,new Coordenada(10,15));
+        mapa.agregar(defensora,new Coordenada(10,16));
+
+
+        for(int i = 0; i < 15; i++){
+            mapa.avanzarTurno();
+        }
+        mapa.atacar(atacante,new Coordenada(10,16));
+
+        assertEquals(100,defensora.vida());
+
+    }
+
+    @Test
+    public void GuardianNoDeberiaPoderAtacarAUnScout(){ //
+        Construccion criadero = new Criadero(0);
+        Construccion reserva = new ReservaProduccion(0);
+        Construccion guarida = new Guarida(0);
+        Construccion espiral = new Espiral(0);
+        Construccion pilon = new Pilon(0);
+        Unidad atacante = new Guardian();
+        UnidadProtoss defensora = new Scout();
+        mapa.agregar(criadero,new Coordenada(10,11));
+        mapa.agregar(pilon,new Coordenada(10,12));
+
+        for (int i = 0; i < 2; i++){
+            criadero.avanzarTurno(mapa);
+            pilon.avanzarTurno(mapa);
+        }
+        mapa.agregar(reserva,new Coordenada(11,13));
+        mapa.agregar(guarida,new Coordenada(12,13));
+        mapa.agregar(espiral,new Coordenada(10,13));
+        mapa.agregar(atacante,new Coordenada(10,15));
+        mapa.agregar(defensora,new Coordenada(10,16));
+
+
+        for(int i = 0; i < 15; i++){
+            mapa.avanzarTurno();
+        }
+        mapa.atacar(atacante,new Coordenada(10,16));
+
+        assertEquals(100,defensora.escudo());
+    }
+
+
+    @Test
+    public void ZealotNoDeberiaPoderAtacarAUnMutalisco(){ //
+        Construccion criadero = new Criadero(0);
+        Construccion reserva = new ReservaProduccion(0);
+        Construccion guarida = new Guarida(0);
+        Construccion acceso = new Acceso(0);
+        Construccion espiral = new Espiral(0);
+        Construccion pilon = new Pilon(0);
+        Unidad atacante = new Zealot();
+        Unidad defensora = new Mutalisco();
+
+        mapa.agregar(criadero,new Coordenada(5,11));
+        mapa.agregar(pilon,new Coordenada(14,12));
+
+        for (int i = 0; i < 2; i++){
+            criadero.avanzarTurno(mapa);
+            pilon.avanzarTurno(mapa);
+        }
+
+        mapa.agregar(reserva,new Coordenada(6,13));
+        mapa.agregar(guarida,new Coordenada(7,13));
+        mapa.agregar(espiral,new Coordenada(8,13));
+        mapa.agregar(acceso,new Coordenada(14,14));
+        mapa.agregar(atacante,new Coordenada(10,15));
+        mapa.agregar(defensora,new Coordenada(10,16));
+
+
+        for(int i = 0; i < 15; i++){
+            mapa.avanzarTurno();
+        }
+        mapa.atacar(atacante,new Coordenada(10,16));
+
+        assertEquals(120,defensora.vida());
+
+    }
+
+
+    @Test
+    public void ZealotNoDeberiaPoderAtacarAUnGuardian(){ //
+        Construccion criadero = new Criadero(0);
+        Construccion reserva = new ReservaProduccion(0);
+        Construccion guarida = new Guarida(0);
+        Construccion acceso = new Acceso(0);
+        Construccion espiral = new Espiral(0);
+        Construccion pilon = new Pilon(0);
+        Unidad atacante = new Zealot();
+        Unidad defensora = new Guardian();
+        mapa.agregar(criadero,new Coordenada(4,12));
+        mapa.agregar(pilon,new Coordenada(10,12));
+
+        for (int i = 0; i < 2; i++){
+            criadero.avanzarTurno(mapa);
+            pilon.avanzarTurno(mapa);
+        }
+
+        mapa.agregar(reserva,new Coordenada(5,13));
+        mapa.agregar(guarida,new Coordenada(6,13));
+        mapa.agregar(espiral,new Coordenada(4,13));
+        mapa.agregar(acceso,new Coordenada(10,14));
+        mapa.agregar(atacante,new Coordenada(10,15));
+        mapa.agregar(defensora,new Coordenada(10,16));
+
+
+        for(int i = 0; i < 15; i++){
+            mapa.avanzarTurno();
+        }
+        mapa.atacar(atacante,new Coordenada(10,16));
+
+        assertEquals(100,defensora.vida());
+
+    }
+
+    @Test
+    public void ZealotNoDeberiaPoderAtacarAUnScout(){ //
+        Construccion acceso = new Acceso(0);
+        Construccion puertoEstelar = new PuertoEstelar(0);
+        Construccion pilon = new Pilon(0);
+        Unidad atacante = new Zealot();
+        UnidadProtoss defensora = new Scout();
+        mapa.agregar(pilon,new Coordenada(10,12));
+
+        for (int i = 0; i < 2; i++){
+            pilon.avanzarTurno(mapa);
+        }
+
+        mapa.agregar(acceso,new Coordenada(10,14));
+        mapa.agregar(puertoEstelar,new Coordenada(10,13));
+        mapa.agregar(atacante,new Coordenada(10,15));
+        mapa.agregar(defensora,new Coordenada(10,16));
+
+
+        for(int i = 0; i < 15; i++){
+            mapa.avanzarTurno();
+        }
+        mapa.atacar(atacante,new Coordenada(10,16));
+
+        assertEquals(100,defensora.escudo());
+    }
+
+
 
 }

@@ -66,7 +66,7 @@ public class Scout extends UnidadProtoss{
     }
 
     public boolean permiteCrear(PuertoEstelar puertoEstelar){
-        return false;
+        return true;
     }
 
     public boolean permiteCrear(ReservaProduccion reservaProduccion){

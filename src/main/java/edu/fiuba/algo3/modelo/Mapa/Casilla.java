@@ -71,7 +71,8 @@ public class Casilla {
         if (this.hayConstruccion()){
             construccion.avanzarTurno(mapa);
 
-        } else if (this.hayUnidad()) {
+        }
+        if (this.hayUnidad()) {
             unidad.construir();
         }
     }
@@ -151,8 +152,7 @@ public class Casilla {
 
     public boolean esPrerequisito(Unidad unidad) {
         if(construccion != null){
-            boolean var = construccion.esPrerequisito(unidad);
-            return var;
+            return construccion.esPrerequisito(unidad);
         } else {
             return false;
         }
