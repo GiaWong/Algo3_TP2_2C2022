@@ -97,8 +97,8 @@ public class Mapa {
     }
 
     public boolean cumplePrerequisito(Unidad unidad){
-        int i = 10;
-        int j = 13;
+        int i = 0;
+        int j = 0;
         boolean encontrado = false;
         while (i < base && !encontrado){
             while (j < altura && !encontrado){
