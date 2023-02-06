@@ -13,8 +13,8 @@ public class Devorador extends UnidadZerg{
         vida = new Vida(200);
         tiempoConstruccion = 4;
         rango = 5;
-        costos.add(150); //Esto es para Minerales
-        costos.add(50); // Esto es para Gas
+        costoMineral = 150;
+        costoGas = 50;
         superficie = new Aire();
         atacador = new AtaqueAire(15);
     }

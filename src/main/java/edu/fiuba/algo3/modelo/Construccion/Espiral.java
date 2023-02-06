@@ -22,15 +22,15 @@ import java.util.List;
 public class Espiral extends ConstruccionZerg {
 
     public Espiral(){
-        costos.add(150); //esto es para Mineral
-        costos.add(100); //esto es para Gas
+        costoMineral = 150;
+        costoGas = 100;
         vida = new Vida(1300);
         tiempoConstruccion = 10;
     }
 
     public Espiral(int tiempoDeConstruccion){
-        costos.add(150); //esto es para Mineral
-        costos.add(100); //esto es para Gas
+        costoMineral = 150;
+        costoGas = 100;
         vida = new Vida(1300);
         tiempoConstruccion = tiempoDeConstruccion;
     }

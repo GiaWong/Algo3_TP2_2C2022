@@ -24,16 +24,16 @@ public class PuertoEstelar extends ConstruccionProtoss {
     private final ConstruccionProtoss preRequisito = new Acceso();
 
     public PuertoEstelar(){
-        costos.add(150); //esto es para Mineral
-        costos.add(150); //esto es para Gas
+        costoMineral = 150;
+        costoGas = 150;
         vida = new Vida(600);
         escudo = new Escudo(600);
         tiempoConstruccion = 10;
     }
 
     public PuertoEstelar(int tiempoDeConstruccion){
-        costos.add(150); //esto es para Mineral
-        costos.add(150); //esto es para Gas
+        costoMineral = 150;
+        costoGas = 150;
         vida = new Vida(600);
         escudo = new Escudo(600);
         tiempoConstruccion = 10;

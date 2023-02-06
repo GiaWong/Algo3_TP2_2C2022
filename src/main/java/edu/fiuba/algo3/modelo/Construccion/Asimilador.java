@@ -14,16 +14,16 @@ import edu.fiuba.algo3.modelo.Unidades.Zangano;
 public class  Asimilador extends ConstruccionProtoss implements RefineriaGas {
 
     public Asimilador(){
-        costos.add(100); //esto es para Mineral
-        costos.add(0); //esto es para Gas
+        costoMineral = 100;
+        costoGas = 0;
         vida = new Vida(450);
         escudo = new Escudo(450);
-        tiempoConstruccion =6;
+        tiempoConstruccion = 6;
     }
 
     public Asimilador(int tiempoDeConstruccion){
-        costos.add(100); //esto es para Mineral
-        costos.add(0); //esto es para Gas
+        costoMineral = 100;
+        costoGas = 0;
         vida = new Vida(450);
         escudo = new Escudo(450);
         tiempoConstruccion = tiempoDeConstruccion;

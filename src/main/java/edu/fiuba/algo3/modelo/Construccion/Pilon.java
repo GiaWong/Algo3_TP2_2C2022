@@ -22,8 +22,8 @@ public class Pilon extends ConstruccionProtoss{
 
 
     public Pilon(){
-        costos.add(100); //esto es para Mineral
-        costos.add(0); //esto es para Gas
+        costoMineral = 100;
+        costoGas = 0;
         vida = new Vida(300);
         escudo = new Escudo(300);
         radio = 3;
@@ -31,8 +31,8 @@ public class Pilon extends ConstruccionProtoss{
     }
 
     public Pilon(Vida vida1){
-        costos.add(100); //esto es para Mineral
-        costos.add(0); //esto es para Gas
+        costoMineral = 100;
+        costoGas = 0;
         vida = vida1;
         escudo = new Escudo(300);
         radio = 3;
@@ -40,8 +40,8 @@ public class Pilon extends ConstruccionProtoss{
     }
 
     public Pilon(int tiempoDeConstruccion){
-        costos.add(100); //esto es para Mineral
-        costos.add(0); //esto es para Gas
+        costoMineral = 100;
+        costoGas = 0;
         vida = new Vida(300);
         escudo = new Escudo(300);
         tiempoConstruccion = tiempoDeConstruccion;

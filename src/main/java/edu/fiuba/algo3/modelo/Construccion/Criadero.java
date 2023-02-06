@@ -28,8 +28,8 @@ public class Criadero extends ConstruccionZerg{
     private int turnos = 0;
 
     public Criadero(){
-        costos.add(50); //esto es para Mineral
-        costos.add(0); //esto es para Gas
+        costoMineral = 50;
+        costoGas = 0;
         vida = new Vida(500);
         tiempoConstruccion = 4;
         radio = 5;
@@ -40,8 +40,8 @@ public class Criadero extends ConstruccionZerg{
     }
 
     public Criadero(Vida vida1){
-        costos.add(50); //esto es para Mineral
-        costos.add(0); //esto es para Gas
+        costoMineral = 50;
+        costoGas = 0;
         vida = vida1;
         tiempoConstruccion = 4;
         radio = 5;
@@ -52,8 +52,8 @@ public class Criadero extends ConstruccionZerg{
     }
 
     public Criadero(int turnosParaEstarOperativo){
-        costos.add(50); //esto es para Mineral
-        costos.add(0); //esto es para Gas
+        costoMineral = 50;
+        costoGas = 0;
         vida = new Vida(500);
         tiempoConstruccion = turnosParaEstarOperativo;
         radio = 5;

@@ -22,8 +22,8 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
     private final List<Zangano> zanganos = new ArrayList<>();
 
     public Extractor(){
-        costos.add(100); //esto es para Mineral
-        costos.add(0); //esto es para Gas
+        costoMineral = 100;
+        costoGas = 0;
         vida = new Vida(750);
         tiempoConstruccion = 6;
     }
@@ -35,8 +35,8 @@ public class Extractor extends ConstruccionZerg implements RefineriaGas{
     }
 
     public Extractor(int tiempoDeConstruccion){
-        costos.add(100); //esto es para Mineral
-        costos.add(0); //esto es para Gas
+        costoMineral = 100;
+        costoGas = 0;
         vida = new Vida(750);
         tiempoConstruccion = tiempoDeConstruccion;
     }

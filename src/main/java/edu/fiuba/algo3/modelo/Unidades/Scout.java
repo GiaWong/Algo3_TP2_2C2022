@@ -19,8 +19,8 @@ public class Scout extends UnidadProtoss{
         escudo = new Escudo(100);
         tiempoConstruccion = 9;
         rango = 4;
-        costos.add(300); //Esto es para Minerales
-        costos.add(150); // Esto es para Gas
+        costoMineral = 300;
+        costoGas = 150;
         superficie = new Aire();
         atacador = new AtaqueAire(14);
         ataqueTierra = new AtaqueTierra(8);

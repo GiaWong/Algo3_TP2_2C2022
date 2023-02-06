@@ -22,8 +22,8 @@ public class Zealot extends UnidadProtoss{
         escudo = new Escudo(100);
         tiempoConstruccion = 4;
         rango = 1;
-        costos.add(100); //Esto es para Minerales
-        costos.add(0); // Esto es para Gas
+        costoMineral = 100;
+        costoGas = 0;
         superficie = new Tierra();
         atacador = new AtaqueTierra(8);
         defensa = new Detectable();

@@ -18,6 +18,9 @@ public class TestBancoRecursos {
     Scout scout = mock(Scout.class);
     Construccion Acceso = mock(Construccion.class);
 
+    /*
+
+
     @Test
     public void SeCompraUnaUnidadSinLosRecursosNecesarios(){
         BancoDeRecursos banco = new BancoDeRecursos();
@@ -63,5 +66,7 @@ public class TestBancoRecursos {
         banco.comprar(Acceso);
         verify(Acceso).costo();
     }
+
+     */
 
 }

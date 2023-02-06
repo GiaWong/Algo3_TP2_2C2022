@@ -18,8 +18,8 @@ public class Zerling extends UnidadZerg{
         vida = new Vida(35);
         tiempoConstruccion = 2;
         rango = 1;
-        costos.add(25); //Esto es para Minerales
-        costos.add(0); // Esto es para Gas
+        costoMineral = 25;
+        costoGas = 0;
         superficie = new Tierra();
         atacador =new AtaqueTierra(4);
 

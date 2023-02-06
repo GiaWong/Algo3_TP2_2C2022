@@ -17,8 +17,8 @@ public class Hidralisco extends UnidadZerg{
         vida = new Vida(80);
         tiempoConstruccion = 4;
         rango = 4;
-        costos.add(75); //Esto es para Minerales
-        costos.add(25); // Esto es para Gas
+        costoMineral = 75;
+        costoGas = 25;
         atacador = new AtaqueAire(10);
         ataqueTierra = new AtaqueTierra(10);
         superficie = new Tierra();

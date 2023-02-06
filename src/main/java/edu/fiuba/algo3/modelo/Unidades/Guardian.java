@@ -13,8 +13,8 @@ public class Guardian extends UnidadProtoss{
         vida = new Vida(100);
         tiempoConstruccion = 4;
         rango = 10;
-        costos.add(50);
-        costos.add(100);
+        costoMineral = 50;
+        costoGas = 100;
         superficie = new Aire();
         atacador = new AtaqueTierra(25);
 

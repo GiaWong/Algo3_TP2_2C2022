@@ -17,8 +17,8 @@ public class Mutalisco extends UnidadZerg implements Evolucionador{
         vida = new Vida(120);;
         tiempoConstruccion = 7;
         rango = 3;
-        costos.add(100); //Esto es para Minerales
-        costos.add(100); // Esto es para Gas
+        costoMineral = 100;
+        costoGas = 100;
         superficie = new Aire();
         atacador = new AtaqueAire(9);
         ataqueTierra = new AtaqueTierra(9);

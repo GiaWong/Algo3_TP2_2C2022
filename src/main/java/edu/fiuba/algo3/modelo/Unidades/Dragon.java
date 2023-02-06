@@ -20,8 +20,8 @@ public class Dragon extends UnidadProtoss{
         escudo = new Escudo(60);
         tiempoConstruccion = 6;
         rango = 4;
-        costos.add(125); //Esto es para Minerales
-        costos.add(50); // Esto es para Gas
+        costoMineral = 125;
+        costoGas = 50;
         superficie = new Tierra();
         atacador = new AtaqueAire(20);
         ataqueTierra = new AtaqueTierra(20);

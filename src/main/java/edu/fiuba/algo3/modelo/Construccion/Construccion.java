@@ -26,7 +26,8 @@ public abstract class Construccion {
     protected Coordenada coordenada;
     protected Vida vida;
     protected Detectable defensa = new Detectable();
-    protected List<Integer> costos = new ArrayList<>();
+    protected int costoGas;
+    protected  int costoMineral;
 
     public void construir() {
         tiempoConstruccion--;
@@ -49,21 +50,18 @@ public abstract class Construccion {
     public void asignarPosicion(Coordenada coord) { coordenada = coord; }
 
 
-    public List<Integer> costo() {
-        return costos;
-    } //Esto podria no estar
 
     public void verificarCompra(int cantidadMinerales, int cantidadGas) {
-        int minerales = cantidadMinerales - costos.get(0);
-        int gas = cantidadGas - costos.get(1);
+        int minerales = cantidadMinerales - costoMineral;
+        int gas = cantidadGas - costoGas;
         if ((minerales < 0) || (gas < 0)){
             throw new NoHayRecursosSuficientes();
         }
     }
 
     public void comprar(BancoDeRecursos banco) {
-        int minerales = costos.get(0);
-        int gas = costos.get(1);
+        int minerales = costoMineral;
+        int gas = costoGas;
         banco.realizarCompra(minerales, gas);
     }
 

@@ -21,17 +21,17 @@ import edu.fiuba.algo3.modelo.Unidades.Zealot;
 
 public  class Acceso extends ConstruccionProtoss{
 
-    public Acceso(){
-        costos.add(150); //esto es para Mineral
-        costos.add(0); //esto es para Gas
+    public Acceso() {
+        costoMineral = 150;
+        costoGas = 0;
         vida = new Vida(500);
         escudo = new Escudo(500);
         tiempoConstruccion = 8;
     }
 
     public Acceso(int tiempoDeConstruccion){
-        costos.add(150); //esto es para Mineral
-        costos.add(0); //esto es para Gas
+        costoMineral = 150;
+        costoGas = 0;
         vida = new Vida(500);
         escudo = new Escudo(500);
         tiempoConstruccion = tiempoDeConstruccion;

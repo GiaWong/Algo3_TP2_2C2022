@@ -20,15 +20,15 @@ import java.util.List;
 public class Guarida extends ConstruccionZerg {
 
     public Guarida(){
-        costos.add(200); //esto es para Mineral
-        costos.add(100); //esto es para Gas
+        costoMineral = 200;
+        costoGas = 100;
         vida = new Vida(1250);
         tiempoConstruccion = 12;
     }
 
     public Guarida(int tiempoDeConstruccion){
-        costos.add(200); //esto es para Mineral
-        costos.add(100); //esto es para Gas
+        costoMineral = 200;
+        costoGas = 100;
         vida = new Vida(1250);
         tiempoConstruccion = tiempoDeConstruccion;
     }

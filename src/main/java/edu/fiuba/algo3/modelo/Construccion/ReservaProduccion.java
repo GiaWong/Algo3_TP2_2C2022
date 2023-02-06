@@ -16,15 +16,15 @@ import edu.fiuba.algo3.modelo.Unidades.Zangano;
 public class ReservaProduccion extends ConstruccionZerg {
 
     public ReservaProduccion(){
-        costos.add(150); //esto es para Mineral
-        costos.add(0); //esto es para Gas
+        costoMineral = 150;
+        costoGas = 0;
         vida = new Vida(1000);
         tiempoConstruccion = 12;
     }
 
     public ReservaProduccion(int tiempoDeConstruccion){
-        costos.add(150); //esto es para Mineral
-        costos.add(0); //esto es para Gas
+        costoMineral = 150;
+        costoGas = 0;
         vida = new Vida(1000);
         tiempoConstruccion = tiempoDeConstruccion;
     }

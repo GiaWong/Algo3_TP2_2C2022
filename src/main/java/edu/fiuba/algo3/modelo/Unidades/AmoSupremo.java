@@ -13,8 +13,8 @@ public class AmoSupremo extends UnidadZerg{
         vida = new Vida(200);;
         tiempoConstruccion = 5;
         rango = 4;
-        costos.add(50); //Esto es para Minerales
-        costos.add(0); // Esto es para Gas
+        costoMineral = 50;
+        costoGas = 0;
         superficie = new Aire();
     }
 

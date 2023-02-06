@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo.Unidades;
 
 import edu.fiuba.algo3.modelo.Acciones.*;
 import edu.fiuba.algo3.modelo.Construccion.*;
+import edu.fiuba.algo3.modelo.Exception.NoHayRecursosSuficientes;
+import edu.fiuba.algo3.modelo.Jugador.BancoDeRecursos;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
@@ -25,7 +27,9 @@ public abstract class Unidad {
 
     protected Defensa defensa = new Detectable();
 
-    protected List<Integer> costos = new ArrayList<>();
+    protected int costoMineral;
+
+    protected int costoGas;
 
     public void construir() {
         tiempoConstruccion--;
@@ -39,9 +43,6 @@ public abstract class Unidad {
         tiempoConstruccion--;
     }
 
-    public List<Integer> costo() {
-        return costos;
-    }
 
     public boolean estaDisponible() {
         return (tiempoConstruccion<=0);
@@ -91,4 +92,18 @@ public abstract class Unidad {
     public abstract boolean permiteCrear(Espiral espiral);
 
     public abstract boolean permiteCrear(Criadero criadero);
+
+    public void verificarCompra(int cantidadMinerales, int cantidadGas) {
+        int minerales = cantidadMinerales - costoMineral;
+        int gas = cantidadGas - costoGas;
+        if ((minerales < 0) || (gas < 0)){
+            throw new NoHayRecursosSuficientes();
+        }
+    }
+
+    public void comprar(BancoDeRecursos bancoDeRecursos) {
+        int minerales = costoMineral;
+        int gas = costoGas;
+        bancoDeRecursos.realizarCompra(minerales, gas);
+    }
 }
