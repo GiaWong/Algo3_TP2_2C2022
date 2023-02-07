@@ -107,7 +107,7 @@ public class Guarida extends ConstruccionZerg {
     }
     @Override
     public void esPosibleConstruirEn(SinTerreno nada) {
-        throw new NoSePuedeConstruirEnEsteTerreno();
+        throw new NoHayMoho();
     }
 
     @Override

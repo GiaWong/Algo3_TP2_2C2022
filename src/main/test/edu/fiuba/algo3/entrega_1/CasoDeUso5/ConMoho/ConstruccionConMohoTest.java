@@ -44,7 +44,7 @@ public class ConstruccionConMohoTest {
         casilla.setTerreno(new SinTerreno());
         casilla.setRecurso(new SinRecurso());
         Guarida guarida = new Guarida();
-        assertThrows( NoSePuedeConstruirEnEsteTerreno.class,()->casilla.agregar(guarida));
+        assertThrows( NoHayMoho.class,()->casilla.agregar(guarida));
     }
 
     @Test
