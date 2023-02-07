@@ -16,7 +16,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class ConstruccionProtosTests { //Ver como modificar para que no lanze un error cuando el edificio no esta operativo!
-/*
+
+
+
     @Test
     public void SeArrancaAConstruirNexoMineralYNoPasanTurnosYDeberiaEstarInactivo() {
         NodoMineral nodo = new NodoMineral();
@@ -26,18 +28,22 @@ public class ConstruccionProtosTests { //Ver como modificar para que no lanze un
 
     @Test
     public void SeArrancaAConstruirNexoMineralYPasaUnTurnoYDeberiaEstarInactivoPorFaltaDeTurnos() {
+        Mapa mapa = new Mapa(20,20);
         NodoMineral nodo = new NodoMineral();
         NexoMineral nexo = new NexoMineral();
-        nexo.avanzarTurno();
+        nexo.avanzarTurno(mapa);
         assertThrows( EdificioNoEstaOperativo.class, ()->{nexo.recolectar(nodo);});
     }
 
+
+
     @Test
     public void SeTerminaDeConstruirNexoMineralYDeberiaEstarActivo() {
+        Mapa mapa = new Mapa(20,20);
         NodoMineral nodo = new NodoMineral();
         NexoMineral nexo = new NexoMineral();
         for(int i =0 ; i<=3;i++) {
-            nexo.avanzarTurno();
+            nexo.avanzarTurno(mapa);
         }
         assertDoesNotThrow(()->{nexo.recolectar(nodo);});
     }
@@ -48,7 +54,8 @@ public class ConstruccionProtosTests { //Ver como modificar para que no lanze un
         Pilon pilon = new Pilon();
         Mapa mapa = new Mapa(20,20);
         Coordenada coordenada = new Coordenada(1,2);
-        assertThrows( EdificioNoEstaOperativo.class, ()->{pilon.energizar(mapa,coordenada);});
+        mapa.agregar(pilon,coordenada);
+        assertThrows( EdificioNoEstaOperativo.class, ()->{pilon.energizar(mapa);});
     }
 
     @Test
@@ -56,8 +63,9 @@ public class ConstruccionProtosTests { //Ver como modificar para que no lanze un
         Pilon pilon = new Pilon();
         Mapa mapa = new Mapa(20,20);
         Coordenada coordenada = new Coordenada(1,2);
-        pilon.avanzarTurno();
-        assertThrows( EdificioNoEstaOperativo.class, ()->{pilon.energizar(mapa,coordenada);});
+        mapa.agregar(pilon,coordenada);
+        pilon.avanzarTurno(mapa);
+        assertThrows( EdificioNoEstaOperativo.class, ()->{pilon.energizar(mapa);});
     }
 
     @Test
@@ -65,11 +73,12 @@ public class ConstruccionProtosTests { //Ver como modificar para que no lanze un
         Pilon pilon = new Pilon();
         Mapa mapa = new Mapa(20,20);
         Coordenada coordenada = new Coordenada(1,2);
+        mapa.agregar(pilon,coordenada);
         for(int i =0 ; i<=4;i++) {
 
-            pilon.avanzarTurno();
+            pilon.avanzarTurno(mapa);
         }
-        assertDoesNotThrow(()->{pilon.energizar(mapa,coordenada);});
+        assertDoesNotThrow(()->{pilon.energizar(mapa);});
     }
 
 
@@ -83,7 +92,8 @@ public class ConstruccionProtosTests { //Ver como modificar para que no lanze un
     public void SeArrancaAConstruirAsimiladorYPasaUnTurnoYDeberiaEstarInactivoPorFaltaDeTurnos() {
         Volcan volcan = new Volcan();
         Asimilador asimilador = new Asimilador();
-        asimilador.avanzarTurno();
+        Mapa mapa = new Mapa(20,20);
+        asimilador.avanzarTurno(mapa);
         assertThrows( EdificioNoEstaOperativo.class, ()->{asimilador.recolectar(volcan);});
     }
 
@@ -91,12 +101,16 @@ public class ConstruccionProtosTests { //Ver como modificar para que no lanze un
     public void SeTerminaDeConstruirAsimiladorYDeberiaEstarActivo() {
         Volcan volcan = new Volcan();
         Asimilador asimilador = new Asimilador();
+        Mapa mapa = new Mapa(20,20);
         for(int i =0 ; i<=5;i++) {
 
-            asimilador.avanzarTurno();
+            asimilador.avanzarTurno(mapa);
         }
         assertDoesNotThrow(()->{asimilador.recolectar(volcan);});
     }
+
+    /*
+
 
     @Test
     public void SeArrancaAConstruirAccesoYNoPasanTurnosYDeberiaEstarInactivo() {
@@ -146,7 +160,9 @@ public class ConstruccionProtosTests { //Ver como modificar para que no lanze un
         assertDoesNotThrow(puerto::crearScout);
     }
 
- */
+     */
+
+
 
 
 }
