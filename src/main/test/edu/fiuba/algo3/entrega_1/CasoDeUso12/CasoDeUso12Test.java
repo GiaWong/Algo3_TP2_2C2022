@@ -22,8 +22,8 @@ public class CasoDeUso12Test {
         for(int i = 0; i<60; i++){
             puerto.avanzarTurno(mapa);
         }
-        int resultadoEscudo = puerto.obtenerEscudo();//Esto habria que ponerlo en construccion
-        int resultadoVida = puerto.obtenerVida();//Esto habria que ponerlo en construccion
+        int resultadoEscudo = puerto.obtenerEscudo();
+        int resultadoVida = puerto.obtenerVida();
         assertEquals(escudoesperado, resultadoEscudo);
         assertEquals(vidaesperada, resultadoVida);
 
@@ -40,8 +40,8 @@ public class CasoDeUso12Test {
         for(int i = 0; i<30; i++){
             pilon.avanzarTurno(mapa);
         }
-        int resultadoEscudo = pilon.obtenerEscudo();//Esto habria que ponerlo en construccion
-        int resultadoVida = pilon.obtenerVida();//Esto habria que ponerlo en construccion
+        int resultadoEscudo = pilon.obtenerEscudo();
+        int resultadoVida = pilon.obtenerVida();
         assertEquals(escudoesperado, resultadoEscudo);
         assertEquals(vidaesperada, resultadoVida);
     }

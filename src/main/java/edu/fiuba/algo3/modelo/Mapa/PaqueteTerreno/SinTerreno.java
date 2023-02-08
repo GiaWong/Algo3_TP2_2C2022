@@ -11,7 +11,11 @@ public class SinTerreno implements Terreno{
 
     @Override
     public void verificarSiPuedeSetear(Terreno unTerreno, Casilla casilla) {
-        casilla.asignarTerreno(unTerreno);
+        unTerreno.verificarSiPuedePisarConstruccion(casilla);
+    }
+
+    public void verificarSiPuedePisarConstruccion(Casilla casilla){
+        casilla.asignarTerreno(this);
     }
     @Override
     public boolean esMoho(){ return false; }

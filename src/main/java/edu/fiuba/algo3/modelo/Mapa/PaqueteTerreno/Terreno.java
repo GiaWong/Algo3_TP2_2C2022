@@ -9,6 +9,8 @@ public interface Terreno {
 
     void verificarSiPuedeSetear(Terreno unTerreno, Casilla casilla);
 
+    void verificarSiPuedePisarConstruccion(Casilla casilla);
+
     boolean esMoho();
 
 }

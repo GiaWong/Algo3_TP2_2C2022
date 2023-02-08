@@ -3,7 +3,9 @@ package edu.fiuba.algo3.entrega_1.CasoDeUso14;
 import edu.fiuba.algo3.modelo.Construccion.Acceso;
 import edu.fiuba.algo3.modelo.Construccion.Criadero;
 import edu.fiuba.algo3.modelo.Construccion.Pilon;
+import edu.fiuba.algo3.modelo.Construccion.ReservaProduccion;
 import edu.fiuba.algo3.modelo.Exception.NoEstaEnergizado;
+import edu.fiuba.algo3.modelo.Exception.NoHayMoho;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConEnergia;
@@ -44,14 +46,11 @@ public class CasoDeUso14Test {
         for(int i = 0; i<5; i++){
             mapa.avanzarTurno();
         }
-        mapa.destruirConstruccion(coordPilon); //??
-        /*
-        assertDoesNotThrow( ()-> {
-            mapa.agregar(new Pilon(), coordenadaPilon);
+        mapa.destruirConstruccion(coordPilon);
+        assertThrows( NoHayMoho.class, ()-> {
+            mapa.agregar(new ReservaProduccion(),coordPilon);
         });
 
-        Porque este assert?
-         */
     }
 
 

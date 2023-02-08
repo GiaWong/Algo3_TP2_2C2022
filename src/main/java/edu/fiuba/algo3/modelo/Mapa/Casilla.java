@@ -78,7 +78,6 @@ public class Casilla {
     }
 
     public boolean hayConstruccion() {
-        DestruirConstruccionMuerta();
         return (construccion != null );
     }
 
@@ -106,7 +105,7 @@ public class Casilla {
         return unidad;
     }
 
-    public void DestruirConstruccionMuerta(){
+    /*public void DestruirConstruccionMuerta(){
         try{
             construccion.estaVivo();}
         catch (Exception ConstruccionDestruida){
@@ -114,11 +113,13 @@ public class Casilla {
         }
     }
 
+     */
+
     public void setArea(Area unArea){
         area = unArea;
     }
 
-    public void setTerreno(Terreno unTerreno){// SinTerreno no puede pisar ConMoho ni ConEnergia (aunque nunca va a hacerlo)
+    public void setTerreno(Terreno unTerreno){// SinTerreno y ConEnergia pueden pisarse pero ninguno puede pisar a ConMoho. ConMoho puede pisar a los otros.
         if(terreno == null){ //Solo la primera vez entra aca
             asignarTerreno(unTerreno);
         } else {

@@ -123,7 +123,7 @@ public class Criadero extends ConstruccionZerg{
         mapa.setearRadio(coordenada,radio, new ConMoho());
     }
 
-    private void expandirMoho(){ //Supuesto: se setea el moho siempre, mas alla de si esta construido o no.
+    private void expandirMoho(){ //Supuesto: se setea el moho siempre, mas alla de si esta el criadero o no
         if(turnos % 2 == 0){
             radio++;
         }
@@ -137,10 +137,8 @@ public class Criadero extends ConstruccionZerg{
 
     @Override
     public void avanzarTurno(Mapa mapa){
-        if (vida.tieneVida()){
-            expandirMoho();
-        }
         construir();
+        expandirMoho();
         agregarLarva();
         regenerarVida();
         infectarConMoho(mapa);

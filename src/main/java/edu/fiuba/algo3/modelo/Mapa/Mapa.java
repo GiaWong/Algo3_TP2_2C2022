@@ -180,9 +180,11 @@ public class Mapa {
     }
 
 
-    public boolean tipoTerreno (Terreno terreno,int fila, int columna){ //Se usa solo para el CasoDeUso9
+    /*public boolean tipoTerreno (Terreno terreno,int fila, int columna){ //Se usa solo para el CasoDeUso9
         return (mapa[fila][columna]).tipoTerreno(terreno);
     }
+
+     */
 
     public void avanzarTurno(){
         for(int i=0; i < base; i++) {

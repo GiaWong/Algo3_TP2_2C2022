@@ -11,9 +11,11 @@ public class ConEnergia implements Terreno{
 
     @Override
     public void verificarSiPuedeSetear(Terreno unTerreno, Casilla casilla) {
-        if(unTerreno.esMoho()){
-            casilla.asignarTerreno(unTerreno);
-        }
+        unTerreno.verificarSiPuedePisarConstruccion(casilla);
+    }
+
+    public void verificarSiPuedePisarConstruccion(Casilla casilla){
+        casilla.asignarTerreno(this);
     }
     @Override
     public boolean esMoho(){ return false; }

@@ -83,7 +83,7 @@ public class CasoDeUso11Test {
             puerto.avanzarTurno(mapa);
         }
         when(asimilador.obtenerEscudo()).thenReturn(450);
-        int resultado = asimilador.obtenerEscudo();//Esto habria que ponerlo en construccion
+        int resultado = asimilador.obtenerEscudo();
         assertEquals(esperado,resultado );
 
     }
@@ -100,7 +100,7 @@ public class CasoDeUso11Test {
             puerto.avanzarTurno(mapa);
         }
         when(acceso.obtenerEscudo()).thenReturn(500);
-        int resultado = acceso.obtenerEscudo();//Esto habria que ponerlo en construccion
+        int resultado = acceso.obtenerEscudo();
         assertEquals(esperado,resultado );
     }
 }

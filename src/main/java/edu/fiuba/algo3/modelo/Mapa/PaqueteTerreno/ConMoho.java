@@ -14,6 +14,12 @@ public class ConMoho implements Terreno {
     public void verificarSiPuedeSetear(Terreno unTerreno, Casilla casilla) {
         //No va a cambiar porque el moho no desaparece, queda por toda la partida.
     }
+
+    public void verificarSiPuedePisarConstruccion(Casilla casilla){
+        if(!casilla.hayConstruccion()){
+            casilla.asignarTerreno(this);
+        }
+    }
     @Override
     public boolean esMoho(){ return true; }
 
