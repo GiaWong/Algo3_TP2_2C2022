@@ -27,6 +27,7 @@ public  class Acceso extends ConstruccionProtoss{
         vida = new Vida(500);
         escudo = new Escudo(500);
         tiempoConstruccion = 8;
+        energizada = true;
     }
 
     public Acceso(int tiempoDeConstruccion){
@@ -35,6 +36,7 @@ public  class Acceso extends ConstruccionProtoss{
         vida = new Vida(500);
         escudo = new Escudo(500);
         tiempoConstruccion = tiempoDeConstruccion;
+        energizada = true;
     }
 
     public boolean esPrerequisito(Construccion construccion){
@@ -55,8 +57,10 @@ public  class Acceso extends ConstruccionProtoss{
 
     @Override
     public void avanzarTurno(Mapa mapa) {
-        construir();
-        regenerarEscudo();
+        if(energizada){
+            construir();
+            regenerarEscudo();
+        }
     }
 
     @Override

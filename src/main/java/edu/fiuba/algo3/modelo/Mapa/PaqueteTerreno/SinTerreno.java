@@ -10,14 +10,22 @@ public class SinTerreno implements Terreno{
     }
 
     @Override
-    public void verificarSiPuedeSetear(Terreno unTerreno, Casilla casilla) {
+    public void verificarSiPuedeSetear(Terreno unTerreno, Casilla casilla) { //siempre se puede pisar SinTerreno
         unTerreno.verificarSiPuedePisarConstruccion(casilla);
     }
 
     public void verificarSiPuedePisarConstruccion(Casilla casilla){
         casilla.asignarTerreno(this);
     }
-    @Override
-    public boolean esMoho(){ return false; }
 
+    public void verificarEnergizacion(Casilla casilla, ConEnergia energia){
+        energia.desenergizar();
+        if(!energia.tienePilonesEnergizando()){
+            casilla.asignarTerreno(this);
+            if(casilla.hayConstruccion()){
+                casilla.desenergizarConstruccion();
+            }
+        }
+
+    }
 }

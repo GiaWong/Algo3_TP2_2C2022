@@ -12,11 +12,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CasoDeUso9Test {
-    /*
+
 
 
     @Test
-    public void SeTieneDosPilonesSeDestruyeUnoYlaConstruccionDebriaSeguirEstandoActiva() {
+    public void SeTieneDosPilonesSeDestruyeUnoYlaConstruccionDeberiaSeguirEstandoActiva() {
 
         Mapa mapa = new Mapa(20,20);
         Acceso acceso = new Acceso();
@@ -40,13 +40,8 @@ public class CasoDeUso9Test {
         mapa.agregar(acceso, coordAcceso);
 
         mapa.destruirConstruccion(coordPilon1);
-        pilon2.energizar(mapa);
 
-        assertTrue(mapa.tipoTerreno(new ConEnergia(), 10, 10));
-
-
+        assertTrue(acceso.estaEnergizado());
     }
-
-     */
 
 }

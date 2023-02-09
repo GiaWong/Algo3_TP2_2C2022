@@ -11,6 +11,6 @@ public interface Terreno {
 
     void verificarSiPuedePisarConstruccion(Casilla casilla);
 
-    boolean esMoho();
 
+    void verificarEnergizacion(Casilla casilla, ConEnergia conEnergia);
 }

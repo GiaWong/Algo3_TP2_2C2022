@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Mapa;
 
 import edu.fiuba.algo3.modelo.Construccion.Construccion;
+import edu.fiuba.algo3.modelo.Construccion.ConstruccionProtoss;
 import edu.fiuba.algo3.modelo.Exception.CasillaOcupada;
 import edu.fiuba.algo3.modelo.Exception.NoCumplePrerequisito;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.*;
@@ -120,7 +121,7 @@ public class Casilla {
     }
 
     public void setTerreno(Terreno unTerreno){// SinTerreno y ConEnergia pueden pisarse pero ninguno puede pisar a ConMoho. ConMoho puede pisar a los otros.
-        if(terreno == null){ //Solo la primera vez entra aca
+        if(terreno == null){ //Solo la primera vez entra aca (cuando se crea el mapa)
             asignarTerreno(unTerreno);
         } else {
             terreno.verificarSiPuedeSetear(unTerreno, this);
@@ -139,9 +140,6 @@ public class Casilla {
         return coordenada;
     }
 
-    public boolean tipoTerreno(Terreno otroTerreno){
-        return (terreno.getClass().equals(otroTerreno.getClass()));
-    }
 
     public boolean esPrerequisito(Construccion unaConstruccion) {
         if(construccion != null){
@@ -167,5 +165,12 @@ public class Casilla {
         } else {
             return false;
         }
+    }
+
+    public void desenergizarConstruccion() {
+
+        ConstruccionProtoss construccion1 = (ConstruccionProtoss) construccion;
+        construccion1.desenergizarConstruccion();
+
     }
 }

@@ -63,6 +63,7 @@ public class Pilon extends ConstruccionProtoss{
 
     public void destruir(Mapa mapa){
         mapa.setearRadio(coordenada, 3, new SinTerreno());
+
         mapa.disminuirEdificioProtoss();
     }
 

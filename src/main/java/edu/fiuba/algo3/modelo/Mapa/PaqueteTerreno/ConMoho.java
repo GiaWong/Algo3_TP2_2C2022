@@ -20,8 +20,11 @@ public class ConMoho implements Terreno {
             casilla.asignarTerreno(this);
         }
     }
-    @Override
-    public boolean esMoho(){ return true; }
+
+    public void verificarEnergizacion(Casilla casilla, ConEnergia energia){ //Moho pisa siempre a la Energía
+        verificarSiPuedePisarConstruccion(casilla);
+    }
+
 
 
 }
