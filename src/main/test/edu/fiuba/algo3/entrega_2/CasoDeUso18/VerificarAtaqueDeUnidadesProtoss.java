@@ -74,24 +74,36 @@ public class VerificarAtaqueDeUnidadesProtoss {
     }
 
     @Test
-    public void UnScoutAtacaAUnHidraliscoYDeberiaHacerleDanioEsperado() {
+    public void UnScoutAtacaAUnZerlingYDeberiaHacerleDanioEsperado() {
 
         Mapa mapa = new Mapa(20,20);
         UnidadProtoss scout = new Scout();
-        UnidadZerg hidralisco = new Hidralisco();
+        UnidadZerg zerling = new Zerling();
         Coordenada coordScout = new Coordenada(10,10);
-        Coordenada coordHidralisco = new Coordenada(11,10);
-
+        Coordenada coordZerling = new Coordenada(11,10);
         Criadero criadero = new Criadero(0);
+        Pilon pilon = new Pilon(0);
         mapa.agregar(criadero,new Coordenada(10,13));
-        Guarida guarida = new Guarida();
-        mapa.agregar(guarida,new Coordenada(10,15));
+        mapa.agregar(pilon,new Coordenada(1,2));
+        for (int i = 0; i < 2; i++){
+            mapa.avanzarTurno();
+        }
 
-        mapa.agregar(scout, coordScout);
-        mapa.agregar(hidralisco, coordHidralisco);
-        mapa.atacar(scout, coordHidralisco);
+        ReservaProduccion reservaProduccion = new ReservaProduccion();
+        mapa.agregar(reservaProduccion,new Coordenada(10,15));
+        Acceso acceso = new Acceso(0);
+        mapa.agregar(acceso,new Coordenada(1,3));
+        PuertoEstelar puerto = new PuertoEstelar(0);
+        mapa.agregar(puerto,new Coordenada(1,4));
+        mapa.agregar(scout,coordScout);
+        mapa.agregar(zerling,coordZerling);
 
-        assertEquals(72, hidralisco.vida());
+        for (int i = 0; i < 10; i++){
+            mapa.avanzarTurno();
+        }
+        mapa.atacar(scout,coordZerling);
+        assertEquals(27,zerling.vida());
 
     }
+
 }

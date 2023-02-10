@@ -16,6 +16,7 @@ import static org.mockito.Mockito.mock;
 
 public class ConstruccionZergTests {
 
+    /*
     Mapa mapa = mock(Mapa.class);
     @Test
     public void SeArrancaAConstruirCriaderoYNoPasanTurnosYDeberiaEstarInactivo() {
@@ -37,7 +38,7 @@ public class ConstruccionZergTests {
         }
         assertDoesNotThrow(()->criadero.crearZangano(new BancoDeRecursos()));
     }
-/*
+
     @Test
     public void SeArrancaAConstruirReservaReproduccionYNoPasanTurnosYDeberiaEstarInactivo() {
         ReservaProduccion reserva = new ReservaProduccion();

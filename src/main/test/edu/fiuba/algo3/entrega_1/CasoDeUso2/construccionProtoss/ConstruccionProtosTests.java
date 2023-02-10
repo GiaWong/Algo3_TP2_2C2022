@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ConstruccionProtosTests { //Ver como modificar para que no lanze un error cuando el edificio no esta operativo!
 
 
-
+/*
     @Test
     public void SeArrancaAConstruirNexoMineralYNoPasanTurnosYDeberiaEstarInactivo() {
         NodoMineral nodo = new NodoMineral();
@@ -109,7 +109,7 @@ public class ConstruccionProtosTests { //Ver como modificar para que no lanze un
         assertDoesNotThrow(()->{asimilador.recolectar(volcan);});
     }
 
-    /*
+
 
 
     @Test

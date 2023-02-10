@@ -209,5 +209,6 @@ public class Criadero extends ConstruccionZerg{
 
     public void destruir(Mapa mapa){
         mapa.disminuirEdificioZerg();
+        mapa.setearTerrenoCoordenada(coordenada,new ConMoho());//Pinto con Moho donde estaba el criadero
     }
 }

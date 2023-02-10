@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Construccion.Pilon;
 import edu.fiuba.algo3.modelo.Exception.FaltaEdificioParaCrearUnidad;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.Area;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
+import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.SinTerreno;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
@@ -214,4 +215,7 @@ public class Mapa {
 
     public void disminuirEdificioZerg() { edificiosZerg -= 1; }
 
+    public void setearTerrenoCoordenada(Coordenada coordenada, ConMoho conMoho) {
+        coordenada.setTerreno(mapa,conMoho);
+    }
 }
