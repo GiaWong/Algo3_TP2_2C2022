@@ -54,7 +54,7 @@ public class Devorador extends UnidadZerg{
     }
 
     public boolean permiteCrear(Espiral espiral){
-        return false;
+        return true;
     }
 
     public boolean permiteCrear(Criadero criadero){

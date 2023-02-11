@@ -21,7 +21,7 @@ public class Zerling extends UnidadZerg{
         costoMineral = 25;
         costoGas = 0;
         superficie = new Tierra();
-        atacador =new AtaqueTierra(4);
+        atacador = new AtaqueTierra(4);
 
     }
 

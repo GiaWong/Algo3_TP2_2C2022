@@ -7,7 +7,7 @@ import edu.fiuba.algo3.modelo.Exception.UnidadNoOperativa;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 
-public class Guardian extends UnidadProtoss{
+public class Guardian extends UnidadZerg{
 
     public Guardian(){
         vida = new Vida(100);
@@ -55,7 +55,7 @@ public class Guardian extends UnidadProtoss{
     }
 
     public boolean permiteCrear(Espiral espiral){
-        return false;
+        return true;
     }
 
     public boolean permiteCrear(Criadero criadero){
