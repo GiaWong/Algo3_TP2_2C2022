@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Mapa;
 
+import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.Area;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.ConMoho;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteTerreno.Terreno;
 import edu.fiuba.algo3.modelo.Unidades.Unidad;
@@ -54,5 +55,9 @@ public class Coordenada {
 
     public void setTerreno(Casilla[][] mapa, ConMoho conMoho) {
         mapa[fila][columna].asignarTerreno(conMoho);
+    }
+
+    public void setArea(Casilla[][] mapa, Area area) {
+        mapa[fila][columna].setArea(area);
     }
 }

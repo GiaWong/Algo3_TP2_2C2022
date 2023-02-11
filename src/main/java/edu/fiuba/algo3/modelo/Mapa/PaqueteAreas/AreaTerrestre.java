@@ -6,6 +6,6 @@ import edu.fiuba.algo3.modelo.Unidades.Unidad;
 public class AreaTerrestre implements Area{
     @Override
     public void esPosibleAgregar(Unidad unidad) {
-       // unidad.esPosibleMoverseEn(this);
+       //todos se pueden mover por el área terrestre
     }
 }

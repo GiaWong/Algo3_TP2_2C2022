@@ -218,4 +218,8 @@ public class Mapa {
     public void setearTerrenoCoordenada(Coordenada coordenada, ConMoho conMoho) {
         coordenada.setTerreno(mapa,conMoho);
     }
+
+    public void setearArea(Coordenada coordenada, Area area) {
+        coordenada.setArea(mapa,area);
+    }
 }
