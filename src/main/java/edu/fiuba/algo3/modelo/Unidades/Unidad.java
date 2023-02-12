@@ -19,6 +19,8 @@ public abstract class Unidad {
 
     protected int rango;
 
+    protected int costoSuministro;
+
     protected Superficie superficie;
 
     protected Atacador atacador;
@@ -105,5 +107,9 @@ public abstract class Unidad {
         int minerales = costoMineral;
         int gas = costoGas;
         bancoDeRecursos.realizarCompra(minerales, gas);
+    }
+
+    public boolean sePuedeCrearConSuministro(int capacidadSuministro){
+        return (costoSuministro < capacidadSuministro);
     }
 }

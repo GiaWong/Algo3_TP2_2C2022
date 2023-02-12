@@ -25,6 +25,14 @@ public abstract class Raza {
         suministro.agregar(unidad);
     }
 
+    public void aumentarGas(int cantidad){
+        banco.aumentarGas(cantidad);
+    }
+
+    public void aumentarMineral(int cantidad){
+        banco.aumentarMineral(cantidad);
+    }
+
     public  int capacidadActual(){
         return suministro.capacidadActual();
     }

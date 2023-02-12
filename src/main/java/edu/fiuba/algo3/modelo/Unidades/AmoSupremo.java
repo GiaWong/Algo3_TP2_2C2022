@@ -16,6 +16,7 @@ public class AmoSupremo extends UnidadZerg{
         costoMineral = 50;
         costoGas = 0;
         superficie = new Aire();
+        costoSuministro = 0;
     }
 
     public void atacar(Unidad unaUnidad){

@@ -25,5 +25,13 @@ public class BancoDeRecursos {
         bancoGasVespeno -= cantidadGas;
     }
 
+    public void aumentarGas(int cantidad){
+        bancoGasVespeno += cantidad;
+    }
+
+    public void aumentarMineral(int cantidad){
+        bancoMineral += cantidad;
+    }
+
 
 }

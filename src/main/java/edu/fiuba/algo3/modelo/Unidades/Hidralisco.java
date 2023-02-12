@@ -22,6 +22,7 @@ public class Hidralisco extends UnidadZerg{
         atacador = new AtaqueAire(10);
         ataqueTierra = new AtaqueTierra(10);
         superficie = new Tierra();
+        costoSuministro = 2;
 
     }
 
@@ -100,7 +101,7 @@ public class Hidralisco extends UnidadZerg{
 
     @Override
     public void modificarSuministro(Suministro suministro) {
-        suministro.aumentarCapacidad(2);
+        suministro.disminuirCapacidad(costoSuministro);
     }
 
     public int obtenerVida() {return vida.vidaActual(); }
