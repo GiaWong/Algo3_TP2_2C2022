@@ -10,7 +10,7 @@ import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 
 public class AmoSupremo extends UnidadZerg{
 
-    // Necesitaria tener algo para poder detectar unidades
+    protected int aumentoDeSuministro;
 
     public AmoSupremo(){
         vida = new Vida(200);;
@@ -20,6 +20,7 @@ public class AmoSupremo extends UnidadZerg{
         costoGas = 0;
         superficie = new Aire();
         costoSuministro = 0;
+        aumentoDeSuministro = 5;
     }
 
     public void atacar(Unidad unaUnidad){
@@ -40,7 +41,6 @@ public class AmoSupremo extends UnidadZerg{
 
     @Override
     public void modificarSuministro(Suministro suministro) {
-        int aumentoDeSuministro = 5;
         suministro.aumentarCapacidad(aumentoDeSuministro);
     }
 

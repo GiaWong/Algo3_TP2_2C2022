@@ -28,7 +28,9 @@ public class Suministro {
     public void agregar(Unidad unidad){
 
         if (unidad.sePuedeCrearConSuministro(capacidadSuministro)){
-            unidad.modificarSuministro(this);
+            if(capacidadActual() < capacidadTotal()){
+                unidad.modificarSuministro(this);
+            }
         } else {
             throw new NoTienesSuministroParaCrearMasUnidades();
         }

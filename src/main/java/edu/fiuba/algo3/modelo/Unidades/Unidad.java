@@ -122,6 +122,6 @@ public abstract class Unidad {
     }
 
     public boolean sePuedeCrearConSuministro(int capacidadSuministro){
-        return (costoSuministro < capacidadSuministro);
+        return (costoSuministro <= capacidadSuministro);
     }
 }
