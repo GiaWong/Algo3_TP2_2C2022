@@ -17,6 +17,7 @@ public class Devorador extends UnidadZerg{
         costoGas = 50;
         superficie = new Aire();
         atacador = new AtaqueAire(15);
+        costoSuministro = 4;
     }
 
     public void atacar(Unidad unaUnidad){

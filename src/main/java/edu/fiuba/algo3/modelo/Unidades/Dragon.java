@@ -25,6 +25,7 @@ public class Dragon extends UnidadProtoss{
         superficie = new Tierra();
         atacador = new AtaqueAire(20);
         ataqueTierra = new AtaqueTierra(20);
+        costoSuministro = 3;
     }
 
     public void esPosibleConstruir(Construccion construccion){
@@ -106,7 +107,7 @@ public class Dragon extends UnidadProtoss{
 
     @Override
     public void modificarSuministro(Suministro suministro) {
-        suministro.aumentarCapacidad(3);
+        suministro.disminuirCapacidad(costoSuministro);
     }
 
 }

@@ -27,6 +27,7 @@ public class Zealot extends UnidadProtoss{
         superficie = new Tierra();
         atacador = new AtaqueTierra(8);
         defensa = new Detectable();
+        costoSuministro = 2;
     }
 
     public void esPosibleConstruir(Construccion construccion){
@@ -129,7 +130,7 @@ public class Zealot extends UnidadProtoss{
 
     @Override
     public void modificarSuministro(Suministro suministro) {
-        suministro.aumentarCapacidad(2);
+        suministro.disminuirCapacidad(costoSuministro);
     }
 
     @Override

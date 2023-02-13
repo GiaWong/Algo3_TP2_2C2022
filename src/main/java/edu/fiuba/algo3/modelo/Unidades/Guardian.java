@@ -17,6 +17,7 @@ public class Guardian extends UnidadZerg{
         costoGas = 100;
         superficie = new Aire();
         atacador = new AtaqueTierra(25);
+        costoSuministro = 4;
 
     }
 

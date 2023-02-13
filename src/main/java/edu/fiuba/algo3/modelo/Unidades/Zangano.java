@@ -21,6 +21,7 @@ public class Zangano extends UnidadZerg implements MutadorConstruccion {
         costoGas = 0;
         superficie = new Tierra();
         defensa = new Detectable();
+        costoSuministro = 1;
     }
 
     public void atacar(Unidad unaUnidad){
@@ -76,7 +77,7 @@ public class Zangano extends UnidadZerg implements MutadorConstruccion {
 
     @Override
     public void modificarSuministro(Suministro suministro) {
-        suministro.aumentarCapacidad(1);
+        suministro.disminuirCapacidad(costoSuministro);
     }
 
     @Override

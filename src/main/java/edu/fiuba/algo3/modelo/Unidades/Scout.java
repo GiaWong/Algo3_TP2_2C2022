@@ -24,6 +24,8 @@ public class Scout extends UnidadProtoss{
         superficie = new Aire();
         atacador = new AtaqueAire(14);
         ataqueTierra = new AtaqueTierra(8);
+        costoSuministro = 4;
+
 
     }
 
@@ -102,6 +104,6 @@ public class Scout extends UnidadProtoss{
 
     @Override
     public void modificarSuministro(Suministro suministro) {
-        suministro.aumentarCapacidad(4);
+        suministro.disminuirCapacidad(costoSuministro);
     }
 }

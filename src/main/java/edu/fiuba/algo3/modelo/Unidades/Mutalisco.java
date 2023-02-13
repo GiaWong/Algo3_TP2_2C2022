@@ -5,6 +5,8 @@ import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Exception.UnidadNoOperativa;
 import edu.fiuba.algo3.modelo.Jugador.BancoDeRecursos;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Jugador.Zerg;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 
 public class Mutalisco extends UnidadZerg implements Evolucionador{
@@ -22,6 +24,7 @@ public class Mutalisco extends UnidadZerg implements Evolucionador{
         superficie = new Aire();
         atacador = new AtaqueAire(9);
         ataqueTierra = new AtaqueTierra(9);
+        costoSuministro = 4;
     }
 
     public void esPosibleConstruir(Construccion construccion){
@@ -104,20 +107,23 @@ public class Mutalisco extends UnidadZerg implements Evolucionador{
 
     @Override
     public void modificarSuministro(Suministro suministro) {
-        suministro.aumentarCapacidad(4);
+        suministro.disminuirCapacidad(costoSuministro);
     }
 
-    @Override
-    public Unidad evolucionarGuardian(BancoDeRecursos banco) {
+
+    public void evolucionarGuardian(BancoDeRecursos banco, Mapa mapa) {
         Guardian guardian = new Guardian();
         banco.comprar(guardian);
-        return guardian;
+        mapa.destruirUnidad(coordenada);
+        mapa.agregar(guardian,coordenada);
     }
 
-    @Override
-    public Unidad evolucionarDevorador(BancoDeRecursos banco) {
+
+
+    public void evolucionarDevorador(BancoDeRecursos banco, Mapa mapa) {
         Devorador devorador = new Devorador();
         banco.comprar(devorador);
-        return devorador;
+        mapa.destruirUnidad(coordenada);
+        mapa.agregar(devorador,coordenada);
     }
 }

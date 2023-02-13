@@ -6,6 +6,8 @@ import edu.fiuba.algo3.modelo.Construccion.ConstruccionZerg;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Turno.Turno;
+import edu.fiuba.algo3.modelo.Unidades.Devorador;
+import edu.fiuba.algo3.modelo.Unidades.Mutalisco;
 import edu.fiuba.algo3.modelo.Unidades.UnidadZerg;
 
 import java.util.Dictionary;
@@ -49,6 +51,13 @@ public class Zerg extends Raza {
     public boolean tieneConstrucciones(Mapa mapa) {
         return mapa.tieneConstruccionesZerg();
     } //Capaz que se tiene que encargar el suministro
-    // Si no se encarga suministro, cuando el jugador alcanze su maximo de suministro
-    // y si se mueren construcciones, no va a poder seguir construyendo.
+
+    public void evolucionarDevorador(Mutalisco mutalisco, Mapa mapa) {
+        mutalisco.evolucionarDevorador(banco,mapa);
+    }
+
+
+    public void evolucionarGuardian(Mutalisco mutalisco, Mapa mapa) {
+        mutalisco.evolucionarGuardian(banco,mapa);
+    }
 }

@@ -22,6 +22,7 @@ public class Zerling extends UnidadZerg{
         costoGas = 0;
         superficie = new Tierra();
         atacador = new AtaqueTierra(4);
+        costoSuministro = 1;
 
     }
 
@@ -96,7 +97,7 @@ public class Zerling extends UnidadZerg{
 
     @Override
     public void modificarSuministro(Suministro suministro) {
-        suministro.aumentarCapacidad(1);
+        suministro.disminuirCapacidad(costoSuministro);
     }
 }
 
