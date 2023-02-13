@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Mapa.Mapa;
 
 public interface Evolucionador {
 
-    void evolucionarGuardian(BancoDeRecursos banco, Mapa mapa);
+    Guardian evolucionarGuardian(BancoDeRecursos banco, Mapa mapa);
 
-    void evolucionarDevorador(BancoDeRecursos banco, Mapa mapa);
+    Devorador evolucionarDevorador(BancoDeRecursos banco, Mapa mapa);
 }

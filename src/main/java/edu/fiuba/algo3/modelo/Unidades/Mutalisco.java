@@ -111,19 +111,21 @@ public class Mutalisco extends UnidadZerg implements Evolucionador{
     }
 
 
-    public void evolucionarGuardian(BancoDeRecursos banco, Mapa mapa) {
+    public Guardian evolucionarGuardian(BancoDeRecursos banco, Mapa mapa) {
         Guardian guardian = new Guardian();
         banco.comprar(guardian);
         mapa.destruirUnidad(coordenada);
         mapa.agregar(guardian,coordenada);
+        return guardian;
     }
 
 
 
-    public void evolucionarDevorador(BancoDeRecursos banco, Mapa mapa) {
+    public Devorador evolucionarDevorador(BancoDeRecursos banco, Mapa mapa) {
         Devorador devorador = new Devorador();
         banco.comprar(devorador);
         mapa.destruirUnidad(coordenada);
         mapa.agregar(devorador,coordenada);
+        return devorador;
     }
 }

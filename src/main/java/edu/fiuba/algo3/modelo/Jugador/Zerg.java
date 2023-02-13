@@ -6,9 +6,7 @@ import edu.fiuba.algo3.modelo.Construccion.ConstruccionZerg;
 import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Turno.Turno;
-import edu.fiuba.algo3.modelo.Unidades.Devorador;
-import edu.fiuba.algo3.modelo.Unidades.Mutalisco;
-import edu.fiuba.algo3.modelo.Unidades.UnidadZerg;
+import edu.fiuba.algo3.modelo.Unidades.*;
 
 import java.util.Dictionary;
 
@@ -52,12 +50,12 @@ public class Zerg extends Raza {
         return mapa.tieneConstruccionesZerg();
     } //Capaz que se tiene que encargar el suministro
 
-    public void evolucionarDevorador(Mutalisco mutalisco, Mapa mapa) {
-        mutalisco.evolucionarDevorador(banco,mapa);
+    public Devorador evolucionarDevorador(Mutalisco mutalisco, Mapa mapa) {
+        return mutalisco.evolucionarDevorador(banco,mapa);
     }
 
 
-    public void evolucionarGuardian(Mutalisco mutalisco, Mapa mapa) {
-        mutalisco.evolucionarGuardian(banco,mapa);
+    public Guardian evolucionarGuardian(Mutalisco mutalisco, Mapa mapa) {
+        return mutalisco.evolucionarGuardian(banco,mapa);
     }
 }
