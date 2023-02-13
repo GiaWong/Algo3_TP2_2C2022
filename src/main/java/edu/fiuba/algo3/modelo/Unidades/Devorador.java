@@ -5,6 +5,8 @@ import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Exception.UnidadNoOperativa;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.Coordenada;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 
 public class Devorador extends UnidadZerg{
@@ -27,6 +29,13 @@ public class Devorador extends UnidadZerg{
         if (unaUnidad.esPosibleSerAtacadoPor(atacador)){
             atacador.atacar(unaUnidad);
         }
+    }
+
+    public void detectado(){
+    }
+
+    public void detectarUnidadesInvisibles(Mapa mapa, Coordenada coord){
+
     }
 
     public void esPosibleConstruir(Construccion construccion){

@@ -54,6 +54,10 @@ public class Scout extends UnidadProtoss{
 
     }
 
+    public void detectado(){
+
+    }
+
     public void esPosibleConstruir(Construccion construccion){
         construccion.permiteConstruirConUnidad(this);
 

@@ -5,6 +5,8 @@ import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Exception.EstaUnidadNoSeMuevePorAreaEspacial;
 import edu.fiuba.algo3.modelo.Exception.UnidadNoOperativa;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.Coordenada;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 
 public class Hidralisco extends UnidadZerg{
@@ -23,6 +25,10 @@ public class Hidralisco extends UnidadZerg{
         ataqueTierra = new AtaqueTierra(10);
         superficie = new Tierra();
         costoSuministro = 2;
+
+    }
+
+    public void detectarUnidadesInvisibles(Mapa mapa, Coordenada coord){
 
     }
 
@@ -105,4 +111,8 @@ public class Hidralisco extends UnidadZerg{
     }
 
     public int obtenerVida() {return vida.vidaActual(); }
+
+    public void detectado(){
+
+    }
 }

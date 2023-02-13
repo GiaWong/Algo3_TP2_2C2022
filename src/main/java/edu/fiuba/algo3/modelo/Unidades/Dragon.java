@@ -110,4 +110,7 @@ public class Dragon extends UnidadProtoss{
         suministro.disminuirCapacidad(costoSuministro);
     }
 
+    public void detectado(){
+
+    }
 }

@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Exception.UnidadNoOperativa;
 import edu.fiuba.algo3.modelo.Jugador.BancoDeRecursos;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Jugador.Zerg;
+import edu.fiuba.algo3.modelo.Mapa.Coordenada;
 import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 
@@ -127,5 +128,13 @@ public class Mutalisco extends UnidadZerg implements Evolucionador{
         mapa.destruirUnidad(coordenada);
         mapa.agregar(devorador,coordenada);
         return devorador;
+    }
+
+    public void detectado(){
+
+    }
+
+    public void detectarUnidadesInvisibles(Mapa mapa, Coordenada coord){
+
     }
 }

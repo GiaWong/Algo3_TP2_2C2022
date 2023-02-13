@@ -173,4 +173,10 @@ public class Casilla {
         construccion1.desenergizarConstruccion();
 
     }
+
+    public void detectarInvisible() {
+        if(hayUnidad()){
+            unidad.detectado();
+        }
+    }
 }

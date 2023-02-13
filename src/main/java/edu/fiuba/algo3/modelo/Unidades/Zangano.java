@@ -8,6 +8,8 @@ import edu.fiuba.algo3.modelo.Exception.EstaUnidadNoSeMuevePorAreaEspacial;
 import edu.fiuba.algo3.modelo.Exception.UnidadNoOperativa;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
 import edu.fiuba.algo3.modelo.Mapa.Casilla;
+import edu.fiuba.algo3.modelo.Mapa.Coordenada;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteRecursos.NodoMineral;
 
@@ -25,6 +27,14 @@ public class Zangano extends UnidadZerg implements MutadorConstruccion {
     }
 
     public void atacar(Unidad unaUnidad){
+    }
+
+    public void detectado(){
+
+    }
+
+    public void detectarUnidadesInvisibles(Mapa mapa, Coordenada coord){
+
     }
 
     public void esPosibleConstruir(Construccion construccion){

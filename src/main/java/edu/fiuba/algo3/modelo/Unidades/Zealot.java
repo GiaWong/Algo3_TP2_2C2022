@@ -7,6 +7,8 @@ import edu.fiuba.algo3.modelo.Exception.EstaUnidadNoSeMuevePorAreaEspacial;
 import edu.fiuba.algo3.modelo.Exception.UnidadNoOperativa;
 import edu.fiuba.algo3.modelo.Exception.UnidadNoTargeteable;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.Coordenada;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 
 import java.util.List;
@@ -14,8 +16,6 @@ import java.util.List;
 public class Zealot extends UnidadProtoss{
 
     private int asesinatos = 0;
-    private boolean visible;
-    private Construccion preRequisito = new Acceso();
 
     public Zealot() {
         vida = new Vida(100);
@@ -30,6 +30,10 @@ public class Zealot extends UnidadProtoss{
         costoSuministro = 2;
     }
 
+    public void detectarUnidadesInvisibles(Mapa mapa, Coordenada coord){
+
+    }
+
     public void esPosibleConstruir(Construccion construccion){
         construccion.permiteConstruirConUnidad(this);
 
@@ -39,15 +43,16 @@ public class Zealot extends UnidadProtoss{
         if (!estaDisponible()){
             throw  new UnidadNoOperativa();
         }
-        if (unaUnidad.esPosibleSerAtacadoPor(atacador)){
-            atacador.atacar(unaUnidad);
-        }
-        /*try {
-            atacador.ultimoGolpe(unaUnidad);
+        if (unaUnidad.esPosibleSerAtacadoPor(atacador) && unaUnidad.estaVivo()){
 
-        }catch (Exception UnidadMuerta){
-            asesinatos++;
-        }*/
+            atacador.atacar(unaUnidad);
+            if(!unaUnidad.estaVivo()){
+                asesinatos++;
+                if(asesinatos > 2){
+                    tornarInvisible();
+                }
+            }
+        }
 
     }
 
@@ -84,14 +89,17 @@ public class Zealot extends UnidadProtoss{
         if (!estaDisponible()){
             throw  new UnidadNoOperativa();
         }
+        if (unaConstruccion.obtenerVida() > 0){
 
-        atacador.atacar(unaConstruccion);
-        /*try {
-            //atacador.ultimoGolpe(unaConstruccion);
+            atacador.atacar(unaConstruccion);
+            if(unaConstruccion.obtenerVida()  <= 0){
+                asesinatos++;
+                if(asesinatos > 2){
+                    tornarInvisible();
+                }
+            }
+        }
 
-        }catch (Exception ConstruccionDestruida){
-            asesinatos++;
-        }*/
 
     }
 
@@ -104,29 +112,21 @@ public class Zealot extends UnidadProtoss{
         defensa = new Detectable();
     }
 
-    public boolean preRequisito(List<Construccion> lista) {
-        if(lista!=null) {
-            for(int i =0; i<lista.size();i++){
-                if(lista.get(i).getClass().equals(preRequisito.getClass())){
-                    return true;
-                }
-            }
-        }
-        return false;
-
-    }
     @Override
     public void  recibirDanio(Danio danio){
-        if(visible){
+        if(esVisible()){
             defensa.recibirDanio(danio, vida);
         }
         else{
             throw new UnidadNoTargeteable();
         }
     }
+
+
     public int obtenerEscudo() {return escudo.escudoActual(); }
 
     public int obtenerVida() {return vida.vidaActual(); }
+
 
     @Override
     public void modificarSuministro(Suministro suministro) {
@@ -135,6 +135,6 @@ public class Zealot extends UnidadProtoss{
 
     @Override
     public  void detectado(){
-        visible = true;
+        tornarVisible();
     }
 }

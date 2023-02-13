@@ -7,6 +7,8 @@ import edu.fiuba.algo3.modelo.Exception.CasillaOcupadaPorNexoMineral;
 import edu.fiuba.algo3.modelo.Exception.EstaUnidadNoSeMuevePorAreaEspacial;
 import edu.fiuba.algo3.modelo.Exception.UnidadNoOperativa;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.Coordenada;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 
 public class Zerling extends UnidadZerg{
@@ -40,6 +42,14 @@ public class Zerling extends UnidadZerg{
     }
 
     public void permiteAgregarConstruccion(NexoMineral nexoMineral){
+    }
+
+    public void detectado(){
+
+    }
+
+    public void detectarUnidadesInvisibles(Mapa mapa, Coordenada coord){
+
     }
 
     public boolean permiteCrear(Acceso acceso){

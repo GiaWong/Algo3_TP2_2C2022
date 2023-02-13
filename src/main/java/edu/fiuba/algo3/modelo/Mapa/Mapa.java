@@ -69,6 +69,7 @@ public class Mapa {
         if(cumplePrerequisito(unidad)){
             if(hayCriaderosDisponibles()){
                 casilla.agregar(unidad);
+                unidad.detectarUnidadesInvisibles(this,coord);
             }
         } else {
             throw new FaltaEdificioParaCrearUnidad();
@@ -223,5 +224,19 @@ public class Mapa {
 
     public void setearArea(Coordenada coordenada, Area area) {
         coordenada.setArea(mapa,area);
+    }
+
+    public void detectarInvisibles(Coordenada coordenada, int radio) {
+        int filaSuperior = coordenada.calculoFilaSuperior(radio,altura);
+        int filaInferior = coordenada.calculoFilaInferior(radio,base);
+        int columnaSuperior = coordenada.calculoColumnaSuperior(radio,altura);
+        int columnaInferior = coordenada.calculoColumnaInferior(radio,base);
+
+        for(int i = filaInferior; i < filaSuperior; i++){
+            for(int j = columnaInferior; j < columnaSuperior; j++){
+
+                mapa[i][j].detectarInvisible();
+            }
+        }
     }
 }

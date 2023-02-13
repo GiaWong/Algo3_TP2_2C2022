@@ -5,6 +5,8 @@ import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Exception.UnidadNoOperativa;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.Coordenada;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 
 public class Guardian extends UnidadZerg{
@@ -32,6 +34,14 @@ public class Guardian extends UnidadZerg{
 
     public void esPosibleConstruir(Construccion construccion){
         construccion.permiteConstruirConUnidad(this);
+
+    }
+
+    public void detectarUnidadesInvisibles(Mapa mapa, Coordenada coord){
+
+    }
+
+    public void detectado(){
 
     }
 

@@ -33,6 +33,8 @@ public abstract class Unidad {
 
     protected int costoGas;
 
+    private boolean visible;
+
     public void construir() {
         tiempoConstruccion--;
     }
@@ -50,13 +52,23 @@ public abstract class Unidad {
         return (tiempoConstruccion<=0);
     }
 
+    public void tornarInvisible(){
+        visible = false;
+    }
+
+    public void tornarVisible(){
+        visible = true;
+    }
+
+    public boolean esVisible(){
+        return (visible);
+    }
+
     public boolean esPosibleSerAtacadoPor(Atacador ataque){
         return ataque.esPosibleAtacar(superficie);
     }
 
-    public  void detectado(){
-
-    }
+    public abstract void detectado();
 
     public boolean estaEnRango(Coordenada otraCoord){
         return coordenada.estaEnRango(otraCoord, rango);

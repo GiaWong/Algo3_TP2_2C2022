@@ -3,6 +3,9 @@ package edu.fiuba.algo3.modelo.Unidades;
 import edu.fiuba.algo3.modelo.Acciones.Vida;
 import edu.fiuba.algo3.modelo.Construccion.*;
 import edu.fiuba.algo3.modelo.Jugador.Suministro;
+import edu.fiuba.algo3.modelo.Mapa.Casilla;
+import edu.fiuba.algo3.modelo.Mapa.Coordenada;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
 import edu.fiuba.algo3.modelo.Mapa.PaqueteAreas.AreaEspacial;
 
 public class AmoSupremo extends UnidadZerg{
@@ -25,6 +28,14 @@ public class AmoSupremo extends UnidadZerg{
 
     public void atacar(Construccion unaConstruccion){
 
+    }
+
+    public void detectado(){
+
+    }
+
+    public void detectarUnidadesInvisibles(Mapa mapa, Coordenada coord){
+        mapa.detectarInvisibles(coord,4);
     }
 
     @Override
@@ -66,6 +77,6 @@ public class AmoSupremo extends UnidadZerg{
     }
 
     public boolean permiteCrear(Criadero criadero){
-        return false;
+        return true;
     }
 }
