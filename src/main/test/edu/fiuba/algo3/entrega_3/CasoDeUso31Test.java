@@ -15,28 +15,25 @@ public class CasoDeUso31Test {
 
     @Test
     public void SeDestruyeUnPilonYSeDisminuyeLaCapacidadDeSuministro(){
-        Mapa mapa = new Mapa(20,20);
-        Pilon pilon = new Pilon(0);
-        Coordenada coord = new Coordenada(10,10);
         Protoss protoss = new Protoss();
-        mapa.agregar(pilon,coord);
-        protoss.comprar(pilon);
+        Mapa mapa = new Mapa(20,20);
+        Coordenada coordPilon = new Coordenada(1,2);
+        protoss.agregar(new Pilon(0),coordPilon,mapa);
         assertEquals(5,protoss.capacidadActual());
-        mapa.destruirConstruccion(coord);
+        mapa.destruirConstruccion(coordPilon);
         protoss.pilonDestruido();
         assertEquals(0,protoss.capacidadActual());
     }
 
     @Test
     public void SeDestruyeUnCriaderoYSeDisminuyeLaCapacidadDeSuministro(){
+        Zerg zerg = new Zerg();
         Mapa mapa = new Mapa(20,20);
         Criadero criadero = new Criadero(0);
-        Coordenada coord = new Coordenada(10,10);
-        Zerg zerg = new Zerg();
-        mapa.agregar(criadero,coord);
-        zerg.comprar(criadero);
+        Coordenada coordCriadero = new Coordenada(10,10);
+        zerg.agregar(criadero,coordCriadero,mapa);
         assertEquals(5,zerg.capacidadActual());
-        mapa.destruirConstruccion(coord);
+        mapa.destruirConstruccion(coordCriadero);
         zerg.criaderoDestruido();
         assertEquals(0,zerg.capacidadActual());
     }
@@ -44,14 +41,15 @@ public class CasoDeUso31Test {
     @Test
     public void SeDestruyeUnAmoSupremoYSeDisminuyeLaCapacidadDeSuministro(){
         Mapa mapa = new Mapa(20,20);
+        Zerg zerg = new Zerg();
+        zerg.agregar(new Criadero(0),new Coordenada(8,8),mapa);
+        mapa.avanzarTurno();
         Coordenada coord = new Coordenada(10,10);
         AmoSupremo amo = new AmoSupremo();
-        Zerg zerg = new Zerg();
-        mapa.agregar(amo,coord);
-        zerg.comprar(amo);
-        assertEquals(5,zerg.capacidadActual());
+        zerg.agregar(amo,coord,mapa);
+        assertEquals(10,zerg.capacidadActual());
         mapa.destruirUnidad(coord);
         zerg.amoDestruido();
-        assertEquals(0,zerg.capacidadActual());
+        assertEquals(5,zerg.capacidadActual());
     }
 }

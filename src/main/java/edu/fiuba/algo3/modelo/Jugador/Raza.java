@@ -37,9 +37,6 @@ public abstract class Raza {
         return suministro.capacidadActual();
     }
 
-    public  int capacidadTotal(){
-        return suministro.capacidadTotal();
-    }
 
 
     public abstract String nombre();
